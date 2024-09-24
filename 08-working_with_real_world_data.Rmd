@@ -1,0 +1,656 @@
+# Working with Real-World Data 
+## Handling Large Datasets 
+### Challenges of Large Data sets 
+When working with data in R, one can encounter large data sets that are challenging to work on. These are some of the challenges; 
+
+- Data I/O takes a long time such that large files takes a long time to transfer data to or from a computers system which will slow down crucial processes like network operations, communication between the devices such as keyboard and microphone, and sharing data
+- R has a file size limit of approximately 2 to 4gb, therefore it is a challenge to work on data sets above the limit like 5gb.
+- There is more difficulty in indexing data sets which extremely large number of rows and columns. 
+- The processing speed of several algorithms and pre-trained model will reduce.
+- Large data sets pose a threat on the memory management. R stores data entirely on the memory, therefore it can slow down or even crush the program under extreme cases. 
+
+As a data analyst/statistician, large data sets are inevitable therefore researchers have worked on the issue of large data sets and come up with the following solutions; 
+
+- Optimize the memory usage through data type conversion and row-wise processing 
+- Processing large data sets in batches or in chunks. 
+- Using memory efficient objects and programming tricks like nested functions, lazy loading(load data into memory when its needed) and use of garbage collection where objects that are no longer useful are disposed. 
+- Partitioning and streaming by loading only small pieces of data into memory at any point in time. 
+- Use specialized packages for large scale analysis like `data.table`. 
+- Apply data sampling. Instead of processing the whole data at once. Take a random manageable sample from the data set and process it.
+
+### Efficient Data Handling Techniques
+Lets dive deep on how to work on large data sets in R by applying the popular methods in data science. 
+
+#### Using data.table Package 
+The `data.table` package delivers an improved version of a `data.frame` structure. The data structure from this package(has the same name, `data.table`) is high performance, memory efficient thus being more fit for large data sets than the `data.frame` kind of a data structure. 
+
+Lets create a simple `data.table` from a random data set.
+```{r echo=TRUE, message=FALSE, warning=FALSE}
+# Load the library
+library(data.table)
+
+# Create the data.table 
+student_dtb <- data.table(stuid = c(2, 5, 3, 4, 6, 7, 4, 2, 0),# student id
+                          age = c(23, 45, 67, 23, 41, 43, 54, 67, 89)
+                          )
+
+student_dtb
+```
+
+A `data.frame` is created the same as a `data.table`
+```{r}
+# Create the data.frame
+student_df <- data.table(stuid = c(2, 5, 3, 4, 6, 7, 4, 2, 0),# student id
+                          age = c(23, 45, 67, 23, 41, 43, 54, 67, 89)
+                          )
+
+student_df
+```
+
+They almost look similar but they are more different in operations. Here are some of the differences;
+
+
+
+| `data.table`                | `data.frame`                  |
+|---------------------------- | ----------------------------- |
+|faster than data.frame       | 20X slower than data.table    |
+|Used for more complex data structures and big data | Used for smaller tables and matrices|
+|Has built-in features like rolling joins and overlapping range| Lacks more features but friendly to a beginner|
+|code efficient     | Utilizes more code to get something done| 
+|`setDF(dt)` function is used to convert it to a data.frame where argument `dt` is the data.table| `setDT(df)` function is used to convert it to data.table where argument `df` is the data.frame|
+| Syntax: `data.table()`     | Syntax: `data.frame()`         |
+
+There are varieties of data.table operations that can be applied on large data sets. Let's explore a few of them
+
+* **Filtering rows**
+
+Rows in a data.table can be filtered using conditions in data.table. For instance, lets filter the data above to find the ones above the age of 40
+```{r}
+# Get the ones above 40 years
+dtb1 <- student_df[age > 40]
+print(dtb1)
+```
+
+* **Selecting Specific Columns**
+
+You can select specific columns in a data.table. Lets select the age column 
+```{r}
+# Select the age column 
+age_dt <- student_df[, .(age)]
+print(age_dt)
+```
+
+* **Aggregating data**
+
+Aggregation can be done with the help of functions like `mean()`, `sum()` ...
+
+```{r}
+# Create a sample data.table
+dt <- data.table(
+  ID = 1:10,
+  Name = c("Alice", "Bob", "Charlie", "David", "Eve", "Frank", "Grace", "Hannah", "Isaac", "Jack"),
+  Age = c(25, 30, 35, 40, 28, 32, 30, 29, 33, 36),
+  Score = c(85, 90, 88, 92, 76, 95, 89, 78, 82, 91)
+)
+
+# Print the data.table
+dt
+
+# Calculate the average score by Age
+aggregated_dt <- dt[, .(Average_Score = mean(Score)), by = Age]
+print(aggregated_dt)
+```
+
+* **Chaining**
+
+Multiple opeerations can be chained together for efficiency. In this case, we are;
+
+- filtering to get the student with score of above 85
+- aggregate the average score by mean 
+
+```{r}
+# Chain operations: Filter and aggregate
+result_dt <- dt[Score > 85, .(Average_Score = mean(Score)), by = Age]
+print(result_dt)
+```
+
+Alternatively, we can filter to get the records with a score of above 85 and select the `Name` and `Score` column.
+```{r}
+# Filter and select columns
+filtered_selected_dt <- dt[Score > 85, .(Name, Score)]
+print(filtered_selected_dt)
+```
+
+<span style="color: green;">**Practical exercise**</span>
+
+In this course, you will be required to use the US Accidents (2016 - 2023) data set which will be downloaded from [here](https://www.kaggle.com/datasets/sobhanmoosavi/us-accidents). Download the data and extract it to a specified destination path. Use the `data.table` package to;
+
+- read the data set into R using a `fread("filepath")` function.
+- filter to get the rows with `Severity` of more than 2
+- select the `Source`, `Severity` and the `Distance(mi)` columns 
+- Aggregate to find the distance of each source
+
+
+#### Memory Management in R
+
+A clear grasp of memory management in R will help the analyst/statistician predict how much computer memory you will need for a given task and make you have the most out of the memory. Also, a proper memory management is crucial for effective use of the sytem resources hence the program running smoothly. The R objects are stored in the Random Access Memory (RAM).
+
+Lets explore some of the key techniques of Memory Management; 
+
+1. **Removing unused objects**
+
+Objects like variables and packages that are no longer required need to be removed to free up the memory. The `rm()` function is used to delete them 
+```{r}
+# Create a variable x
+x <- rnorm(11000)
+
+# Remove the variable x
+rm(x) # variable x is deleted
+```
+You can use the function `ls()` (with no argument) to confirm if `x` exists got deleted in the variable list
+
+2. **Monitoring memory usage**
+
+R has several functions that help in monitoring the memory usage. This helps the programmer identify if the session is consuming too much memory. 
+
+`object.size()` is one of function used to compute the memory usage.
+```{r}
+# Create a variable x
+x <- rnorm(100000)
+
+# Compute the memory usage
+object.size(x)
+```
+The variable `x` consumes approximately 800048 bytes of memory
+
+Besides, one can apply **memory profiling**, that is, tracking the memory usage while the scripts executes. `Rprof()` is an inbuilt R profile that gets the job done in real time. Lets demonstrate
+```{r}
+# Start memory profiling
+Rprof(memory.profiling = TRUE)
+
+# Run some computations
+x <- rnorm(1e6)
+y <- rnorm(1e6)
+
+# Stop profiling
+Rprof(NULL)
+
+# Summary of memory usage
+summaryRprof()
+```
+
+Additionally, the `pryr` package goes further to come up with additional functions to monitor memory usage. It can be installed by;
+```
+install.packages("pryr")
+```
+Below is a demonstration of how `pryr` library works
+```{r}
+# Load the library
+library(pryr)
+
+# Check memory usage of the entire R session
+mem_used()
+
+# Create a variable 
+y <- rnorm(1e6)
+
+# Check memory usage of a specific object
+object_size(y)
+```
+
+3. **Freeing up the Memory**
+
+R has an automatic memory management system, however the programmer might request garbage collection. The `gc()` function helps you clean unused memory. This is helpful after removing large objects 
+```
+# Collect the garbage to free up unused memory
+gc()
+```
+The `gc()` function will accelerate the process of garbage collection rather than waiting for R to automatically free up the memory. 
+
+
+<span style="color: green;">**Practical exercise**</span>
+
+After working on the previous practical exercise, you  will manage the memory by; 
+
+- Finding the  objects that fill up the memory and list them. 
+- Deleting the variables not required 
+- Using `gc` to accelerate the process of garbage collection
+
+### Reading and Writing Large Files 
+#### Optimized File I/O
+The `data.table` package offers highly optimized functions like `fread()` and `fwrite()` that are much faster for reading and writing large files. They provide significant speedups due to efficient file handling and parallel processing. The I/O processes can be optimized by; 
+
+1. Efficient reading 
+2. Efficient writing 
+3. Parallel Processing for faster import/export
+
+1. **Efficient Reading**
+
+The `fread()` function is designed to read large CSV files much faster than the `read.csv()` by using multiple threads and optimized parsing. Here is how you can read the file 
+```
+# Load the library
+library(data.table)
+
+# Read large csv file 
+data <- fread("GlobalLandTemperaturesByCity.csv")
+```
+Download the csv file from [here](https://www.kaggle.com/datasets/berkeleyearth/climate-change-earth-surface-temperature-data). Extract the downloaded file and read the first csv file.
+
+These are the perks of reading data using `fread()` function;
+- Parallel Reading: Uses multiple threads to read files faster.
+- Automatic Type Detection: Automatically detects column types without needing to pre-specify them.
+- Handling Big Data: Efficient for reading gigabytes of data.
+
+2. **Efficient Writing**
+
+A large data.table can saved locally using the `fwrite()` function. It can handle large data volumes efficiently and supports various formats.
+
+```
+# Writing a data frame to a CSV file using fwrite()
+fwrite(data, "output_file.csv")
+```
+
+The `"output_file"` is the destination path where the data.table is written.
+
+These are the features of `fwrite()`;
+
+- Fast Export: Writes data using optimized I/O to speed up the process.
+- Compression: Supports compression for efficient storage.
+- Parallel Writing: Uses multiple threads to write files faster.
+
+3. **Parallel Processing for faster Import/Export**
+
+The `fread()` and `fwrite()` use parallel processing by default however you can configure the number of threads used for reading and writing. The `setDTthreads()` is used to achieve this. Lets now read and write the data using 4 threads
+```
+# Set the number of threads to use for parallel processing
+setDTthreads(4)
+
+# Now fread() and fwrite() will use 4 threads
+data <- fread("large_dataset.csv")
+fwrite(data, "output_file.csv")
+```
+
+<span style="color: green;">**Practical exercise**</span>
+
+In this exercise, you are required to use the US Accidents (2016 - 2023) data set and solve the problems below;
+
+i. Read the data set using `fread()`
+ii. Time the `fread()` when reading the file. **Hint**: replace the `"large_dataset.csv"` by the file path of the downloaded file
+```
+# Timing fread() for a large file
+system.time(data <- fread("large_dataset.csv"))
+```
+iii. Add a new column into the data set. Just the convert the temperature from $^oC$(degrees Celcius) to $^oF$(degrees Farenheit)
+iv. Write the file locally and check the time taken to write the file. **Hint**: Here is how you can achieve step iii abd iv
+```
+# Do the Calculations
+
+# Timing fwrite() for a large file
+data[, new_column := rnorm(nrow(data))]  # Add a new column
+system.time(fwrite(data, "large_output.csv"))
+```
+
+### Hands-On Exercises
+Download the Amazon Fine Food Reviews data set from [here](https://www.kaggle.com/datasets/snap/amazon-fine-food-reviews) and work on the following problems; 
+
+i. Remove any unwanted objects in the file system. Use `gc` to view any garbage collection statistics
+ii. Read the data set using `read.csv` and `fread` and time each method. Compare the time taken for each function to read the file. 
+iii. Remove the data set from the memory using `rm()` and call `gc()` again 
+iv. Reread the data set however control the threads. Set different thread value (e.g 1, 2, 3, 4 and 5) the compare the time taken for processing. 
+v. Write the file locally(use a different file name) and use `gc()` for garbage collection
+
+Finally, discuss on the importance of scalability when dealing with real-world data.
+
+## Data Cleaning and Transformation
+### Introduction to Data Cleaning 
+#### Common Data Issues 
+Raw data from the field can be inaccurate and inconsistent and pose threats to data operations leading to false analysis and decision making. This type of data is know as dirty, unclean or rogue data. Here are some of the common data issues that render data unclean; 
+
+- **Incomplete data**: Some of the data points may be missing or left blank. 
+- **Duplicate data**: Some records in the data sets may occur multiple times in different sources.
+- **Outdated data**: Some data values that may have relevant information times ago may now be obsolete and irrelevant. 
+- **Inconsistent data formats**: Data may be in different ways across multiple data sources like records be presented in JSON formats, SQL tables, No SQL table or even in image formats(.png, .jpeg).
+- **Outlier Values**: Outliers are extremely high or low values in the data set like a data set containing age of students having one student that is 304 years old or body temperature data set containing values of $-51^0C$. These values are always impossible and can indicate errors, anomalies and exceptions in the data sets. 
+
+Data integrity is crucial in data analysis and can hinder the organizations' operations. The foundation of strategic planning, efficient operations and sound decision-making is based upon accurate, complete and consistent data. Here are some of the threats that unclean data pose to data analytics and businesses in general;
+
+- **Inconsistent Results**: For instance if a business finds conflicting or duplicate reports on customer behavior will lead to lose of trust or results' interpretation.
+- **Increased Costs**: Companies spend a lot of time and money on data cleaning, processing and verification
+- **Inaccurate Insights and Decision making**: Poor data quality like incorrect values may lead to poor insights thereby leading to poor decision-making. For instance inaccurate sales data may lead to flawed forecasting, poor inventory management and poor marketing strategies. 
+- **Missed Opportunities**: Poor data quality may prevent the company from identifying key trends and opportunity gaps in the market like customer segments or emerging markets
+
+#### Data Cleaning techniques 
+##### Handling Missing Data 
+The presence of missing data values is inevitable especially when integrating data from different sources. While there is no specific set method(one-time solution) to handle the missing data points in R, researchers have come up with different methodologies to tackle this issue. Here are some of them; 
+
+- *Deletion*; this is a simple method that involves deleting all the records/rows that have null values. Otherwise, all rows that have null values in important columns can be deleted. `na.omit()` is one of the method. 
+- *Imputation*: There are packages in R that can fill the null values by imputation. They use the remaining values in the data to create a model that will find a value for the missing one. These packages include `imputeR`, `Amelia` and `MissForest` that use the automated variable selection, bootstrap multiple imputation and single imputation to handle null values. 
+- Use of algorithms that support null values for instance K-Nearest Neighbors(kNN) and Naive Bayes.
+- *Mean Imputation*: This is simply filling the null values with the average of the remaining values. 
+
+Lets create different random data sets and handle the missing values. However, before the issue of null value is fixed, the null values need to be identified in the data set. 
+
+Create a random athlete data set
+```{r}
+set.seed(123)  # Set seed for reproducibility
+
+# Generate a data frame with random data for athletes
+athlete_data <- data.frame(
+  athlete_id = 1:100,  # 100 athletes
+  name = paste0("Athlete", 1:100),
+  age = sample(18:40, 100, replace = TRUE),
+  sport = sample(c("Basketball", "Soccer", "Tennis", "Swimming", "Running"), 100, replace = TRUE),
+  country = sample(c("USA", "Kenya", "China", "Brazil", "Germany"), 100, replace = TRUE),
+  score = round(runif(100, 60, 100), 1)  # Scores between 60 and 100
+)
+
+# Introduce 15% missing values randomly across the entire data frame
+total_cells <- prod(dim(athlete_data))  # Total number of cells
+missing_cells <- round(0.15 * total_cells)  # 15% of cells will have missing values
+
+# Randomly select indices to be set to NA
+missing_indices <- sample(seq_len(total_cells), missing_cells)
+
+# Convert the data frame to a matrix for easier manipulation of specific indices
+athlete_data_matrix <- as.matrix(athlete_data)
+athlete_data_matrix[missing_indices] <- NA
+
+# Convert back to a data frame
+athlete_data <- as.data.frame(athlete_data_matrix)
+
+# View the dataset
+head(athlete_data)
+```
+
+Lets count the all null values. The `is.na()` from base R is used to identify the null values while the `sum()` sums up all the identified null values
+```{r}
+sum(is.na(athlete_data))
+```
+
+Alternatively, the total null values from the columns can be counted. The `sapply()` function along with the `is.na()` and `sum()` are used. 
+
+```{r}
+# Count the number of null values in each column
+null_counts <- sapply(athlete_data, function(x) sum(is.na(x)))
+
+# Display the counts of null values
+null_counts
+```
+
+Lets now delete the rows containing the null values by the `na.omit()` and rename the data frame `athlete_data_clean`
+```{r}
+athlete_data_clean <- na.omit(athlete_data)
+```
+
+Confirm the operation by counting the null values in each column and overall 
+```{r}
+# Count the null values by column 
+null_count_by_column <-  sapply(athlete_data_clean,
+                                function(x) sum(is.na(x)))
+null_count_by_column
+
+# Overall null count 
+overall_null_count <- sum(is.na(athlete_data_clean))
+print(paste("Overall Null Count: ", overall_null_count))
+```
+
+Now that we have seen how null values can be handled by deleting the rows with the null values, therefore lets perform imputation on the original data set. The null values will not be deleted however, they will be replaced by filling the null values with the previous or next value
+
+We will be using the original `athlete_data` that has null values. The `tidyr` package will be used which can be installed by;
+```
+# If not already installed run the command below on the console
+install.packages("tidyr")
+```
+
+Count the null values once again and view sample of the data set
+```{r}
+# Count the null values by column 
+null_count_by_column <-  sapply(athlete_data,
+                                function(x) sum(is.na(x)))
+null_count_by_column
+
+# View the sample of the data - first 6 records 
+head(athlete_data)
+```
+
+Now fill the null values with the previous values. Specificall the `sport`. `athlete_id` and the `age` columns
+```{r}
+# Import the package 
+library(tidyr)
+
+# Fill the null value with the previous value 
+athlete_data_filled <- athlete_data %>%
+  fill(athlete_id, age, sport, .direction = "down")
+
+# Count the null values by column 
+null_count_by_column <-  sapply(athlete_data_filled,
+                                function(x) sum(is.na(x)))
+null_count_by_column
+
+# View the first few rows 
+head(athlete_data_filled)
+```
+
+You can see the target columns(`age`, `athlete_id` and `sport`) are filled and have zero null values. In the `fill()` function, there is an argument, `.direction` that specify the direction in which to fill the missing value. In this case the value of the argument is `"down"` because we are filling based on the previous value. It can be either `"up"`, `"downup"`(based on previous the later) or `"updown"`(based on later then previous). 
+
+<span style="color: green;">**Practical exercise**</span>
+
+Download the Detailed NFL Play-by-Play Data 2009-2018 data from [here](https://www.kaggle.com/datasets/maxhorowitz/nflplaybyplay2009to2016). Read the data set and subset to have `Date , Drive, time, TimeUnder, TimeSecs` columns. Name the data resultant data frame `subset_df1`. Perform the following operations on `subset_df1`.
+
+i. Count the total null values
+ii. Create a copy of the data set and rename it `subset_df1_copy`. Drop rows that contain any null value. 
+iii. Create another copy, `subset_df1_copy2` and impute the missing values based on the previous value. `.direction=down`. 
+iv. Count the null values on the copy data set
+
+
+##### Dealing with Outliers
+Outliers are values that that are completely different from the other data points in the data set. They may be extremely smaller or extremely larger than the values in the data set. Also outliers can present some non-realistic values for instance a body temperature of $143^0C$ or an athlete height of 0.23 meters. They are brought about by; 
+
+- Measurement error like the human error when collecting the data.
+- When the sample picked does not accurately represent the population being studied for instance soil samples picked near a cow shed will have high levels of acidity.
+- There might be a mixture of distribution brought about collecting data from two distinct populations.
+- Nevertheless, outliers can indicate new behaviors in the data set, especially when the outliers values are the most recently collected data. 
+
+When cleaning data, it is advisable to remove outliers as they can have a significant impact on the aftermath analysis for instance; skewed and biased results, misleading interpretations, increased range and standard deviation(gives false variability of the data), and erroneous assumptions. 
+
+Let's generate a random data set of health of villagers(like blood pressure, heart rate, body temperature etc) and use it to detect outliers within 
+
+- Generate a random data set 
+```{r}
+# Set seed for reproducibility
+set.seed(123)
+
+# Create a data frame with health-related metrics for villagers
+health_data <- data.frame(
+  villager_id = 1:100,
+  body_temperature = c(rnorm(95, mean = 98.6, sd = 1), rnorm(5, mean = 102, sd = 1)),  # Include 5 outliers
+  blood_pressure = c(rnorm(95, mean = 120, sd = 10), rnorm(5, mean = 180, sd = 5)),   # Include 5 outliers
+  heart_rate = c(rnorm(95, mean = 70, sd = 8), rnorm(5, mean = 110, sd = 5)),         # Include 5 outliers
+  cholesterol = c(rnorm(95, mean = 200, sd = 30), rnorm(5, mean = 300, sd = 10))      # Include 5 outliers
+)
+
+# View the first few rows of the dataset
+head(health_data)
+
+```
+
+- Find outliers using **IQR(Interquartile Range)**
+Any values larger than $1.5xIQR$ added to the upper quartile or smaller than the $1.5xIQR$ subtracted to the lower quartile. 
+```{r}
+# Function to identify outliers using IQR
+identify_outliers_iqr <- function(data_column) {
+  Q1 <- quantile(data_column, 0.25, na.rm = TRUE)
+  Q3 <- quantile(data_column, 0.75, na.rm = TRUE)
+  IQR_value <- IQR(data_column, na.rm = TRUE)
+  
+  lower_bound <- Q1 - 1.5 * IQR_value
+  upper_bound <- Q3 + 1.5 * IQR_value
+  
+  return(data_column < lower_bound | data_column > upper_bound)
+}
+
+# Apply IQR method to identify outliers in each health metric
+health_data$outlier_body_temp_iqr <- identify_outliers_iqr(health_data$body_temperature)
+health_data$outlier_blood_pressure_iqr <- identify_outliers_iqr(health_data$blood_pressure)
+health_data$outlier_heart_rate_iqr <- identify_outliers_iqr(health_data$heart_rate)
+health_data$outlier_cholesterol_iqr <- identify_outliers_iqr(health_data$cholesterol)
+
+# View the data with outlier flags for body temperature
+health_data[health_data$outlier_body_temp_iqr, c("villager_id", "body_temperature")]
+```
+
+- Find the outliers using the **z-score** method. The Z-score method standardizes the data to have a mean of 0 and a standard deviation of 1. Outliers are values that have a z-score of greater than 3 or less than -3.
+
+```{r}
+# Function to identify outliers using the Z-score
+identify_outliers_zscore <- function(data_column) {
+  z_scores <- scale(data_column)
+  return(abs(z_scores) > 3)
+}
+
+# Apply Z-score method to identify outliers in each health metric
+health_data$outlier_body_temp_zscore <- identify_outliers_zscore(health_data$body_temperature)
+health_data$outlier_blood_pressure_zscore <- identify_outliers_zscore(health_data$blood_pressure)
+health_data$outlier_heart_rate_zscore <- identify_outliers_zscore(health_data$heart_rate)
+health_data$outlier_cholesterol_zscore <- identify_outliers_zscore(health_data$cholesterol)
+
+# View the data with Z-score outlier flags for blood pressure
+health_data[health_data$outlier_blood_pressure_zscore, c("villager_id", "blood_pressure")]
+```
+
+<span style="color: green;">**Practical exercise**</span>
+
+Download the Brazil's House of Deputies Reimbursements from [here](https://www.kaggle.com/datasets/epattaro/brazils-house-of-deputies-reimbursements). Read the data set, identify numerical columns that contain the outliers and remove them
+
+##### Data Transformation Techniques 
+- **Normalization and Standardization**
+
+Normalization and standardization are both data preprocessing techniques that adjust the range of input values to make them easier to analyze and process. They are often interchangeably however, they have different applications and techniques. To be specific;
+
+*Normalization* involves rescaling data within a specific range for instance between 0 and 1 where the maximum value will be 1 and the minimum be 0, all other values will range between zero and 1. Also, -1 and 1, 0 and 100 are among the most common ranges where statistician normalizes their data. This technique is useful where the distribution of the data is unknown or not normal but its likely to be affected by outliers due to its restricted range. 
+
+On the contrary, *Standardization* involves rescaling the data values to have a mean of zero and a standard deviation of one. This technique is useful when the distribution of the data is known and normally distributed. It is less likely to be affected by outliers because it does not have a restricted range. **Z-score** is of the most popular method of standardization. Here is the formula to calculate z-score;
+$$Z = {value-mean\over{standard deviation}}$$
+
+Lets normalize/standardize a vector `v1`, `v1<- c(1200,34567,3456,12,3456,0985,1211)` in three easy steps 
+
+1. *Min-Max Scaling*(normalization)
+
+The vector will be scaled in a range of 0 to 1 using a `preProcess` function from the `caret` package. 
+```{r}
+# Load the library
+library(caret)
+
+v1 <- c(1200,34567,3456,12,3456,0985,1211)
+
+# train the preprocesser(scaler)
+minMaxScaler <- preProcess(as.data.frame(v1), method=c("range"))
+
+# Apply the scaler
+v1_scaled <- predict(minMaxScaler, as.data.frame(v1))
+v1_scaled
+```
+
+2. *Using the `scale()` function*(standardization)
+
+```{r}
+# Create the vector
+v1 <- c(1200,34567,3456,12,3456,0985,1211)
+
+v1_scaled <- as.data.frame(scale(v1))
+v1_scaled
+```
+
+3. *Log transform*
+
+This is used especially when the data is unevenly distributed for instance being skewed by "stretching out" the tail of a right-skewed distribution making it more symmetric. 
+```{r}
+# Create the vector
+v1 <- c(1200,34567,3456,12,3456,0985,1211)
+
+log_scaled_v1 <- log(as.data.frame(v1))
+log_scaled_v1
+```
+
+- **Encoding Categorical Variables**
+
+Encoding is the process of converting categorical variables to numerical variables in data preprocessing. Machine learning models only understand numerical values, therefore encoding is a crucial step in data preprocessing. The most common methods are **one-hot encoding** and **label encoding**. We will discuss how to perform them in R 
+
+1. *One-hot encoding*
+One hot encoding represents each category as a separate column and converts the categorical values into a 1 or 0 depending where the category is represented. This avoids the assumption of ordinality by the machine learning models. Lets perform one hot encoding on a color vector 
+```{r}
+library(caret)
+
+# Sample categorical variable
+color_df <- data.frame(
+  Color = c("Red", "Blue", "Green", "Red", "Blue")
+)
+
+# dummify the data 
+color_dmy <- dummyVars(" ~ .", data = color_df)
+new_color_df <- data.frame(predict(color_dmy, newdata = color_df))
+new_color_df
+```
+
+Alternatively you can use the `model_matrix`, a built-in R function
+```{r}
+# Using model.matrix() to one-hot encode
+color_df$Color <- as.factor(color_df$Color)  # Convert Color to a factor
+one_hot_encoded <- model.matrix(~ Color - 1, color_df)
+
+# View the encoded matrix
+one_hot_encoded
+```
+
+One-hot encoding is preferred in cases where the categories are nominal for example colors, countries since it does not assume any order between the categories
+
+2. *Label encoding*
+
+This method assigns a unique integer to each category. This method is simpler but it may impose unintended ordinality. 
+```{r}
+# Sample categorical variable
+color_df <- data.frame(
+  Color = c("Red", "Blue", "Green", "Red", "Blue")
+)
+
+# Label encoding
+color_df$Color_encoded <- as.numeric(as.factor(color_df$Color))
+
+# View the label encoded data
+color_df
+```
+
+Label encoding is preferred where the categories are ordinal for instance education levels, living standards, age groups etc. Categories that have a natural order
+
+<span style="color: green;">**Practical exercise**</span>
+
+Using the same Brazil's House of Deputies data set, encode the `deputy_state` and the `political_party` to have numerical values. 
+
+### Hands-On Exercises
+In this course you will be required to use the NHANES data set from the `NHANES` package. Install the NHANES package by;
+```
+install.packages("NHANES")
+```
+
+then import the library and the data set 
+```
+# Load the library 
+library(NHANES)
+
+# Load the data set
+data("NHANES")
+```
+
+thereafter you are required to answer the following questions;
+
+i. Count the total number of missing values in each column in the data set and find which column has the most null values 
+```
+sapply(NHANES, function(x) sum(is.na(x)))
+```
+ii. Remove the rows that have any missing values and store the results in a new data set
+iii. For columns with numeric data, impute missing values by replacing them with the mean or median of the column
+iv. For categorical columns (such as `Gender` or `SmokeNow`), impute missing values using the mode.
+v. For the `BMI` and `Pulse` columns, calculate the Interquartile Range (IQR) and dentify any data points that fall outside the 1.5 * IQR range (both lower and upper bounds) as outliers
+vi. Remove rows where outliers are found in the `BMI` and `Pulse` columns
+vii. Apply Min-Max normalization to the `BMI` and `Pulse` columns, rescaling the data between 0 and 1
+viii. Use one-hot encoding to convert the Gender column into a numerical format (i.e., create separate columns for male and female)

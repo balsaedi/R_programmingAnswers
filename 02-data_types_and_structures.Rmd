@@ -1,0 +1,1163 @@
+# Basic Data Types and Structures
+## Data types 
+There are different kinds of values in R that can be manipulated in variables in R. `class()`function is used to check the data type of a value or a variable. Different data types include;
+
+- Numeric
+
+These represent numeric values such as integers and decimals. They are used for mathematical expressions and quantitative data analysis. The below code finds the data type of variable `a` which is assigned `23.5` and returns numeric. 
+```{r}
+a=23.5
+class(a) #check the data type of a 
+```
+
+a whole number without without a decimal is also numeric for instance 45, 8, 0 and 73. Run the code chunks below to inspect to find the code of each value
+```{r}
+class(45)
+```
+
+```{r}
+class(8)
+```
+
+```{r}
+class(0)
+```
+
+```{r}
+class(73)
+```
+
+<span style="color: green;">**Activity**</span>
+
+Answer the questions below; 
+  
+  i. Find the data type of `98.03` using `class()` function.
+  ii. Assign the value `98.03` to variable `height` and find data type of `height`.
+  
+```{r ex="acivity-2a", type="sample-code"}
+# I. Find the data type of 98.03 using class() function
+# CODE HERE 
+
+
+# II. Assign the value `98.03` to variable `height` and find its data type
+# CODE HERE
+```
+
+```{r ex="acivity-2a", type="solution", include=FALSE}
+# I. Find the data type of 98.03 using class() function
+class(98.03)
+
+
+# II. Assign the value `98.03` to variable `height` and find data type of height
+height=98.03
+class(height)
+```
+
+
+- Integers
+
+They represent whole numbers without any any decimals and are a subclass of numeric. `L` is added at the end of a whole number to indicate that it is an integer. 
+```{r}
+a=23L #add L to show it is an integer
+class(a)
+```
+
+Lets store `age` as an integer. **Note the 'L' after the number 27**
+```{r}
+age = 27L
+class(age)
+```
+
+<span style="color: green;">**Activity**</span>
+
+Answer the questions below; 
+
+i. Find the data type of any whole number using `class()` function. **Remember to add `L` after the digits**
+ii. There are 27 goats in a field, assign the quantity of goats to a variable `goats` and find the data type of the variable `goats`. 
+
+```{r ex="activity-2b", type="sample-code"}
+# I. Find the data type of any whole number using `class()` function. **Remember to add `L` after the digits**
+# CODE HERE 
+
+
+# II. There are 27 goats in a field, assign the quantity of goats to a variable `goats` and find the data type of the variable `goats`. 
+# CODE HERE
+```
+
+```{r ex="activity-2b", type="solution", include=FALSE}
+# I. Find the data type of any whole number using `class()` function. **Remember to add `L` after the digits**
+class(7L) # 7 is the whole number of my choice
+
+
+# II. There are 27 goats in a field, assign the quantity of goats to a variable `goats` and find the data type of the variable `goats`. 
+goats=27L
+class(goats)
+```
+
+
+- Characters
+
+They represent text strings such as names, sentences and labels. They are enclosed in " or '. 
+```{r}
+a="DNA"
+class(a)
+```
+
+Lets use name as a character 
+```{r}
+name = "Pragya"
+class(name)
+```
+
+for an object
+```{r}
+item = "car" # "car" is stored in a variable item
+class(item)
+```
+
+Character data types can have empty spaces in between, for instance;
+
+```{r}
+fullname = "Salman Khan"
+class(fullname)
+```
+
+<span style="color: green;">**Activity**</span>
+
+In the code cell below; 
+
+i. Find the data type of the value `"school"` using the `class()` function. 
+ii. Assign your first name to a variable `firstname` and find its data type. **Remember to enclose it in quotation marks**
+iii. Assign your full names to a variable `full_name` and find its data type. For instance if your name is "Vipin Patel" assign it like;`full_name = "Vipin Patel"`
+and find its data type. **Remember to enclose the value in quotation marks since its a character data type**
+```{r ex="activity-2c", type="sample-code"}
+# I. Find the data type of the value `"school"
+# CODE HERE
+
+# Assign your first name to variable first name and find its data type
+# CODE HERE 
+
+# Assign your full names to a variable full_name and finds data type
+# CODE HERE 
+```
+
+```{r ex="activity-2c", type="solution", include=FALSE}
+# I. Find the data type of the value `"school"
+class("school")
+
+# Assign your first name to variable first_name and find its data type
+first_name="Vipin" #my first name is Vipin
+class(first_name)
+
+# Assign your full names to a variable full_name and finds it data type
+full_name="Vipin Pradip"
+class(full_name)
+```
+
+
+- Logical 
+
+They represent boolean values which has only distinct value; `TRUE` or `FALSE`.
+
+```{r}
+a=TRUE #logical data types is either TRUE or FALSE only
+class(a)
+```
+
+changing it to `FALSE`
+```{r}
+b = FALSE
+class(b)
+```
+
+<span style="color: green;">**Activity**</span>
+
+Assign a `TRUE` to a variable `grateful` and find the data type of the variable. 
+```{r ex="activity-2d", type="sample-code"}
+# Assign a `TRUE` to a variable `grateful` and find its data type
+## CODE HERE 
+```
+
+```{r "activity-2d", type="solution", include=FALSE}
+# Assign a `TRUE` to a variable `grateful` and find its data type
+grateful=TRUE
+class(grateful)
+```
+
+
+- Complex
+
+They represent complex numbers with real and imaginary parts
+```{r}
+a=2+3i # Complex data types have 'i' at the end of each number
+class(a)
+```
+
+`2` is the real part while `3i` is the imaginary part. Also, complex numbers can be created by `complex()` function with `real` and `imaginary` as the arguments. 
+
+```{r}
+z = complex(real = 3, imaginary = 7)
+print(z) #show the comlex value
+class(z) #confirm that it is a complex number 
+```
+
+Lets try another values to fit to the complex data type
+
+1. `2+5i`
+```{r}
+z = complex(real=2, imaginary = 5)
+print(z)
+class(z)
+```
+
+2. `7 + 6i`
+```{r}
+m=complex(real=7, imaginary = 6)
+print(m)
+class(m)
+```
+
+3. `4i - 1`
+```{r}
+b = 4i-1
+print(b)
+class(b)
+```
+
+Complex data types can include the imaginary part only without real number, R will assume the real part to be `0`(zero). For instance;
+```{r}
+h = 3i
+print(h)
+class(h)
+```
+
+<span style="color: green;">**Activity**</span>
+
+Find the data type of the following values; *One of them is a numeric element*
+
+i. `3i + 8`
+ii. `5 - 1i`
+iii. `4i`
+iv. `12`
+
+```{r ex="activity-2e", type="sample-code"}
+#i. 3i + 8
+# CODE HERE
+
+# ii. 5 - 1i
+# CODE HERE 
+
+# iii. 4i
+# CODE HERE 
+
+# iv. 12
+# CODE HERE
+```
+
+```{r ex="activity-2e", type="solution", include=FALSE}
+#i. 3i + 8
+class(3i + 8)
+
+# ii. 5 - 1i
+class(5 - 1i)
+
+# iii. 4i
+class(4i)
+
+# iv. 12
+class(12)
+```
+
+- Raw
+
+They represent a vector of bytes in their natural form. They are used in storing binary data. Example;
+
+```{r}
+a=charToRaw("DNA")
+print(a)
+class(a)
+
+# convert back to character 
+b=rawToChar(a)
+class(b)
+```
+
+"Hello world" can be represented as in the results below when converted to raw data type
+```{r}
+binary_data = charToRaw("Hello World")
+print(binary_data) 
+class(binary_data)
+```
+
+Numeric can also be represented as raw vectors;
+```{r}
+age=as.raw(27)
+print(age)
+class(age)
+```
+
+<span style="color: green;">**Activity**</span>
+
+Convert the following values to raw data types; **Hint: ** use `charToRaw()` function for character data types and `as.raw()` to other data types.  
+
+i. `"Vipin"`
+ii. `27`
+iii. `69.0`
+iv. `FALSE`
+v. `12L`
+
+```{r ex="activity-2f", type="sample-code"}
+# i. "Vipin"
+# CODE HERE
+
+# ii. 27
+# CODE HERE
+
+
+# iii. 69.0
+# CODE HERE
+
+# iv. FALSE
+# CODE HERE
+
+# v. 12L
+# CODE HERE
+```
+
+```{r ex="activity-2f", type="solution", include=FALSE}
+# i. "Vipin"
+charToRaw("Vipin")
+
+# ii. 27
+as.raw(27)
+
+# iii. 69.0
+as.raw(69.0)
+
+# iv. FALSE
+as.raw(FALSE)
+
+# v. 12L
+as.raw(12L)
+```
+
+## Data Structures 
+This is the organization of data into one or multiple data values in specific structures. Different types of data structures in R include;
+
+- Vector
+
+- Matrix
+
+- Data frame
+
+### Vector
+A vector is a single entity consisting of a collection of things. They are versatile providing a basis of many operations in statistics and data manipulation hence it is important to have knowledge of vectors for effective programming in R. Vectors are created using a `c()` function, here is an example of a vector.
+```{r}
+marks = c(23, 67, 98, 34, 98, 21)
+print(marks) # print to the console
+```
+
+<span style="color: green;">**Activity**</span>
+
+Create a vector named `ages` and insert the following values `21, 32, 22, 24, 27, 54, 20, 13` and print it out on the console
+```{r ex="activity-2g", type="sample-code"}
+# vector ages with elements 21, 32, 22, 24, 27, 54, 20, 13
+# CODE HERE 
+```
+
+```{r ex="activity-2g", type="solution", include=FALSE}
+# vector ages with elements 21, 32, 22, 24, 27, 54, 20, 13
+ages=c(21, 32, 22, 24, 27, 54, 20, 13)
+ages
+```
+
+The `class` function is utilized to determine the data types present within vector data values.
+```{r}
+marks = c(23, 67, 98, 34, 98, 21)
+class(marks)
+```
+The vector "marks" consist of only numeric values 
+
+`is.vector` function is used to check if the variable is a vector. It will return a Boolean value, `TRUE` if the variable in question is truly a vector while `FALSE` if otherwise. 
+```{r}
+marks = c(23, 67, 98, 34, 98, 21)
+is.vector(marks)
+```
+
+unlike matrix and data frame, vector has no dimension 
+```{r}
+marks = c(23, 67, 98, 34, 98, 21)
+dim(marks)
+```
+
+`length()` function is used to count number of elements in vectors. In our case vector marks, `marks = c(23, 67, 98, 34, 98, 21)` has six elements, therefore, `length()` command will return `6`. 
+```{r}
+marks = c(23, 67, 98, 34, 98, 21)
+length(marks)
+```
+
+<span style="color: green;">**Activity**</span>
+
+Create a vector named `height` with its elements/values as `120.1, 118, 123.4, 130.8, 115.2` and do the following;
+
+  i. print it out to the console using `print()` function. 
+  ii. find the data type of its elements using `class()` function
+  iii. use `is.vector()` function to find if its really a vector
+  iv. count the number of elements in the vector using `length()` function. 
+    
+```{r ex="activity-2h", type="sample-code"}
+#Create a vector named `height` with its elements/values as `120.1, 118, 123.4, 130.8, 115.2` and do the following;
+# CODE HERE 
+
+# print it out
+# CODE HERE 
+
+# find the data type of its elements
+# CODE HERE
+
+# find if its really a vector
+# CODE HERE
+
+# count the number of elements in the vector
+# CODE HERE 
+```
+
+```{r ex="activity-2h", type="solution", include=FALSE}
+#Create a vector named `height` with its elements/values as `120.1, 118, 123.4, 130.8, 115.2` and do the following;
+height = c(120.1, 118, 123.4, 130.8, 115.2)
+
+# print it out
+print(height)
+
+# find the data type of its elements
+class(height)
+
+# find if its really a vector
+is.vector(height)
+
+# count the number of elements in the vector
+length(height)
+```
+
+Index is the position of an element in a vector, in R it starts at index 1 - lets say we find the third element by index 3
+```{r}
+marks = c(23, 67, 98, 34, 98, 21)
+marks[3]
+```
+
+value "98" is at index 3, or the third in the vector. The first value/element of a vector is indexed `1`, for instance if we find the first value in the vector `marks`.
+
+```{r}
+marks = c(23, 67, 98, 34, 98, 21)
+marks[1] #returns the first value
+```
+
+The sequence goes on, the second, third, fourth, fifth ... values are indexed as , `2`, `3`, `4`, `5`... respectively. i.e the n^th value is indexed as `n`. 
+
+Vectors can also be sliced to obtain values over a range of indices. For instance the code below shows how to retrieve the from the second to the fourth values as a vector
+```{r}
+marks = c(23, 67, 98, 34, 98, 21)
+print(marks[2:4])
+is.vector(marks[2:4]) # confirm if the retrieved values are in a vector
+```
+
+An element at a specific index in a vector can be excluded by adding a `-` sign before the index value. 
+```{r}
+marks = c(23, 67, 98, 34, 98, 21)
+marks[-2] #exclude the element at index 2
+```
+
+`rev()` command is used to reverse the order of elements in a vector
+```{r}
+marks = c(23, 67, 98, 34, 98, 21)
+rev(marks)
+```
+
+<span style="color: green;">**Activity**</span>
+
+Create a vector named `ages` and insert the following values; `13, 59, 27, 22, 19, 31, 43`. Use it to answer the questions below. 
+    
+  i. Print out the vector `ages` to the console
+  ii. Store the third element in a variable called `my_age` and print it out. 
+  iii. Extract the values from the second to the fifth element and print them out. 
+  iv. Exclude the third element
+  v. Reverse the order of the elements in the vector. 
+    
+```{r ex="activity-2i", type="sample-code"}
+# Create a vector named `ages` and insert the following values; `13, 59, 27, 22, 19, 31, 43`
+# CODE HERE 
+
+# i. Print out the vector `ages` to the console
+# CODE HERE
+
+# ii. Store the third element in a variable called `my_age` and print it out.
+# CODE HERE
+
+# iii. Extract the values from the second to the fifth element and print them out.
+# CODE HERE 
+
+# iv. Exclude the third element
+# CODE HERE
+
+# v. Reverse the order of the elements in the vector. 
+# CODE HERE
+```
+
+```{r ex="activity-2i", type="solution", include=FALSE}
+# Create a vector named `ages` and insert the following values; `13, 59, 27, 22, 19, 31, 43`
+ages = c(13, 59, 27, 22, 19, 31, 43)
+
+# i. Print out the vector `ages` to the console
+print(ages)
+
+# ii. Store the third element in a variable called `my_age` and print it out.
+my_age = ages[3]
+my_age
+
+# iii. Extract the values from the second to the fifth element and print them out.
+ages[2:5]
+
+# iv. Exclude the third element
+ages[-3]
+
+# v. Reverse the order of the elements in the vector. 
+rev(ages)
+```
+
+#### Mathematical Operations in a vector 
+The summary/descriptive statistics are calculated by `summary()` command. 
+```{r}
+marks = c(23, 67, 98, 34, 98, 21)
+summary(marks)
+```
+
+`sum()`, `median()`, and `mean()` are used to calculate the total, median, average and the standard deviation of the values in a vector
+```{r}
+marks = c(23, 67, 98, 34, 98, 21)
+print("MARKS")
+print(paste("TOTAL: ", sum(marks)))
+print(paste("MEDIAN: ", median(marks)))
+print(paste("AVERAGE: ", mean(marks)))
+```
+
+- **Vector multiplication and division** - vectors can be multiplied or divided by a scalar value of another vector of the same length and numeric data type. For instance, the vector `marks=c(23, 67, 98, 34, 98, 21)` is being multiplied by a scalar value `2`, that will multiply each element in a vector by two. 
+```{r}
+marks = c(23, 67, 98, 34, 98, 21)
+
+# Multiply each element in the vector by 2
+double_marks =2 * marks 
+
+marks
+double_marks
+```
+
+The values in the vector `marks` can also be scaled down to a half when multiplied by a scalar value `0.5`. 
+
+```{r}
+marks = c(23, 67, 98, 34, 98, 21)
+
+# Multiply by 0.5 to scale the marks by a half
+half_marks =0.5 * marks 
+
+marks
+half_marks
+```
+
+Alternatively, instead of multiplying the vector by `0.5`, it can be divided by `2` a scalar value two. This is what is referred to as **vector division**.
+```{r}
+marks = c(23, 67, 98, 34, 98, 21)
+
+# Scale down the marks by a half by dividing by 2 instead of multiplying by 0.5
+half_marks = marks/2
+half_marks
+```
+
+<span style="color: green;">**Activity**</span>
+
+Create a vector with the following values; `67, 55, 60, 59, 57.2, 71, 62, 66, 70` and name the vector `weights`. Use the variable `weights` to solve the following problems
+  
+  a. Calculate the;
+    i. median weight
+    ii. mean(average) weight
+    iii. the total weight when summed together
+  b. Calculate the summary statistics using the `summary()` function. 
+  c. Add 10 to variable `weights` and the answer `added_weights`.
+  d. Subtract 15 to `weights` and name it `reduced_weights`.
+  e. Scale the weights by multiplying the vector by 1.5. '
+  f. Scale down the weights to a third by dividing the vector by 3.
+  
+```{r ex="activity-2j", type="sample-code"}
+# Create vector weights from 67, 55, 60, 59, 57.2, 71, 62, 66, 70
+# CODE HERE 
+
+## a. Calculate the;
+### i. median weight
+# CODE HERE 
+
+### ii. mean(average) weight
+# CODE HERE 
+
+### iii. the total weight when summed together
+# CODE HERE
+
+
+## b. Calculate the summary statistics using the `summary()` function. 
+# CODE HERE 
+
+## c. Add 10 to variable `weights` and the answer `added_weights`.
+# CODE HERE 
+
+## d. Subtract 15 to `weights` and name it `reduced_weights`.
+# CODE HERE 
+
+## e. Scale the weights by multiplying the vector by 1.5. '
+# CODE HERE 
+
+## f. Scale down the weights to a third by dividing the vector by 3.
+# CODE HERE
+```
+
+```{r ex="activity-2j", type="solution", include=FALSE}
+# Create vector weights from 67, 55, 60, 59, 57.2, 71, 62, 66, 70
+weights = c(67, 55, 60, 59, 57.2, 71, 62, 66, 70)
+
+## a. Calculate the;
+### i. median weight
+median(weights)
+
+### ii. mean(average) weight
+mean(weights)
+
+### iii. the total weight when summed together
+sum(weights)
+
+
+## b. Calculate the summary statistics using the `summary()` function. 
+summary(weights)
+
+## c. Add 10 to variable `weights` and the answer `added_weights`.
+added_weights = weights + 10
+added_weights
+
+## d. Subtract 15 to `weights` and name it `reduced_weights`.
+reduced_weights = weights - 15
+reduced_weights
+
+## e. Scale the weights by multiplying the vector by 1.5. '
+weights * 1.5
+
+## f. Scale down the weights to a third by dividing the vector by 3.
+weights * 3
+```
+
+**Vector by vector multiplication and division**
+
+Two or more vectors of numeric values of the equal length can be multiplied or divided by each other. The example below demonstrates vector by vector multiplication of vector `a`; `3, 5, 1` and vector `b`: `7, 3, 9`. Each value is multiplied by a value of a corresponding index in the next vector such that;
+
+- `3` is multiplied by `7` to be `21`
+
+- `5` is multiplied by `3` to be `15`
+
+- `1` is multiplied by `9` to be `9`.
+
+The resultant vector is now `21 15 9`. 
+```{r}
+a = c(3, 5, 1)
+b = c(7, 3, 9)
+ab = a*b
+ab
+ba = b*a # is the same as ab
+ba
+```
+
+The same vectors can also be divided by each other provided they are of the same length and all have numeric values. The order of vector division, for instance in the first case vector `a` is divided by vector `b` such that;
+
+- `3` is divided by `7` to be `0.4285714`
+
+- `5` is divided by `3` to be `1.6666667`
+
+- `1` is divided by `9` to be `0.1111111`.
+
+The resultant vector is now `0.4285714 1.6666667 0.1111111`. 
+```{r}
+# First case
+a = c(3, 5, 1)
+b = c(7, 3, 9)
+
+# Divide vector a by b
+abdiv=a/b
+abdiv
+```
+, and in the second case the order of vector division is reversed by vector `b` being divided by `a` (`b/a` instead of `a/b`) such that;
+
+- `7` is divided by `3` to be `2.333333`
+
+- `3` is divided by `5` to be `0.600000`
+
+- `9` is divided by `1` to be `9.000000`.
+
+The resultant vector is now `2.333333 0.600000 9.000000`.
+```{r}
+# Second case
+a = c(3, 5, 1)
+b = c(7, 3, 9)
+# Divide vector b by a
+badiv=b/a
+badiv
+```
+
+However, when multiplying vectors of unequal length the shorter one is replicated to match the longer vector. It will then return a warning. The case below shows how vector `e=c(1,2,3,4,5)` and `f=c(1,2)` are multiplied.
+
+- vector `f=c(1,2)` will be replicated to match the length of vector `e`, therefore, vector `f` will be `f=c(1,2,1,2,1)`. The process of vector by vector multiplication will be followed. 
+```{r}
+e=c(1,2,3,4,5)
+f=c(1,2)
+ef = e*f #it shows an error
+ef #shows results since f is replicated to match e as f=c(1,2,1,2,1)
+```
+
+Multiple vectors can be concatenated/combined to come up with one giant vector 
+```{r}
+a
+b
+z=c(a,b,a) #concatenates the vectors 
+z
+```
+
+<span style="color: green;">**Activity**</span>
+
+Create two vectors, `vector1`;`4, 6, 12, 7` and `vector2`:`7, 3, 5, 10`. Use the two vectors to solve the following questions.
+
+  i. Create `vector3` by multiplying `vector1` and `vector2`. Print it out.
+  ii. Create `vector4a` by diving `vector1` by `vector2`. Print it out. 
+  iii. Create `vector4b` by dividing `vector2` by `vector1`. Print it out.
+  iv. Is there a difference between `vector4a` and `vector4b`? If there is, what brought the difference? Write the answer as a comment. 
+  v. Create another `vector5`; `4, 6` and multiply it with `vector1` to come up with `vector6`. Print it out. 
+  vi. Concatenate `vector1`, `vector2` and `vector5` to come up with a `giant_vector`. Print it out. 
+
+```{r ex="activity-2k", type="sample-code"}
+# Create vector1 and vector2 as instructed 
+# CODE HERE 
+
+## i. Create `vector3` by multiplying `vector1` and `vector2`. Print it out.
+# CODE HERE 
+
+## ii. Create `vector4a` by diving `vector1` by `vector2`. Print it out. 
+# CODE HERE 
+
+## iii. Create `vector4b` by dividing `vector2` by `vector1`. Print it out.
+# CODE HERE 
+
+## iv. Is there a difference between `vector4a` and `vector4b`? If there is, 
+## what brought the difference? Write the answer as a comment. 
+# COMMENT HERE 
+
+## v. Create another `vector5`; `4, 6` and multiply it with `vector1` to come up 
+## with `vector6`. Print it out. 
+# CODE HERE 
+
+## vi. Concatenate `vector1`, `vector2` and `vector5` to come up with a 
+## `giant_vector`. Print it out. 
+# CODE HERE
+```
+
+```{r ex="activity-2k", type="solution", include=FALSE}
+# Create vector1 and vector2 as instructed 
+vector1 = c(4, 6, 12, 7)
+vector2 = c(7, 3, 5, 10)
+
+## i. Create `vector3` by multiplying `vector1` and `vector2`. Print it out.
+vector3 = vector1 * vector2
+vector3
+
+## ii. Create `vector4a` by diving `vector1` by `vector2`. Print it out. 
+vector4a = vector1/vector2
+vector4a
+
+## iii. Create `vector4b` by dividing `vector2` by `vector1`. Print it out.
+vector4b = vector2/vector1
+vector4b
+
+## iv. Is there a difference between `vector4a` and `vector4b`? If there is, 
+## what brought the difference? Write the answer as a comment. 
+# Yes, there was a difference. The difference was as a result of the difference -
+#- the order of division
+
+## v. Create another `vector5`; `4, 6` and multiply it with `vector1` to come up 
+## with `vector6`. Print it out. 
+vector5 = c(4, 6)
+vector6 = vector1 * vector5
+print(vector6)
+
+## vi. Concatenate `vector1`, `vector2` and `vector5` to come up with a 
+## `giant_vector`. Print it out. 
+giant_vector = c(vector1, vector2, vector5)
+giant_vector
+```
+
+#### Character Vectors 
+Vectors can also contain character data types for instance 
+```{r}
+my_name = c("My", "name", "is", "Vipin")
+my_name[5] = "Singh" #insert at the end 
+my_name
+```
+
+Combining the vectors to a single string. For instance the vector `my_name = c("My", "name", "is", "Vipin")` is combined to `"My name is Vipin"`. The `collapse` argument is used as below;
+```{r}
+print(paste(my_name, collapse=" "))
+```
+
+Calculate the summary/descriptive statistics of the vector by function `summary()`. It finds;
+
+- Count/length
+
+- Class (data type)
+
+- Mode 
+```{r}
+summary(my_name)
+```
+
+#### Vectors with mixed data types 
+A vector can also consist of characters values and numeric values for instance 
+```{r}
+numbers=c(1,"two", 3, "three")
+numbers
+```
+
+however the numeric elements in the vector are recognized by R as character data type. They can be converted to numeric by; 
+```{r}
+as.numeric(numbers[1]) + 2
+```
+
+the integers can be converted by;
+```{r}
+as.integer(numbers[1])
+```
+
+#### Named Vectors 
+Variable names can be assigned to vectors like;
+```{r}
+named_vector=c(EcoR1="GAATTC", HindIII="AAGCTT", Pst1="CTGCAG")
+named_vector
+```
+
+to access the names of the values is;
+```{r}
+names(named_vector)
+```
+
+A vector element can be accessed using its name
+```{r}
+named_vector["EcoR1"] # find the value of a vector by its name 
+```
+
+#### Generating  number series as vectors 
+The `seq` function in R is used to generate sequences of numbers. It takes several arguments, including `from`, `to`, `by`, and `length.out`, among others, to specify the range and increment of the sequence. Here's a brief overview of its usage:
+
+- `from`: The starting value of the sequence.
+- `to`: The end value of the sequence.
+```{r}
+# Generate a sequence from 1 to 10
+series = seq(from=1, to=20)
+series 
+
+# It can also be written as
+series = seq(1,20)
+series
+```
+
+```{r}
+class(series)
+```
+
+- `by`: The increment between consecutive values in the sequence.
+```{r}
+# generate numbers 0 to 10 incremented by 0.5
+series3=seq(0, 10, by=0.5)
+series3
+```
+
+- `length`: The desired length of the sequence.
+```{r}
+# generate 10 numbers from 0 to 6
+series4=seq(0, 6, length=10)
+series4
+seq(0, 6)
+```
+- `along.with`: An optional vector argument specifying the length and names of the output sequence.
+```{r}
+# Generate a sequence along with a vector
+seq(along.with = c("a", "b", "c"))
+```
+
+#### Null data points in vectors 
+NA data (Not available or blank) for instance 
+```{r}
+marks=c(78,65, 98, 87, 89, NA)
+sum(is.na(marks)) #Count the null values in a vector 
+```
+
+Other inbuilt functions for mathematical operations cannot be done if Null values exists in a vector unless they are removed/ignored 
+```{r}
+#sum(marks) #returns an error
+sum(marks, na.rm = TRUE) #remove null values before calculating the sum
+median(marks, na.rm = TRUE)
+summary(marks, na.rm = TRUE)
+```
+
+### Matrix 
+A matrix is a two dimensional data type that contain a single class of data. The code below shows one can produce a matrix from a vector 
+```{r}
+vector1 = seq(1, 9) 
+
+# Convert to matrix
+## create by column 
+data1=matrix(vector1, ncol=3)
+data1
+```
+A vector of values 1 to 9 is being converted to a matrix where the values are being arranged column wise by default. 
+
+A matrix has a multiple dimensions, the most common type of matrix is two dimesnional. 
+```{r}
+vector1 = seq(1, 9) 
+
+# Convert to matrix
+## create by column 
+data1=matrix(vector1, ncol=3)
+
+# find the dimension of the vector
+dim(data1)
+```
+
+`is.matrix()` function is used to confirm if a given variable is a matrix and it return a boolean value. 
+```{r}
+vector1 = seq(1, 9) 
+
+# Convert to matrix
+## create by column 
+data1=matrix(vector1, ncol=3)
+
+# confirm if `data1` is really a matrix
+is.matrix(data1)
+```
+
+A matrix can also be created row-wise from a vector.
+```{r}
+vector1 = seq(1, 9) 
+
+## create a matrix by row 
+data2=matrix(vector1, ncol=3, byrow=TRUE)
+data2 # is a transpose of data1
+```
+
+Matrix is recognized either as a matrix or array by R
+```{r}
+vector1 = seq(1, 9) 
+
+# Convert to matrix
+## create by column 
+data1=matrix(vector1, ncol=3)
+
+# find the data type of `data1`
+class(data1) 
+```
+
+To access a specific data point in a matrix, the matrix is indexed by row then column for instance `matrix_data[row_index, column_index]`
+```{r}
+vector1 = seq(1, 9) 
+
+# Convert to matrix
+## create by column 
+data1=matrix(vector1, ncol=3)
+
+# retrieve the value in the third row second column in `data1`
+data1[3, 2]
+```
+
+To access a single row, in this case we find the second row which will be returned as a vector 
+```{r}
+vector1 = seq(1, 9) 
+
+# Convert to matrix
+## create by column 
+data1=matrix(vector1, ncol=3)
+
+row2 = data1[2,] # access row 2 
+is.vector(row2) #can be accessed by row 2
+```
+
+To access a single column 
+```{r}
+vector1 = seq(1, 9) 
+
+# Convert to matrix
+## create by column 
+data1=matrix(vector1, ncol=3)
+
+col3=data1[,3] # access column 3
+is.vector(col3) #can be accessed by column 3
+```
+
+Count the number of rows in a matrix 
+```{r}
+vector1 = seq(1, 9) 
+
+# Convert to matrix
+## create by column 
+data1=matrix(vector1, ncol=3)
+
+nrow(data1)
+```
+`data1` has 3 rows
+
+Count the number of columns in a matrix
+```{r}
+vector1 = seq(1, 9) 
+
+# Convert to matrix
+## create by column 
+data1=matrix(vector1, ncol=3)
+
+ncol(data1)
+```
+
+#### Mathematical Operations in a matrix 
+**Matrix Addition**
+Matrix addition can be done by adding a number to the matrix or another matrix of the equal number of rows and columns.
+```{r}
+vector1 = seq(1, 9) 
+
+# Convert to matrix
+## create by column 
+data1=matrix(vector1, ncol=3)
+
+data2 = data1 + 3
+data2
+```
+For instance, the code snippet above demonstrates matrix addition by a numeric value. Adding value 3 to a matrix adds each value in the matrix by 3. To demonstrate a matrix to a matrix addition, we will create two matrices of the equal dimensions then add to each other. 
+```{r}
+data1 = matrix(seq(1, 9), ncol=3, byrow=TRUE)
+print(data1)
+
+data2 = matrix(seq(1, 18, 2), ncol=3, byrow=TRUE)
+print(data2)
+
+# Add data1 to data2
+resultant_matrix = data1 + data2
+resultant_matrix
+```
+
+
+**Matrix Subtraction**
+The same concept of matrix addition applies to matrix subtraction as well. 
+```{r}
+data1 = matrix(seq(1, 9), ncol=3, byrow=TRUE)
+
+data3 = data1-1 #reduce each value by 1
+data3
+```
+Subtracting 1 to `data1` subtract each value in the matrix by 1. Lets now subtract data1 from data2.
+```{r}
+data1 = matrix(seq(1, 9), ncol=3, byrow=TRUE)
+data1
+
+data2 = matrix(seq(1, 18, 2), ncol=3, byrow=TRUE)
+data2
+resultant_matrix = data2-data1
+resultant_matrix
+```
+**Matrix Multiplication(scalar)**
+A matrix can be multiplied by a scalar whereby the scalar value multiplies all the cells in the matrix. 
+```{r}
+data1 = matrix(seq(1, 9), ncol=3, byrow=TRUE)
+data1
+
+data4 = data1*5
+data4
+```
+
+Matrix multiplication applies a concept of row by column. The row of the first matrix is multiplied with a row of the second matrix. It also known as the dot product. 
+
+```{r}
+data1 = matrix(seq(1, 9), ncol=3, byrow=TRUE)
+data1
+
+data2 = matrix(seq(1, 18, 2), ncol=3, byrow=TRUE)
+data2
+
+# Find the product of the two matrices
+product_matrix = data1 * data2
+product_matrix
+```
+
+**Matrix division**
+```{r}
+data1 = matrix(seq(1, 9), ncol=3, byrow=TRUE)
+data1
+
+# Divide `data1` matrix by 2
+data5 = data1/2
+data5
+```
+
+
+### Data frame
+is a two dimensional data structure, like a 2d array/matrix with rows and columns. 
+
+Lets convert a matrix into a data frame 
+
+```{r}
+vector1 = c(1:12)
+matrix1 = matrix(vector1, ncol=4) #create a matrix from the vector 
+
+# Adding a column student 
+Students=c("Pragya", "Deepika", "Chandran")
+data = data.frame(Students, matrix1) 
+data
+```
+The above data shows scores of different students in different subjects. The column names are automatically generated by R, however, the column names can be added as below. 
+```{r}
+vector1 = c(1:12)
+matrix1 = matrix(vector1, ncol=4) #create a matrix from the vector 
+
+# Adding a column student 
+Students=c("Pragya", "Deepika", "Chandran")
+data = data.frame(Students, matrix1) 
+data
+
+# Create column names
+headers=c("Students", "Geonomics", "Proteomics", "Microbiology", "Biostatistics")
+colnames(data)=headers #add column names 
+data
+```
+
+A row wise addition can be performed on a data frame to find the total scores for each student in the four units
+```{r}
+vector1 = c(1:12)
+matrix1 = matrix(vector1, ncol=4) #create a matrix from the vector 
+
+# Adding a column student 
+Students=c("Pragya", "Deepika", "Chandran")
+data = data.frame(Students, matrix1) 
+data
+
+## Add a new column with total marks obtained 
+data$total_marks=rowSums(data[, c(2, 3, 4, 5)]) #add from second to fifth column 
+data
+```
+
+Find the average score for each student.`rowMeans()` is used the average of each row/record.
+```{r}
+vector1 = c(1:12)
+matrix1 = matrix(vector1, ncol=4) #create a matrix from the vector 
+
+# Adding a column student 
+Students=c("Pragya", "Deepika", "Chandran")
+data = data.frame(Students, matrix1) 
+data
+
+data$average_marks=rowMeans(data[, c(2, 3, 4, 5)])
+data # confirm if the new column is added
+```

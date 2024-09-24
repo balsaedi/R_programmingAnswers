@@ -1,0 +1,45 @@
+# Explanatory Data Analysis
+## Introduction to EDA
+**Exploratory Data Analysis (EDA)** is a critical process in the data analysis workflow. It involves examining and visualizing a dataset to uncover patterns, spot anomalies, test hypotheses, and check assumptions using summary statistics and graphical representations. EDA provides a solid understanding of the data and lays the foundation for more advanced statistical analyses or machine learning models.
+
+The key objectives of EDA are;- 
+
+1. Understand and familiarize the data structure.
+2. Detect outliers and anomalies.
+3. Identify patterns and trends. 
+4. Check and verify assumptions, etc. 
+
+By performing EDA thoroughly, the groundwork is laid for more accurate results, ultimately provides insights that lead to better decision-making. EDA also guides to better model-selection. 
+
+Here are the common techniques involved in EDA;- 
+
+- **Summary Statistics**: The analysts compute the summary statistics like mean, median, mode and standard deviation to find the spread and central tendency in the data. 
+- **Data Visualization**: Charts and graphs are drawn to provide a visual interpretation of the data set. 
+- **Data Cleaning and Preparation**: Data manipulation and pre-processing is done to reduce the risk of misinterpretation.
+
+There are more EDA techniques like univariate, bivariate and multivariate analysis, and inferential statistics. 
+
+## Choosing a data set 
+You are required to select a data set from the list below and perform EDA;
+
+- MBA Admission dataset, Class 2025 - [download here](https://www.kaggle.com/datasets/taweilo/mba-admission-dataset)
+- Global Black Money Transactions Dataset - [download here](https://www.kaggle.com/datasets/waqi786/global-black-money-transactions-dataset)
+- Crop Yield Prediction Dataset - [download here](https://www.kaggle.com/datasets/mrigaankjaswal/crop-yield-prediction-dataset)
+- ChickWeight inbuilt R dataset - load from the command `data("ChickWeight")`
+- Seatbelts data set - load from the command `data("Seatbelts")`
+- The "Groceries" from the R package  comes  `arules`- Load the data by first importing arules(`library(arules)`) then the data by `data("Groceries")`
+- `"CreditCard"` data from package `AER`- Load the data by first importing AER (`library(AER)`) then the data by `data("CreditCard")`
+
+Outline the questions to explore during EDA based on the Data set you have chosen
+
+## Conducting EDA
+You will use the skills acquired in this camp(especially `dplyr` and `ggplot2`) to;
+
+- Explore the data set structure 
+- Visualize the relationship between variables 
+- Summarize key findings 
+
+## Present Findings 
+Finally, you will prepare a brief presentation of your findings ,and discuss on the insights obtained and the techniques used. 
+
+

@@ -1,0 +1,27 @@
+# Datasets 
+- tweets Dataset from the rtweet Package
+- "Credit Card Fraud" dataset from R package  creditcard
+- The "Groceries" from the R package  comes  arules
+- "pima" from MASS package
+- airquality (find the package)
+- "NHANES" from "NHANES" package
+
+Bengaluru Restaurants dataset - https://www.kaggle.com/datasets/mrmars1010/restaurants-dataset-bengaluru
+
+Car Sales data set - https://github.com/balsaedi/R_programming/blob/main/data/car_sales.csv
+
+Furniture Sales Data set - https://www.kaggle.com/datasets/rajagrawal7089/furniture-sales-data
+
+Boston Housing Data set - https://www.kaggle.com/datasets/fedesoriano/the-boston-houseprice-data
+
+Amazon Stock Price Prediction - https://www.kaggle.com/datasets/aenes95/amazon-stock-price-prediction
+
+Electricity Price & Demand 2018-2023 - https://www.kaggle.com/datasets/joebeachcapital/nsw-australia-electricity-demand-2018-2023/data
+
+Groundhog Day Forecasts and Temperatures - https://www.kaggle.com/datasets/groundhogclub/groundhog-day
+
+Amazon Fine Food Reviews data - https://www.kaggle.com/datasets/snap/amazon-fine-food-reviews
+
+Detailed NFL Play-by-Play Data 2009-2018 - https://www.kaggle.com/datasets/maxhorowitz/nflplaybyplay2009to2016
+
+Brazil's House of Deputies Reimbursements - https://www.kaggle.com/datasets/epattaro/brazils-house-of-deputies-reimbursements

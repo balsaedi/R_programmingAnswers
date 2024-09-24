@@ -1,0 +1,103 @@
+# Capstone Project
+## Introduction
+### Project Overview and Objectives 
+- The main objective of this capstone project is to allow the student apply all the skills and techniques learned through the camp in a comprehensive real-world analysis.
+
+- It greatly emphasizes on teamwork, critical thinking and creativity
+
+### Group Formation
+Participants are divided into 5 groups, each consisting of 5 members.
+Each group is assigned a different data set. These are the  proposed data sets and their links to download them:
+
+
+1. **Healthcare Data set**
+
+https://www.kaggle.com/datasets/imtkaggleteam/mental-health?select=1-+mental-illnesses-prevalence.csv
+
+2. **Retail Sale data**
+
+https://www.kaggle.com/datasets/manjeetsingh/retaildataset
+
+3. **Financial Transaction Data**
+
+https://www.kaggle.com/datasets/apoorvwatsky/bank-transaction-data
+
+https://www.kaggle.com/datasets/mlg-ulb/creditcardfraud
+
+4. **Social Media Data**
+
+5. **Environmental Data set**
+
+https://www.kaggle.com/datasets/sevgisarac/temperature-change
+
+## Project Planning
+### Defining the problem statement
+Using your assigned data set, you will be required to;
+
+- define a clear problem statement to address. 
+- narrow down on the scope of the project to make it manageable within the given timeframe
+- outline your project goals and the expected outcomes 
+
+
+### Planning the Analysis WorkFlow 
+In your groups, you are required to plan the analysis including:
+
+* **Data Cleaning and Preprocessing**
+
+You will identify potential issues for instance missing values and outliers ,then plan how to address them 
+
+* **Explanatory Data Analysis**
+
+Plan how to conduct the initial exploration of the data set to understand the data structure and key patterns
+
+* **Model Selection and Application**
+
+Discuss on the potential statistical or machine learning models that could be applied to the data 
+
+* **Evaluation and Interpretation**
+
+Plan how to evaluate the model’s performance and interpret the results.
+
+
+## Project Execution
+### Part 1
+#### Data Cleaning and Preprocessing 
+The groups will begin by cleaning and preparing the data sets including;
+
+- Handling missing values
+- Correcting inconsistencies in the data set
+- Ensuring data is ready for analysis 
+
+The instructirs will provide support and guidance as needed, answering questions and help in troubleshooting issues
+
+#### Explanatory Data Analysis(EDA)
+
+The groups will then;
+
+- Perform EDA to uncover insights, identify trends and explore the relationships between variables 
+- Visualize the data using `ggplot2` or any other tool to better understand the data.
+- Document their findings and decide on the next step in the analysis 
+
+### Part 2
+#### Model Building and Analysis 
+Each group is required to; 
+
+- Select and apply an appropriate statistical or machine learning model to address their research questions 
+- Train, test and fine-tune the model as needed. 
+- Emphasize on the interpreting the model outputs, understanding the implications and ensuring the results align with the project goals 
+
+#### Evaluation and Insights
+The groups will then; 
+
+- evaluate the performance of their models using relevant metrics (e.g., accuracy, RMSE, precision, recall).
+- discuss on the insights gained from the analysis and how these insights could be applied in a real-world context.
+- prepare visualizations and summary reports to effectively communicate their findings.
+
+## Project Presentations and Feedback
+Each group will finally present their project that will include; 
+
+- An overview of the data set and the problem statement.
+- The steps taken during data cleaning, EDA, and model building.
+- The key findings, model performance, and final insights.
+- Visualizations and any actionable recommendations based on the analysis.
+
