@@ -152,3 +152,19 @@ Down the house prices regression data set from [here](https://www.kaggle.com/dat
 
 i. Read the CSV file into a `data.frame` and give it a variable name `housePricesDF`
 ii. Write the `data.frame` into an Excel file locally.
+
+
+## Solutions
+### Practical Exercise
+Down the house prices regression data set from [here](https://www.kaggle.com/datasets/prokshitha/home-value-insights) and do the following;
+
+i. Read the CSV file into a `data.frame` and give it a variable name `housePricesDF`
+ii. Write the `data.frame` into an Excel file locally.
+
+```{r}
+# i. Read the CSV file into a `data.frame` and give it a variable name `housePricesDF`
+housePricesDF <- read.csv("data/house_price_regression_dataset.csv")
+
+# ii. Write the `data.frame` into an Excel file locally
+write.csv(housePricesDF, "data/saved_data/house_price_regression_dataset.csv")
+```

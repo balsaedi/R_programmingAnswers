@@ -181,6 +181,10 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <li class="chapter" data-level="3.2" data-path="data-importing-and-exporting.html"><a href="data-importing-and-exporting.html#demonstration-of-data-importing"><i class="fa fa-check"></i><b>3.2</b> Demonstration of Data Importing</a></li>
 <li class="chapter" data-level="3.3" data-path="data-importing-and-exporting.html"><a href="data-importing-and-exporting.html#introduction-to-data-exporting"><i class="fa fa-check"></i><b>3.3</b> Introduction to Data Exporting</a></li>
 <li class="chapter" data-level="3.4" data-path="data-importing-and-exporting.html"><a href="data-importing-and-exporting.html#practical-exercise"><i class="fa fa-check"></i><b>3.4</b> Practical Exercise</a></li>
+<li class="chapter" data-level="3.5" data-path="data-importing-and-exporting.html"><a href="data-importing-and-exporting.html#solutions-1"><i class="fa fa-check"></i><b>3.5</b> Solutions</a>
+<ul>
+<li class="chapter" data-level="3.5.1" data-path="data-importing-and-exporting.html"><a href="data-importing-and-exporting.html#practical-exercise-1"><i class="fa fa-check"></i><b>3.5.1</b> Practical Exercise</a></li>
+</ul></li>
 </ul></li>
 <li class="chapter" data-level="4" data-path="data-manipulation.html"><a href="data-manipulation.html"><i class="fa fa-check"></i><b>4</b> Data Manipulation</a>
 <ul>
@@ -468,7 +472,23 @@ writeLines(data_vector, &quot;data/sample_data_with_writeLines.txt&quot;)</code>
 <li>Read the CSV file into a <code>data.frame</code> and give it a variable name <code>housePricesDF</code></li>
 <li>Write the <code>data.frame</code> into an Excel file locally.</li>
 </ol>
+</div>
+<div id="solutions-1" class="section level2 hasAnchor" number="3.5">
+<h2><span class="header-section-number">3.5</span> Solutions<a href="data-importing-and-exporting.html#solutions-1" class="anchor-section" aria-label="Anchor link to header"></a></h2>
+<div id="practical-exercise-1" class="section level3 hasAnchor" number="3.5.1">
+<h3><span class="header-section-number">3.5.1</span> Practical Exercise<a href="data-importing-and-exporting.html#practical-exercise-1" class="anchor-section" aria-label="Anchor link to header"></a></h3>
+<p>Down the house prices regression data set from <a href="https://www.kaggle.com/datasets/prokshitha/home-value-insights">here</a> and do the following;</p>
+<ol style="list-style-type: lower-roman">
+<li>Read the CSV file into a <code>data.frame</code> and give it a variable name <code>housePricesDF</code></li>
+<li>Write the <code>data.frame</code> into an Excel file locally.</li>
+</ol>
+<div class="sourceCode" id="cb288"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb288-1"><a href="data-importing-and-exporting.html#cb288-1" tabindex="-1"></a><span class="co"># i. Read the CSV file into a `data.frame` and give it a variable name `housePricesDF`</span></span>
+<span id="cb288-2"><a href="data-importing-and-exporting.html#cb288-2" tabindex="-1"></a>housePricesDF <span class="ot">&lt;-</span> <span class="fu">read.csv</span>(<span class="st">&quot;data/house_price_regression_dataset.csv&quot;</span>)</span>
+<span id="cb288-3"><a href="data-importing-and-exporting.html#cb288-3" tabindex="-1"></a></span>
+<span id="cb288-4"><a href="data-importing-and-exporting.html#cb288-4" tabindex="-1"></a><span class="co"># ii. Write the `data.frame` into an Excel file locally</span></span>
+<span id="cb288-5"><a href="data-importing-and-exporting.html#cb288-5" tabindex="-1"></a><span class="fu">write.csv</span>(housePricesDF, <span class="st">&quot;data/saved_data/house_price_regression_dataset.csv&quot;</span>)</span></code></pre></div>
 
+</div>
 </div>
 </div>
             </section>

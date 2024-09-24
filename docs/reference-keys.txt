@@ -31,6 +31,8 @@ introduction-to-data-importing
 demonstration-of-data-importing
 introduction-to-data-exporting
 practical-exercise
+solutions-1
+practical-exercise-1
 data-manipulation
 basic-data-manipulation
 introduction-to-data-manipulation
