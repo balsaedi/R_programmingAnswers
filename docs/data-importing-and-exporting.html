@@ -160,6 +160,10 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <li class="chapter" data-level="1.3.3" data-path="index.html"><a href="index.html#basic-r-syntax-and-commands"><i class="fa fa-check"></i><b>1.3.3</b> Basic R Syntax and Commands</a></li>
 </ul></li>
 <li class="chapter" data-level="1.4" data-path="index.html"><a href="index.html#hands-on-exercise"><i class="fa fa-check"></i><b>1.4</b> Hands-on Exercise</a></li>
+<li class="chapter" data-level="1.5" data-path="index.html"><a href="index.html#solutions"><i class="fa fa-check"></i><b>1.5</b> Solutions</a>
+<ul>
+<li class="chapter" data-level="1.5.1" data-path="index.html"><a href="index.html#hands-on-exercise-1"><i class="fa fa-check"></i><b>1.5.1</b> Hands-on Exercise</a></li>
+</ul></li>
 </ul></li>
 <li class="chapter" data-level="2" data-path="basic-data-types-and-structures.html"><a href="basic-data-types-and-structures.html"><i class="fa fa-check"></i><b>2</b> Basic Data Types and Structures</a>
 <ul>
@@ -229,7 +233,7 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <ul>
 <li class="chapter" data-level="7.1.1" data-path="statistical-analysis.html"><a href="statistical-analysis.html#introduction-to-descriptive-statistics"><i class="fa fa-check"></i><b>7.1.1</b> Introduction to Descriptive Statistics</a></li>
 <li class="chapter" data-level="7.1.2" data-path="statistical-analysis.html"><a href="statistical-analysis.html#visualization-of-descriptive-statistics"><i class="fa fa-check"></i><b>7.1.2</b> Visualization of Descriptive Statistics</a></li>
-<li class="chapter" data-level="7.1.3" data-path="statistical-analysis.html"><a href="statistical-analysis.html#hands-on-exercise-1"><i class="fa fa-check"></i><b>7.1.3</b> Hands On Exercise</a></li>
+<li class="chapter" data-level="7.1.3" data-path="statistical-analysis.html"><a href="statistical-analysis.html#hands-on-exercise-2"><i class="fa fa-check"></i><b>7.1.3</b> Hands On Exercise</a></li>
 </ul></li>
 <li class="chapter" data-level="7.2" data-path="statistical-analysis.html"><a href="statistical-analysis.html#correlation-and-regression-analysis"><i class="fa fa-check"></i><b>7.2</b> Correlation and Regression Analysis</a>
 <ul>
@@ -350,10 +354,10 @@ head(df)</code></pre>
 <p>The <code>read_csv()</code> function is one more way to read a csv file. This function comes from the <code>readr</code> package that is installed by;</p>
 <pre><code>install.packages(&quot;readr&quot;)</code></pre>
 <p>and the library can be imported by;</p>
-<div class="sourceCode" id="cb261"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb261-1"><a href="data-importing-and-exporting.html#cb261-1" tabindex="-1"></a><span class="fu">library</span>(readr)</span></code></pre></div>
+<div class="sourceCode" id="cb269"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb269-1"><a href="data-importing-and-exporting.html#cb269-1" tabindex="-1"></a><span class="fu">library</span>(readr)</span></code></pre></div>
 <p>Lets read a csv file using the <code>read_csv()</code>(note the ’_’ instead of a ‘.’) from the <code>readr</code> library.</p>
-<div class="sourceCode" id="cb262"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb262-1"><a href="data-importing-and-exporting.html#cb262-1" tabindex="-1"></a>df <span class="ot">&lt;-</span> <span class="fu">read_csv</span>(<span class="st">&quot;data/hotel_bookings_clean.csv&quot;</span>, <span class="at">show_col_types =</span> <span class="cn">FALSE</span>)</span>
-<span id="cb262-2"><a href="data-importing-and-exporting.html#cb262-2" tabindex="-1"></a><span class="fu">head</span>(df)</span></code></pre></div>
+<div class="sourceCode" id="cb270"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb270-1"><a href="data-importing-and-exporting.html#cb270-1" tabindex="-1"></a>df <span class="ot">&lt;-</span> <span class="fu">read_csv</span>(<span class="st">&quot;data/hotel_bookings_clean.csv&quot;</span>, <span class="at">show_col_types =</span> <span class="cn">FALSE</span>)</span>
+<span id="cb270-2"><a href="data-importing-and-exporting.html#cb270-2" tabindex="-1"></a><span class="fu">head</span>(df)</span></code></pre></div>
 <pre><code>## # A tibble: 6 × 53
 ##   is_canceled lead_time arrival_date_week_number arrival_date_day_of_month
 ##         &lt;dbl&gt;     &lt;dbl&gt;                    &lt;dbl&gt;                     &lt;dbl&gt;
@@ -375,10 +379,10 @@ head(df)</code></pre>
 <li><strong>Importing Excel file in R</strong></li>
 </ul>
 <p>In this section we will read the HR employee data for descriptive and inferential analytics. We will use the <code>read_excel</code> from the <code>readxl</code> package. It can be imported by;</p>
-<div class="sourceCode" id="cb264"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb264-1"><a href="data-importing-and-exporting.html#cb264-1" tabindex="-1"></a><span class="fu">library</span>(readxl)</span></code></pre></div>
+<div class="sourceCode" id="cb272"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb272-1"><a href="data-importing-and-exporting.html#cb272-1" tabindex="-1"></a><span class="fu">library</span>(readxl)</span></code></pre></div>
 <p>Let’s load the excel data into R data frame.</p>
-<div class="sourceCode" id="cb265"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb265-1"><a href="data-importing-and-exporting.html#cb265-1" tabindex="-1"></a>df <span class="ot">&lt;-</span> <span class="fu">read_excel</span>(<span class="st">&quot;data/HR_Employee_Data.xlsx&quot;</span>)</span>
-<span id="cb265-2"><a href="data-importing-and-exporting.html#cb265-2" tabindex="-1"></a><span class="fu">head</span>(df)</span></code></pre></div>
+<div class="sourceCode" id="cb273"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb273-1"><a href="data-importing-and-exporting.html#cb273-1" tabindex="-1"></a>df <span class="ot">&lt;-</span> <span class="fu">read_excel</span>(<span class="st">&quot;data/HR_Employee_Data.xlsx&quot;</span>)</span>
+<span id="cb273-2"><a href="data-importing-and-exporting.html#cb273-2" tabindex="-1"></a><span class="fu">head</span>(df)</span></code></pre></div>
 <pre><code>## # A tibble: 6 × 11
 ##   Emp_Id  satisfaction_level last_evaluation number_project average_montly_hours
 ##   &lt;chr&gt;                &lt;dbl&gt;           &lt;dbl&gt;          &lt;dbl&gt;                &lt;dbl&gt;
@@ -391,8 +395,8 @@ head(df)</code></pre>
 ## # ℹ 6 more variables: time_spend_company &lt;dbl&gt;, Work_accident &lt;dbl&gt;,
 ## #   left &lt;dbl&gt;, promotion_last_5years &lt;dbl&gt;, Department &lt;chr&gt;, salary &lt;chr&gt;</code></pre>
 <p>If they are multiple worksheets in the excel, the read_excel has an argument <code>sheet</code> for sheet number(By default, sheet 1 is loaded. Lets load the first sheet.</p>
-<div class="sourceCode" id="cb267"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb267-1"><a href="data-importing-and-exporting.html#cb267-1" tabindex="-1"></a>df_sheet1 <span class="ot">&lt;-</span> <span class="fu">read_excel</span>(<span class="st">&quot;data/HR_Employee_Data.xlsx&quot;</span>, <span class="at">sheet=</span><span class="dv">1</span>)</span>
-<span id="cb267-2"><a href="data-importing-and-exporting.html#cb267-2" tabindex="-1"></a><span class="fu">head</span>(df_sheet1)</span></code></pre></div>
+<div class="sourceCode" id="cb275"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb275-1"><a href="data-importing-and-exporting.html#cb275-1" tabindex="-1"></a>df_sheet1 <span class="ot">&lt;-</span> <span class="fu">read_excel</span>(<span class="st">&quot;data/HR_Employee_Data.xlsx&quot;</span>, <span class="at">sheet=</span><span class="dv">1</span>)</span>
+<span id="cb275-2"><a href="data-importing-and-exporting.html#cb275-2" tabindex="-1"></a><span class="fu">head</span>(df_sheet1)</span></code></pre></div>
 <pre><code>## # A tibble: 6 × 11
 ##   Emp_Id  satisfaction_level last_evaluation number_project average_montly_hours
 ##   &lt;chr&gt;                &lt;dbl&gt;           &lt;dbl&gt;          &lt;dbl&gt;                &lt;dbl&gt;
@@ -420,14 +424,14 @@ head(df)</code></pre>
 <li>The <code>write.table()</code> function is more of a general function that different types of files for example TSV, CSV and text files.</li>
 </ol>
 <p>Lets create a small data frame and demonstrate how these functions work.</p>
-<div class="sourceCode" id="cb270"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb270-1"><a href="data-importing-and-exporting.html#cb270-1" tabindex="-1"></a><span class="co"># Sample data frame</span></span>
-<span id="cb270-2"><a href="data-importing-and-exporting.html#cb270-2" tabindex="-1"></a>df <span class="ot">&lt;-</span> <span class="fu">data.frame</span>(</span>
-<span id="cb270-3"><a href="data-importing-and-exporting.html#cb270-3" tabindex="-1"></a>  <span class="at">Name =</span> <span class="fu">c</span>(<span class="st">&quot;Alice&quot;</span>, <span class="st">&quot;Bob&quot;</span>, <span class="st">&quot;Charlie&quot;</span>),</span>
-<span id="cb270-4"><a href="data-importing-and-exporting.html#cb270-4" tabindex="-1"></a>  <span class="at">Age =</span> <span class="fu">c</span>(<span class="dv">25</span>, <span class="dv">30</span>, <span class="dv">35</span>),</span>
-<span id="cb270-5"><a href="data-importing-and-exporting.html#cb270-5" tabindex="-1"></a>  <span class="at">Salary =</span> <span class="fu">c</span>(<span class="dv">50000</span>, <span class="dv">60000</span>, <span class="dv">70000</span>)</span>
-<span id="cb270-6"><a href="data-importing-and-exporting.html#cb270-6" tabindex="-1"></a>)</span>
-<span id="cb270-7"><a href="data-importing-and-exporting.html#cb270-7" tabindex="-1"></a></span>
-<span id="cb270-8"><a href="data-importing-and-exporting.html#cb270-8" tabindex="-1"></a>df</span></code></pre></div>
+<div class="sourceCode" id="cb278"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb278-1"><a href="data-importing-and-exporting.html#cb278-1" tabindex="-1"></a><span class="co"># Sample data frame</span></span>
+<span id="cb278-2"><a href="data-importing-and-exporting.html#cb278-2" tabindex="-1"></a>df <span class="ot">&lt;-</span> <span class="fu">data.frame</span>(</span>
+<span id="cb278-3"><a href="data-importing-and-exporting.html#cb278-3" tabindex="-1"></a>  <span class="at">Name =</span> <span class="fu">c</span>(<span class="st">&quot;Alice&quot;</span>, <span class="st">&quot;Bob&quot;</span>, <span class="st">&quot;Charlie&quot;</span>),</span>
+<span id="cb278-4"><a href="data-importing-and-exporting.html#cb278-4" tabindex="-1"></a>  <span class="at">Age =</span> <span class="fu">c</span>(<span class="dv">25</span>, <span class="dv">30</span>, <span class="dv">35</span>),</span>
+<span id="cb278-5"><a href="data-importing-and-exporting.html#cb278-5" tabindex="-1"></a>  <span class="at">Salary =</span> <span class="fu">c</span>(<span class="dv">50000</span>, <span class="dv">60000</span>, <span class="dv">70000</span>)</span>
+<span id="cb278-6"><a href="data-importing-and-exporting.html#cb278-6" tabindex="-1"></a>)</span>
+<span id="cb278-7"><a href="data-importing-and-exporting.html#cb278-7" tabindex="-1"></a></span>
+<span id="cb278-8"><a href="data-importing-and-exporting.html#cb278-8" tabindex="-1"></a>df</span></code></pre></div>
 <pre><code>##      Name Age Salary
 ## 1   Alice  25  50000
 ## 2     Bob  30  60000
@@ -448,10 +452,10 @@ write.xlsx(df, file=&quot;data/sample_data_2.xlsx&quot;)</code></pre>
 write.table(df, file = &quot;data/sample_data.txt&quot;, sep = &quot; &quot;, row.names = FALSE, quote = FALSE)</code></pre>
 <p>The same data frame can be converted to a data vector and loaded to a text file using the <code>writeLines(data_vector, filepath)</code>.</p>
 <p>Lets convert the data frame to a data vector and show the output.</p>
-<div class="sourceCode" id="cb277"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb277-1"><a href="data-importing-and-exporting.html#cb277-1" tabindex="-1"></a><span class="co"># Convert data frame to a character vector</span></span>
-<span id="cb277-2"><a href="data-importing-and-exporting.html#cb277-2" tabindex="-1"></a>df_vector <span class="ot">&lt;-</span> <span class="fu">apply</span>(df, <span class="dv">1</span>, <span class="cf">function</span>(row) <span class="fu">paste</span>(row, <span class="at">collapse =</span> <span class="st">&quot; &quot;</span>))</span>
-<span id="cb277-3"><a href="data-importing-and-exporting.html#cb277-3" tabindex="-1"></a></span>
-<span id="cb277-4"><a href="data-importing-and-exporting.html#cb277-4" tabindex="-1"></a>df_vector</span></code></pre></div>
+<div class="sourceCode" id="cb285"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb285-1"><a href="data-importing-and-exporting.html#cb285-1" tabindex="-1"></a><span class="co"># Convert data frame to a character vector</span></span>
+<span id="cb285-2"><a href="data-importing-and-exporting.html#cb285-2" tabindex="-1"></a>df_vector <span class="ot">&lt;-</span> <span class="fu">apply</span>(df, <span class="dv">1</span>, <span class="cf">function</span>(row) <span class="fu">paste</span>(row, <span class="at">collapse =</span> <span class="st">&quot; &quot;</span>))</span>
+<span id="cb285-3"><a href="data-importing-and-exporting.html#cb285-3" tabindex="-1"></a></span>
+<span id="cb285-4"><a href="data-importing-and-exporting.html#cb285-4" tabindex="-1"></a>df_vector</span></code></pre></div>
 <pre><code>## [1] &quot;Alice 25 50000&quot;   &quot;Bob 30 60000&quot;     &quot;Charlie 35 70000&quot;</code></pre>
 <p>Export the file</p>
 <pre><code># Write the character vector to a text file

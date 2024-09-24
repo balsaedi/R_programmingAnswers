@@ -11,6 +11,8 @@ installation-of-r-and-rstudio
 introduction-to-rstudio-interface
 basic-r-syntax-and-commands
 hands-on-exercise
+solutions
+hands-on-exercise-1
 basic-data-types-and-structures
 data-types
 data-structures
@@ -64,7 +66,7 @@ statistical-analysis
 basic-statistical-concepts
 introduction-to-descriptive-statistics
 visualization-of-descriptive-statistics
-hands-on-exercise-1
+hands-on-exercise-2
 correlation-and-regression-analysis
 introduction-to-correlation
 introduction-to-regression-analysis

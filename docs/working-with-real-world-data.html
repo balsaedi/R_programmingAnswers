@@ -160,6 +160,10 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <li class="chapter" data-level="1.3.3" data-path="index.html"><a href="index.html#basic-r-syntax-and-commands"><i class="fa fa-check"></i><b>1.3.3</b> Basic R Syntax and Commands</a></li>
 </ul></li>
 <li class="chapter" data-level="1.4" data-path="index.html"><a href="index.html#hands-on-exercise"><i class="fa fa-check"></i><b>1.4</b> Hands-on Exercise</a></li>
+<li class="chapter" data-level="1.5" data-path="index.html"><a href="index.html#solutions"><i class="fa fa-check"></i><b>1.5</b> Solutions</a>
+<ul>
+<li class="chapter" data-level="1.5.1" data-path="index.html"><a href="index.html#hands-on-exercise-1"><i class="fa fa-check"></i><b>1.5.1</b> Hands-on Exercise</a></li>
+</ul></li>
 </ul></li>
 <li class="chapter" data-level="2" data-path="basic-data-types-and-structures.html"><a href="basic-data-types-and-structures.html"><i class="fa fa-check"></i><b>2</b> Basic Data Types and Structures</a>
 <ul>
@@ -229,7 +233,7 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <ul>
 <li class="chapter" data-level="7.1.1" data-path="statistical-analysis.html"><a href="statistical-analysis.html#introduction-to-descriptive-statistics"><i class="fa fa-check"></i><b>7.1.1</b> Introduction to Descriptive Statistics</a></li>
 <li class="chapter" data-level="7.1.2" data-path="statistical-analysis.html"><a href="statistical-analysis.html#visualization-of-descriptive-statistics"><i class="fa fa-check"></i><b>7.1.2</b> Visualization of Descriptive Statistics</a></li>
-<li class="chapter" data-level="7.1.3" data-path="statistical-analysis.html"><a href="statistical-analysis.html#hands-on-exercise-1"><i class="fa fa-check"></i><b>7.1.3</b> Hands On Exercise</a></li>
+<li class="chapter" data-level="7.1.3" data-path="statistical-analysis.html"><a href="statistical-analysis.html#hands-on-exercise-2"><i class="fa fa-check"></i><b>7.1.3</b> Hands On Exercise</a></li>
 </ul></li>
 <li class="chapter" data-level="7.2" data-path="statistical-analysis.html"><a href="statistical-analysis.html#correlation-and-regression-analysis"><i class="fa fa-check"></i><b>7.2</b> Correlation and Regression Analysis</a>
 <ul>
@@ -345,15 +349,15 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <h4><span class="header-section-number">8.1.2.1</span> Using data.table Package<a href="working-with-real-world-data.html#using-data.table-package" class="anchor-section" aria-label="Anchor link to header"></a></h4>
 <p>The <code>data.table</code> package delivers an improved version of a <code>data.frame</code> structure. The data structure from this package(has the same name, <code>data.table</code>) is high performance, memory efficient thus being more fit for large data sets than the <code>data.frame</code> kind of a data structure.</p>
 <p>Lets create a simple <code>data.table</code> from a random data set.</p>
-<div class="sourceCode" id="cb519"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb519-1"><a href="working-with-real-world-data.html#cb519-1" tabindex="-1"></a><span class="co"># Load the library</span></span>
-<span id="cb519-2"><a href="working-with-real-world-data.html#cb519-2" tabindex="-1"></a><span class="fu">library</span>(data.table)</span>
-<span id="cb519-3"><a href="working-with-real-world-data.html#cb519-3" tabindex="-1"></a></span>
-<span id="cb519-4"><a href="working-with-real-world-data.html#cb519-4" tabindex="-1"></a><span class="co"># Create the data.table </span></span>
-<span id="cb519-5"><a href="working-with-real-world-data.html#cb519-5" tabindex="-1"></a>student_dtb <span class="ot">&lt;-</span> <span class="fu">data.table</span>(<span class="at">stuid =</span> <span class="fu">c</span>(<span class="dv">2</span>, <span class="dv">5</span>, <span class="dv">3</span>, <span class="dv">4</span>, <span class="dv">6</span>, <span class="dv">7</span>, <span class="dv">4</span>, <span class="dv">2</span>, <span class="dv">0</span>),<span class="co"># student id</span></span>
-<span id="cb519-6"><a href="working-with-real-world-data.html#cb519-6" tabindex="-1"></a>                          <span class="at">age =</span> <span class="fu">c</span>(<span class="dv">23</span>, <span class="dv">45</span>, <span class="dv">67</span>, <span class="dv">23</span>, <span class="dv">41</span>, <span class="dv">43</span>, <span class="dv">54</span>, <span class="dv">67</span>, <span class="dv">89</span>)</span>
-<span id="cb519-7"><a href="working-with-real-world-data.html#cb519-7" tabindex="-1"></a>                          )</span>
-<span id="cb519-8"><a href="working-with-real-world-data.html#cb519-8" tabindex="-1"></a></span>
-<span id="cb519-9"><a href="working-with-real-world-data.html#cb519-9" tabindex="-1"></a>student_dtb</span></code></pre></div>
+<div class="sourceCode" id="cb527"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb527-1"><a href="working-with-real-world-data.html#cb527-1" tabindex="-1"></a><span class="co"># Load the library</span></span>
+<span id="cb527-2"><a href="working-with-real-world-data.html#cb527-2" tabindex="-1"></a><span class="fu">library</span>(data.table)</span>
+<span id="cb527-3"><a href="working-with-real-world-data.html#cb527-3" tabindex="-1"></a></span>
+<span id="cb527-4"><a href="working-with-real-world-data.html#cb527-4" tabindex="-1"></a><span class="co"># Create the data.table </span></span>
+<span id="cb527-5"><a href="working-with-real-world-data.html#cb527-5" tabindex="-1"></a>student_dtb <span class="ot">&lt;-</span> <span class="fu">data.table</span>(<span class="at">stuid =</span> <span class="fu">c</span>(<span class="dv">2</span>, <span class="dv">5</span>, <span class="dv">3</span>, <span class="dv">4</span>, <span class="dv">6</span>, <span class="dv">7</span>, <span class="dv">4</span>, <span class="dv">2</span>, <span class="dv">0</span>),<span class="co"># student id</span></span>
+<span id="cb527-6"><a href="working-with-real-world-data.html#cb527-6" tabindex="-1"></a>                          <span class="at">age =</span> <span class="fu">c</span>(<span class="dv">23</span>, <span class="dv">45</span>, <span class="dv">67</span>, <span class="dv">23</span>, <span class="dv">41</span>, <span class="dv">43</span>, <span class="dv">54</span>, <span class="dv">67</span>, <span class="dv">89</span>)</span>
+<span id="cb527-7"><a href="working-with-real-world-data.html#cb527-7" tabindex="-1"></a>                          )</span>
+<span id="cb527-8"><a href="working-with-real-world-data.html#cb527-8" tabindex="-1"></a></span>
+<span id="cb527-9"><a href="working-with-real-world-data.html#cb527-9" tabindex="-1"></a>student_dtb</span></code></pre></div>
 <pre><code>##    stuid   age
 ##    &lt;num&gt; &lt;num&gt;
 ## 1:     2    23
@@ -366,12 +370,12 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 ## 8:     2    67
 ## 9:     0    89</code></pre>
 <p>A <code>data.frame</code> is created the same as a <code>data.table</code></p>
-<div class="sourceCode" id="cb521"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb521-1"><a href="working-with-real-world-data.html#cb521-1" tabindex="-1"></a><span class="co"># Create the data.frame</span></span>
-<span id="cb521-2"><a href="working-with-real-world-data.html#cb521-2" tabindex="-1"></a>student_df <span class="ot">&lt;-</span> <span class="fu">data.table</span>(<span class="at">stuid =</span> <span class="fu">c</span>(<span class="dv">2</span>, <span class="dv">5</span>, <span class="dv">3</span>, <span class="dv">4</span>, <span class="dv">6</span>, <span class="dv">7</span>, <span class="dv">4</span>, <span class="dv">2</span>, <span class="dv">0</span>),<span class="co"># student id</span></span>
-<span id="cb521-3"><a href="working-with-real-world-data.html#cb521-3" tabindex="-1"></a>                          <span class="at">age =</span> <span class="fu">c</span>(<span class="dv">23</span>, <span class="dv">45</span>, <span class="dv">67</span>, <span class="dv">23</span>, <span class="dv">41</span>, <span class="dv">43</span>, <span class="dv">54</span>, <span class="dv">67</span>, <span class="dv">89</span>)</span>
-<span id="cb521-4"><a href="working-with-real-world-data.html#cb521-4" tabindex="-1"></a>                          )</span>
-<span id="cb521-5"><a href="working-with-real-world-data.html#cb521-5" tabindex="-1"></a></span>
-<span id="cb521-6"><a href="working-with-real-world-data.html#cb521-6" tabindex="-1"></a>student_df</span></code></pre></div>
+<div class="sourceCode" id="cb529"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb529-1"><a href="working-with-real-world-data.html#cb529-1" tabindex="-1"></a><span class="co"># Create the data.frame</span></span>
+<span id="cb529-2"><a href="working-with-real-world-data.html#cb529-2" tabindex="-1"></a>student_df <span class="ot">&lt;-</span> <span class="fu">data.table</span>(<span class="at">stuid =</span> <span class="fu">c</span>(<span class="dv">2</span>, <span class="dv">5</span>, <span class="dv">3</span>, <span class="dv">4</span>, <span class="dv">6</span>, <span class="dv">7</span>, <span class="dv">4</span>, <span class="dv">2</span>, <span class="dv">0</span>),<span class="co"># student id</span></span>
+<span id="cb529-3"><a href="working-with-real-world-data.html#cb529-3" tabindex="-1"></a>                          <span class="at">age =</span> <span class="fu">c</span>(<span class="dv">23</span>, <span class="dv">45</span>, <span class="dv">67</span>, <span class="dv">23</span>, <span class="dv">41</span>, <span class="dv">43</span>, <span class="dv">54</span>, <span class="dv">67</span>, <span class="dv">89</span>)</span>
+<span id="cb529-4"><a href="working-with-real-world-data.html#cb529-4" tabindex="-1"></a>                          )</span>
+<span id="cb529-5"><a href="working-with-real-world-data.html#cb529-5" tabindex="-1"></a></span>
+<span id="cb529-6"><a href="working-with-real-world-data.html#cb529-6" tabindex="-1"></a>student_df</span></code></pre></div>
 <pre><code>##    stuid   age
 ##    &lt;num&gt; &lt;num&gt;
 ## 1:     2    23
@@ -427,9 +431,9 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <li><strong>Filtering rows</strong></li>
 </ul>
 <p>Rows in a data.table can be filtered using conditions in data.table. For instance, lets filter the data above to find the ones above the age of 40</p>
-<div class="sourceCode" id="cb523"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb523-1"><a href="working-with-real-world-data.html#cb523-1" tabindex="-1"></a><span class="co"># Get the ones above 40 years</span></span>
-<span id="cb523-2"><a href="working-with-real-world-data.html#cb523-2" tabindex="-1"></a>dtb1 <span class="ot">&lt;-</span> student_df[age <span class="sc">&gt;</span> <span class="dv">40</span>]</span>
-<span id="cb523-3"><a href="working-with-real-world-data.html#cb523-3" tabindex="-1"></a><span class="fu">print</span>(dtb1)</span></code></pre></div>
+<div class="sourceCode" id="cb531"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb531-1"><a href="working-with-real-world-data.html#cb531-1" tabindex="-1"></a><span class="co"># Get the ones above 40 years</span></span>
+<span id="cb531-2"><a href="working-with-real-world-data.html#cb531-2" tabindex="-1"></a>dtb1 <span class="ot">&lt;-</span> student_df[age <span class="sc">&gt;</span> <span class="dv">40</span>]</span>
+<span id="cb531-3"><a href="working-with-real-world-data.html#cb531-3" tabindex="-1"></a><span class="fu">print</span>(dtb1)</span></code></pre></div>
 <pre><code>##    stuid   age
 ##    &lt;num&gt; &lt;num&gt;
 ## 1:     5    45
@@ -443,9 +447,9 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <li><strong>Selecting Specific Columns</strong></li>
 </ul>
 <p>You can select specific columns in a data.table. Lets select the age column</p>
-<div class="sourceCode" id="cb525"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb525-1"><a href="working-with-real-world-data.html#cb525-1" tabindex="-1"></a><span class="co"># Select the age column </span></span>
-<span id="cb525-2"><a href="working-with-real-world-data.html#cb525-2" tabindex="-1"></a>age_dt <span class="ot">&lt;-</span> student_df[, .(age)]</span>
-<span id="cb525-3"><a href="working-with-real-world-data.html#cb525-3" tabindex="-1"></a><span class="fu">print</span>(age_dt)</span></code></pre></div>
+<div class="sourceCode" id="cb533"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb533-1"><a href="working-with-real-world-data.html#cb533-1" tabindex="-1"></a><span class="co"># Select the age column </span></span>
+<span id="cb533-2"><a href="working-with-real-world-data.html#cb533-2" tabindex="-1"></a>age_dt <span class="ot">&lt;-</span> student_df[, .(age)]</span>
+<span id="cb533-3"><a href="working-with-real-world-data.html#cb533-3" tabindex="-1"></a><span class="fu">print</span>(age_dt)</span></code></pre></div>
 <pre><code>##      age
 ##    &lt;num&gt;
 ## 1:    23
@@ -461,16 +465,16 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <li><strong>Aggregating data</strong></li>
 </ul>
 <p>Aggregation can be done with the help of functions like <code>mean()</code>, <code>sum()</code> …</p>
-<div class="sourceCode" id="cb527"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb527-1"><a href="working-with-real-world-data.html#cb527-1" tabindex="-1"></a><span class="co"># Create a sample data.table</span></span>
-<span id="cb527-2"><a href="working-with-real-world-data.html#cb527-2" tabindex="-1"></a>dt <span class="ot">&lt;-</span> <span class="fu">data.table</span>(</span>
-<span id="cb527-3"><a href="working-with-real-world-data.html#cb527-3" tabindex="-1"></a>  <span class="at">ID =</span> <span class="dv">1</span><span class="sc">:</span><span class="dv">10</span>,</span>
-<span id="cb527-4"><a href="working-with-real-world-data.html#cb527-4" tabindex="-1"></a>  <span class="at">Name =</span> <span class="fu">c</span>(<span class="st">&quot;Alice&quot;</span>, <span class="st">&quot;Bob&quot;</span>, <span class="st">&quot;Charlie&quot;</span>, <span class="st">&quot;David&quot;</span>, <span class="st">&quot;Eve&quot;</span>, <span class="st">&quot;Frank&quot;</span>, <span class="st">&quot;Grace&quot;</span>, <span class="st">&quot;Hannah&quot;</span>, <span class="st">&quot;Isaac&quot;</span>, <span class="st">&quot;Jack&quot;</span>),</span>
-<span id="cb527-5"><a href="working-with-real-world-data.html#cb527-5" tabindex="-1"></a>  <span class="at">Age =</span> <span class="fu">c</span>(<span class="dv">25</span>, <span class="dv">30</span>, <span class="dv">35</span>, <span class="dv">40</span>, <span class="dv">28</span>, <span class="dv">32</span>, <span class="dv">30</span>, <span class="dv">29</span>, <span class="dv">33</span>, <span class="dv">36</span>),</span>
-<span id="cb527-6"><a href="working-with-real-world-data.html#cb527-6" tabindex="-1"></a>  <span class="at">Score =</span> <span class="fu">c</span>(<span class="dv">85</span>, <span class="dv">90</span>, <span class="dv">88</span>, <span class="dv">92</span>, <span class="dv">76</span>, <span class="dv">95</span>, <span class="dv">89</span>, <span class="dv">78</span>, <span class="dv">82</span>, <span class="dv">91</span>)</span>
-<span id="cb527-7"><a href="working-with-real-world-data.html#cb527-7" tabindex="-1"></a>)</span>
-<span id="cb527-8"><a href="working-with-real-world-data.html#cb527-8" tabindex="-1"></a></span>
-<span id="cb527-9"><a href="working-with-real-world-data.html#cb527-9" tabindex="-1"></a><span class="co"># Print the data.table</span></span>
-<span id="cb527-10"><a href="working-with-real-world-data.html#cb527-10" tabindex="-1"></a>dt</span></code></pre></div>
+<div class="sourceCode" id="cb535"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb535-1"><a href="working-with-real-world-data.html#cb535-1" tabindex="-1"></a><span class="co"># Create a sample data.table</span></span>
+<span id="cb535-2"><a href="working-with-real-world-data.html#cb535-2" tabindex="-1"></a>dt <span class="ot">&lt;-</span> <span class="fu">data.table</span>(</span>
+<span id="cb535-3"><a href="working-with-real-world-data.html#cb535-3" tabindex="-1"></a>  <span class="at">ID =</span> <span class="dv">1</span><span class="sc">:</span><span class="dv">10</span>,</span>
+<span id="cb535-4"><a href="working-with-real-world-data.html#cb535-4" tabindex="-1"></a>  <span class="at">Name =</span> <span class="fu">c</span>(<span class="st">&quot;Alice&quot;</span>, <span class="st">&quot;Bob&quot;</span>, <span class="st">&quot;Charlie&quot;</span>, <span class="st">&quot;David&quot;</span>, <span class="st">&quot;Eve&quot;</span>, <span class="st">&quot;Frank&quot;</span>, <span class="st">&quot;Grace&quot;</span>, <span class="st">&quot;Hannah&quot;</span>, <span class="st">&quot;Isaac&quot;</span>, <span class="st">&quot;Jack&quot;</span>),</span>
+<span id="cb535-5"><a href="working-with-real-world-data.html#cb535-5" tabindex="-1"></a>  <span class="at">Age =</span> <span class="fu">c</span>(<span class="dv">25</span>, <span class="dv">30</span>, <span class="dv">35</span>, <span class="dv">40</span>, <span class="dv">28</span>, <span class="dv">32</span>, <span class="dv">30</span>, <span class="dv">29</span>, <span class="dv">33</span>, <span class="dv">36</span>),</span>
+<span id="cb535-6"><a href="working-with-real-world-data.html#cb535-6" tabindex="-1"></a>  <span class="at">Score =</span> <span class="fu">c</span>(<span class="dv">85</span>, <span class="dv">90</span>, <span class="dv">88</span>, <span class="dv">92</span>, <span class="dv">76</span>, <span class="dv">95</span>, <span class="dv">89</span>, <span class="dv">78</span>, <span class="dv">82</span>, <span class="dv">91</span>)</span>
+<span id="cb535-7"><a href="working-with-real-world-data.html#cb535-7" tabindex="-1"></a>)</span>
+<span id="cb535-8"><a href="working-with-real-world-data.html#cb535-8" tabindex="-1"></a></span>
+<span id="cb535-9"><a href="working-with-real-world-data.html#cb535-9" tabindex="-1"></a><span class="co"># Print the data.table</span></span>
+<span id="cb535-10"><a href="working-with-real-world-data.html#cb535-10" tabindex="-1"></a>dt</span></code></pre></div>
 <pre><code>##        ID    Name   Age Score
 ##     &lt;int&gt;  &lt;char&gt; &lt;num&gt; &lt;num&gt;
 ##  1:     1   Alice    25    85
@@ -483,9 +487,9 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 ##  8:     8  Hannah    29    78
 ##  9:     9   Isaac    33    82
 ## 10:    10    Jack    36    91</code></pre>
-<div class="sourceCode" id="cb529"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb529-1"><a href="working-with-real-world-data.html#cb529-1" tabindex="-1"></a><span class="co"># Calculate the average score by Age</span></span>
-<span id="cb529-2"><a href="working-with-real-world-data.html#cb529-2" tabindex="-1"></a>aggregated_dt <span class="ot">&lt;-</span> dt[, .(<span class="at">Average_Score =</span> <span class="fu">mean</span>(Score)), by <span class="ot">=</span> Age]</span>
-<span id="cb529-3"><a href="working-with-real-world-data.html#cb529-3" tabindex="-1"></a><span class="fu">print</span>(aggregated_dt)</span></code></pre></div>
+<div class="sourceCode" id="cb537"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb537-1"><a href="working-with-real-world-data.html#cb537-1" tabindex="-1"></a><span class="co"># Calculate the average score by Age</span></span>
+<span id="cb537-2"><a href="working-with-real-world-data.html#cb537-2" tabindex="-1"></a>aggregated_dt <span class="ot">&lt;-</span> dt[, .(<span class="at">Average_Score =</span> <span class="fu">mean</span>(Score)), by <span class="ot">=</span> Age]</span>
+<span id="cb537-3"><a href="working-with-real-world-data.html#cb537-3" tabindex="-1"></a><span class="fu">print</span>(aggregated_dt)</span></code></pre></div>
 <pre><code>##      Age Average_Score
 ##    &lt;num&gt;         &lt;num&gt;
 ## 1:    25          85.0
@@ -505,9 +509,9 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <li>filtering to get the student with score of above 85</li>
 <li>aggregate the average score by mean</li>
 </ul>
-<div class="sourceCode" id="cb531"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb531-1"><a href="working-with-real-world-data.html#cb531-1" tabindex="-1"></a><span class="co"># Chain operations: Filter and aggregate</span></span>
-<span id="cb531-2"><a href="working-with-real-world-data.html#cb531-2" tabindex="-1"></a>result_dt <span class="ot">&lt;-</span> dt[Score <span class="sc">&gt;</span> <span class="dv">85</span>, .(<span class="at">Average_Score =</span> <span class="fu">mean</span>(Score)), by <span class="ot">=</span> Age]</span>
-<span id="cb531-3"><a href="working-with-real-world-data.html#cb531-3" tabindex="-1"></a><span class="fu">print</span>(result_dt)</span></code></pre></div>
+<div class="sourceCode" id="cb539"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb539-1"><a href="working-with-real-world-data.html#cb539-1" tabindex="-1"></a><span class="co"># Chain operations: Filter and aggregate</span></span>
+<span id="cb539-2"><a href="working-with-real-world-data.html#cb539-2" tabindex="-1"></a>result_dt <span class="ot">&lt;-</span> dt[Score <span class="sc">&gt;</span> <span class="dv">85</span>, .(<span class="at">Average_Score =</span> <span class="fu">mean</span>(Score)), by <span class="ot">=</span> Age]</span>
+<span id="cb539-3"><a href="working-with-real-world-data.html#cb539-3" tabindex="-1"></a><span class="fu">print</span>(result_dt)</span></code></pre></div>
 <pre><code>##      Age Average_Score
 ##    &lt;num&gt;         &lt;num&gt;
 ## 1:    30          89.5
@@ -516,9 +520,9 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 ## 4:    32          95.0
 ## 5:    36          91.0</code></pre>
 <p>Alternatively, we can filter to get the records with a score of above 85 and select the <code>Name</code> and <code>Score</code> column.</p>
-<div class="sourceCode" id="cb533"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb533-1"><a href="working-with-real-world-data.html#cb533-1" tabindex="-1"></a><span class="co"># Filter and select columns</span></span>
-<span id="cb533-2"><a href="working-with-real-world-data.html#cb533-2" tabindex="-1"></a>filtered_selected_dt <span class="ot">&lt;-</span> dt[Score <span class="sc">&gt;</span> <span class="dv">85</span>, .(Name, Score)]</span>
-<span id="cb533-3"><a href="working-with-real-world-data.html#cb533-3" tabindex="-1"></a><span class="fu">print</span>(filtered_selected_dt)</span></code></pre></div>
+<div class="sourceCode" id="cb541"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb541-1"><a href="working-with-real-world-data.html#cb541-1" tabindex="-1"></a><span class="co"># Filter and select columns</span></span>
+<span id="cb541-2"><a href="working-with-real-world-data.html#cb541-2" tabindex="-1"></a>filtered_selected_dt <span class="ot">&lt;-</span> dt[Score <span class="sc">&gt;</span> <span class="dv">85</span>, .(Name, Score)]</span>
+<span id="cb541-3"><a href="working-with-real-world-data.html#cb541-3" tabindex="-1"></a><span class="fu">print</span>(filtered_selected_dt)</span></code></pre></div>
 <pre><code>##       Name Score
 ##     &lt;char&gt; &lt;num&gt;
 ## 1:     Bob    90
@@ -544,37 +548,37 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <li><strong>Removing unused objects</strong></li>
 </ol>
 <p>Objects like variables and packages that are no longer required need to be removed to free up the memory. The <code>rm()</code> function is used to delete them</p>
-<div class="sourceCode" id="cb535"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb535-1"><a href="working-with-real-world-data.html#cb535-1" tabindex="-1"></a><span class="co"># Create a variable x</span></span>
-<span id="cb535-2"><a href="working-with-real-world-data.html#cb535-2" tabindex="-1"></a>x <span class="ot">&lt;-</span> <span class="fu">rnorm</span>(<span class="dv">11000</span>)</span>
-<span id="cb535-3"><a href="working-with-real-world-data.html#cb535-3" tabindex="-1"></a></span>
-<span id="cb535-4"><a href="working-with-real-world-data.html#cb535-4" tabindex="-1"></a><span class="co"># Remove the variable x</span></span>
-<span id="cb535-5"><a href="working-with-real-world-data.html#cb535-5" tabindex="-1"></a><span class="fu">rm</span>(x) <span class="co"># variable x is deleted</span></span></code></pre></div>
+<div class="sourceCode" id="cb543"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb543-1"><a href="working-with-real-world-data.html#cb543-1" tabindex="-1"></a><span class="co"># Create a variable x</span></span>
+<span id="cb543-2"><a href="working-with-real-world-data.html#cb543-2" tabindex="-1"></a>x <span class="ot">&lt;-</span> <span class="fu">rnorm</span>(<span class="dv">11000</span>)</span>
+<span id="cb543-3"><a href="working-with-real-world-data.html#cb543-3" tabindex="-1"></a></span>
+<span id="cb543-4"><a href="working-with-real-world-data.html#cb543-4" tabindex="-1"></a><span class="co"># Remove the variable x</span></span>
+<span id="cb543-5"><a href="working-with-real-world-data.html#cb543-5" tabindex="-1"></a><span class="fu">rm</span>(x) <span class="co"># variable x is deleted</span></span></code></pre></div>
 <p>You can use the function <code>ls()</code> (with no argument) to confirm if <code>x</code> exists got deleted in the variable list</p>
 <ol start="2" style="list-style-type: decimal">
 <li><strong>Monitoring memory usage</strong></li>
 </ol>
 <p>R has several functions that help in monitoring the memory usage. This helps the programmer identify if the session is consuming too much memory.</p>
 <p><code>object.size()</code> is one of function used to compute the memory usage.</p>
-<div class="sourceCode" id="cb536"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb536-1"><a href="working-with-real-world-data.html#cb536-1" tabindex="-1"></a><span class="co"># Create a variable x</span></span>
-<span id="cb536-2"><a href="working-with-real-world-data.html#cb536-2" tabindex="-1"></a>x <span class="ot">&lt;-</span> <span class="fu">rnorm</span>(<span class="dv">100000</span>)</span>
-<span id="cb536-3"><a href="working-with-real-world-data.html#cb536-3" tabindex="-1"></a></span>
-<span id="cb536-4"><a href="working-with-real-world-data.html#cb536-4" tabindex="-1"></a><span class="co"># Compute the memory usage</span></span>
-<span id="cb536-5"><a href="working-with-real-world-data.html#cb536-5" tabindex="-1"></a><span class="fu">object.size</span>(x)</span></code></pre></div>
+<div class="sourceCode" id="cb544"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb544-1"><a href="working-with-real-world-data.html#cb544-1" tabindex="-1"></a><span class="co"># Create a variable x</span></span>
+<span id="cb544-2"><a href="working-with-real-world-data.html#cb544-2" tabindex="-1"></a>x <span class="ot">&lt;-</span> <span class="fu">rnorm</span>(<span class="dv">100000</span>)</span>
+<span id="cb544-3"><a href="working-with-real-world-data.html#cb544-3" tabindex="-1"></a></span>
+<span id="cb544-4"><a href="working-with-real-world-data.html#cb544-4" tabindex="-1"></a><span class="co"># Compute the memory usage</span></span>
+<span id="cb544-5"><a href="working-with-real-world-data.html#cb544-5" tabindex="-1"></a><span class="fu">object.size</span>(x)</span></code></pre></div>
 <pre><code>## 800048 bytes</code></pre>
 <p>The variable <code>x</code> consumes approximately 800048 bytes of memory</p>
 <p>Besides, one can apply <strong>memory profiling</strong>, that is, tracking the memory usage while the scripts executes. <code>Rprof()</code> is an inbuilt R profile that gets the job done in real time. Lets demonstrate</p>
-<div class="sourceCode" id="cb538"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb538-1"><a href="working-with-real-world-data.html#cb538-1" tabindex="-1"></a><span class="co"># Start memory profiling</span></span>
-<span id="cb538-2"><a href="working-with-real-world-data.html#cb538-2" tabindex="-1"></a><span class="fu">Rprof</span>(<span class="at">memory.profiling =</span> <span class="cn">TRUE</span>)</span>
-<span id="cb538-3"><a href="working-with-real-world-data.html#cb538-3" tabindex="-1"></a></span>
-<span id="cb538-4"><a href="working-with-real-world-data.html#cb538-4" tabindex="-1"></a><span class="co"># Run some computations</span></span>
-<span id="cb538-5"><a href="working-with-real-world-data.html#cb538-5" tabindex="-1"></a>x <span class="ot">&lt;-</span> <span class="fu">rnorm</span>(<span class="fl">1e6</span>)</span>
-<span id="cb538-6"><a href="working-with-real-world-data.html#cb538-6" tabindex="-1"></a>y <span class="ot">&lt;-</span> <span class="fu">rnorm</span>(<span class="fl">1e6</span>)</span>
-<span id="cb538-7"><a href="working-with-real-world-data.html#cb538-7" tabindex="-1"></a></span>
-<span id="cb538-8"><a href="working-with-real-world-data.html#cb538-8" tabindex="-1"></a><span class="co"># Stop profiling</span></span>
-<span id="cb538-9"><a href="working-with-real-world-data.html#cb538-9" tabindex="-1"></a><span class="fu">Rprof</span>(<span class="cn">NULL</span>)</span>
-<span id="cb538-10"><a href="working-with-real-world-data.html#cb538-10" tabindex="-1"></a></span>
-<span id="cb538-11"><a href="working-with-real-world-data.html#cb538-11" tabindex="-1"></a><span class="co"># Summary of memory usage</span></span>
-<span id="cb538-12"><a href="working-with-real-world-data.html#cb538-12" tabindex="-1"></a><span class="fu">summaryRprof</span>()</span></code></pre></div>
+<div class="sourceCode" id="cb546"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb546-1"><a href="working-with-real-world-data.html#cb546-1" tabindex="-1"></a><span class="co"># Start memory profiling</span></span>
+<span id="cb546-2"><a href="working-with-real-world-data.html#cb546-2" tabindex="-1"></a><span class="fu">Rprof</span>(<span class="at">memory.profiling =</span> <span class="cn">TRUE</span>)</span>
+<span id="cb546-3"><a href="working-with-real-world-data.html#cb546-3" tabindex="-1"></a></span>
+<span id="cb546-4"><a href="working-with-real-world-data.html#cb546-4" tabindex="-1"></a><span class="co"># Run some computations</span></span>
+<span id="cb546-5"><a href="working-with-real-world-data.html#cb546-5" tabindex="-1"></a>x <span class="ot">&lt;-</span> <span class="fu">rnorm</span>(<span class="fl">1e6</span>)</span>
+<span id="cb546-6"><a href="working-with-real-world-data.html#cb546-6" tabindex="-1"></a>y <span class="ot">&lt;-</span> <span class="fu">rnorm</span>(<span class="fl">1e6</span>)</span>
+<span id="cb546-7"><a href="working-with-real-world-data.html#cb546-7" tabindex="-1"></a></span>
+<span id="cb546-8"><a href="working-with-real-world-data.html#cb546-8" tabindex="-1"></a><span class="co"># Stop profiling</span></span>
+<span id="cb546-9"><a href="working-with-real-world-data.html#cb546-9" tabindex="-1"></a><span class="fu">Rprof</span>(<span class="cn">NULL</span>)</span>
+<span id="cb546-10"><a href="working-with-real-world-data.html#cb546-10" tabindex="-1"></a></span>
+<span id="cb546-11"><a href="working-with-real-world-data.html#cb546-11" tabindex="-1"></a><span class="co"># Summary of memory usage</span></span>
+<span id="cb546-12"><a href="working-with-real-world-data.html#cb546-12" tabindex="-1"></a><span class="fu">summaryRprof</span>()</span></code></pre></div>
 <pre><code>## $by.self
 ##         self.time self.pct total.time total.pct
 ## &quot;rnorm&quot;      0.12      100       0.12       100
@@ -615,8 +619,8 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <p>Additionally, the <code>pryr</code> package goes further to come up with additional functions to monitor memory usage. It can be installed by;</p>
 <pre><code>install.packages(&quot;pryr&quot;)</code></pre>
 <p>Below is a demonstration of how <code>pryr</code> library works</p>
-<div class="sourceCode" id="cb541"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb541-1"><a href="working-with-real-world-data.html#cb541-1" tabindex="-1"></a><span class="co"># Load the library</span></span>
-<span id="cb541-2"><a href="working-with-real-world-data.html#cb541-2" tabindex="-1"></a><span class="fu">library</span>(pryr)</span></code></pre></div>
+<div class="sourceCode" id="cb549"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb549-1"><a href="working-with-real-world-data.html#cb549-1" tabindex="-1"></a><span class="co"># Load the library</span></span>
+<span id="cb549-2"><a href="working-with-real-world-data.html#cb549-2" tabindex="-1"></a><span class="fu">library</span>(pryr)</span></code></pre></div>
 <pre><code>## 
 ## Attaching package: &#39;pryr&#39;</code></pre>
 <pre><code>## The following object is masked from &#39;package:data.table&#39;:
@@ -628,14 +632,14 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <pre><code>## The following objects are masked from &#39;package:purrr&#39;:
 ## 
 ##     compose, partial</code></pre>
-<div class="sourceCode" id="cb546"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb546-1"><a href="working-with-real-world-data.html#cb546-1" tabindex="-1"></a><span class="co"># Check memory usage of the entire R session</span></span>
-<span id="cb546-2"><a href="working-with-real-world-data.html#cb546-2" tabindex="-1"></a><span class="fu">mem_used</span>()</span></code></pre></div>
+<div class="sourceCode" id="cb554"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb554-1"><a href="working-with-real-world-data.html#cb554-1" tabindex="-1"></a><span class="co"># Check memory usage of the entire R session</span></span>
+<span id="cb554-2"><a href="working-with-real-world-data.html#cb554-2" tabindex="-1"></a><span class="fu">mem_used</span>()</span></code></pre></div>
 <pre><code>## 133 MB</code></pre>
-<div class="sourceCode" id="cb548"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb548-1"><a href="working-with-real-world-data.html#cb548-1" tabindex="-1"></a><span class="co"># Create a variable </span></span>
-<span id="cb548-2"><a href="working-with-real-world-data.html#cb548-2" tabindex="-1"></a>y <span class="ot">&lt;-</span> <span class="fu">rnorm</span>(<span class="fl">1e6</span>)</span>
-<span id="cb548-3"><a href="working-with-real-world-data.html#cb548-3" tabindex="-1"></a></span>
-<span id="cb548-4"><a href="working-with-real-world-data.html#cb548-4" tabindex="-1"></a><span class="co"># Check memory usage of a specific object</span></span>
-<span id="cb548-5"><a href="working-with-real-world-data.html#cb548-5" tabindex="-1"></a><span class="fu">object_size</span>(y)</span></code></pre></div>
+<div class="sourceCode" id="cb556"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb556-1"><a href="working-with-real-world-data.html#cb556-1" tabindex="-1"></a><span class="co"># Create a variable </span></span>
+<span id="cb556-2"><a href="working-with-real-world-data.html#cb556-2" tabindex="-1"></a>y <span class="ot">&lt;-</span> <span class="fu">rnorm</span>(<span class="fl">1e6</span>)</span>
+<span id="cb556-3"><a href="working-with-real-world-data.html#cb556-3" tabindex="-1"></a></span>
+<span id="cb556-4"><a href="working-with-real-world-data.html#cb556-4" tabindex="-1"></a><span class="co"># Check memory usage of a specific object</span></span>
+<span id="cb556-5"><a href="working-with-real-world-data.html#cb556-5" tabindex="-1"></a><span class="fu">object_size</span>(y)</span></code></pre></div>
 <pre><code>## 8.00 MB</code></pre>
 <ol start="3" style="list-style-type: decimal">
 <li><strong>Freeing up the Memory</strong></li>
@@ -765,34 +769,34 @@ system.time(fwrite(data, &quot;large_output.csv&quot;))</code></pre>
 </ul>
 <p>Lets create different random data sets and handle the missing values. However, before the issue of null value is fixed, the null values need to be identified in the data set.</p>
 <p>Create a random athlete data set</p>
-<div class="sourceCode" id="cb556"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb556-1"><a href="working-with-real-world-data.html#cb556-1" tabindex="-1"></a><span class="fu">set.seed</span>(<span class="dv">123</span>)  <span class="co"># Set seed for reproducibility</span></span>
-<span id="cb556-2"><a href="working-with-real-world-data.html#cb556-2" tabindex="-1"></a></span>
-<span id="cb556-3"><a href="working-with-real-world-data.html#cb556-3" tabindex="-1"></a><span class="co"># Generate a data frame with random data for athletes</span></span>
-<span id="cb556-4"><a href="working-with-real-world-data.html#cb556-4" tabindex="-1"></a>athlete_data <span class="ot">&lt;-</span> <span class="fu">data.frame</span>(</span>
-<span id="cb556-5"><a href="working-with-real-world-data.html#cb556-5" tabindex="-1"></a>  <span class="at">athlete_id =</span> <span class="dv">1</span><span class="sc">:</span><span class="dv">100</span>,  <span class="co"># 100 athletes</span></span>
-<span id="cb556-6"><a href="working-with-real-world-data.html#cb556-6" tabindex="-1"></a>  <span class="at">name =</span> <span class="fu">paste0</span>(<span class="st">&quot;Athlete&quot;</span>, <span class="dv">1</span><span class="sc">:</span><span class="dv">100</span>),</span>
-<span id="cb556-7"><a href="working-with-real-world-data.html#cb556-7" tabindex="-1"></a>  <span class="at">age =</span> <span class="fu">sample</span>(<span class="dv">18</span><span class="sc">:</span><span class="dv">40</span>, <span class="dv">100</span>, <span class="at">replace =</span> <span class="cn">TRUE</span>),</span>
-<span id="cb556-8"><a href="working-with-real-world-data.html#cb556-8" tabindex="-1"></a>  <span class="at">sport =</span> <span class="fu">sample</span>(<span class="fu">c</span>(<span class="st">&quot;Basketball&quot;</span>, <span class="st">&quot;Soccer&quot;</span>, <span class="st">&quot;Tennis&quot;</span>, <span class="st">&quot;Swimming&quot;</span>, <span class="st">&quot;Running&quot;</span>), <span class="dv">100</span>, <span class="at">replace =</span> <span class="cn">TRUE</span>),</span>
-<span id="cb556-9"><a href="working-with-real-world-data.html#cb556-9" tabindex="-1"></a>  <span class="at">country =</span> <span class="fu">sample</span>(<span class="fu">c</span>(<span class="st">&quot;USA&quot;</span>, <span class="st">&quot;Kenya&quot;</span>, <span class="st">&quot;China&quot;</span>, <span class="st">&quot;Brazil&quot;</span>, <span class="st">&quot;Germany&quot;</span>), <span class="dv">100</span>, <span class="at">replace =</span> <span class="cn">TRUE</span>),</span>
-<span id="cb556-10"><a href="working-with-real-world-data.html#cb556-10" tabindex="-1"></a>  <span class="at">score =</span> <span class="fu">round</span>(<span class="fu">runif</span>(<span class="dv">100</span>, <span class="dv">60</span>, <span class="dv">100</span>), <span class="dv">1</span>)  <span class="co"># Scores between 60 and 100</span></span>
-<span id="cb556-11"><a href="working-with-real-world-data.html#cb556-11" tabindex="-1"></a>)</span>
-<span id="cb556-12"><a href="working-with-real-world-data.html#cb556-12" tabindex="-1"></a></span>
-<span id="cb556-13"><a href="working-with-real-world-data.html#cb556-13" tabindex="-1"></a><span class="co"># Introduce 15% missing values randomly across the entire data frame</span></span>
-<span id="cb556-14"><a href="working-with-real-world-data.html#cb556-14" tabindex="-1"></a>total_cells <span class="ot">&lt;-</span> <span class="fu">prod</span>(<span class="fu">dim</span>(athlete_data))  <span class="co"># Total number of cells</span></span>
-<span id="cb556-15"><a href="working-with-real-world-data.html#cb556-15" tabindex="-1"></a>missing_cells <span class="ot">&lt;-</span> <span class="fu">round</span>(<span class="fl">0.15</span> <span class="sc">*</span> total_cells)  <span class="co"># 15% of cells will have missing values</span></span>
-<span id="cb556-16"><a href="working-with-real-world-data.html#cb556-16" tabindex="-1"></a></span>
-<span id="cb556-17"><a href="working-with-real-world-data.html#cb556-17" tabindex="-1"></a><span class="co"># Randomly select indices to be set to NA</span></span>
-<span id="cb556-18"><a href="working-with-real-world-data.html#cb556-18" tabindex="-1"></a>missing_indices <span class="ot">&lt;-</span> <span class="fu">sample</span>(<span class="fu">seq_len</span>(total_cells), missing_cells)</span>
-<span id="cb556-19"><a href="working-with-real-world-data.html#cb556-19" tabindex="-1"></a></span>
-<span id="cb556-20"><a href="working-with-real-world-data.html#cb556-20" tabindex="-1"></a><span class="co"># Convert the data frame to a matrix for easier manipulation of specific indices</span></span>
-<span id="cb556-21"><a href="working-with-real-world-data.html#cb556-21" tabindex="-1"></a>athlete_data_matrix <span class="ot">&lt;-</span> <span class="fu">as.matrix</span>(athlete_data)</span>
-<span id="cb556-22"><a href="working-with-real-world-data.html#cb556-22" tabindex="-1"></a>athlete_data_matrix[missing_indices] <span class="ot">&lt;-</span> <span class="cn">NA</span></span>
-<span id="cb556-23"><a href="working-with-real-world-data.html#cb556-23" tabindex="-1"></a></span>
-<span id="cb556-24"><a href="working-with-real-world-data.html#cb556-24" tabindex="-1"></a><span class="co"># Convert back to a data frame</span></span>
-<span id="cb556-25"><a href="working-with-real-world-data.html#cb556-25" tabindex="-1"></a>athlete_data <span class="ot">&lt;-</span> <span class="fu">as.data.frame</span>(athlete_data_matrix)</span>
-<span id="cb556-26"><a href="working-with-real-world-data.html#cb556-26" tabindex="-1"></a></span>
-<span id="cb556-27"><a href="working-with-real-world-data.html#cb556-27" tabindex="-1"></a><span class="co"># View the dataset</span></span>
-<span id="cb556-28"><a href="working-with-real-world-data.html#cb556-28" tabindex="-1"></a><span class="fu">head</span>(athlete_data)</span></code></pre></div>
+<div class="sourceCode" id="cb564"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb564-1"><a href="working-with-real-world-data.html#cb564-1" tabindex="-1"></a><span class="fu">set.seed</span>(<span class="dv">123</span>)  <span class="co"># Set seed for reproducibility</span></span>
+<span id="cb564-2"><a href="working-with-real-world-data.html#cb564-2" tabindex="-1"></a></span>
+<span id="cb564-3"><a href="working-with-real-world-data.html#cb564-3" tabindex="-1"></a><span class="co"># Generate a data frame with random data for athletes</span></span>
+<span id="cb564-4"><a href="working-with-real-world-data.html#cb564-4" tabindex="-1"></a>athlete_data <span class="ot">&lt;-</span> <span class="fu">data.frame</span>(</span>
+<span id="cb564-5"><a href="working-with-real-world-data.html#cb564-5" tabindex="-1"></a>  <span class="at">athlete_id =</span> <span class="dv">1</span><span class="sc">:</span><span class="dv">100</span>,  <span class="co"># 100 athletes</span></span>
+<span id="cb564-6"><a href="working-with-real-world-data.html#cb564-6" tabindex="-1"></a>  <span class="at">name =</span> <span class="fu">paste0</span>(<span class="st">&quot;Athlete&quot;</span>, <span class="dv">1</span><span class="sc">:</span><span class="dv">100</span>),</span>
+<span id="cb564-7"><a href="working-with-real-world-data.html#cb564-7" tabindex="-1"></a>  <span class="at">age =</span> <span class="fu">sample</span>(<span class="dv">18</span><span class="sc">:</span><span class="dv">40</span>, <span class="dv">100</span>, <span class="at">replace =</span> <span class="cn">TRUE</span>),</span>
+<span id="cb564-8"><a href="working-with-real-world-data.html#cb564-8" tabindex="-1"></a>  <span class="at">sport =</span> <span class="fu">sample</span>(<span class="fu">c</span>(<span class="st">&quot;Basketball&quot;</span>, <span class="st">&quot;Soccer&quot;</span>, <span class="st">&quot;Tennis&quot;</span>, <span class="st">&quot;Swimming&quot;</span>, <span class="st">&quot;Running&quot;</span>), <span class="dv">100</span>, <span class="at">replace =</span> <span class="cn">TRUE</span>),</span>
+<span id="cb564-9"><a href="working-with-real-world-data.html#cb564-9" tabindex="-1"></a>  <span class="at">country =</span> <span class="fu">sample</span>(<span class="fu">c</span>(<span class="st">&quot;USA&quot;</span>, <span class="st">&quot;Kenya&quot;</span>, <span class="st">&quot;China&quot;</span>, <span class="st">&quot;Brazil&quot;</span>, <span class="st">&quot;Germany&quot;</span>), <span class="dv">100</span>, <span class="at">replace =</span> <span class="cn">TRUE</span>),</span>
+<span id="cb564-10"><a href="working-with-real-world-data.html#cb564-10" tabindex="-1"></a>  <span class="at">score =</span> <span class="fu">round</span>(<span class="fu">runif</span>(<span class="dv">100</span>, <span class="dv">60</span>, <span class="dv">100</span>), <span class="dv">1</span>)  <span class="co"># Scores between 60 and 100</span></span>
+<span id="cb564-11"><a href="working-with-real-world-data.html#cb564-11" tabindex="-1"></a>)</span>
+<span id="cb564-12"><a href="working-with-real-world-data.html#cb564-12" tabindex="-1"></a></span>
+<span id="cb564-13"><a href="working-with-real-world-data.html#cb564-13" tabindex="-1"></a><span class="co"># Introduce 15% missing values randomly across the entire data frame</span></span>
+<span id="cb564-14"><a href="working-with-real-world-data.html#cb564-14" tabindex="-1"></a>total_cells <span class="ot">&lt;-</span> <span class="fu">prod</span>(<span class="fu">dim</span>(athlete_data))  <span class="co"># Total number of cells</span></span>
+<span id="cb564-15"><a href="working-with-real-world-data.html#cb564-15" tabindex="-1"></a>missing_cells <span class="ot">&lt;-</span> <span class="fu">round</span>(<span class="fl">0.15</span> <span class="sc">*</span> total_cells)  <span class="co"># 15% of cells will have missing values</span></span>
+<span id="cb564-16"><a href="working-with-real-world-data.html#cb564-16" tabindex="-1"></a></span>
+<span id="cb564-17"><a href="working-with-real-world-data.html#cb564-17" tabindex="-1"></a><span class="co"># Randomly select indices to be set to NA</span></span>
+<span id="cb564-18"><a href="working-with-real-world-data.html#cb564-18" tabindex="-1"></a>missing_indices <span class="ot">&lt;-</span> <span class="fu">sample</span>(<span class="fu">seq_len</span>(total_cells), missing_cells)</span>
+<span id="cb564-19"><a href="working-with-real-world-data.html#cb564-19" tabindex="-1"></a></span>
+<span id="cb564-20"><a href="working-with-real-world-data.html#cb564-20" tabindex="-1"></a><span class="co"># Convert the data frame to a matrix for easier manipulation of specific indices</span></span>
+<span id="cb564-21"><a href="working-with-real-world-data.html#cb564-21" tabindex="-1"></a>athlete_data_matrix <span class="ot">&lt;-</span> <span class="fu">as.matrix</span>(athlete_data)</span>
+<span id="cb564-22"><a href="working-with-real-world-data.html#cb564-22" tabindex="-1"></a>athlete_data_matrix[missing_indices] <span class="ot">&lt;-</span> <span class="cn">NA</span></span>
+<span id="cb564-23"><a href="working-with-real-world-data.html#cb564-23" tabindex="-1"></a></span>
+<span id="cb564-24"><a href="working-with-real-world-data.html#cb564-24" tabindex="-1"></a><span class="co"># Convert back to a data frame</span></span>
+<span id="cb564-25"><a href="working-with-real-world-data.html#cb564-25" tabindex="-1"></a>athlete_data <span class="ot">&lt;-</span> <span class="fu">as.data.frame</span>(athlete_data_matrix)</span>
+<span id="cb564-26"><a href="working-with-real-world-data.html#cb564-26" tabindex="-1"></a></span>
+<span id="cb564-27"><a href="working-with-real-world-data.html#cb564-27" tabindex="-1"></a><span class="co"># View the dataset</span></span>
+<span id="cb564-28"><a href="working-with-real-world-data.html#cb564-28" tabindex="-1"></a><span class="fu">head</span>(athlete_data)</span></code></pre></div>
 <pre><code>##   athlete_id     name  age      sport country score
 ## 1          1 Athlete1   32 Basketball Germany  95.6
 ## 2          2 Athlete2   36     Tennis    &lt;NA&gt;  92.5
@@ -801,42 +805,42 @@ system.time(fwrite(data, &quot;large_output.csv&quot;))</code></pre>
 ## 5          5     &lt;NA&gt;   27     Tennis   Kenya  65.0
 ## 6       &lt;NA&gt; Athlete6   35    Running Germany  99.0</code></pre>
 <p>Lets count the all null values. The <code>is.na()</code> from base R is used to identify the null values while the <code>sum()</code> sums up all the identified null values</p>
-<div class="sourceCode" id="cb558"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb558-1"><a href="working-with-real-world-data.html#cb558-1" tabindex="-1"></a><span class="fu">sum</span>(<span class="fu">is.na</span>(athlete_data))</span></code></pre></div>
+<div class="sourceCode" id="cb566"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb566-1"><a href="working-with-real-world-data.html#cb566-1" tabindex="-1"></a><span class="fu">sum</span>(<span class="fu">is.na</span>(athlete_data))</span></code></pre></div>
 <pre><code>## [1] 90</code></pre>
 <p>Alternatively, the total null values from the columns can be counted. The <code>sapply()</code> function along with the <code>is.na()</code> and <code>sum()</code> are used.</p>
-<div class="sourceCode" id="cb560"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb560-1"><a href="working-with-real-world-data.html#cb560-1" tabindex="-1"></a><span class="co"># Count the number of null values in each column</span></span>
-<span id="cb560-2"><a href="working-with-real-world-data.html#cb560-2" tabindex="-1"></a>null_counts <span class="ot">&lt;-</span> <span class="fu">sapply</span>(athlete_data, <span class="cf">function</span>(x) <span class="fu">sum</span>(<span class="fu">is.na</span>(x)))</span>
-<span id="cb560-3"><a href="working-with-real-world-data.html#cb560-3" tabindex="-1"></a></span>
-<span id="cb560-4"><a href="working-with-real-world-data.html#cb560-4" tabindex="-1"></a><span class="co"># Display the counts of null values</span></span>
-<span id="cb560-5"><a href="working-with-real-world-data.html#cb560-5" tabindex="-1"></a>null_counts</span></code></pre></div>
+<div class="sourceCode" id="cb568"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb568-1"><a href="working-with-real-world-data.html#cb568-1" tabindex="-1"></a><span class="co"># Count the number of null values in each column</span></span>
+<span id="cb568-2"><a href="working-with-real-world-data.html#cb568-2" tabindex="-1"></a>null_counts <span class="ot">&lt;-</span> <span class="fu">sapply</span>(athlete_data, <span class="cf">function</span>(x) <span class="fu">sum</span>(<span class="fu">is.na</span>(x)))</span>
+<span id="cb568-3"><a href="working-with-real-world-data.html#cb568-3" tabindex="-1"></a></span>
+<span id="cb568-4"><a href="working-with-real-world-data.html#cb568-4" tabindex="-1"></a><span class="co"># Display the counts of null values</span></span>
+<span id="cb568-5"><a href="working-with-real-world-data.html#cb568-5" tabindex="-1"></a>null_counts</span></code></pre></div>
 <pre><code>## athlete_id       name        age      sport    country      score 
 ##         17         18         10         14         18         13</code></pre>
 <p>Lets now delete the rows containing the null values by the <code>na.omit()</code> and rename the data frame <code>athlete_data_clean</code></p>
-<div class="sourceCode" id="cb562"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb562-1"><a href="working-with-real-world-data.html#cb562-1" tabindex="-1"></a>athlete_data_clean <span class="ot">&lt;-</span> <span class="fu">na.omit</span>(athlete_data)</span></code></pre></div>
+<div class="sourceCode" id="cb570"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb570-1"><a href="working-with-real-world-data.html#cb570-1" tabindex="-1"></a>athlete_data_clean <span class="ot">&lt;-</span> <span class="fu">na.omit</span>(athlete_data)</span></code></pre></div>
 <p>Confirm the operation by counting the null values in each column and overall</p>
-<div class="sourceCode" id="cb563"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb563-1"><a href="working-with-real-world-data.html#cb563-1" tabindex="-1"></a><span class="co"># Count the null values by column </span></span>
-<span id="cb563-2"><a href="working-with-real-world-data.html#cb563-2" tabindex="-1"></a>null_count_by_column <span class="ot">&lt;-</span>  <span class="fu">sapply</span>(athlete_data_clean,</span>
-<span id="cb563-3"><a href="working-with-real-world-data.html#cb563-3" tabindex="-1"></a>                                <span class="cf">function</span>(x) <span class="fu">sum</span>(<span class="fu">is.na</span>(x)))</span>
-<span id="cb563-4"><a href="working-with-real-world-data.html#cb563-4" tabindex="-1"></a>null_count_by_column</span></code></pre></div>
+<div class="sourceCode" id="cb571"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb571-1"><a href="working-with-real-world-data.html#cb571-1" tabindex="-1"></a><span class="co"># Count the null values by column </span></span>
+<span id="cb571-2"><a href="working-with-real-world-data.html#cb571-2" tabindex="-1"></a>null_count_by_column <span class="ot">&lt;-</span>  <span class="fu">sapply</span>(athlete_data_clean,</span>
+<span id="cb571-3"><a href="working-with-real-world-data.html#cb571-3" tabindex="-1"></a>                                <span class="cf">function</span>(x) <span class="fu">sum</span>(<span class="fu">is.na</span>(x)))</span>
+<span id="cb571-4"><a href="working-with-real-world-data.html#cb571-4" tabindex="-1"></a>null_count_by_column</span></code></pre></div>
 <pre><code>## athlete_id       name        age      sport    country      score 
 ##          0          0          0          0          0          0</code></pre>
-<div class="sourceCode" id="cb565"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb565-1"><a href="working-with-real-world-data.html#cb565-1" tabindex="-1"></a><span class="co"># Overall null count </span></span>
-<span id="cb565-2"><a href="working-with-real-world-data.html#cb565-2" tabindex="-1"></a>overall_null_count <span class="ot">&lt;-</span> <span class="fu">sum</span>(<span class="fu">is.na</span>(athlete_data_clean))</span>
-<span id="cb565-3"><a href="working-with-real-world-data.html#cb565-3" tabindex="-1"></a><span class="fu">print</span>(<span class="fu">paste</span>(<span class="st">&quot;Overall Null Count: &quot;</span>, overall_null_count))</span></code></pre></div>
+<div class="sourceCode" id="cb573"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb573-1"><a href="working-with-real-world-data.html#cb573-1" tabindex="-1"></a><span class="co"># Overall null count </span></span>
+<span id="cb573-2"><a href="working-with-real-world-data.html#cb573-2" tabindex="-1"></a>overall_null_count <span class="ot">&lt;-</span> <span class="fu">sum</span>(<span class="fu">is.na</span>(athlete_data_clean))</span>
+<span id="cb573-3"><a href="working-with-real-world-data.html#cb573-3" tabindex="-1"></a><span class="fu">print</span>(<span class="fu">paste</span>(<span class="st">&quot;Overall Null Count: &quot;</span>, overall_null_count))</span></code></pre></div>
 <pre><code>## [1] &quot;Overall Null Count:  0&quot;</code></pre>
 <p>Now that we have seen how null values can be handled by deleting the rows with the null values, therefore lets perform imputation on the original data set. The null values will not be deleted however, they will be replaced by filling the null values with the previous or next value</p>
 <p>We will be using the original <code>athlete_data</code> that has null values. The <code>tidyr</code> package will be used which can be installed by;</p>
 <pre><code># If not already installed run the command below on the console
 install.packages(&quot;tidyr&quot;)</code></pre>
 <p>Count the null values once again and view sample of the data set</p>
-<div class="sourceCode" id="cb568"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb568-1"><a href="working-with-real-world-data.html#cb568-1" tabindex="-1"></a><span class="co"># Count the null values by column </span></span>
-<span id="cb568-2"><a href="working-with-real-world-data.html#cb568-2" tabindex="-1"></a>null_count_by_column <span class="ot">&lt;-</span>  <span class="fu">sapply</span>(athlete_data,</span>
-<span id="cb568-3"><a href="working-with-real-world-data.html#cb568-3" tabindex="-1"></a>                                <span class="cf">function</span>(x) <span class="fu">sum</span>(<span class="fu">is.na</span>(x)))</span>
-<span id="cb568-4"><a href="working-with-real-world-data.html#cb568-4" tabindex="-1"></a>null_count_by_column</span></code></pre></div>
+<div class="sourceCode" id="cb576"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb576-1"><a href="working-with-real-world-data.html#cb576-1" tabindex="-1"></a><span class="co"># Count the null values by column </span></span>
+<span id="cb576-2"><a href="working-with-real-world-data.html#cb576-2" tabindex="-1"></a>null_count_by_column <span class="ot">&lt;-</span>  <span class="fu">sapply</span>(athlete_data,</span>
+<span id="cb576-3"><a href="working-with-real-world-data.html#cb576-3" tabindex="-1"></a>                                <span class="cf">function</span>(x) <span class="fu">sum</span>(<span class="fu">is.na</span>(x)))</span>
+<span id="cb576-4"><a href="working-with-real-world-data.html#cb576-4" tabindex="-1"></a>null_count_by_column</span></code></pre></div>
 <pre><code>## athlete_id       name        age      sport    country      score 
 ##         17         18         10         14         18         13</code></pre>
-<div class="sourceCode" id="cb570"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb570-1"><a href="working-with-real-world-data.html#cb570-1" tabindex="-1"></a><span class="co"># View the sample of the data - first 6 records </span></span>
-<span id="cb570-2"><a href="working-with-real-world-data.html#cb570-2" tabindex="-1"></a><span class="fu">head</span>(athlete_data)</span></code></pre></div>
+<div class="sourceCode" id="cb578"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb578-1"><a href="working-with-real-world-data.html#cb578-1" tabindex="-1"></a><span class="co"># View the sample of the data - first 6 records </span></span>
+<span id="cb578-2"><a href="working-with-real-world-data.html#cb578-2" tabindex="-1"></a><span class="fu">head</span>(athlete_data)</span></code></pre></div>
 <pre><code>##   athlete_id     name  age      sport country score
 ## 1          1 Athlete1   32 Basketball Germany  95.6
 ## 2          2 Athlete2   36     Tennis    &lt;NA&gt;  92.5
@@ -845,21 +849,21 @@ install.packages(&quot;tidyr&quot;)</code></pre>
 ## 5          5     &lt;NA&gt;   27     Tennis   Kenya  65.0
 ## 6       &lt;NA&gt; Athlete6   35    Running Germany  99.0</code></pre>
 <p>Now fill the null values with the previous values. Specificall the <code>sport</code>. <code>athlete_id</code> and the <code>age</code> columns</p>
-<div class="sourceCode" id="cb572"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb572-1"><a href="working-with-real-world-data.html#cb572-1" tabindex="-1"></a><span class="co"># Import the package </span></span>
-<span id="cb572-2"><a href="working-with-real-world-data.html#cb572-2" tabindex="-1"></a><span class="fu">library</span>(tidyr)</span>
-<span id="cb572-3"><a href="working-with-real-world-data.html#cb572-3" tabindex="-1"></a></span>
-<span id="cb572-4"><a href="working-with-real-world-data.html#cb572-4" tabindex="-1"></a><span class="co"># Fill the null value with the previous value </span></span>
-<span id="cb572-5"><a href="working-with-real-world-data.html#cb572-5" tabindex="-1"></a>athlete_data_filled <span class="ot">&lt;-</span> athlete_data <span class="sc">%&gt;%</span></span>
-<span id="cb572-6"><a href="working-with-real-world-data.html#cb572-6" tabindex="-1"></a>  <span class="fu">fill</span>(athlete_id, age, sport, <span class="at">.direction =</span> <span class="st">&quot;down&quot;</span>)</span>
-<span id="cb572-7"><a href="working-with-real-world-data.html#cb572-7" tabindex="-1"></a></span>
-<span id="cb572-8"><a href="working-with-real-world-data.html#cb572-8" tabindex="-1"></a><span class="co"># Count the null values by column </span></span>
-<span id="cb572-9"><a href="working-with-real-world-data.html#cb572-9" tabindex="-1"></a>null_count_by_column <span class="ot">&lt;-</span>  <span class="fu">sapply</span>(athlete_data_filled,</span>
-<span id="cb572-10"><a href="working-with-real-world-data.html#cb572-10" tabindex="-1"></a>                                <span class="cf">function</span>(x) <span class="fu">sum</span>(<span class="fu">is.na</span>(x)))</span>
-<span id="cb572-11"><a href="working-with-real-world-data.html#cb572-11" tabindex="-1"></a>null_count_by_column</span></code></pre></div>
+<div class="sourceCode" id="cb580"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb580-1"><a href="working-with-real-world-data.html#cb580-1" tabindex="-1"></a><span class="co"># Import the package </span></span>
+<span id="cb580-2"><a href="working-with-real-world-data.html#cb580-2" tabindex="-1"></a><span class="fu">library</span>(tidyr)</span>
+<span id="cb580-3"><a href="working-with-real-world-data.html#cb580-3" tabindex="-1"></a></span>
+<span id="cb580-4"><a href="working-with-real-world-data.html#cb580-4" tabindex="-1"></a><span class="co"># Fill the null value with the previous value </span></span>
+<span id="cb580-5"><a href="working-with-real-world-data.html#cb580-5" tabindex="-1"></a>athlete_data_filled <span class="ot">&lt;-</span> athlete_data <span class="sc">%&gt;%</span></span>
+<span id="cb580-6"><a href="working-with-real-world-data.html#cb580-6" tabindex="-1"></a>  <span class="fu">fill</span>(athlete_id, age, sport, <span class="at">.direction =</span> <span class="st">&quot;down&quot;</span>)</span>
+<span id="cb580-7"><a href="working-with-real-world-data.html#cb580-7" tabindex="-1"></a></span>
+<span id="cb580-8"><a href="working-with-real-world-data.html#cb580-8" tabindex="-1"></a><span class="co"># Count the null values by column </span></span>
+<span id="cb580-9"><a href="working-with-real-world-data.html#cb580-9" tabindex="-1"></a>null_count_by_column <span class="ot">&lt;-</span>  <span class="fu">sapply</span>(athlete_data_filled,</span>
+<span id="cb580-10"><a href="working-with-real-world-data.html#cb580-10" tabindex="-1"></a>                                <span class="cf">function</span>(x) <span class="fu">sum</span>(<span class="fu">is.na</span>(x)))</span>
+<span id="cb580-11"><a href="working-with-real-world-data.html#cb580-11" tabindex="-1"></a>null_count_by_column</span></code></pre></div>
 <pre><code>## athlete_id       name        age      sport    country      score 
 ##          0         18          0          0         18         13</code></pre>
-<div class="sourceCode" id="cb574"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb574-1"><a href="working-with-real-world-data.html#cb574-1" tabindex="-1"></a><span class="co"># View the first few rows </span></span>
-<span id="cb574-2"><a href="working-with-real-world-data.html#cb574-2" tabindex="-1"></a><span class="fu">head</span>(athlete_data_filled)</span></code></pre></div>
+<div class="sourceCode" id="cb582"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb582-1"><a href="working-with-real-world-data.html#cb582-1" tabindex="-1"></a><span class="co"># View the first few rows </span></span>
+<span id="cb582-2"><a href="working-with-real-world-data.html#cb582-2" tabindex="-1"></a><span class="fu">head</span>(athlete_data_filled)</span></code></pre></div>
 <pre><code>##   athlete_id     name age      sport country score
 ## 1          1 Athlete1  32 Basketball Germany  95.6
 ## 2          2 Athlete2  36     Tennis    &lt;NA&gt;  92.5
@@ -891,20 +895,20 @@ install.packages(&quot;tidyr&quot;)</code></pre>
 <ul>
 <li>Generate a random data set</li>
 </ul>
-<div class="sourceCode" id="cb576"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb576-1"><a href="working-with-real-world-data.html#cb576-1" tabindex="-1"></a><span class="co"># Set seed for reproducibility</span></span>
-<span id="cb576-2"><a href="working-with-real-world-data.html#cb576-2" tabindex="-1"></a><span class="fu">set.seed</span>(<span class="dv">123</span>)</span>
-<span id="cb576-3"><a href="working-with-real-world-data.html#cb576-3" tabindex="-1"></a></span>
-<span id="cb576-4"><a href="working-with-real-world-data.html#cb576-4" tabindex="-1"></a><span class="co"># Create a data frame with health-related metrics for villagers</span></span>
-<span id="cb576-5"><a href="working-with-real-world-data.html#cb576-5" tabindex="-1"></a>health_data <span class="ot">&lt;-</span> <span class="fu">data.frame</span>(</span>
-<span id="cb576-6"><a href="working-with-real-world-data.html#cb576-6" tabindex="-1"></a>  <span class="at">villager_id =</span> <span class="dv">1</span><span class="sc">:</span><span class="dv">100</span>,</span>
-<span id="cb576-7"><a href="working-with-real-world-data.html#cb576-7" tabindex="-1"></a>  <span class="at">body_temperature =</span> <span class="fu">c</span>(<span class="fu">rnorm</span>(<span class="dv">95</span>, <span class="at">mean =</span> <span class="fl">98.6</span>, <span class="at">sd =</span> <span class="dv">1</span>), <span class="fu">rnorm</span>(<span class="dv">5</span>, <span class="at">mean =</span> <span class="dv">102</span>, <span class="at">sd =</span> <span class="dv">1</span>)),  <span class="co"># Include 5 outliers</span></span>
-<span id="cb576-8"><a href="working-with-real-world-data.html#cb576-8" tabindex="-1"></a>  <span class="at">blood_pressure =</span> <span class="fu">c</span>(<span class="fu">rnorm</span>(<span class="dv">95</span>, <span class="at">mean =</span> <span class="dv">120</span>, <span class="at">sd =</span> <span class="dv">10</span>), <span class="fu">rnorm</span>(<span class="dv">5</span>, <span class="at">mean =</span> <span class="dv">180</span>, <span class="at">sd =</span> <span class="dv">5</span>)),   <span class="co"># Include 5 outliers</span></span>
-<span id="cb576-9"><a href="working-with-real-world-data.html#cb576-9" tabindex="-1"></a>  <span class="at">heart_rate =</span> <span class="fu">c</span>(<span class="fu">rnorm</span>(<span class="dv">95</span>, <span class="at">mean =</span> <span class="dv">70</span>, <span class="at">sd =</span> <span class="dv">8</span>), <span class="fu">rnorm</span>(<span class="dv">5</span>, <span class="at">mean =</span> <span class="dv">110</span>, <span class="at">sd =</span> <span class="dv">5</span>)),         <span class="co"># Include 5 outliers</span></span>
-<span id="cb576-10"><a href="working-with-real-world-data.html#cb576-10" tabindex="-1"></a>  <span class="at">cholesterol =</span> <span class="fu">c</span>(<span class="fu">rnorm</span>(<span class="dv">95</span>, <span class="at">mean =</span> <span class="dv">200</span>, <span class="at">sd =</span> <span class="dv">30</span>), <span class="fu">rnorm</span>(<span class="dv">5</span>, <span class="at">mean =</span> <span class="dv">300</span>, <span class="at">sd =</span> <span class="dv">10</span>))      <span class="co"># Include 5 outliers</span></span>
-<span id="cb576-11"><a href="working-with-real-world-data.html#cb576-11" tabindex="-1"></a>)</span>
-<span id="cb576-12"><a href="working-with-real-world-data.html#cb576-12" tabindex="-1"></a></span>
-<span id="cb576-13"><a href="working-with-real-world-data.html#cb576-13" tabindex="-1"></a><span class="co"># View the first few rows of the dataset</span></span>
-<span id="cb576-14"><a href="working-with-real-world-data.html#cb576-14" tabindex="-1"></a><span class="fu">head</span>(health_data)</span></code></pre></div>
+<div class="sourceCode" id="cb584"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb584-1"><a href="working-with-real-world-data.html#cb584-1" tabindex="-1"></a><span class="co"># Set seed for reproducibility</span></span>
+<span id="cb584-2"><a href="working-with-real-world-data.html#cb584-2" tabindex="-1"></a><span class="fu">set.seed</span>(<span class="dv">123</span>)</span>
+<span id="cb584-3"><a href="working-with-real-world-data.html#cb584-3" tabindex="-1"></a></span>
+<span id="cb584-4"><a href="working-with-real-world-data.html#cb584-4" tabindex="-1"></a><span class="co"># Create a data frame with health-related metrics for villagers</span></span>
+<span id="cb584-5"><a href="working-with-real-world-data.html#cb584-5" tabindex="-1"></a>health_data <span class="ot">&lt;-</span> <span class="fu">data.frame</span>(</span>
+<span id="cb584-6"><a href="working-with-real-world-data.html#cb584-6" tabindex="-1"></a>  <span class="at">villager_id =</span> <span class="dv">1</span><span class="sc">:</span><span class="dv">100</span>,</span>
+<span id="cb584-7"><a href="working-with-real-world-data.html#cb584-7" tabindex="-1"></a>  <span class="at">body_temperature =</span> <span class="fu">c</span>(<span class="fu">rnorm</span>(<span class="dv">95</span>, <span class="at">mean =</span> <span class="fl">98.6</span>, <span class="at">sd =</span> <span class="dv">1</span>), <span class="fu">rnorm</span>(<span class="dv">5</span>, <span class="at">mean =</span> <span class="dv">102</span>, <span class="at">sd =</span> <span class="dv">1</span>)),  <span class="co"># Include 5 outliers</span></span>
+<span id="cb584-8"><a href="working-with-real-world-data.html#cb584-8" tabindex="-1"></a>  <span class="at">blood_pressure =</span> <span class="fu">c</span>(<span class="fu">rnorm</span>(<span class="dv">95</span>, <span class="at">mean =</span> <span class="dv">120</span>, <span class="at">sd =</span> <span class="dv">10</span>), <span class="fu">rnorm</span>(<span class="dv">5</span>, <span class="at">mean =</span> <span class="dv">180</span>, <span class="at">sd =</span> <span class="dv">5</span>)),   <span class="co"># Include 5 outliers</span></span>
+<span id="cb584-9"><a href="working-with-real-world-data.html#cb584-9" tabindex="-1"></a>  <span class="at">heart_rate =</span> <span class="fu">c</span>(<span class="fu">rnorm</span>(<span class="dv">95</span>, <span class="at">mean =</span> <span class="dv">70</span>, <span class="at">sd =</span> <span class="dv">8</span>), <span class="fu">rnorm</span>(<span class="dv">5</span>, <span class="at">mean =</span> <span class="dv">110</span>, <span class="at">sd =</span> <span class="dv">5</span>)),         <span class="co"># Include 5 outliers</span></span>
+<span id="cb584-10"><a href="working-with-real-world-data.html#cb584-10" tabindex="-1"></a>  <span class="at">cholesterol =</span> <span class="fu">c</span>(<span class="fu">rnorm</span>(<span class="dv">95</span>, <span class="at">mean =</span> <span class="dv">200</span>, <span class="at">sd =</span> <span class="dv">30</span>), <span class="fu">rnorm</span>(<span class="dv">5</span>, <span class="at">mean =</span> <span class="dv">300</span>, <span class="at">sd =</span> <span class="dv">10</span>))      <span class="co"># Include 5 outliers</span></span>
+<span id="cb584-11"><a href="working-with-real-world-data.html#cb584-11" tabindex="-1"></a>)</span>
+<span id="cb584-12"><a href="working-with-real-world-data.html#cb584-12" tabindex="-1"></a></span>
+<span id="cb584-13"><a href="working-with-real-world-data.html#cb584-13" tabindex="-1"></a><span class="co"># View the first few rows of the dataset</span></span>
+<span id="cb584-14"><a href="working-with-real-world-data.html#cb584-14" tabindex="-1"></a><span class="fu">head</span>(health_data)</span></code></pre></div>
 <pre><code>##   villager_id body_temperature blood_pressure heart_rate cholesterol
 ## 1           1         98.03952       112.8959   87.59048    178.5427
 ## 2           2         98.36982       122.5688   80.49930    177.4193
@@ -916,26 +920,26 @@ install.packages(&quot;tidyr&quot;)</code></pre>
 <li>Find outliers using <strong>IQR(Interquartile Range)</strong>
 Any values larger than <span class="math inline">\(1.5xIQR\)</span> added to the upper quartile or smaller than the <span class="math inline">\(1.5xIQR\)</span> subtracted to the lower quartile.</li>
 </ul>
-<div class="sourceCode" id="cb578"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb578-1"><a href="working-with-real-world-data.html#cb578-1" tabindex="-1"></a><span class="co"># Function to identify outliers using IQR</span></span>
-<span id="cb578-2"><a href="working-with-real-world-data.html#cb578-2" tabindex="-1"></a>identify_outliers_iqr <span class="ot">&lt;-</span> <span class="cf">function</span>(data_column) {</span>
-<span id="cb578-3"><a href="working-with-real-world-data.html#cb578-3" tabindex="-1"></a>  Q1 <span class="ot">&lt;-</span> <span class="fu">quantile</span>(data_column, <span class="fl">0.25</span>, <span class="at">na.rm =</span> <span class="cn">TRUE</span>)</span>
-<span id="cb578-4"><a href="working-with-real-world-data.html#cb578-4" tabindex="-1"></a>  Q3 <span class="ot">&lt;-</span> <span class="fu">quantile</span>(data_column, <span class="fl">0.75</span>, <span class="at">na.rm =</span> <span class="cn">TRUE</span>)</span>
-<span id="cb578-5"><a href="working-with-real-world-data.html#cb578-5" tabindex="-1"></a>  IQR_value <span class="ot">&lt;-</span> <span class="fu">IQR</span>(data_column, <span class="at">na.rm =</span> <span class="cn">TRUE</span>)</span>
-<span id="cb578-6"><a href="working-with-real-world-data.html#cb578-6" tabindex="-1"></a>  </span>
-<span id="cb578-7"><a href="working-with-real-world-data.html#cb578-7" tabindex="-1"></a>  lower_bound <span class="ot">&lt;-</span> Q1 <span class="sc">-</span> <span class="fl">1.5</span> <span class="sc">*</span> IQR_value</span>
-<span id="cb578-8"><a href="working-with-real-world-data.html#cb578-8" tabindex="-1"></a>  upper_bound <span class="ot">&lt;-</span> Q3 <span class="sc">+</span> <span class="fl">1.5</span> <span class="sc">*</span> IQR_value</span>
-<span id="cb578-9"><a href="working-with-real-world-data.html#cb578-9" tabindex="-1"></a>  </span>
-<span id="cb578-10"><a href="working-with-real-world-data.html#cb578-10" tabindex="-1"></a>  <span class="fu">return</span>(data_column <span class="sc">&lt;</span> lower_bound <span class="sc">|</span> data_column <span class="sc">&gt;</span> upper_bound)</span>
-<span id="cb578-11"><a href="working-with-real-world-data.html#cb578-11" tabindex="-1"></a>}</span>
-<span id="cb578-12"><a href="working-with-real-world-data.html#cb578-12" tabindex="-1"></a></span>
-<span id="cb578-13"><a href="working-with-real-world-data.html#cb578-13" tabindex="-1"></a><span class="co"># Apply IQR method to identify outliers in each health metric</span></span>
-<span id="cb578-14"><a href="working-with-real-world-data.html#cb578-14" tabindex="-1"></a>health_data<span class="sc">$</span>outlier_body_temp_iqr <span class="ot">&lt;-</span> <span class="fu">identify_outliers_iqr</span>(health_data<span class="sc">$</span>body_temperature)</span>
-<span id="cb578-15"><a href="working-with-real-world-data.html#cb578-15" tabindex="-1"></a>health_data<span class="sc">$</span>outlier_blood_pressure_iqr <span class="ot">&lt;-</span> <span class="fu">identify_outliers_iqr</span>(health_data<span class="sc">$</span>blood_pressure)</span>
-<span id="cb578-16"><a href="working-with-real-world-data.html#cb578-16" tabindex="-1"></a>health_data<span class="sc">$</span>outlier_heart_rate_iqr <span class="ot">&lt;-</span> <span class="fu">identify_outliers_iqr</span>(health_data<span class="sc">$</span>heart_rate)</span>
-<span id="cb578-17"><a href="working-with-real-world-data.html#cb578-17" tabindex="-1"></a>health_data<span class="sc">$</span>outlier_cholesterol_iqr <span class="ot">&lt;-</span> <span class="fu">identify_outliers_iqr</span>(health_data<span class="sc">$</span>cholesterol)</span>
-<span id="cb578-18"><a href="working-with-real-world-data.html#cb578-18" tabindex="-1"></a></span>
-<span id="cb578-19"><a href="working-with-real-world-data.html#cb578-19" tabindex="-1"></a><span class="co"># View the data with outlier flags for body temperature</span></span>
-<span id="cb578-20"><a href="working-with-real-world-data.html#cb578-20" tabindex="-1"></a>health_data[health_data<span class="sc">$</span>outlier_body_temp_iqr, <span class="fu">c</span>(<span class="st">&quot;villager_id&quot;</span>, <span class="st">&quot;body_temperature&quot;</span>)]</span></code></pre></div>
+<div class="sourceCode" id="cb586"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb586-1"><a href="working-with-real-world-data.html#cb586-1" tabindex="-1"></a><span class="co"># Function to identify outliers using IQR</span></span>
+<span id="cb586-2"><a href="working-with-real-world-data.html#cb586-2" tabindex="-1"></a>identify_outliers_iqr <span class="ot">&lt;-</span> <span class="cf">function</span>(data_column) {</span>
+<span id="cb586-3"><a href="working-with-real-world-data.html#cb586-3" tabindex="-1"></a>  Q1 <span class="ot">&lt;-</span> <span class="fu">quantile</span>(data_column, <span class="fl">0.25</span>, <span class="at">na.rm =</span> <span class="cn">TRUE</span>)</span>
+<span id="cb586-4"><a href="working-with-real-world-data.html#cb586-4" tabindex="-1"></a>  Q3 <span class="ot">&lt;-</span> <span class="fu">quantile</span>(data_column, <span class="fl">0.75</span>, <span class="at">na.rm =</span> <span class="cn">TRUE</span>)</span>
+<span id="cb586-5"><a href="working-with-real-world-data.html#cb586-5" tabindex="-1"></a>  IQR_value <span class="ot">&lt;-</span> <span class="fu">IQR</span>(data_column, <span class="at">na.rm =</span> <span class="cn">TRUE</span>)</span>
+<span id="cb586-6"><a href="working-with-real-world-data.html#cb586-6" tabindex="-1"></a>  </span>
+<span id="cb586-7"><a href="working-with-real-world-data.html#cb586-7" tabindex="-1"></a>  lower_bound <span class="ot">&lt;-</span> Q1 <span class="sc">-</span> <span class="fl">1.5</span> <span class="sc">*</span> IQR_value</span>
+<span id="cb586-8"><a href="working-with-real-world-data.html#cb586-8" tabindex="-1"></a>  upper_bound <span class="ot">&lt;-</span> Q3 <span class="sc">+</span> <span class="fl">1.5</span> <span class="sc">*</span> IQR_value</span>
+<span id="cb586-9"><a href="working-with-real-world-data.html#cb586-9" tabindex="-1"></a>  </span>
+<span id="cb586-10"><a href="working-with-real-world-data.html#cb586-10" tabindex="-1"></a>  <span class="fu">return</span>(data_column <span class="sc">&lt;</span> lower_bound <span class="sc">|</span> data_column <span class="sc">&gt;</span> upper_bound)</span>
+<span id="cb586-11"><a href="working-with-real-world-data.html#cb586-11" tabindex="-1"></a>}</span>
+<span id="cb586-12"><a href="working-with-real-world-data.html#cb586-12" tabindex="-1"></a></span>
+<span id="cb586-13"><a href="working-with-real-world-data.html#cb586-13" tabindex="-1"></a><span class="co"># Apply IQR method to identify outliers in each health metric</span></span>
+<span id="cb586-14"><a href="working-with-real-world-data.html#cb586-14" tabindex="-1"></a>health_data<span class="sc">$</span>outlier_body_temp_iqr <span class="ot">&lt;-</span> <span class="fu">identify_outliers_iqr</span>(health_data<span class="sc">$</span>body_temperature)</span>
+<span id="cb586-15"><a href="working-with-real-world-data.html#cb586-15" tabindex="-1"></a>health_data<span class="sc">$</span>outlier_blood_pressure_iqr <span class="ot">&lt;-</span> <span class="fu">identify_outliers_iqr</span>(health_data<span class="sc">$</span>blood_pressure)</span>
+<span id="cb586-16"><a href="working-with-real-world-data.html#cb586-16" tabindex="-1"></a>health_data<span class="sc">$</span>outlier_heart_rate_iqr <span class="ot">&lt;-</span> <span class="fu">identify_outliers_iqr</span>(health_data<span class="sc">$</span>heart_rate)</span>
+<span id="cb586-17"><a href="working-with-real-world-data.html#cb586-17" tabindex="-1"></a>health_data<span class="sc">$</span>outlier_cholesterol_iqr <span class="ot">&lt;-</span> <span class="fu">identify_outliers_iqr</span>(health_data<span class="sc">$</span>cholesterol)</span>
+<span id="cb586-18"><a href="working-with-real-world-data.html#cb586-18" tabindex="-1"></a></span>
+<span id="cb586-19"><a href="working-with-real-world-data.html#cb586-19" tabindex="-1"></a><span class="co"># View the data with outlier flags for body temperature</span></span>
+<span id="cb586-20"><a href="working-with-real-world-data.html#cb586-20" tabindex="-1"></a>health_data[health_data<span class="sc">$</span>outlier_body_temp_iqr, <span class="fu">c</span>(<span class="st">&quot;villager_id&quot;</span>, <span class="st">&quot;body_temperature&quot;</span>)]</span></code></pre></div>
 <pre><code>##    villager_id body_temperature
 ## 96          96         101.3997
 ## 97          97         104.1873
@@ -944,20 +948,20 @@ Any values larger than <span class="math inline">\(1.5xIQR\)</span> added to the
 <ul>
 <li>Find the outliers using the <strong>z-score</strong> method. The Z-score method standardizes the data to have a mean of 0 and a standard deviation of 1. Outliers are values that have a z-score of greater than 3 or less than -3.</li>
 </ul>
-<div class="sourceCode" id="cb580"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb580-1"><a href="working-with-real-world-data.html#cb580-1" tabindex="-1"></a><span class="co"># Function to identify outliers using the Z-score</span></span>
-<span id="cb580-2"><a href="working-with-real-world-data.html#cb580-2" tabindex="-1"></a>identify_outliers_zscore <span class="ot">&lt;-</span> <span class="cf">function</span>(data_column) {</span>
-<span id="cb580-3"><a href="working-with-real-world-data.html#cb580-3" tabindex="-1"></a>  z_scores <span class="ot">&lt;-</span> <span class="fu">scale</span>(data_column)</span>
-<span id="cb580-4"><a href="working-with-real-world-data.html#cb580-4" tabindex="-1"></a>  <span class="fu">return</span>(<span class="fu">abs</span>(z_scores) <span class="sc">&gt;</span> <span class="dv">3</span>)</span>
-<span id="cb580-5"><a href="working-with-real-world-data.html#cb580-5" tabindex="-1"></a>}</span>
-<span id="cb580-6"><a href="working-with-real-world-data.html#cb580-6" tabindex="-1"></a></span>
-<span id="cb580-7"><a href="working-with-real-world-data.html#cb580-7" tabindex="-1"></a><span class="co"># Apply Z-score method to identify outliers in each health metric</span></span>
-<span id="cb580-8"><a href="working-with-real-world-data.html#cb580-8" tabindex="-1"></a>health_data<span class="sc">$</span>outlier_body_temp_zscore <span class="ot">&lt;-</span> <span class="fu">identify_outliers_zscore</span>(health_data<span class="sc">$</span>body_temperature)</span>
-<span id="cb580-9"><a href="working-with-real-world-data.html#cb580-9" tabindex="-1"></a>health_data<span class="sc">$</span>outlier_blood_pressure_zscore <span class="ot">&lt;-</span> <span class="fu">identify_outliers_zscore</span>(health_data<span class="sc">$</span>blood_pressure)</span>
-<span id="cb580-10"><a href="working-with-real-world-data.html#cb580-10" tabindex="-1"></a>health_data<span class="sc">$</span>outlier_heart_rate_zscore <span class="ot">&lt;-</span> <span class="fu">identify_outliers_zscore</span>(health_data<span class="sc">$</span>heart_rate)</span>
-<span id="cb580-11"><a href="working-with-real-world-data.html#cb580-11" tabindex="-1"></a>health_data<span class="sc">$</span>outlier_cholesterol_zscore <span class="ot">&lt;-</span> <span class="fu">identify_outliers_zscore</span>(health_data<span class="sc">$</span>cholesterol)</span>
-<span id="cb580-12"><a href="working-with-real-world-data.html#cb580-12" tabindex="-1"></a></span>
-<span id="cb580-13"><a href="working-with-real-world-data.html#cb580-13" tabindex="-1"></a><span class="co"># View the data with Z-score outlier flags for blood pressure</span></span>
-<span id="cb580-14"><a href="working-with-real-world-data.html#cb580-14" tabindex="-1"></a>health_data[health_data<span class="sc">$</span>outlier_blood_pressure_zscore, <span class="fu">c</span>(<span class="st">&quot;villager_id&quot;</span>, <span class="st">&quot;blood_pressure&quot;</span>)]</span></code></pre></div>
+<div class="sourceCode" id="cb588"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb588-1"><a href="working-with-real-world-data.html#cb588-1" tabindex="-1"></a><span class="co"># Function to identify outliers using the Z-score</span></span>
+<span id="cb588-2"><a href="working-with-real-world-data.html#cb588-2" tabindex="-1"></a>identify_outliers_zscore <span class="ot">&lt;-</span> <span class="cf">function</span>(data_column) {</span>
+<span id="cb588-3"><a href="working-with-real-world-data.html#cb588-3" tabindex="-1"></a>  z_scores <span class="ot">&lt;-</span> <span class="fu">scale</span>(data_column)</span>
+<span id="cb588-4"><a href="working-with-real-world-data.html#cb588-4" tabindex="-1"></a>  <span class="fu">return</span>(<span class="fu">abs</span>(z_scores) <span class="sc">&gt;</span> <span class="dv">3</span>)</span>
+<span id="cb588-5"><a href="working-with-real-world-data.html#cb588-5" tabindex="-1"></a>}</span>
+<span id="cb588-6"><a href="working-with-real-world-data.html#cb588-6" tabindex="-1"></a></span>
+<span id="cb588-7"><a href="working-with-real-world-data.html#cb588-7" tabindex="-1"></a><span class="co"># Apply Z-score method to identify outliers in each health metric</span></span>
+<span id="cb588-8"><a href="working-with-real-world-data.html#cb588-8" tabindex="-1"></a>health_data<span class="sc">$</span>outlier_body_temp_zscore <span class="ot">&lt;-</span> <span class="fu">identify_outliers_zscore</span>(health_data<span class="sc">$</span>body_temperature)</span>
+<span id="cb588-9"><a href="working-with-real-world-data.html#cb588-9" tabindex="-1"></a>health_data<span class="sc">$</span>outlier_blood_pressure_zscore <span class="ot">&lt;-</span> <span class="fu">identify_outliers_zscore</span>(health_data<span class="sc">$</span>blood_pressure)</span>
+<span id="cb588-10"><a href="working-with-real-world-data.html#cb588-10" tabindex="-1"></a>health_data<span class="sc">$</span>outlier_heart_rate_zscore <span class="ot">&lt;-</span> <span class="fu">identify_outliers_zscore</span>(health_data<span class="sc">$</span>heart_rate)</span>
+<span id="cb588-11"><a href="working-with-real-world-data.html#cb588-11" tabindex="-1"></a>health_data<span class="sc">$</span>outlier_cholesterol_zscore <span class="ot">&lt;-</span> <span class="fu">identify_outliers_zscore</span>(health_data<span class="sc">$</span>cholesterol)</span>
+<span id="cb588-12"><a href="working-with-real-world-data.html#cb588-12" tabindex="-1"></a></span>
+<span id="cb588-13"><a href="working-with-real-world-data.html#cb588-13" tabindex="-1"></a><span class="co"># View the data with Z-score outlier flags for blood pressure</span></span>
+<span id="cb588-14"><a href="working-with-real-world-data.html#cb588-14" tabindex="-1"></a>health_data[health_data<span class="sc">$</span>outlier_blood_pressure_zscore, <span class="fu">c</span>(<span class="st">&quot;villager_id&quot;</span>, <span class="st">&quot;blood_pressure&quot;</span>)]</span></code></pre></div>
 <pre><code>##     villager_id blood_pressure
 ## 96           96       189.9861
 ## 97           97       183.0035
@@ -981,22 +985,22 @@ Any values larger than <span class="math inline">\(1.5xIQR\)</span> added to the
 <li><em>Min-Max Scaling</em>(normalization)</li>
 </ol>
 <p>The vector will be scaled in a range of 0 to 1 using a <code>preProcess</code> function from the <code>caret</code> package.</p>
-<div class="sourceCode" id="cb582"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb582-1"><a href="working-with-real-world-data.html#cb582-1" tabindex="-1"></a><span class="co"># Load the library</span></span>
-<span id="cb582-2"><a href="working-with-real-world-data.html#cb582-2" tabindex="-1"></a><span class="fu">library</span>(caret)</span></code></pre></div>
+<div class="sourceCode" id="cb590"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb590-1"><a href="working-with-real-world-data.html#cb590-1" tabindex="-1"></a><span class="co"># Load the library</span></span>
+<span id="cb590-2"><a href="working-with-real-world-data.html#cb590-2" tabindex="-1"></a><span class="fu">library</span>(caret)</span></code></pre></div>
 <pre><code>## Loading required package: lattice</code></pre>
 <pre><code>## 
 ## Attaching package: &#39;caret&#39;</code></pre>
 <pre><code>## The following object is masked from &#39;package:purrr&#39;:
 ## 
 ##     lift</code></pre>
-<div class="sourceCode" id="cb586"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb586-1"><a href="working-with-real-world-data.html#cb586-1" tabindex="-1"></a>v1 <span class="ot">&lt;-</span> <span class="fu">c</span>(<span class="dv">1200</span>,<span class="dv">34567</span>,<span class="dv">3456</span>,<span class="dv">12</span>,<span class="dv">3456</span>,<span class="dv">0985</span>,<span class="dv">1211</span>)</span>
-<span id="cb586-2"><a href="working-with-real-world-data.html#cb586-2" tabindex="-1"></a></span>
-<span id="cb586-3"><a href="working-with-real-world-data.html#cb586-3" tabindex="-1"></a><span class="co"># train the preprocesser(scaler)</span></span>
-<span id="cb586-4"><a href="working-with-real-world-data.html#cb586-4" tabindex="-1"></a>minMaxScaler <span class="ot">&lt;-</span> <span class="fu">preProcess</span>(<span class="fu">as.data.frame</span>(v1), <span class="at">method=</span><span class="fu">c</span>(<span class="st">&quot;range&quot;</span>))</span>
-<span id="cb586-5"><a href="working-with-real-world-data.html#cb586-5" tabindex="-1"></a></span>
-<span id="cb586-6"><a href="working-with-real-world-data.html#cb586-6" tabindex="-1"></a><span class="co"># Apply the scaler</span></span>
-<span id="cb586-7"><a href="working-with-real-world-data.html#cb586-7" tabindex="-1"></a>v1_scaled <span class="ot">&lt;-</span> <span class="fu">predict</span>(minMaxScaler, <span class="fu">as.data.frame</span>(v1))</span>
-<span id="cb586-8"><a href="working-with-real-world-data.html#cb586-8" tabindex="-1"></a>v1_scaled</span></code></pre></div>
+<div class="sourceCode" id="cb594"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb594-1"><a href="working-with-real-world-data.html#cb594-1" tabindex="-1"></a>v1 <span class="ot">&lt;-</span> <span class="fu">c</span>(<span class="dv">1200</span>,<span class="dv">34567</span>,<span class="dv">3456</span>,<span class="dv">12</span>,<span class="dv">3456</span>,<span class="dv">0985</span>,<span class="dv">1211</span>)</span>
+<span id="cb594-2"><a href="working-with-real-world-data.html#cb594-2" tabindex="-1"></a></span>
+<span id="cb594-3"><a href="working-with-real-world-data.html#cb594-3" tabindex="-1"></a><span class="co"># train the preprocesser(scaler)</span></span>
+<span id="cb594-4"><a href="working-with-real-world-data.html#cb594-4" tabindex="-1"></a>minMaxScaler <span class="ot">&lt;-</span> <span class="fu">preProcess</span>(<span class="fu">as.data.frame</span>(v1), <span class="at">method=</span><span class="fu">c</span>(<span class="st">&quot;range&quot;</span>))</span>
+<span id="cb594-5"><a href="working-with-real-world-data.html#cb594-5" tabindex="-1"></a></span>
+<span id="cb594-6"><a href="working-with-real-world-data.html#cb594-6" tabindex="-1"></a><span class="co"># Apply the scaler</span></span>
+<span id="cb594-7"><a href="working-with-real-world-data.html#cb594-7" tabindex="-1"></a>v1_scaled <span class="ot">&lt;-</span> <span class="fu">predict</span>(minMaxScaler, <span class="fu">as.data.frame</span>(v1))</span>
+<span id="cb594-8"><a href="working-with-real-world-data.html#cb594-8" tabindex="-1"></a>v1_scaled</span></code></pre></div>
 <pre><code>##           v1
 ## 1 0.03437997
 ## 2 1.00000000
@@ -1008,11 +1012,11 @@ Any values larger than <span class="math inline">\(1.5xIQR\)</span> added to the
 <ol start="2" style="list-style-type: decimal">
 <li><em>Using the <code>scale()</code> function</em>(standardization)</li>
 </ol>
-<div class="sourceCode" id="cb588"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb588-1"><a href="working-with-real-world-data.html#cb588-1" tabindex="-1"></a><span class="co"># Create the vector</span></span>
-<span id="cb588-2"><a href="working-with-real-world-data.html#cb588-2" tabindex="-1"></a>v1 <span class="ot">&lt;-</span> <span class="fu">c</span>(<span class="dv">1200</span>,<span class="dv">34567</span>,<span class="dv">3456</span>,<span class="dv">12</span>,<span class="dv">3456</span>,<span class="dv">0985</span>,<span class="dv">1211</span>)</span>
-<span id="cb588-3"><a href="working-with-real-world-data.html#cb588-3" tabindex="-1"></a></span>
-<span id="cb588-4"><a href="working-with-real-world-data.html#cb588-4" tabindex="-1"></a>v1_scaled <span class="ot">&lt;-</span> <span class="fu">as.data.frame</span>(<span class="fu">scale</span>(v1))</span>
-<span id="cb588-5"><a href="working-with-real-world-data.html#cb588-5" tabindex="-1"></a>v1_scaled</span></code></pre></div>
+<div class="sourceCode" id="cb596"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb596-1"><a href="working-with-real-world-data.html#cb596-1" tabindex="-1"></a><span class="co"># Create the vector</span></span>
+<span id="cb596-2"><a href="working-with-real-world-data.html#cb596-2" tabindex="-1"></a>v1 <span class="ot">&lt;-</span> <span class="fu">c</span>(<span class="dv">1200</span>,<span class="dv">34567</span>,<span class="dv">3456</span>,<span class="dv">12</span>,<span class="dv">3456</span>,<span class="dv">0985</span>,<span class="dv">1211</span>)</span>
+<span id="cb596-3"><a href="working-with-real-world-data.html#cb596-3" tabindex="-1"></a></span>
+<span id="cb596-4"><a href="working-with-real-world-data.html#cb596-4" tabindex="-1"></a>v1_scaled <span class="ot">&lt;-</span> <span class="fu">as.data.frame</span>(<span class="fu">scale</span>(v1))</span>
+<span id="cb596-5"><a href="working-with-real-world-data.html#cb596-5" tabindex="-1"></a>v1_scaled</span></code></pre></div>
 <pre><code>##           V1
 ## 1 -0.4175944
 ## 2  2.2556070
@@ -1025,11 +1029,11 @@ Any values larger than <span class="math inline">\(1.5xIQR\)</span> added to the
 <li><em>Log transform</em></li>
 </ol>
 <p>This is used especially when the data is unevenly distributed for instance being skewed by “stretching out” the tail of a right-skewed distribution making it more symmetric.</p>
-<div class="sourceCode" id="cb590"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb590-1"><a href="working-with-real-world-data.html#cb590-1" tabindex="-1"></a><span class="co"># Create the vector</span></span>
-<span id="cb590-2"><a href="working-with-real-world-data.html#cb590-2" tabindex="-1"></a>v1 <span class="ot">&lt;-</span> <span class="fu">c</span>(<span class="dv">1200</span>,<span class="dv">34567</span>,<span class="dv">3456</span>,<span class="dv">12</span>,<span class="dv">3456</span>,<span class="dv">0985</span>,<span class="dv">1211</span>)</span>
-<span id="cb590-3"><a href="working-with-real-world-data.html#cb590-3" tabindex="-1"></a></span>
-<span id="cb590-4"><a href="working-with-real-world-data.html#cb590-4" tabindex="-1"></a>log_scaled_v1 <span class="ot">&lt;-</span> <span class="fu">log</span>(<span class="fu">as.data.frame</span>(v1))</span>
-<span id="cb590-5"><a href="working-with-real-world-data.html#cb590-5" tabindex="-1"></a>log_scaled_v1</span></code></pre></div>
+<div class="sourceCode" id="cb598"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb598-1"><a href="working-with-real-world-data.html#cb598-1" tabindex="-1"></a><span class="co"># Create the vector</span></span>
+<span id="cb598-2"><a href="working-with-real-world-data.html#cb598-2" tabindex="-1"></a>v1 <span class="ot">&lt;-</span> <span class="fu">c</span>(<span class="dv">1200</span>,<span class="dv">34567</span>,<span class="dv">3456</span>,<span class="dv">12</span>,<span class="dv">3456</span>,<span class="dv">0985</span>,<span class="dv">1211</span>)</span>
+<span id="cb598-3"><a href="working-with-real-world-data.html#cb598-3" tabindex="-1"></a></span>
+<span id="cb598-4"><a href="working-with-real-world-data.html#cb598-4" tabindex="-1"></a>log_scaled_v1 <span class="ot">&lt;-</span> <span class="fu">log</span>(<span class="fu">as.data.frame</span>(v1))</span>
+<span id="cb598-5"><a href="working-with-real-world-data.html#cb598-5" tabindex="-1"></a>log_scaled_v1</span></code></pre></div>
 <pre><code>##          v1
 ## 1  7.090077
 ## 2 10.450655
@@ -1046,17 +1050,17 @@ Any values larger than <span class="math inline">\(1.5xIQR\)</span> added to the
 <li><em>One-hot encoding</em>
 One hot encoding represents each category as a separate column and converts the categorical values into a 1 or 0 depending where the category is represented. This avoids the assumption of ordinality by the machine learning models. Lets perform one hot encoding on a color vector</li>
 </ol>
-<div class="sourceCode" id="cb592"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb592-1"><a href="working-with-real-world-data.html#cb592-1" tabindex="-1"></a><span class="fu">library</span>(caret)</span>
-<span id="cb592-2"><a href="working-with-real-world-data.html#cb592-2" tabindex="-1"></a></span>
-<span id="cb592-3"><a href="working-with-real-world-data.html#cb592-3" tabindex="-1"></a><span class="co"># Sample categorical variable</span></span>
-<span id="cb592-4"><a href="working-with-real-world-data.html#cb592-4" tabindex="-1"></a>color_df <span class="ot">&lt;-</span> <span class="fu">data.frame</span>(</span>
-<span id="cb592-5"><a href="working-with-real-world-data.html#cb592-5" tabindex="-1"></a>  <span class="at">Color =</span> <span class="fu">c</span>(<span class="st">&quot;Red&quot;</span>, <span class="st">&quot;Blue&quot;</span>, <span class="st">&quot;Green&quot;</span>, <span class="st">&quot;Red&quot;</span>, <span class="st">&quot;Blue&quot;</span>)</span>
-<span id="cb592-6"><a href="working-with-real-world-data.html#cb592-6" tabindex="-1"></a>)</span>
-<span id="cb592-7"><a href="working-with-real-world-data.html#cb592-7" tabindex="-1"></a></span>
-<span id="cb592-8"><a href="working-with-real-world-data.html#cb592-8" tabindex="-1"></a><span class="co"># dummify the data </span></span>
-<span id="cb592-9"><a href="working-with-real-world-data.html#cb592-9" tabindex="-1"></a>color_dmy <span class="ot">&lt;-</span> <span class="fu">dummyVars</span>(<span class="st">&quot; ~ .&quot;</span>, <span class="at">data =</span> color_df)</span>
-<span id="cb592-10"><a href="working-with-real-world-data.html#cb592-10" tabindex="-1"></a>new_color_df <span class="ot">&lt;-</span> <span class="fu">data.frame</span>(<span class="fu">predict</span>(color_dmy, <span class="at">newdata =</span> color_df))</span>
-<span id="cb592-11"><a href="working-with-real-world-data.html#cb592-11" tabindex="-1"></a>new_color_df</span></code></pre></div>
+<div class="sourceCode" id="cb600"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb600-1"><a href="working-with-real-world-data.html#cb600-1" tabindex="-1"></a><span class="fu">library</span>(caret)</span>
+<span id="cb600-2"><a href="working-with-real-world-data.html#cb600-2" tabindex="-1"></a></span>
+<span id="cb600-3"><a href="working-with-real-world-data.html#cb600-3" tabindex="-1"></a><span class="co"># Sample categorical variable</span></span>
+<span id="cb600-4"><a href="working-with-real-world-data.html#cb600-4" tabindex="-1"></a>color_df <span class="ot">&lt;-</span> <span class="fu">data.frame</span>(</span>
+<span id="cb600-5"><a href="working-with-real-world-data.html#cb600-5" tabindex="-1"></a>  <span class="at">Color =</span> <span class="fu">c</span>(<span class="st">&quot;Red&quot;</span>, <span class="st">&quot;Blue&quot;</span>, <span class="st">&quot;Green&quot;</span>, <span class="st">&quot;Red&quot;</span>, <span class="st">&quot;Blue&quot;</span>)</span>
+<span id="cb600-6"><a href="working-with-real-world-data.html#cb600-6" tabindex="-1"></a>)</span>
+<span id="cb600-7"><a href="working-with-real-world-data.html#cb600-7" tabindex="-1"></a></span>
+<span id="cb600-8"><a href="working-with-real-world-data.html#cb600-8" tabindex="-1"></a><span class="co"># dummify the data </span></span>
+<span id="cb600-9"><a href="working-with-real-world-data.html#cb600-9" tabindex="-1"></a>color_dmy <span class="ot">&lt;-</span> <span class="fu">dummyVars</span>(<span class="st">&quot; ~ .&quot;</span>, <span class="at">data =</span> color_df)</span>
+<span id="cb600-10"><a href="working-with-real-world-data.html#cb600-10" tabindex="-1"></a>new_color_df <span class="ot">&lt;-</span> <span class="fu">data.frame</span>(<span class="fu">predict</span>(color_dmy, <span class="at">newdata =</span> color_df))</span>
+<span id="cb600-11"><a href="working-with-real-world-data.html#cb600-11" tabindex="-1"></a>new_color_df</span></code></pre></div>
 <pre><code>##   ColorBlue ColorGreen ColorRed
 ## 1         0          0        1
 ## 2         1          0        0
@@ -1064,12 +1068,12 @@ One hot encoding represents each category as a separate column and converts the 
 ## 4         0          0        1
 ## 5         1          0        0</code></pre>
 <p>Alternatively you can use the <code>model_matrix</code>, a built-in R function</p>
-<div class="sourceCode" id="cb594"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb594-1"><a href="working-with-real-world-data.html#cb594-1" tabindex="-1"></a><span class="co"># Using model.matrix() to one-hot encode</span></span>
-<span id="cb594-2"><a href="working-with-real-world-data.html#cb594-2" tabindex="-1"></a>color_df<span class="sc">$</span>Color <span class="ot">&lt;-</span> <span class="fu">as.factor</span>(color_df<span class="sc">$</span>Color)  <span class="co"># Convert Color to a factor</span></span>
-<span id="cb594-3"><a href="working-with-real-world-data.html#cb594-3" tabindex="-1"></a>one_hot_encoded <span class="ot">&lt;-</span> <span class="fu">model.matrix</span>(<span class="sc">~</span> Color <span class="sc">-</span> <span class="dv">1</span>, color_df)</span>
-<span id="cb594-4"><a href="working-with-real-world-data.html#cb594-4" tabindex="-1"></a></span>
-<span id="cb594-5"><a href="working-with-real-world-data.html#cb594-5" tabindex="-1"></a><span class="co"># View the encoded matrix</span></span>
-<span id="cb594-6"><a href="working-with-real-world-data.html#cb594-6" tabindex="-1"></a>one_hot_encoded</span></code></pre></div>
+<div class="sourceCode" id="cb602"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb602-1"><a href="working-with-real-world-data.html#cb602-1" tabindex="-1"></a><span class="co"># Using model.matrix() to one-hot encode</span></span>
+<span id="cb602-2"><a href="working-with-real-world-data.html#cb602-2" tabindex="-1"></a>color_df<span class="sc">$</span>Color <span class="ot">&lt;-</span> <span class="fu">as.factor</span>(color_df<span class="sc">$</span>Color)  <span class="co"># Convert Color to a factor</span></span>
+<span id="cb602-3"><a href="working-with-real-world-data.html#cb602-3" tabindex="-1"></a>one_hot_encoded <span class="ot">&lt;-</span> <span class="fu">model.matrix</span>(<span class="sc">~</span> Color <span class="sc">-</span> <span class="dv">1</span>, color_df)</span>
+<span id="cb602-4"><a href="working-with-real-world-data.html#cb602-4" tabindex="-1"></a></span>
+<span id="cb602-5"><a href="working-with-real-world-data.html#cb602-5" tabindex="-1"></a><span class="co"># View the encoded matrix</span></span>
+<span id="cb602-6"><a href="working-with-real-world-data.html#cb602-6" tabindex="-1"></a>one_hot_encoded</span></code></pre></div>
 <pre><code>##   ColorBlue ColorGreen ColorRed
 ## 1         0          0        1
 ## 2         1          0        0
@@ -1086,16 +1090,16 @@ One hot encoding represents each category as a separate column and converts the 
 <li><em>Label encoding</em></li>
 </ol>
 <p>This method assigns a unique integer to each category. This method is simpler but it may impose unintended ordinality.</p>
-<div class="sourceCode" id="cb596"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb596-1"><a href="working-with-real-world-data.html#cb596-1" tabindex="-1"></a><span class="co"># Sample categorical variable</span></span>
-<span id="cb596-2"><a href="working-with-real-world-data.html#cb596-2" tabindex="-1"></a>color_df <span class="ot">&lt;-</span> <span class="fu">data.frame</span>(</span>
-<span id="cb596-3"><a href="working-with-real-world-data.html#cb596-3" tabindex="-1"></a>  <span class="at">Color =</span> <span class="fu">c</span>(<span class="st">&quot;Red&quot;</span>, <span class="st">&quot;Blue&quot;</span>, <span class="st">&quot;Green&quot;</span>, <span class="st">&quot;Red&quot;</span>, <span class="st">&quot;Blue&quot;</span>)</span>
-<span id="cb596-4"><a href="working-with-real-world-data.html#cb596-4" tabindex="-1"></a>)</span>
-<span id="cb596-5"><a href="working-with-real-world-data.html#cb596-5" tabindex="-1"></a></span>
-<span id="cb596-6"><a href="working-with-real-world-data.html#cb596-6" tabindex="-1"></a><span class="co"># Label encoding</span></span>
-<span id="cb596-7"><a href="working-with-real-world-data.html#cb596-7" tabindex="-1"></a>color_df<span class="sc">$</span>Color_encoded <span class="ot">&lt;-</span> <span class="fu">as.numeric</span>(<span class="fu">as.factor</span>(color_df<span class="sc">$</span>Color))</span>
-<span id="cb596-8"><a href="working-with-real-world-data.html#cb596-8" tabindex="-1"></a></span>
-<span id="cb596-9"><a href="working-with-real-world-data.html#cb596-9" tabindex="-1"></a><span class="co"># View the label encoded data</span></span>
-<span id="cb596-10"><a href="working-with-real-world-data.html#cb596-10" tabindex="-1"></a>color_df</span></code></pre></div>
+<div class="sourceCode" id="cb604"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb604-1"><a href="working-with-real-world-data.html#cb604-1" tabindex="-1"></a><span class="co"># Sample categorical variable</span></span>
+<span id="cb604-2"><a href="working-with-real-world-data.html#cb604-2" tabindex="-1"></a>color_df <span class="ot">&lt;-</span> <span class="fu">data.frame</span>(</span>
+<span id="cb604-3"><a href="working-with-real-world-data.html#cb604-3" tabindex="-1"></a>  <span class="at">Color =</span> <span class="fu">c</span>(<span class="st">&quot;Red&quot;</span>, <span class="st">&quot;Blue&quot;</span>, <span class="st">&quot;Green&quot;</span>, <span class="st">&quot;Red&quot;</span>, <span class="st">&quot;Blue&quot;</span>)</span>
+<span id="cb604-4"><a href="working-with-real-world-data.html#cb604-4" tabindex="-1"></a>)</span>
+<span id="cb604-5"><a href="working-with-real-world-data.html#cb604-5" tabindex="-1"></a></span>
+<span id="cb604-6"><a href="working-with-real-world-data.html#cb604-6" tabindex="-1"></a><span class="co"># Label encoding</span></span>
+<span id="cb604-7"><a href="working-with-real-world-data.html#cb604-7" tabindex="-1"></a>color_df<span class="sc">$</span>Color_encoded <span class="ot">&lt;-</span> <span class="fu">as.numeric</span>(<span class="fu">as.factor</span>(color_df<span class="sc">$</span>Color))</span>
+<span id="cb604-8"><a href="working-with-real-world-data.html#cb604-8" tabindex="-1"></a></span>
+<span id="cb604-9"><a href="working-with-real-world-data.html#cb604-9" tabindex="-1"></a><span class="co"># View the label encoded data</span></span>
+<span id="cb604-10"><a href="working-with-real-world-data.html#cb604-10" tabindex="-1"></a>color_df</span></code></pre></div>
 <pre><code>##   Color Color_encoded
 ## 1   Red             3
 ## 2  Blue             1

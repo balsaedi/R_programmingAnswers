@@ -160,6 +160,10 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <li class="chapter" data-level="1.3.3" data-path="index.html"><a href="index.html#basic-r-syntax-and-commands"><i class="fa fa-check"></i><b>1.3.3</b> Basic R Syntax and Commands</a></li>
 </ul></li>
 <li class="chapter" data-level="1.4" data-path="index.html"><a href="index.html#hands-on-exercise"><i class="fa fa-check"></i><b>1.4</b> Hands-on Exercise</a></li>
+<li class="chapter" data-level="1.5" data-path="index.html"><a href="index.html#solutions"><i class="fa fa-check"></i><b>1.5</b> Solutions</a>
+<ul>
+<li class="chapter" data-level="1.5.1" data-path="index.html"><a href="index.html#hands-on-exercise-1"><i class="fa fa-check"></i><b>1.5.1</b> Hands-on Exercise</a></li>
+</ul></li>
 </ul></li>
 <li class="chapter" data-level="2" data-path="basic-data-types-and-structures.html"><a href="basic-data-types-and-structures.html"><i class="fa fa-check"></i><b>2</b> Basic Data Types and Structures</a>
 <ul>
@@ -229,7 +233,7 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <ul>
 <li class="chapter" data-level="7.1.1" data-path="statistical-analysis.html"><a href="statistical-analysis.html#introduction-to-descriptive-statistics"><i class="fa fa-check"></i><b>7.1.1</b> Introduction to Descriptive Statistics</a></li>
 <li class="chapter" data-level="7.1.2" data-path="statistical-analysis.html"><a href="statistical-analysis.html#visualization-of-descriptive-statistics"><i class="fa fa-check"></i><b>7.1.2</b> Visualization of Descriptive Statistics</a></li>
-<li class="chapter" data-level="7.1.3" data-path="statistical-analysis.html"><a href="statistical-analysis.html#hands-on-exercise-1"><i class="fa fa-check"></i><b>7.1.3</b> Hands On Exercise</a></li>
+<li class="chapter" data-level="7.1.3" data-path="statistical-analysis.html"><a href="statistical-analysis.html#hands-on-exercise-2"><i class="fa fa-check"></i><b>7.1.3</b> Hands On Exercise</a></li>
 </ul></li>
 <li class="chapter" data-level="7.2" data-path="statistical-analysis.html"><a href="statistical-analysis.html#correlation-and-regression-analysis"><i class="fa fa-check"></i><b>7.2</b> Correlation and Regression Analysis</a>
 <ul>
@@ -501,7 +505,40 @@ R generally ignores whitespace (spaces, tabs, newlines) between elements, except
 </ol></li>
 <li><p>Assign variable <code>d</code> and <code>f</code> to values <code>42</code> and <code>14</code> respectively and solve <code>d/f</code></p></li>
 </ol>
+</div>
+<div id="solutions" class="section level2 hasAnchor" number="1.5">
+<h2><span class="header-section-number">1.5</span> Solutions<a href="index.html#solutions" class="anchor-section" aria-label="Anchor link to header"></a></h2>
+<div id="hands-on-exercise-1" class="section level3 hasAnchor" number="1.5.1">
+<h3><span class="header-section-number">1.5.1</span> Hands-on Exercise<a href="index.html#hands-on-exercise-1" class="anchor-section" aria-label="Anchor link to header"></a></h3>
+<ol style="list-style-type: decimal">
+<li><p>Solve the following equations;</p>
+<ol style="list-style-type: lower-alpha">
+<li><code>34 + 54</code></li>
+<li><code>76 - 10</code></li>
+<li><code>25 * 25</code></li>
+</ol></li>
+</ol>
+<div class="sourceCode" id="cb20"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb20-1"><a href="index.html#cb20-1" tabindex="-1"></a><span class="co"># a. `34 + 54`</span></span>
+<span id="cb20-2"><a href="index.html#cb20-2" tabindex="-1"></a><span class="dv">34</span> <span class="sc">+</span> <span class="dv">54</span></span></code></pre></div>
+<pre><code>## [1] 88</code></pre>
+<div class="sourceCode" id="cb22"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb22-1"><a href="index.html#cb22-1" tabindex="-1"></a><span class="co"># b. `76 - 10`</span></span>
+<span id="cb22-2"><a href="index.html#cb22-2" tabindex="-1"></a><span class="dv">76-10</span></span></code></pre></div>
+<pre><code>## [1] 66</code></pre>
+<div class="sourceCode" id="cb24"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb24-1"><a href="index.html#cb24-1" tabindex="-1"></a><span class="co"># c. `25 * 25`</span></span>
+<span id="cb24-2"><a href="index.html#cb24-2" tabindex="-1"></a><span class="dv">25</span> <span class="sc">*</span> <span class="dv">25</span></span></code></pre></div>
+<pre><code>## [1] 625</code></pre>
+<ol start="2" style="list-style-type: decimal">
+<li>Assign variable <code>d</code> and <code>f</code> to values <code>42</code> and <code>14</code> respectively and solve <code>d/f</code></li>
+</ol>
+<div class="sourceCode" id="cb26"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb26-1"><a href="index.html#cb26-1" tabindex="-1"></a><span class="co"># Assign variables</span></span>
+<span id="cb26-2"><a href="index.html#cb26-2" tabindex="-1"></a>d <span class="ot">&lt;-</span> <span class="dv">42</span></span>
+<span id="cb26-3"><a href="index.html#cb26-3" tabindex="-1"></a>f <span class="ot">&lt;-</span> <span class="dv">14</span> </span>
+<span id="cb26-4"><a href="index.html#cb26-4" tabindex="-1"></a></span>
+<span id="cb26-5"><a href="index.html#cb26-5" tabindex="-1"></a><span class="co"># solve d/f </span></span>
+<span id="cb26-6"><a href="index.html#cb26-6" tabindex="-1"></a>d<span class="sc">/</span>f</span></code></pre></div>
+<pre><code>## [1] 3</code></pre>
 
+</div>
 </div>
 </div>
             </section>
