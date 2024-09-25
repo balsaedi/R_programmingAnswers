@@ -399,6 +399,68 @@ Download the Bengaluru Restaurants Dataset from [here](https://www.kaggle.com/da
 - Ensure consistency in categorical data, such as correcting case sensitivity or spelling issues (e.g., "North Indian" vs. "north indian").
 - Identify and handle any outliers in the "cost for two" column.
 
+
+### <span style="color: brown">Solutions</span>
+<span style="color: brown">**Practical exercise**</span>
+
+You will use the car sales data set found [here](https://github.com/balsaedi/R_programming/blob/main/data/car_sales.csv) to;
+
+i. Delete all the records that have any null value
+ii. Remove duplicated observations
+iii. Remove outliers
+```{r}
+# Read the data sets 
+car_sales <- read.csv("https://github.com/balsaedi/R_programming/blob/main/data/car_sales.csv")
+
+# i. Delete all the records that have any null value
+car_sales_1 <- na.omit(car_sales)
+
+# ii. Remove duplicated observations
+car_sales_2 <- car_sales_1[!duplicated(car_sales_1), ]
+
+# iii. Remove outliers
+## WILL BE DONE LATER
+```
+
+#### Hands-on Exercise
+Download the Bengaluru Restaurants Dataset from [here](https://www.kaggle.com/datasets/mrmars1010/restaurants-dataset-bengaluru) and use it to for the activities below. 
+
+1. **Subsetting and Filtering**
+
+- Subset the data set to include only restaurants with a rating of 4.0 and above.
+- Filter the data set to include restaurants in specific locations: "Koramangala", "Indiranagar", and "MG Road".
+- Create a subset that includes only restaurants serving both "North Indian" and "Chinese" cuisine.
+- Filter out restaurants that have no reviews or ratings.
+
+```{r}
+df <- read.csv("data/Bengaluru_Restaurants.csv")
+# Subsetting and Filtering
+## Subset the data set to include only restaurants with a rating of 4.0 and above.
+
+## Filter the data set to include restaurants in specific locations: "Koramangala", "Indiranagar", and "MG Road".
+
+
+## Create a subset that includes only restaurants serving both "North Indian" and "Chinese" cuisine.
+
+
+## Filter out restaurants that have no reviews or ratings.
+
+```
+
+2. **Sorting**
+
+- Sort the data set by restaurant ratings in descending order.
+- Sort the data set first by location and then by average cost for two people in ascending order.
+- Sort the data set by the number of votes a restaurant received, with the highest votes appearing first.
+
+3. **Data Cleaning**
+
+- Identify and remove rows with missing or null values in any key columns (e.g., ratings, cost, cuisine type).
+- Correct inconsistent data types: Ensure that numeric columns (such as "cost for two") are in the correct numeric format.
+- Remove any duplicate restaurant entries based on the restaurant name and location.
+- Ensure consistency in categorical data, such as correcting case sensitivity or spelling issues (e.g., "North Indian" vs. "north indian").
+- Identify and handle any outliers in the "cost for two" column.
+
 ## Data Manipulation with Dplyr
 ### Introduction to Dplyr package 
 Dplyr is a package designed for data manipulation equipped with a set of intuitive functions to perform tasks like filtering rows, selecting columns, rearranging data and summarizing information. The package is part of a larger library, `tidyverse`. The **tidyverse** package is a package designed for data science that share an underlying design philosophy, grammar and data structures. The packages within the tidyverse are widely used for data manipulation, exploration, and visualization in R. Here are some of the core packages in tidyverse; 

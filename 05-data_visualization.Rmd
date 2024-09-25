@@ -91,8 +91,10 @@ Lets explain the chart step by step;-
 
 Solve the questions below;
 
-i. Using the `"mtcars"` inbuilt data set, plot a scatter chart to visualize the relationship between `mpg` (miles per gallon) and `hp` (horsepower). Label the axes appropirately. **Hint**: the data set can be loaded by `data("mtcars")` command.
+i. Using the `"mtcars"` inbuilt data set, plot a scatter chart to visualize the relationship between `mpg` (miles per gallon) and `hp` (horsepower). Label the axes appropriately. **Hint**: the data set can be loaded by `data("mtcars")` command.
 ii. Using the `airquality` data set, plot a scatter plot to show the relationship between `Wind` and `Temp`. **Hint**: the data set can be loaded by `data("airquality")` command. 
+
+<span style="color: brown;">**Solution**</span> 
 
 - **Bar Charts**
 
@@ -128,6 +130,8 @@ ggplot(df, aes(x = category, y = value)) +
 
 Using the `mtcars` data set, create a bar plot to visualize the number of cars for each unique number of cylinders (`cyl`) in the mtcars data set. Label the bars with the appropriate cylinder categories and provide axis labels for clarity.
 
+<span style="color: brown;">**Solution**</span> 
+
 
 - **Histograms**
 
@@ -156,6 +160,8 @@ The bins are groups of ages ranging 5 years.
 <span style="color: green;">**Practical exercise**</span> 
 
 Using the `rivers` in built R data set, plot a histogram to visualize the distribution of rovers length. **Hint**: The data set is loaded by the command `data("rivers")`. 
+
+<span style="color: brown;">**Solution**</span> 
 
 #### Customizing plots
 - **Themes**
@@ -218,7 +224,9 @@ There are more themes provided in `ggplot2` like `theme_bw()`
 
 <span style="color: green;">**Practical exercise**</span>
 
-Using the `mtcars` data set, create a bar plot to visualize the number of cars for each unique number of cylinders (`cyl`) in the mtcars data set. Apply different themes to the bar plot. 
+Using the `mtcars` data set, create a bar plot to visualize the number of cars for each unique number of cylinders (`cyl`) in the mtcars data set. Apply different themes to the bar plot.
+
+<span style="color: brown;">**Solution**</span> 
 
 - **Labels and Titles**
 
@@ -270,6 +278,8 @@ p + labs(
 
 Using the `mtcars` data set, create a bar plot to visualize the number of cars for each unique number of cylinders (`cyl`) in the mtcars data set. Add `x`, `y` axes labels and titles to the plot. 
 
+<span style="color: brown;">**Solution**</span> 
+
 - **Color and aesthetics**
 
 The general aesthetics are essential when presenting the analysis results. They enhance the visual appearance of the charts. It also allows the users/analyst to distinguish different properties/categories in a variable. They include; color, size and shape.
@@ -308,6 +318,8 @@ The `scale_color_manual()` function allows you to manually set the colors for ea
 <span style="color: green;">**Practical exercise**</span>
 
 Using the `mtcars` data set, create a bar plot to visualize the number of cars for each unique number of cylinders (`cyl`) in the mtcars data set. Play with different foreground and background colors to come up with the best looking plot. 
+
+<span style="color: brown;">**Solution**</span> 
 
 ## Advanced Data Visualization
 ### Creating Complex Visualizations
@@ -368,6 +380,8 @@ ggplot(df, aes(x=Age, y=Gender))+
 
 Load the inbuilt `ToothGrowth` data set and create a boxplot to compare the distribution of tooth length (`len`) across the different dose levels (`dose`) of Vitamin C in the `ToothGrowth` data set. Make sure to label the axes and title the plot appropriately.
 
+<span style="color: brown;">**Solution**</span> 
+
 - **Violin Plots**
 
 An alternative to the boxplot is the violin plot. The violin plot addresses the issue of distribution. It shows the distribution curve unlike the boxplot and histogram. 
@@ -382,6 +396,8 @@ ggplot(df, aes(x=Age, y=""))+
 <span style="color: green;">**Practical exercise**</span>
 
 Using the same `ToothGrowth` data set and create a violin plot to compare the distribution of tooth length (`len`) across the different dose levels (`dose`) of Vitamin C in the `ToothGrowth` data set. Make sure to label the axes and title the plot appropriately.
+
+<span style="color: brown;">**Solution**</span> 
 
 - **Facet Grids**
 
@@ -436,6 +452,8 @@ As seen above, there is a boxplot to represent the distribution for each `sub_ca
 <span style="color: green;">**Practical exercise**</span>
 
 Using the same `ToothGrowth` data set, create a violin plot to visualize the distribution of tooth length (`le`n`) across the different dose levels (`dose`). Use `facet_wrap()` or `facet_grid()` to split the plot by the supplement type (`supp`). Make sure to label the axes and add an appropriate title
+
+<span style="color: brown;">**Solution**</span> 
 
 
 ### Combining Multiple Plots
@@ -527,3 +545,6 @@ Down load the E-commerce Customer Behavior Data set from [here](https://www.kagg
 - A box plot that will show Time on Site distribution 
 - A bar chart that compare different genders count for the customers 
 - A scatter plot to compare age vs annual income
+
+
+<span style="color: brown;">**Solution**</span> 

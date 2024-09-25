@@ -40,6 +40,8 @@ subsetting-and-filtering-data
 sorting-data
 basic-data-cleaning
 hands-on-exercises
+solutions-2
+hands-on-exercise-2
 data-manipulation-with-dplyr
 introduction-to-dplyr-package
 key-functions-in-dplyr
@@ -68,7 +70,7 @@ statistical-analysis
 basic-statistical-concepts
 introduction-to-descriptive-statistics
 visualization-of-descriptive-statistics
-hands-on-exercise-2
+hands-on-exercise-3
 correlation-and-regression-analysis
 introduction-to-correlation
 introduction-to-regression-analysis
