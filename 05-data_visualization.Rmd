@@ -17,17 +17,12 @@ library(ggplot2)
 ```
 
 There are 5 key steps in plotting in ggplot;
-<p>
-  1.**The Setup** - Read the data set, define x and y axis 
-  
-  2. **The Labels** - Title, X and Y axis labels 
-  
-  3. **The Theme** - Default, Black and White, colored etc. 
-  
-  4. **The Facets** - Individual Graphs for each group in data with exactly same range
-  
-  5. **The Layers or geoms** - The actual plot type - e.g Bar plot, Box plot, Violin plot etc. 
-</p>
+
+1. **The Setup** - Read the data set, define x and y axis 
+2. **The Labels** - Title, X and Y axis labels 
+3. **The Theme** - Default, Black and White, colored etc. 
+4. **The Facets** - Individual Graphs for each group in data with exactly same range
+5. **The Layers or geoms** - The actual plot type - e.g Bar plot, Box plot, Violin plot etc. 
 
 Here is an example of a layered approach in creating charts by applying the "Grammar of Graphics". 
 
@@ -95,6 +90,34 @@ i. Using the `"mtcars"` inbuilt data set, plot a scatter chart to visualize the 
 ii. Using the `airquality` data set, plot a scatter plot to show the relationship between `Wind` and `Temp`. **Hint**: the data set can be loaded by `data("airquality")` command. 
 
 <span style="color: brown;">**Solution**</span> 
+
+i. Using the `"mtcars"` inbuilt data set, plot a scatter chart to visualize the relationship between `mpg` (miles per gallon) and `hp` (horsepower). Label the axes appropriately. Hint: the data set can be loaded by `data("mtcars")` command.
+```{r}
+# Import the libraries
+library(ggplot2)
+
+# Load the data and show the first few rows
+data(mtcars)
+
+head(mtcars)
+
+# Creating a scatter plot
+ggplot(mtcars, # data
+       aes(x = hp, y = mpg)) + # aesthetics
+  geom_point()
+```
+
+ii. Using the `airquality` data set, plot a scatter plot to show the relationship between `Wind` and `Temp`. **Hint**: the data set can be loaded by `data("airquality")` command. 
+```{r}
+# Load the data 
+data("airquality")
+head(airquality)
+
+# Creating a scatter plot
+ggplot(airquality, # data
+       aes(x = Wind, y = Temp)) + # aesthetics
+  geom_point()
+```
 
 - **Bar Charts**
 
@@ -539,7 +562,7 @@ grid.arrange(p1, p2, p3, nrow = 1, ncol = 3)
 
 <span style="color: green;">**Practical exercise**</span>
 
-Down load the E-commerce Customer Behavior Data set from [here](https://www.kaggle.com/datasets/samps74/e-commerce-customer-behavior-dataset/data). Create multiple plots that will combine;
+Download the E-commerce Customer Behavior Data set from [here](https://www.kaggle.com/datasets/samps74/e-commerce-customer-behavior-dataset/data). Create multiple plots that will combine;
 
 - A histogram to show annual income distribution 
 - A box plot that will show Time on Site distribution 
