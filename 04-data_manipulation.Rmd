@@ -410,7 +410,7 @@ ii. Remove duplicated observations
 iii. Remove outliers
 ```{r}
 # Read the data sets 
-car_sales <- read.csv("https://github.com/balsaedi/R_programming/blob/main/data/car_sales.csv")
+car_sales <- read.csv("data/car_sales.csv") # filepath can be the whole link
 
 # i. Delete all the records that have any null value
 car_sales_1 <- na.omit(car_sales)

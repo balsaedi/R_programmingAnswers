@@ -89,6 +89,7 @@ Solve the questions below;
 i. Using the `"mtcars"` inbuilt data set, plot a scatter chart to visualize the relationship between `mpg` (miles per gallon) and `hp` (horsepower). Label the axes appropriately. **Hint**: the data set can be loaded by `data("mtcars")` command.
 ii. Using the `airquality` data set, plot a scatter plot to show the relationship between `Wind` and `Temp`. **Hint**: the data set can be loaded by `data("airquality")` command. 
 
+_______________________________________________________________________
 <span style="color: brown;">**Solution**</span> 
 
 i. Using the `"mtcars"` inbuilt data set, plot a scatter chart to visualize the relationship between `mpg` (miles per gallon) and `hp` (horsepower). Label the axes appropriately. Hint: the data set can be loaded by `data("mtcars")` command.
@@ -118,6 +119,7 @@ ggplot(airquality, # data
        aes(x = Wind, y = Temp)) + # aesthetics
   geom_point()
 ```
+<span style="color: brown;">**________________________________________________________________________________**</span>
 
 - **Bar Charts**
 
@@ -153,8 +155,29 @@ ggplot(df, aes(x = category, y = value)) +
 
 Using the `mtcars` data set, create a bar plot to visualize the number of cars for each unique number of cylinders (`cyl`) in the mtcars data set. Label the bars with the appropriate cylinder categories and provide axis labels for clarity.
 
+_______________________________________________________________________
 <span style="color: brown;">**Solution**</span> 
 
+```{r}
+library(ggplot2)
+library(dplyr)
+
+# Load the data
+data("mtcars")
+
+# Apply data manipulation techniques
+mtcars_by_cyl <- mtcars %>%
+  group_by(cyl) %>%
+  summarise(number_of_cars = n()) # get the number of cars per each cylinder
+
+# Creating a bar chart
+ggplot(mtcars_by_cyl, aes(x = as.character(cyl), y = number_of_cars)) +
+  geom_bar(stat = "identity") +
+  labs(title = "Cars by Cyclinders", x = "Number of Cylinders", y = "Number of Cars") +
+  theme_minimal()
+```
+
+<span style="color: brown;">**________________________________________________________________________________**</span>
 
 - **Histograms**
 
@@ -182,9 +205,25 @@ The bins are groups of ages ranging 5 years.
 
 <span style="color: green;">**Practical exercise**</span> 
 
-Using the `rivers` in built R data set, plot a histogram to visualize the distribution of rovers length. **Hint**: The data set is loaded by the command `data("rivers")`. 
+Using the `rivers` in built R data set, plot a histogram to visualize the distribution of rivers' length. **Hint**: The data set is loaded by the command `data("rivers")`. 
 
+_______________________________________________________________________
 <span style="color: brown;">**Solution**</span> 
+
+```{r}
+library(ggplot2)
+
+# Load the data
+data("rivers")
+
+# Create the histogram using ggplot
+ggplot(as.data.frame(rivers), aes(x = rivers)) +
+  geom_histogram(bins = 8, fill = "blue", color = "black") +
+  labs(title = "Distribution of Rivers' Length", x = "rivers", y = "frequency") +
+  theme_minimal()
+```
+
+<span style="color: brown;">**________________________________________________________________________________**</span>
 
 #### Customizing plots
 - **Themes**
@@ -249,7 +288,63 @@ There are more themes provided in `ggplot2` like `theme_bw()`
 
 Using the `mtcars` data set, create a bar plot to visualize the number of cars for each unique number of cylinders (`cyl`) in the mtcars data set. Apply different themes to the bar plot.
 
+_______________________________________________________________________
 <span style="color: brown;">**Solution**</span> 
+
+Preparing the data 
+```{r}
+library(ggplot2)
+library(dplyr)
+
+# Load the data
+data("mtcars")
+
+mtcars_by_cyl <- mtcars %>%
+  group_by(cyl) %>%
+  summarise(number_of_cars = n()) # get the number of cars per each cylinder
+```
+
+*Minimal theme*
+
+```{r}
+# Creating a bar chart
+ggplot(mtcars_by_cyl, aes(x = as.character(cyl), y = number_of_cars)) +
+  geom_bar(stat = "identity") +
+  labs(title = "Cars by Cyclinders", x = "Number of Cylinders", y = "Number of Cars") +
+  theme_minimal()
+```
+
+*Classic theme*
+
+```{r}
+# Creating a bar chart
+ggplot(mtcars_by_cyl, aes(x = as.character(cyl), y = number_of_cars)) +
+  geom_bar(stat = "identity") +
+  labs(title = "Cars by Cyclinders", x = "Number of Cylinders", y = "Number of Cars") +
+  theme_classic()
+```
+
+*Light theme*
+
+```{r}
+# Creating a bar chart
+ggplot(mtcars_by_cyl, aes(x = as.character(cyl), y = number_of_cars)) +
+  geom_bar(stat = "identity") +
+  labs(title = "Cars by Cyclinders", x = "Number of Cylinders", y = "Number of Cars") +
+  theme_light()
+```
+
+*Dark theme*
+
+```{r}
+# Creating a bar chart
+ggplot(mtcars_by_cyl, aes(x = as.character(cyl), y = number_of_cars)) +
+  geom_bar(stat = "identity") +
+  labs(title = "Cars by Cyclinders", x = "Number of Cylinders", y = "Number of Cars") +
+  theme_dark()
+```
+
+<span style="color: brown;">**________________________________________________________________________________**</span>
 
 - **Labels and Titles**
 
@@ -301,11 +396,21 @@ p + labs(
 
 Using the `mtcars` data set, create a bar plot to visualize the number of cars for each unique number of cylinders (`cyl`) in the mtcars data set. Add `x`, `y` axes labels and titles to the plot. 
 
+_______________________________________________________________________
 <span style="color: brown;">**Solution**</span> 
+
+```{r}
+# Creating a bar chart
+ggplot(mtcars_by_cyl, aes(x = as.character(cyl), y = number_of_cars)) +
+  geom_bar(stat = "identity") +
+  labs(title = "Cars by Cyclinders", x = "Number of Cylinders", y = "Number of Cars")
+```
+
+<span style="color: brown;">**________________________________________________________________________________**</span>
 
 - **Color and aesthetics**
 
-The general aesthetics are essential when presenting the analysis results. They enhance the visual appearance of the charts. It also allows the users/analyst to distinguish different properties/categories in a variable. They include; color, size and shape.
+The general aesthetics are essential when presenting the analysis results. They enhance the visual appearance of the charts. It also allows the users/analyst to distinguish different properties/categories in a variable. These are; color, size and shape.
 
 Lets plot a simple bar chart and add a flavor of aesthetics. 
 ```{r}
@@ -342,7 +447,12 @@ The `scale_color_manual()` function allows you to manually set the colors for ea
 
 Using the `mtcars` data set, create a bar plot to visualize the number of cars for each unique number of cylinders (`cyl`) in the mtcars data set. Play with different foreground and background colors to come up with the best looking plot. 
 
+_______________________________________________________________________
 <span style="color: brown;">**Solution**</span> 
+
+## <span style="color: brown;">SOLUTION TO BE PROVIDED</span> 
+
+<span style="color: brown;">**________________________________________________________________________________**</span>
 
 ## Advanced Data Visualization
 ### Creating Complex Visualizations
@@ -359,12 +469,13 @@ ggplot(df, aes(y=Age))+
   geom_boxplot(fill="black")
 ```
 
-The upper quartile for the employees' age is 43(Q3) while the lower quartile(Q1) is 30.The median age is approximately 36. There are no outliers in the dataset. Lets compare the distribution of ages between male and female employees; (The `x` argument will be introduced in `aes()` function)
+The upper quartile for the employees' age is 43(Q3) while the lower quartile(Q1) is 30.The median age is approximately 36 (Median is represented by the line that appears in the middle of the box). There are no outliers in the dataset. Lets compare the distribution of ages between male and female employees; (The `x` argument, in this case `Gender` will be introduced in `aes()` function to achieve comparison between genders)
 ```{r}
 # Plot a boxplot
 ggplot(df, aes(y=Age, x=Gender))+
   geom_boxplot(fill=c("pink", "lightblue"))
 ```
+
 The female employee have an older working population than the male counterparts with a median age of approximately 36 and 35 respectively. 
 
 The distance between Q3 and Q1 (in this case the height of the box) is know as the Interquartile Range(IQR). 
@@ -403,7 +514,37 @@ ggplot(df, aes(x=Age, y=Gender))+
 
 Load the inbuilt `ToothGrowth` data set and create a boxplot to compare the distribution of tooth length (`len`) across the different dose levels (`dose`) of Vitamin C in the `ToothGrowth` data set. Make sure to label the axes and title the plot appropriately.
 
+_______________________________________________________________________
 <span style="color: brown;">**Solution**</span> 
+
+```{r}
+library(ggplot2)
+library(dplyr)
+
+# Load the data
+data("ToothGrowth")
+
+# Filter to get Vitamin C
+vit_C_data <- ToothGrowth %>%
+  filter(supp=="VC")
+
+# CREATE BOXPLOT 
+ggplot(vit_C_data, aes(x=len, y=as.character(dose)))+
+  geom_boxplot()+
+  theme_dark() + 
+  labs(
+  title = "Tooth Length distribution comparison",
+  x = "Tooth Length",
+  y = "Dose"
+) +
+  theme(
+    plot.title = element_text(hjust = 0.5, face = "bold", size = 16),
+    axis.title.x = element_text(face = "italic", size = 12),
+    axis.title.y = element_text(face = "italic", size = 12)
+    )
+```
+
+<span style="color: brown;">**________________________________________________________________________________**</span>
 
 - **Violin Plots**
 
@@ -420,7 +561,37 @@ ggplot(df, aes(x=Age, y=""))+
 
 Using the same `ToothGrowth` data set and create a violin plot to compare the distribution of tooth length (`len`) across the different dose levels (`dose`) of Vitamin C in the `ToothGrowth` data set. Make sure to label the axes and title the plot appropriately.
 
+_______________________________________________________________________
 <span style="color: brown;">**Solution**</span> 
+
+```{r}
+library(ggplot2)
+library(dplyr)
+
+# Load the data
+data("ToothGrowth")
+
+# Filter to get Vitamin C
+vit_C_data <- ToothGrowth %>%
+  filter(supp=="VC")
+
+# CREATE BOXPLOT 
+ggplot(vit_C_data, aes(x=len, y=as.character(dose)))+
+  geom_violin()+
+  theme_dark() + 
+  labs(
+  title = "Tooth Length distribution comparison",
+  x = "Tooth Length",
+  y = "Dose"
+) +
+  theme(
+    plot.title = element_text(hjust = 0.5, face = "bold", size = 16),
+    axis.title.x = element_text(face = "italic", size = 12),
+    axis.title.y = element_text(face = "italic", size = 12)
+    )
+```
+
+<span style="color: brown;">**________________________________________________________________________________**</span>
 
 - **Facet Grids**
 
@@ -474,9 +645,44 @@ As seen above, there is a boxplot to represent the distribution for each `sub_ca
 
 <span style="color: green;">**Practical exercise**</span>
 
-Using the same `ToothGrowth` data set, create a violin plot to visualize the distribution of tooth length (`le`n`) across the different dose levels (`dose`). Use `facet_wrap()` or `facet_grid()` to split the plot by the supplement type (`supp`). Make sure to label the axes and add an appropriate title
+Using the same `ToothGrowth` data set, create a violin plot to visualize the distribution of tooth length (`len`) across the different dose levels (`dose`). Use `facet_wrap()` or `facet_grid()` to split the plot by the supplement type (`supp`). Make sure to label the axes and add an appropriate title
 
+_______________________________________________________________________
 <span style="color: brown;">**Solution**</span> 
+
+Load the data and libraries 
+```{r}
+library(ggplot2)
+
+# Load the data 
+data("ToothGrowth")
+```
+
+Create a basic violin plot
+```{r}
+# Basic violin plot
+p <- ggplot(ToothGrowth, aes(x = len, y = as.character(dose))) +
+  geom_violin() +
+  labs(
+    title = "Distribution of length across different dose levels",
+    x = "Tooth Length",
+    y = "Dose levels"
+  )
+
+p # variable to store out plot/chart
+```
+
+Use `facet_wrap()` to divide values into categories based on the `supp` column
+```{r}
+p + facet_wrap(~ supp) # facet plot the supp column
+```
+
+Lets make the facet more interesting by adding `facet_grids`
+```{r}
+p + facet_grid(supp ~ as.character(dose))
+```
+
+<span style="color: brown;">**________________________________________________________________________________**</span>
 
 
 ### Combining Multiple Plots
@@ -570,4 +776,9 @@ Download the E-commerce Customer Behavior Data set from [here](https://www.kaggl
 - A scatter plot to compare age vs annual income
 
 
+_______________________________________________________________________
 <span style="color: brown;">**Solution**</span> 
+
+## <span style="color: brown;">SOLUTION TO BE PROVIDED</span>
+
+<span style="color: brown;">**________________________________________________________________________________**</span>

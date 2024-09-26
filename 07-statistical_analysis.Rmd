@@ -17,7 +17,7 @@ Below is the formula to calculate mean.
 
 ![](images/mean_formula.png)
 
-where *xi* represents each value in the data set, and *n* is the number of values. Lets calculate mean of the vector `ages` with the values `12, 58, 27, 33, 31, 27, 37` manually with the steps below;
+where $x_i$ represents each value in the data set, and $n$ is the number of values. Lets calculate mean of the vector `ages` with the values `12, 58, 27, 33, 31, 27, 37` manually with the steps below;
 ```
 # Add the values together
 total_age = 12 + 58 + 27 + 33 + 31 + 27 + 37
@@ -61,6 +61,71 @@ mode(ages)
 
 Load the inbuilt `iris` R data set, retrieve the sepal width(`Sepal.Width`) and sepal length(`Sepal.length`) of the each Iris species and store in separate vectors. For instance, the sepal width for *setosa* should be in a variable `setosa.sepal.width`. Finally calculate and interpret the mean, median and mode for each vector
 
+_______________________________________________________________________
+<span style="color: brown;">**Solution**</span> 
+
+Get the data 
+```{r}
+library(dplyr)
+data(iris)
+
+# Retrieve the sepal width(Sepal.Width) and sepal length(Sepal.length) of the each Iris species and store in separate vectors.
+
+## Create a function to do this
+get_iris_data <- function(x, y){
+  selected_iris <- iris %>%
+    filter(Species==x) 
+  
+  as.vector(selected_iris[, "Sepal.Length"])
+  }
+
+## Now retrieve the sepal length and width for each species
+setosa.sepal.width <- get_iris_data("setosa", "Sepal.Width")
+setosa.sepal.length <- get_iris_data("setosa", "Length")
+
+versicolor.sepal.width <- get_iris_data("versicolor", "Sepal.Width")
+versicolor.sepal.length <- get_iris_data("versicolor", "Sepal.Length")
+
+virginica.sepal.width <- get_iris_data("virginica", "Sepal.Width")
+virginica.sepal.length <- get_iris_data("virginica", "Sepal.Length")
+```
+
+Calculate the mean
+```{r}
+print("MEAN")
+print(paste("Setosa Sepal Width:", mean(setosa.sepal.width)))
+print(paste("Setosa Sepal Length:", mean(setosa.sepal.length)))
+print(paste("Versicolor Sepal Width:", mean(versicolor.sepal.width)))
+print(paste("Versicolor Sepal Length:", mean(versicolor.sepal.length)))
+print(paste("Virginica Sepal Width:", mean(virginica.sepal.width)))
+print(paste("virginica Sepal Length:", mean(virginica.sepal.length)))
+```
+
+Calculate median
+```{r}
+print("MEDIAN")
+print(paste("Setosa Sepal Width:", median(setosa.sepal.width)))
+print(paste("Setosa Sepal Length:", median(setosa.sepal.length)))
+print(paste("Versicolor Sepal Width:", median(versicolor.sepal.width)))
+print(paste("Versicolor Sepal Length:", median(versicolor.sepal.length)))
+print(paste("Virginica Sepal Width:", median(virginica.sepal.width)))
+print(paste("virginica Sepal Length:", median(virginica.sepal.length)))
+```
+
+Calculate the mode
+```{r}
+print("MODE")
+print(paste("Setosa Sepal Width:", mode(setosa.sepal.width)))
+print(paste("Setosa Sepal Length:", mode(setosa.sepal.length)))
+print(paste("Versicolor Sepal Width:", mode(versicolor.sepal.width)))
+print(paste("Versicolor Sepal Length:", mode(versicolor.sepal.length)))
+print(paste("Virginica Sepal Width:", mode(virginica.sepal.width)))
+print(paste("virginica Sepal Length:", mode(virginica.sepal.length)))
+```
+
+<span style="color: brown;">**________________________________________________________________________________**</span>
+
+
 - **Variance and Standard deviation**
 
 Variance is statistical measure of dispersion that defines how spread the data points are in a data set in relation to the mean of the data set. Standard deviation is the measure of how data is clustered around the mean. It is simply defined to as the square root of variance. 
@@ -83,6 +148,14 @@ sd(athlete_weights)
 <span style="color: green;">**Practical exercise**</span>
 
 Using the same iris data set, calculate the variance and standard deviation for the `versicolor` species petal width(`Petal.Width`).
+
+_______________________________________________________________________
+<span style="color: brown;">**Solution**</span> 
+
+
+
+<span style="color: brown;">**________________________________________________________________________________**</span>
+
 
 - **Range and Interquartile Range**
 
