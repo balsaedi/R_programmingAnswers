@@ -130,6 +130,40 @@ In this course, you will be required to use the US Accidents (2016 - 2023) data 
 - select the `Source`, `Severity` and the `Distance(mi)` columns 
 - Aggregate to find the distance of each source
 
+_______________________________________________________________________
+<span style="color: brown;">**Solution**</span> 
+
+read the data set into R using a `fread("filepath")` function
+```{r}
+library(data.table)
+
+# Read the data 
+us_accidents_dtb <- fread("big-data/us_accidents/US_Accidents_March23.csv")
+
+# head(us_accidents_dtb) # uncomment to show the data table
+```
+
+filter to get the rows with `Severity` of more than 2
+```{r}
+more_severe <- us_accidents_dtb[Severity > 2]
+# head(more_severe) # uncomment to show the data table
+```
+
+select the `Source`, `Severity` and the `Distance(mi)` columns
+```{r}
+selected_data <- us_accidents_dtb[, .(Source, Severity, `Distance(mi)`)]
+head(selected_data)
+```
+
+Aggregate to find the distance of each source
+```{r}
+# Calculate the average distance by Source
+aggregated_dt <- selected_data[, .(Average_Distance = mean(`Distance(mi)`)), by = Source]
+print(aggregated_dt)
+```
+
+
+<span style="color: brown;">**________________________________________________________________________________**</span>
 
 #### Memory Management in R
 
