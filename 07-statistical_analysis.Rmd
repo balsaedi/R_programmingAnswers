@@ -528,6 +528,65 @@ After getting the data ready, apply the skills learnt to;
 3. Compare the average age of the patients that had diabetes('type`) using a bar chart
 4. Find the distribution of age of the patients using a histogram. Explain the distribution. 
 
+_______________________________________________________________________
+<span style="color: brown;">**Solution**</span> 
+
+Prepare the workspace
+```
+install.packages("MASS")
+```
+
+````{r}
+library(MASS)
+
+# Load the data 
+data("Pima.te")
+````
+
+1. Calculate the destcriptive statistics (mean, mode and median etc)
+```{r}
+summary(Pima.te)
+```
+
+2. Find the relationship between the plasma glucose concentration in an oral glucose tolerance test(`glu`) and the diastolic blood pressure(`bp`) using a scatter plot. 
+```{r}
+library(ggplot2)
+
+# Create a scatter plot
+ggplot(Pima.te, # data
+       aes(x = glu, y = bp)) + # aesthetics
+  geom_point()
+```
+
+3. Compare the average age of the patients that had diabetes(’type`) using a bar chart
+```{r}
+library(dplyr)
+
+# Group the age by diabetes type 
+age_by_type <- Pima.te %>%
+  group_by(type) %>%
+  summarise(average_age = mean(age))
+
+# Create a scatter plot
+ggplot(age_by_type, aes(x = type, y = average_age)) +
+  geom_bar(stat = "identity", fill = "steelblue") + 
+  labs(x = "Diabetes Type", y = "Average Age") +
+  theme_minimal()
+```
+
+4. Find the distribution of age of the patients using a histogram. Explain the distribution.
+```{r}
+ggplot(Pima.te, aes(x=age)) + 
+  geom_histogram(binwidth = 10, fill = "skyblue", color = "black") +
+  labs(
+    title = "Histogram - Patients' age distribution",
+    x = "Age",
+    y = "Frequency"
+  ) +
+  theme_minimal()
+```
+
+<span style="color: brown;">**________________________________________________________________________________**</span>
 
 ## Correlation and Regression Analysis
 ### Introduction to Correlation 
@@ -560,6 +619,20 @@ Spearman correlation is insensitive with outliers because it uses ranks other th
 <span style="color: green;">**Practical exercise**</span>
 
 Load the `airquality` data set. Calculate the correlation of `Wind` and temperature `Wind`. Interpret the coefficients for various data sets.
+
+_______________________________________________________________________
+<span style="color: brown;">**Solution**</span> 
+
+```{r}
+# Load the airquality dataset
+data("airquality")
+
+# Calculate the correlation between Wind and Temp, excluding NA values
+correlation <- cor(airquality$Wind, airquality$Temp, use = "complete.obs")
+print(correlation)
+```
+
+<span style="color: brown;">**________________________________________________________________________________**</span>
 
 - **Visualizing Correlation**
 
@@ -646,6 +719,39 @@ The two plots visualizes the correlation between the variables in the data set. 
 
 Load the same `airquality` inbuilt R data set. Create a scatter plot to show the relationship between `Wind` and `Temp` variable. Also plot a correlation heatmap for numeric data set(`Ozone`, `Solar.R`, `Wind` and `Temp`)
 
+_______________________________________________________________________
+<span style="color: brown;">**Solution**</span> 
+
+```{r}
+# Load necessary libraries
+library(ggplot2)
+library(reshape2) # For reshaping data to use in heatmap
+library(ggcorrplot) # For the heatmap
+
+# Load the airquality dataset
+data("airquality")
+
+# Scatter plot: Wind vs Temp
+ggplot(airquality, aes(x = Temp, y = Wind)) +
+  geom_point(color = "blue") +  # Scatter plot points
+  labs(x = "Temperature", y = "Wind Speed", title = "Scatter Plot: Wind vs Temp") +
+  theme_minimal()
+
+# Correlation heatmap for Ozone, Solar.R, Wind, Temp
+# Subset the relevant columns and remove rows with NA values
+airquality_subset <- airquality[, c("Ozone", "Solar.R", "Wind", "Temp")]
+airquality_subset <- na.omit(airquality_subset) # Remove rows with missing values
+
+# Calculate correlation matrix
+cor_matrix <- cor(airquality_subset)
+
+# Create a heatmap using ggcorrplot
+ggcorrplot(cor_matrix, method = "circle", type = "lower", lab = TRUE, title = "Correlation Heatmap")
+
+```
+
+<span style="color: brown;">**________________________________________________________________________________**</span>
+
 ### Introduction to Regression Analysis
 Regression is a statistical method used to measure the strength and relationship of a target(dependent) with one or more independent variables. Correlation is very vital in determining regression. Linear regression is the most technique of regression, there are some more advanced forms of regression. 
 
@@ -693,6 +799,26 @@ Coefficients, the value `B` and `c` represent the intercept and the **gradient(s
 <span style="color: green;">**Practical exercise**</span>
 
 Using the `airquality` data set fit a linear regression model to find the relationship between `Wind` (independent variable) and `Temp` (dependent/target variable)
+
+_______________________________________________________________________
+<span style="color: brown;">**Solution**</span> 
+
+```{r}
+# Load necessary library
+data("airquality")
+
+# Remove missing values
+airquality_clean <- na.omit(airquality)
+
+# Fit the linear regression model
+model <- lm(Temp ~ Wind, data = airquality_clean)
+
+# Display the summary of the model
+summary(model)
+```
+
+<span style="color: brown;">**________________________________________________________________________________**</span>
+
 
 - **Multiple Linear Regression**
 
@@ -745,10 +871,35 @@ summary(model)
 
 Using the `airquality` data set, fit a multiple linear regression model whereby the Solar radiation(`Solar.R`), `Ozone` and `Wind` are the independent variables while the Temperature (`Temp`) is the dependent variable. Interpret and analyze the results
 
+_______________________________________________________________________
+<span style="color: brown;">**Solution**</span> 
+
+```{r}
+# Load necessary library
+data("airquality")
+
+# Remove missing values (important for regression analysis)
+airquality_clean <- na.omit(airquality)
+
+# Fit the multiple linear regression model
+model <- lm(Temp ~ Solar.R + Ozone + Wind, data = airquality_clean)
+
+# Display the summary of the model
+summary(model)
+```
+
+<span style="color: brown;">**________________________________________________________________________________**</span>
+
 ### Hands-on Exercises
 
 In this course, you will be required to download the Boston Housing data set from [here](https://www.kaggle.com/datasets/fedesoriano/the-boston-houseprice-data). Fit a multiple regression model to the data set. The goal is to predict the price of the houses in Boston. Interpret and discuss the multiple linear regression model and its implication
 
+_______________________________________________________________________
+<span style="color: brown;">**Solution**</span> 
+
+### <span style="color: brown;">**TO BE DONE**</span> 
+
+<span style="color: brown;">**________________________________________________________________________________**</span>
 
 ## Advanced Statistical Methods
 ### Introduction to Hypothesis Testing
