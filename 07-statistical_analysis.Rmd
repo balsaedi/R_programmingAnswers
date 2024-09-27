@@ -76,12 +76,12 @@ get_iris_data <- function(x, y){
   selected_iris <- iris %>%
     filter(Species==x) 
   
-  as.vector(selected_iris[, "Sepal.Length"])
+  as.vector(selected_iris[, y])
   }
 
 ## Now retrieve the sepal length and width for each species
 setosa.sepal.width <- get_iris_data("setosa", "Sepal.Width")
-setosa.sepal.length <- get_iris_data("setosa", "Length")
+setosa.sepal.length <- get_iris_data("setosa", "Sepal.Length")
 
 versicolor.sepal.width <- get_iris_data("versicolor", "Sepal.Width")
 versicolor.sepal.length <- get_iris_data("versicolor", "Sepal.Length")
@@ -152,7 +152,22 @@ Using the same iris data set, calculate the variance and standard deviation for 
 _______________________________________________________________________
 <span style="color: brown;">**Solution**</span> 
 
+```{r}
+library(dplyr)
 
+# Load the data 
+data("iris")
+
+versicolor <- iris%>%
+  filter(Species=="versicolor") 
+
+# Convert to a vector
+versicolor.petal.width = as.vector(versicolor$Petal.Width)
+
+# Calculate variance and standard deviation
+sd(versicolor.petal.width) # standard deviation
+var(versicolor.petal.width) # variance
+```
 
 <span style="color: brown;">**________________________________________________________________________________**</span>
 
@@ -222,6 +237,59 @@ IQR(athlete_weights)
 
 Load the `iris` data set and calculate the range and the Interquartile Range for the Petal Length and petal width for each iris species
 
+_______________________________________________________________________
+<span style="color: brown;">**Solution**</span> 
+
+```{r}
+library(dplyr)
+data(iris)
+
+# Retrieve the Petal width(Sepal.Width) and Petal length(Petal.length) of the each Iris species and store in separate vectors.
+
+## Create a function to do this
+get_iris_data <- function(x, y){
+  selected_iris <- iris %>%
+    filter(Species==x) 
+  
+  as.vector(selected_iris[, y])
+  }
+
+## Now retrieve the petal length and width for each species
+setosa.petal.width <- get_iris_data("setosa", "Petal.Width")
+setosa.petal.length <- get_iris_data("setosa", "Petal.Length")
+
+versicolor.petal.width <- get_iris_data("versicolor", "Petal.Width")
+versicolor.petal.length <- get_iris_data("versicolor", "Petal.Length")
+
+virginica.petal.width <- get_iris_data("virginica", "Petal.Width")
+virginica.petal.length <- get_iris_data("virginica", "Petal.Length")
+```
+
+Calculate the interquartile range
+```{r}
+print("INTERQUARTILE RANGE")
+print(paste("Setosa Petal Width:", IQR(setosa.petal.width)))
+print(paste("Setosa Petal Length:", IQR(setosa.petal.length)))
+print(paste("Versicolor Petal Width:", IQR(versicolor.petal.width)))
+print(paste("Versicolor Petal Length:", IQR(versicolor.petal.length)))
+print(paste("Virginica Petal Width:", IQR(virginica.petal.width)))
+print(paste("virginica Petal Length:", IQR(virginica.petal.length)))
+```
+
+Calculate range
+```{r}
+print("RANGE")
+print(paste("Setosa Petal Width:", range(setosa.petal.width)))
+print(paste("Setosa Petal Length:", range(setosa.petal.length)))
+print(paste("Versicolor Petal Width:", range(versicolor.petal.width)))
+print(paste("Versicolor Petal Length:", range(versicolor.petal.length)))
+print(paste("Virginica Petal Width:", range(virginica.petal.width)))
+print(paste("virginica Petal Length:", range(virginica.petal.length)))
+```
+
+<span style="color: brown;">**________________________________________________________________________________**</span>
+
+
 ### Visualization of Descriptive Statistics
 - **Boxplots**
 
@@ -278,6 +346,63 @@ The red dots are the outliers
 <span style="color: green;">**Practical exercise**</span>
 
 Use the `iris` data set to plot boxplots that represent the petal length for each species. Analyze the boxplots and compare them. 
+
+_______________________________________________________________________
+<span style="color: brown;">**Solution**</span> 
+
+```{r}
+library(ggplot2)
+library(dplyr)
+library(patchwork)
+
+# Load the data 
+data("iris")
+
+# Filter to get petal length for each species
+## Setosa Petal Length
+setosa <- filter(iris, Species=="setosa")
+
+## Versicolor Petal Length 
+versicolor <- filter(iris, Species=="versicolor")
+
+## Virginica Petal Length 
+virginica <- filter(iris, Species=="virginica")
+
+# Create boxplots 
+## Setosa 
+p1 <- ggplot(setosa, aes(x=Petal.Length)) +
+  geom_boxplot(outlier.colour = "red") +
+  labs(
+    title = "Setosa Petal Length",
+    x = "Petal Length"
+  ) +
+  theme_minimal()
+
+## Versicolor
+p2 <- ggplot(versicolor, aes(x=Petal.Length)) +
+  geom_boxplot(outlier.colour = "red") +
+  labs(
+    title = "Versicolor Petal Length",
+    x = "Petal.Length"
+  ) +
+  theme_classic()
+
+## Setosa 
+p3 <- ggplot(virginica, aes(x=Petal.Length)) +
+  geom_boxplot(outlier.colour = "red") +
+  labs(
+    title = "Virginica Petal Length",
+    x = "Petal Length"
+  ) +
+  theme_dark()
+
+# Combine the plots 
+p1/p2/p3
+```
+
+**Add a brief comparison**
+
+<span style="color: brown;">**________________________________________________________________________________**</span>
 
 - **Histograms and Density Plots**
 
@@ -339,6 +464,42 @@ From the graphs above, histograms provide a bar-chart-like representation of the
 <span style="color: green;">**Practical exercise**</span>
 
 Load the `airquality`, an inbuilt R data set. Plot a density plot and histogram separately to visualize the distribution of the speed of wind in mph(`Wind`)
+
+_______________________________________________________________________
+<span style="color: brown;">**Solution**</span> 
+
+```{r}
+library(ggplot2)
+library(patchwork)
+
+# Load the data 
+data("airquality")
+
+# Plot the data 
+## Histogram 
+p1 <- ggplot(airquality, aes(x = Wind)) +
+  geom_histogram(binwidth = 10, fill = "skyblue", color = "black") +
+  labs(
+    title = "Histogram - Wind speed distribution",
+    x = "Wind speed(mph)",
+    y = "Frequency"
+  ) +
+  theme_minimal()
+
+## Density plot
+p2 <- ggplot(airquality, aes(x = Wind)) +
+  geom_density(fill = "lightgreen", color = "darkgreen", alpha = 0.6) +
+  labs(
+    title = "Density plot - Wind Speed distribution",
+    x = "Wind Speed(mph)",
+    y = "Density"
+  ) +
+  theme_minimal()
+
+p1/p2
+```
+
+<span style="color: brown;">**________________________________________________________________________________**</span>
 
 ### Hands On Exercise
 In this exercise you will use the `"Pima.te"` data set from the MASS package. Follow the steps below to get the data ready and started;

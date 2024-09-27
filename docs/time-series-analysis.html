@@ -23,7 +23,7 @@
 <meta name="author" content="YOUR NAME HERE" />
 
 
-<meta name="date" content="2024-09-26" />
+<meta name="date" content="2024-09-27" />
 
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <meta name="apple-mobile-web-app-capable" content="yes" />
@@ -361,15 +361,15 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <li><em>Noise</em>; its is the residual variability of data that has no explanations by the factors affecting the trend. The variability is always small compared to the trend and cycle.</li>
 </ol>
 <p>Lets use the R inbuilt data set, <code>AirPassengers</code> to decompose the time series data into trend, seasonality …</p>
-<div class="sourceCode" id="cb632"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb632-1"><a href="time-series-analysis.html#cb632-1" tabindex="-1"></a><span class="co"># Load the data </span></span>
-<span id="cb632-2"><a href="time-series-analysis.html#cb632-2" tabindex="-1"></a><span class="fu">data</span>(<span class="st">&quot;AirPassengers&quot;</span>)</span>
-<span id="cb632-3"><a href="time-series-analysis.html#cb632-3" tabindex="-1"></a></span>
-<span id="cb632-4"><a href="time-series-analysis.html#cb632-4" tabindex="-1"></a><span class="fu">head</span>(AirPassengers)</span></code></pre></div>
+<div class="sourceCode" id="cb710"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb710-1"><a href="time-series-analysis.html#cb710-1" tabindex="-1"></a><span class="co"># Load the data </span></span>
+<span id="cb710-2"><a href="time-series-analysis.html#cb710-2" tabindex="-1"></a><span class="fu">data</span>(<span class="st">&quot;AirPassengers&quot;</span>)</span>
+<span id="cb710-3"><a href="time-series-analysis.html#cb710-3" tabindex="-1"></a></span>
+<span id="cb710-4"><a href="time-series-analysis.html#cb710-4" tabindex="-1"></a><span class="fu">head</span>(AirPassengers)</span></code></pre></div>
 <pre><code>## [1] 112 118 132 129 121 135</code></pre>
-<div class="sourceCode" id="cb634"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb634-1"><a href="time-series-analysis.html#cb634-1" tabindex="-1"></a><span class="co"># Decompose the air passengers time series </span></span>
-<span id="cb634-2"><a href="time-series-analysis.html#cb634-2" tabindex="-1"></a>decomposed_ts <span class="ot">&lt;-</span> <span class="fu">decompose</span>(AirPassengers)</span>
-<span id="cb634-3"><a href="time-series-analysis.html#cb634-3" tabindex="-1"></a><span class="co"># Plotting will be done later</span></span>
-<span id="cb634-4"><a href="time-series-analysis.html#cb634-4" tabindex="-1"></a><span class="co"># decomposed_ts # uncomment to show the data</span></span></code></pre></div>
+<div class="sourceCode" id="cb712"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb712-1"><a href="time-series-analysis.html#cb712-1" tabindex="-1"></a><span class="co"># Decompose the air passengers time series </span></span>
+<span id="cb712-2"><a href="time-series-analysis.html#cb712-2" tabindex="-1"></a>decomposed_ts <span class="ot">&lt;-</span> <span class="fu">decompose</span>(AirPassengers)</span>
+<span id="cb712-3"><a href="time-series-analysis.html#cb712-3" tabindex="-1"></a><span class="co"># Plotting will be done later</span></span>
+<span id="cb712-4"><a href="time-series-analysis.html#cb712-4" tabindex="-1"></a><span class="co"># decomposed_ts # uncomment to show the data</span></span></code></pre></div>
 <p><span style="color: green;"><strong>Practical exercise</strong></span></p>
 <p>In this course, you will be required to download the amazon stock prices prediction data set from <a href="https://www.kaggle.com/datasets/aenes95/amazon-stock-price-prediction">here</a></p>
 <p>Decompose the time series data set into trend, seasonal and residual components.</p>
@@ -384,28 +384,28 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <li>the analyst to communicate insights to the non-technical stake holders.</li>
 </ul>
 <p>Lets visualize the time series data of the <code>AirPassengers</code>.</p>
-<div class="sourceCode" id="cb635"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb635-1"><a href="time-series-analysis.html#cb635-1" tabindex="-1"></a><span class="fu">plot.ts</span>(AirPassengers, </span>
-<span id="cb635-2"><a href="time-series-analysis.html#cb635-2" tabindex="-1"></a>         <span class="at">main =</span> <span class="st">&quot;AirPasengers Time Series &quot;</span>,</span>
-<span id="cb635-3"><a href="time-series-analysis.html#cb635-3" tabindex="-1"></a>        <span class="at">ylab =</span> <span class="st">&quot;Passengers&quot;</span>,</span>
-<span id="cb635-4"><a href="time-series-analysis.html#cb635-4" tabindex="-1"></a>        <span class="at">xlab =</span> <span class="st">&quot;Time&quot;</span>,</span>
-<span id="cb635-5"><a href="time-series-analysis.html#cb635-5" tabindex="-1"></a>        <span class="at">col =</span> <span class="st">&quot;blue&quot;</span>, </span>
-<span id="cb635-6"><a href="time-series-analysis.html#cb635-6" tabindex="-1"></a>        <span class="at">lwd =</span> <span class="dv">2</span>)</span></code></pre></div>
-<p><img src="bookdownproj_files/figure-html/unnamed-chunk-282-1.png" width="672" /></p>
+<div class="sourceCode" id="cb713"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb713-1"><a href="time-series-analysis.html#cb713-1" tabindex="-1"></a><span class="fu">plot.ts</span>(AirPassengers, </span>
+<span id="cb713-2"><a href="time-series-analysis.html#cb713-2" tabindex="-1"></a>         <span class="at">main =</span> <span class="st">&quot;AirPasengers Time Series &quot;</span>,</span>
+<span id="cb713-3"><a href="time-series-analysis.html#cb713-3" tabindex="-1"></a>        <span class="at">ylab =</span> <span class="st">&quot;Passengers&quot;</span>,</span>
+<span id="cb713-4"><a href="time-series-analysis.html#cb713-4" tabindex="-1"></a>        <span class="at">xlab =</span> <span class="st">&quot;Time&quot;</span>,</span>
+<span id="cb713-5"><a href="time-series-analysis.html#cb713-5" tabindex="-1"></a>        <span class="at">col =</span> <span class="st">&quot;blue&quot;</span>, </span>
+<span id="cb713-6"><a href="time-series-analysis.html#cb713-6" tabindex="-1"></a>        <span class="at">lwd =</span> <span class="dv">2</span>)</span></code></pre></div>
+<p><img src="bookdownproj_files/figure-html/unnamed-chunk-292-1.png" width="672" /></p>
 <p>Lets now visualize the decomposed time series.</p>
-<div class="sourceCode" id="cb636"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb636-1"><a href="time-series-analysis.html#cb636-1" tabindex="-1"></a><span class="fu">plot</span>(decomposed_ts)</span></code></pre></div>
-<p><img src="bookdownproj_files/figure-html/unnamed-chunk-283-1.png" width="672" /></p>
+<div class="sourceCode" id="cb714"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb714-1"><a href="time-series-analysis.html#cb714-1" tabindex="-1"></a><span class="fu">plot</span>(decomposed_ts)</span></code></pre></div>
+<p><img src="bookdownproj_files/figure-html/unnamed-chunk-293-1.png" width="672" /></p>
 <p>The number of Air Passengers has increased from 1950 to 1960. There is an upward trend. Now lets repeat the process using the <code>ggplot2</code> library.</p>
-<div class="sourceCode" id="cb637"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb637-1"><a href="time-series-analysis.html#cb637-1" tabindex="-1"></a><span class="co"># Load the library</span></span>
-<span id="cb637-2"><a href="time-series-analysis.html#cb637-2" tabindex="-1"></a><span class="fu">library</span>(ggplot2)</span>
-<span id="cb637-3"><a href="time-series-analysis.html#cb637-3" tabindex="-1"></a></span>
-<span id="cb637-4"><a href="time-series-analysis.html#cb637-4" tabindex="-1"></a><span class="co"># Convert the air passengers to a dataframe</span></span>
-<span id="cb637-5"><a href="time-series-analysis.html#cb637-5" tabindex="-1"></a>df_airpassengers <span class="ot">&lt;-</span> <span class="fu">data.frame</span>(</span>
-<span id="cb637-6"><a href="time-series-analysis.html#cb637-6" tabindex="-1"></a>  <span class="co"># Month = as.Date(time(AirPassengers)),  # Extracting the time component</span></span>
-<span id="cb637-7"><a href="time-series-analysis.html#cb637-7" tabindex="-1"></a>  <span class="at">Month =</span> <span class="fu">seq</span>(<span class="at">from =</span> <span class="fu">as.Date</span>(<span class="st">&quot;1949-01-31&quot;</span>), <span class="at">to =</span> <span class="fu">as.Date</span>(<span class="st">&quot;1960-12-31&quot;</span>), <span class="at">by =</span> <span class="st">&quot;month&quot;</span>),</span>
-<span id="cb637-8"><a href="time-series-analysis.html#cb637-8" tabindex="-1"></a>  <span class="at">Passengers =</span> <span class="fu">as.numeric</span>(AirPassengers) <span class="co"># Extracting the passenger counts</span></span>
-<span id="cb637-9"><a href="time-series-analysis.html#cb637-9" tabindex="-1"></a>)</span>
-<span id="cb637-10"><a href="time-series-analysis.html#cb637-10" tabindex="-1"></a></span>
-<span id="cb637-11"><a href="time-series-analysis.html#cb637-11" tabindex="-1"></a><span class="fu">head</span>(df_airpassengers)</span></code></pre></div>
+<div class="sourceCode" id="cb715"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb715-1"><a href="time-series-analysis.html#cb715-1" tabindex="-1"></a><span class="co"># Load the library</span></span>
+<span id="cb715-2"><a href="time-series-analysis.html#cb715-2" tabindex="-1"></a><span class="fu">library</span>(ggplot2)</span>
+<span id="cb715-3"><a href="time-series-analysis.html#cb715-3" tabindex="-1"></a></span>
+<span id="cb715-4"><a href="time-series-analysis.html#cb715-4" tabindex="-1"></a><span class="co"># Convert the air passengers to a dataframe</span></span>
+<span id="cb715-5"><a href="time-series-analysis.html#cb715-5" tabindex="-1"></a>df_airpassengers <span class="ot">&lt;-</span> <span class="fu">data.frame</span>(</span>
+<span id="cb715-6"><a href="time-series-analysis.html#cb715-6" tabindex="-1"></a>  <span class="co"># Month = as.Date(time(AirPassengers)),  # Extracting the time component</span></span>
+<span id="cb715-7"><a href="time-series-analysis.html#cb715-7" tabindex="-1"></a>  <span class="at">Month =</span> <span class="fu">seq</span>(<span class="at">from =</span> <span class="fu">as.Date</span>(<span class="st">&quot;1949-01-31&quot;</span>), <span class="at">to =</span> <span class="fu">as.Date</span>(<span class="st">&quot;1960-12-31&quot;</span>), <span class="at">by =</span> <span class="st">&quot;month&quot;</span>),</span>
+<span id="cb715-8"><a href="time-series-analysis.html#cb715-8" tabindex="-1"></a>  <span class="at">Passengers =</span> <span class="fu">as.numeric</span>(AirPassengers) <span class="co"># Extracting the passenger counts</span></span>
+<span id="cb715-9"><a href="time-series-analysis.html#cb715-9" tabindex="-1"></a>)</span>
+<span id="cb715-10"><a href="time-series-analysis.html#cb715-10" tabindex="-1"></a></span>
+<span id="cb715-11"><a href="time-series-analysis.html#cb715-11" tabindex="-1"></a><span class="fu">head</span>(df_airpassengers)</span></code></pre></div>
 <pre><code>##        Month Passengers
 ## 1 1949-01-31        112
 ## 2 1949-03-03        118
@@ -413,37 +413,37 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 ## 4 1949-05-01        129
 ## 5 1949-05-31        121
 ## 6 1949-07-01        135</code></pre>
-<div class="sourceCode" id="cb639"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb639-1"><a href="time-series-analysis.html#cb639-1" tabindex="-1"></a><span class="co"># Plot the data</span></span>
-<span id="cb639-2"><a href="time-series-analysis.html#cb639-2" tabindex="-1"></a><span class="fu">ggplot</span>(df_airpassengers, <span class="fu">aes</span>(<span class="at">x =</span> Month, <span class="at">y =</span> Passengers)) <span class="sc">+</span></span>
-<span id="cb639-3"><a href="time-series-analysis.html#cb639-3" tabindex="-1"></a>  <span class="fu">geom_line</span>(<span class="at">color =</span> <span class="st">&quot;blue&quot;</span>, <span class="at">size =</span> <span class="dv">1</span>) <span class="sc">+</span>         <span class="co"># Line for the time series data</span></span>
-<span id="cb639-4"><a href="time-series-analysis.html#cb639-4" tabindex="-1"></a>  <span class="fu">labs</span>(<span class="at">title =</span> <span class="st">&quot;Air Passengers Time Series Data&quot;</span>,       <span class="co"># Title</span></span>
-<span id="cb639-5"><a href="time-series-analysis.html#cb639-5" tabindex="-1"></a>       <span class="at">x =</span> <span class="st">&quot;Month&quot;</span>,                              <span class="co"># X-axis label</span></span>
-<span id="cb639-6"><a href="time-series-analysis.html#cb639-6" tabindex="-1"></a>       <span class="at">y =</span> <span class="st">&quot;Passengers&quot;</span>) <span class="sc">+</span>                           <span class="co"># Y-axis label</span></span>
-<span id="cb639-7"><a href="time-series-analysis.html#cb639-7" tabindex="-1"></a>  <span class="fu">theme_minimal</span>()                               <span class="co"># Apply a minimal theme</span></span></code></pre></div>
+<div class="sourceCode" id="cb717"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb717-1"><a href="time-series-analysis.html#cb717-1" tabindex="-1"></a><span class="co"># Plot the data</span></span>
+<span id="cb717-2"><a href="time-series-analysis.html#cb717-2" tabindex="-1"></a><span class="fu">ggplot</span>(df_airpassengers, <span class="fu">aes</span>(<span class="at">x =</span> Month, <span class="at">y =</span> Passengers)) <span class="sc">+</span></span>
+<span id="cb717-3"><a href="time-series-analysis.html#cb717-3" tabindex="-1"></a>  <span class="fu">geom_line</span>(<span class="at">color =</span> <span class="st">&quot;blue&quot;</span>, <span class="at">size =</span> <span class="dv">1</span>) <span class="sc">+</span>         <span class="co"># Line for the time series data</span></span>
+<span id="cb717-4"><a href="time-series-analysis.html#cb717-4" tabindex="-1"></a>  <span class="fu">labs</span>(<span class="at">title =</span> <span class="st">&quot;Air Passengers Time Series Data&quot;</span>,       <span class="co"># Title</span></span>
+<span id="cb717-5"><a href="time-series-analysis.html#cb717-5" tabindex="-1"></a>       <span class="at">x =</span> <span class="st">&quot;Month&quot;</span>,                              <span class="co"># X-axis label</span></span>
+<span id="cb717-6"><a href="time-series-analysis.html#cb717-6" tabindex="-1"></a>       <span class="at">y =</span> <span class="st">&quot;Passengers&quot;</span>) <span class="sc">+</span>                           <span class="co"># Y-axis label</span></span>
+<span id="cb717-7"><a href="time-series-analysis.html#cb717-7" tabindex="-1"></a>  <span class="fu">theme_minimal</span>()                               <span class="co"># Apply a minimal theme</span></span></code></pre></div>
 <pre><code>## Warning: Using `size` aesthetic for lines was deprecated in ggplot2
 ## 3.4.0.
 ## ℹ Please use `linewidth` instead.
 ## This warning is displayed once every 8 hours.
 ## Call `lifecycle::last_lifecycle_warnings()` to see where this
 ## warning was generated.</code></pre>
-<p><img src="bookdownproj_files/figure-html/unnamed-chunk-284-1.png" width="672" /></p>
+<p><img src="bookdownproj_files/figure-html/unnamed-chunk-294-1.png" width="672" /></p>
 <p>Now lets visualize the decomposed time series (<code>AirPassengers</code>) data using the <code>ggplot2</code> library;</p>
 <ul>
 <li>create a data frame from the decomposed data</li>
 </ul>
-<div class="sourceCode" id="cb641"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb641-1"><a href="time-series-analysis.html#cb641-1" tabindex="-1"></a><span class="co"># Create a data frame with all the components</span></span>
-<span id="cb641-2"><a href="time-series-analysis.html#cb641-2" tabindex="-1"></a>df_decomposed <span class="ot">&lt;-</span> <span class="fu">data.frame</span>(</span>
-<span id="cb641-3"><a href="time-series-analysis.html#cb641-3" tabindex="-1"></a>  <span class="at">Date =</span> <span class="fu">seq</span>(<span class="at">from =</span> <span class="fu">as.Date</span>(<span class="st">&quot;1949-01-31&quot;</span>), <span class="at">to =</span> <span class="fu">as.Date</span>(<span class="st">&quot;1960-12-31&quot;</span>), <span class="at">by =</span> <span class="st">&quot;month&quot;</span>), </span>
-<span id="cb641-4"><a href="time-series-analysis.html#cb641-4" tabindex="-1"></a>  <span class="at">Observed =</span> <span class="fu">as.numeric</span>(AirPassengers),</span>
-<span id="cb641-5"><a href="time-series-analysis.html#cb641-5" tabindex="-1"></a>  <span class="at">Trend =</span> <span class="fu">as.numeric</span>(decomposed_ts<span class="sc">$</span>trend),</span>
-<span id="cb641-6"><a href="time-series-analysis.html#cb641-6" tabindex="-1"></a>  <span class="at">Seasonal =</span> <span class="fu">as.numeric</span>(decomposed_ts<span class="sc">$</span>seasonal),</span>
-<span id="cb641-7"><a href="time-series-analysis.html#cb641-7" tabindex="-1"></a>  <span class="at">Residual =</span> <span class="fu">as.numeric</span>(decomposed_ts<span class="sc">$</span>random)</span>
-<span id="cb641-8"><a href="time-series-analysis.html#cb641-8" tabindex="-1"></a>)</span>
-<span id="cb641-9"><a href="time-series-analysis.html#cb641-9" tabindex="-1"></a></span>
-<span id="cb641-10"><a href="time-series-analysis.html#cb641-10" tabindex="-1"></a><span class="co"># Remove the null values </span></span>
-<span id="cb641-11"><a href="time-series-analysis.html#cb641-11" tabindex="-1"></a>df_decomposed <span class="ot">&lt;-</span> <span class="fu">na.omit</span>(df_decomposed)</span>
-<span id="cb641-12"><a href="time-series-analysis.html#cb641-12" tabindex="-1"></a></span>
-<span id="cb641-13"><a href="time-series-analysis.html#cb641-13" tabindex="-1"></a><span class="fu">head</span>(df_decomposed)</span></code></pre></div>
+<div class="sourceCode" id="cb719"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb719-1"><a href="time-series-analysis.html#cb719-1" tabindex="-1"></a><span class="co"># Create a data frame with all the components</span></span>
+<span id="cb719-2"><a href="time-series-analysis.html#cb719-2" tabindex="-1"></a>df_decomposed <span class="ot">&lt;-</span> <span class="fu">data.frame</span>(</span>
+<span id="cb719-3"><a href="time-series-analysis.html#cb719-3" tabindex="-1"></a>  <span class="at">Date =</span> <span class="fu">seq</span>(<span class="at">from =</span> <span class="fu">as.Date</span>(<span class="st">&quot;1949-01-31&quot;</span>), <span class="at">to =</span> <span class="fu">as.Date</span>(<span class="st">&quot;1960-12-31&quot;</span>), <span class="at">by =</span> <span class="st">&quot;month&quot;</span>), </span>
+<span id="cb719-4"><a href="time-series-analysis.html#cb719-4" tabindex="-1"></a>  <span class="at">Observed =</span> <span class="fu">as.numeric</span>(AirPassengers),</span>
+<span id="cb719-5"><a href="time-series-analysis.html#cb719-5" tabindex="-1"></a>  <span class="at">Trend =</span> <span class="fu">as.numeric</span>(decomposed_ts<span class="sc">$</span>trend),</span>
+<span id="cb719-6"><a href="time-series-analysis.html#cb719-6" tabindex="-1"></a>  <span class="at">Seasonal =</span> <span class="fu">as.numeric</span>(decomposed_ts<span class="sc">$</span>seasonal),</span>
+<span id="cb719-7"><a href="time-series-analysis.html#cb719-7" tabindex="-1"></a>  <span class="at">Residual =</span> <span class="fu">as.numeric</span>(decomposed_ts<span class="sc">$</span>random)</span>
+<span id="cb719-8"><a href="time-series-analysis.html#cb719-8" tabindex="-1"></a>)</span>
+<span id="cb719-9"><a href="time-series-analysis.html#cb719-9" tabindex="-1"></a></span>
+<span id="cb719-10"><a href="time-series-analysis.html#cb719-10" tabindex="-1"></a><span class="co"># Remove the null values </span></span>
+<span id="cb719-11"><a href="time-series-analysis.html#cb719-11" tabindex="-1"></a>df_decomposed <span class="ot">&lt;-</span> <span class="fu">na.omit</span>(df_decomposed)</span>
+<span id="cb719-12"><a href="time-series-analysis.html#cb719-12" tabindex="-1"></a></span>
+<span id="cb719-13"><a href="time-series-analysis.html#cb719-13" tabindex="-1"></a><span class="fu">head</span>(df_decomposed)</span></code></pre></div>
 <pre><code>##          Date Observed    Trend  Seasonal   Residual
 ## 7  1949-07-31      148 126.7917  63.83081 -42.622475
 ## 8  1949-08-31      148 127.2500  62.82323 -42.073232
@@ -468,29 +468,29 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <ul>
 <li>Load the required libraries</li>
 </ul>
-<div class="sourceCode" id="cb643"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb643-1"><a href="time-series-analysis.html#cb643-1" tabindex="-1"></a><span class="co"># Load the libraries </span></span>
-<span id="cb643-2"><a href="time-series-analysis.html#cb643-2" tabindex="-1"></a><span class="fu">library</span>(ggplot2) <span class="co"># for plotting </span></span>
-<span id="cb643-3"><a href="time-series-analysis.html#cb643-3" tabindex="-1"></a><span class="fu">library</span>(zoo) <span class="co"># to access `rollmean` function</span></span></code></pre></div>
+<div class="sourceCode" id="cb721"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb721-1"><a href="time-series-analysis.html#cb721-1" tabindex="-1"></a><span class="co"># Load the libraries </span></span>
+<span id="cb721-2"><a href="time-series-analysis.html#cb721-2" tabindex="-1"></a><span class="fu">library</span>(ggplot2) <span class="co"># for plotting </span></span>
+<span id="cb721-3"><a href="time-series-analysis.html#cb721-3" tabindex="-1"></a><span class="fu">library</span>(zoo) <span class="co"># to access `rollmean` function</span></span></code></pre></div>
 <ul>
 <li>Load the data and calulate the moving average using the <code>rollmean()</code> function. Since the data was collected in monthly basis, a yearly moving average will be calculated.</li>
 </ul>
-<div class="sourceCode" id="cb644"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb644-1"><a href="time-series-analysis.html#cb644-1" tabindex="-1"></a><span class="co"># Load the AirPassengers dataset</span></span>
-<span id="cb644-2"><a href="time-series-analysis.html#cb644-2" tabindex="-1"></a><span class="fu">data</span>(<span class="st">&quot;AirPassengers&quot;</span>)</span>
-<span id="cb644-3"><a href="time-series-analysis.html#cb644-3" tabindex="-1"></a></span>
-<span id="cb644-4"><a href="time-series-analysis.html#cb644-4" tabindex="-1"></a><span class="co"># Calculate 12-month moving average using rollmean() from zoo package</span></span>
-<span id="cb644-5"><a href="time-series-analysis.html#cb644-5" tabindex="-1"></a>moving_avg <span class="ot">&lt;-</span> <span class="fu">rollmean</span>(AirPassengers, </span>
-<span id="cb644-6"><a href="time-series-analysis.html#cb644-6" tabindex="-1"></a>                       <span class="at">k =</span> <span class="dv">12</span>, <span class="co"># 12- Month Moving Average</span></span>
-<span id="cb644-7"><a href="time-series-analysis.html#cb644-7" tabindex="-1"></a>                       <span class="at">fill =</span> <span class="cn">NA</span>) </span>
-<span id="cb644-8"><a href="time-series-analysis.html#cb644-8" tabindex="-1"></a></span>
-<span id="cb644-9"><a href="time-series-analysis.html#cb644-9" tabindex="-1"></a><span class="co"># Create a data frame combining the original data and moving average</span></span>
-<span id="cb644-10"><a href="time-series-analysis.html#cb644-10" tabindex="-1"></a>df_airpassengers <span class="ot">&lt;-</span> <span class="fu">data.frame</span>(</span>
-<span id="cb644-11"><a href="time-series-analysis.html#cb644-11" tabindex="-1"></a>  <span class="at">Month =</span> <span class="fu">as.Date</span>(<span class="fu">time</span>(AirPassengers)),</span>
-<span id="cb644-12"><a href="time-series-analysis.html#cb644-12" tabindex="-1"></a>  <span class="at">Passengers =</span> <span class="fu">as.numeric</span>(AirPassengers),</span>
-<span id="cb644-13"><a href="time-series-analysis.html#cb644-13" tabindex="-1"></a>  <span class="at">MovingAvg =</span> <span class="fu">as.numeric</span>(moving_avg)</span>
-<span id="cb644-14"><a href="time-series-analysis.html#cb644-14" tabindex="-1"></a>)</span>
-<span id="cb644-15"><a href="time-series-analysis.html#cb644-15" tabindex="-1"></a></span>
-<span id="cb644-16"><a href="time-series-analysis.html#cb644-16" tabindex="-1"></a><span class="co"># View the first few rows of the data frame</span></span>
-<span id="cb644-17"><a href="time-series-analysis.html#cb644-17" tabindex="-1"></a><span class="fu">head</span>(df_airpassengers, <span class="dv">10</span>)</span></code></pre></div>
+<div class="sourceCode" id="cb722"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb722-1"><a href="time-series-analysis.html#cb722-1" tabindex="-1"></a><span class="co"># Load the AirPassengers dataset</span></span>
+<span id="cb722-2"><a href="time-series-analysis.html#cb722-2" tabindex="-1"></a><span class="fu">data</span>(<span class="st">&quot;AirPassengers&quot;</span>)</span>
+<span id="cb722-3"><a href="time-series-analysis.html#cb722-3" tabindex="-1"></a></span>
+<span id="cb722-4"><a href="time-series-analysis.html#cb722-4" tabindex="-1"></a><span class="co"># Calculate 12-month moving average using rollmean() from zoo package</span></span>
+<span id="cb722-5"><a href="time-series-analysis.html#cb722-5" tabindex="-1"></a>moving_avg <span class="ot">&lt;-</span> <span class="fu">rollmean</span>(AirPassengers, </span>
+<span id="cb722-6"><a href="time-series-analysis.html#cb722-6" tabindex="-1"></a>                       <span class="at">k =</span> <span class="dv">12</span>, <span class="co"># 12- Month Moving Average</span></span>
+<span id="cb722-7"><a href="time-series-analysis.html#cb722-7" tabindex="-1"></a>                       <span class="at">fill =</span> <span class="cn">NA</span>) </span>
+<span id="cb722-8"><a href="time-series-analysis.html#cb722-8" tabindex="-1"></a></span>
+<span id="cb722-9"><a href="time-series-analysis.html#cb722-9" tabindex="-1"></a><span class="co"># Create a data frame combining the original data and moving average</span></span>
+<span id="cb722-10"><a href="time-series-analysis.html#cb722-10" tabindex="-1"></a>df_airpassengers <span class="ot">&lt;-</span> <span class="fu">data.frame</span>(</span>
+<span id="cb722-11"><a href="time-series-analysis.html#cb722-11" tabindex="-1"></a>  <span class="at">Month =</span> <span class="fu">as.Date</span>(<span class="fu">time</span>(AirPassengers)),</span>
+<span id="cb722-12"><a href="time-series-analysis.html#cb722-12" tabindex="-1"></a>  <span class="at">Passengers =</span> <span class="fu">as.numeric</span>(AirPassengers),</span>
+<span id="cb722-13"><a href="time-series-analysis.html#cb722-13" tabindex="-1"></a>  <span class="at">MovingAvg =</span> <span class="fu">as.numeric</span>(moving_avg)</span>
+<span id="cb722-14"><a href="time-series-analysis.html#cb722-14" tabindex="-1"></a>)</span>
+<span id="cb722-15"><a href="time-series-analysis.html#cb722-15" tabindex="-1"></a></span>
+<span id="cb722-16"><a href="time-series-analysis.html#cb722-16" tabindex="-1"></a><span class="co"># View the first few rows of the data frame</span></span>
+<span id="cb722-17"><a href="time-series-analysis.html#cb722-17" tabindex="-1"></a><span class="fu">head</span>(df_airpassengers, <span class="dv">10</span>)</span></code></pre></div>
 <pre><code>##         Month Passengers MovingAvg
 ## 1  1949-01-01        112        NA
 ## 2  1949-02-01        118        NA
@@ -505,35 +505,35 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <ul>
 <li>Now plot the time series data along with the moving average</li>
 </ul>
-<div class="sourceCode" id="cb646"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb646-1"><a href="time-series-analysis.html#cb646-1" tabindex="-1"></a><span class="co"># Plot original data and moving average</span></span>
-<span id="cb646-2"><a href="time-series-analysis.html#cb646-2" tabindex="-1"></a><span class="fu">ggplot</span>(df_airpassengers, <span class="fu">aes</span>(<span class="at">x =</span> Month)) <span class="sc">+</span> </span>
-<span id="cb646-3"><a href="time-series-analysis.html#cb646-3" tabindex="-1"></a>  <span class="fu">geom_line</span>(<span class="fu">aes</span>(<span class="at">y =</span> Passengers), <span class="at">color =</span> <span class="st">&quot;blue&quot;</span>, <span class="at">size =</span> <span class="dv">1</span>) <span class="sc">+</span>  <span class="co"># Original data</span></span>
-<span id="cb646-4"><a href="time-series-analysis.html#cb646-4" tabindex="-1"></a>  <span class="fu">geom_line</span>(<span class="fu">aes</span>(<span class="at">y =</span> MovingAvg), <span class="at">color =</span> <span class="st">&quot;red&quot;</span>, <span class="at">size =</span> <span class="fl">1.2</span>) <span class="sc">+</span>  <span class="co"># Moving average</span></span>
-<span id="cb646-5"><a href="time-series-analysis.html#cb646-5" tabindex="-1"></a>  <span class="fu">labs</span>(<span class="at">title =</span> <span class="st">&quot;AirPassengers - Moving Average (12 months)&quot;</span>,</span>
-<span id="cb646-6"><a href="time-series-analysis.html#cb646-6" tabindex="-1"></a>       <span class="at">y =</span> <span class="st">&quot;Number of Passengers&quot;</span>, <span class="at">x =</span> <span class="st">&quot;Month&quot;</span>) <span class="sc">+</span></span>
-<span id="cb646-7"><a href="time-series-analysis.html#cb646-7" tabindex="-1"></a>  <span class="fu">theme_minimal</span>()</span></code></pre></div>
+<div class="sourceCode" id="cb724"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb724-1"><a href="time-series-analysis.html#cb724-1" tabindex="-1"></a><span class="co"># Plot original data and moving average</span></span>
+<span id="cb724-2"><a href="time-series-analysis.html#cb724-2" tabindex="-1"></a><span class="fu">ggplot</span>(df_airpassengers, <span class="fu">aes</span>(<span class="at">x =</span> Month)) <span class="sc">+</span> </span>
+<span id="cb724-3"><a href="time-series-analysis.html#cb724-3" tabindex="-1"></a>  <span class="fu">geom_line</span>(<span class="fu">aes</span>(<span class="at">y =</span> Passengers), <span class="at">color =</span> <span class="st">&quot;blue&quot;</span>, <span class="at">size =</span> <span class="dv">1</span>) <span class="sc">+</span>  <span class="co"># Original data</span></span>
+<span id="cb724-4"><a href="time-series-analysis.html#cb724-4" tabindex="-1"></a>  <span class="fu">geom_line</span>(<span class="fu">aes</span>(<span class="at">y =</span> MovingAvg), <span class="at">color =</span> <span class="st">&quot;red&quot;</span>, <span class="at">size =</span> <span class="fl">1.2</span>) <span class="sc">+</span>  <span class="co"># Moving average</span></span>
+<span id="cb724-5"><a href="time-series-analysis.html#cb724-5" tabindex="-1"></a>  <span class="fu">labs</span>(<span class="at">title =</span> <span class="st">&quot;AirPassengers - Moving Average (12 months)&quot;</span>,</span>
+<span id="cb724-6"><a href="time-series-analysis.html#cb724-6" tabindex="-1"></a>       <span class="at">y =</span> <span class="st">&quot;Number of Passengers&quot;</span>, <span class="at">x =</span> <span class="st">&quot;Month&quot;</span>) <span class="sc">+</span></span>
+<span id="cb724-7"><a href="time-series-analysis.html#cb724-7" tabindex="-1"></a>  <span class="fu">theme_minimal</span>()</span></code></pre></div>
 <pre><code>## Warning: Removed 11 rows containing missing values or values outside
 ## the scale range (`geom_line()`).</code></pre>
-<p><img src="bookdownproj_files/figure-html/unnamed-chunk-288-1.png" width="672" /></p>
+<p><img src="bookdownproj_files/figure-html/unnamed-chunk-298-1.png" width="672" /></p>
 <ul>
 <li><p><em>The blue line represents the original time series data</em></p></li>
 <li><p><em>The red line represents the Moving Average data</em>, you can see that the line is smoother.</p></li>
 <li><p>Let’s repeat the process but this time we use the <code>filter()</code> function from the Base R. Remember <code>dplyr</code> also has <code>filter()</code> function. To speficify use <code>stats::filter()</code>.</p></li>
 </ul>
-<div class="sourceCode" id="cb648"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb648-1"><a href="time-series-analysis.html#cb648-1" tabindex="-1"></a><span class="co"># Calculate the Moving Average</span></span>
-<span id="cb648-2"><a href="time-series-analysis.html#cb648-2" tabindex="-1"></a>moving_avg_filter <span class="ot">&lt;-</span> stats<span class="sc">::</span><span class="fu">filter</span>(AirPassengers, <span class="fu">rep</span>(<span class="dv">1</span><span class="sc">/</span><span class="dv">12</span>, <span class="dv">12</span>), <span class="at">sides =</span> <span class="dv">2</span>)</span>
-<span id="cb648-3"><a href="time-series-analysis.html#cb648-3" tabindex="-1"></a></span>
-<span id="cb648-4"><a href="time-series-analysis.html#cb648-4" tabindex="-1"></a><span class="co"># Add the moving average to the existing data frame</span></span>
-<span id="cb648-5"><a href="time-series-analysis.html#cb648-5" tabindex="-1"></a>df_airpassengers<span class="sc">$</span>MovingAvg_Filter <span class="ot">&lt;-</span> <span class="fu">as.numeric</span>(moving_avg_filter)</span>
-<span id="cb648-6"><a href="time-series-analysis.html#cb648-6" tabindex="-1"></a></span>
-<span id="cb648-7"><a href="time-series-analysis.html#cb648-7" tabindex="-1"></a><span class="co"># Plot original data and moving average calculated by filter()</span></span>
-<span id="cb648-8"><a href="time-series-analysis.html#cb648-8" tabindex="-1"></a><span class="fu">ggplot</span>(df_airpassengers, <span class="fu">aes</span>(<span class="at">x =</span> Month)) <span class="sc">+</span> </span>
-<span id="cb648-9"><a href="time-series-analysis.html#cb648-9" tabindex="-1"></a>  <span class="fu">geom_line</span>(<span class="fu">aes</span>(<span class="at">y =</span> Passengers), <span class="at">color =</span> <span class="st">&quot;blue&quot;</span>, <span class="at">size =</span> <span class="dv">1</span>) <span class="sc">+</span>  <span class="co"># Original data</span></span>
-<span id="cb648-10"><a href="time-series-analysis.html#cb648-10" tabindex="-1"></a>  <span class="fu">geom_line</span>(<span class="fu">aes</span>(<span class="at">y =</span> MovingAvg_Filter), <span class="at">color =</span> <span class="st">&quot;green&quot;</span>, <span class="at">size =</span> <span class="fl">1.2</span>) <span class="sc">+</span>  <span class="co"># Moving average from filter</span></span>
-<span id="cb648-11"><a href="time-series-analysis.html#cb648-11" tabindex="-1"></a>  <span class="fu">labs</span>(<span class="at">title =</span> <span class="st">&quot;AirPassengers - Moving Average (12 months, filter())&quot;</span>,</span>
-<span id="cb648-12"><a href="time-series-analysis.html#cb648-12" tabindex="-1"></a>       <span class="at">y =</span> <span class="st">&quot;Number of Passengers&quot;</span>, <span class="at">x =</span> <span class="st">&quot;Month&quot;</span>) <span class="sc">+</span></span>
-<span id="cb648-13"><a href="time-series-analysis.html#cb648-13" tabindex="-1"></a>  <span class="fu">theme_minimal</span>()</span></code></pre></div>
-<p><img src="bookdownproj_files/figure-html/unnamed-chunk-289-1.png" width="672" /></p>
+<div class="sourceCode" id="cb726"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb726-1"><a href="time-series-analysis.html#cb726-1" tabindex="-1"></a><span class="co"># Calculate the Moving Average</span></span>
+<span id="cb726-2"><a href="time-series-analysis.html#cb726-2" tabindex="-1"></a>moving_avg_filter <span class="ot">&lt;-</span> stats<span class="sc">::</span><span class="fu">filter</span>(AirPassengers, <span class="fu">rep</span>(<span class="dv">1</span><span class="sc">/</span><span class="dv">12</span>, <span class="dv">12</span>), <span class="at">sides =</span> <span class="dv">2</span>)</span>
+<span id="cb726-3"><a href="time-series-analysis.html#cb726-3" tabindex="-1"></a></span>
+<span id="cb726-4"><a href="time-series-analysis.html#cb726-4" tabindex="-1"></a><span class="co"># Add the moving average to the existing data frame</span></span>
+<span id="cb726-5"><a href="time-series-analysis.html#cb726-5" tabindex="-1"></a>df_airpassengers<span class="sc">$</span>MovingAvg_Filter <span class="ot">&lt;-</span> <span class="fu">as.numeric</span>(moving_avg_filter)</span>
+<span id="cb726-6"><a href="time-series-analysis.html#cb726-6" tabindex="-1"></a></span>
+<span id="cb726-7"><a href="time-series-analysis.html#cb726-7" tabindex="-1"></a><span class="co"># Plot original data and moving average calculated by filter()</span></span>
+<span id="cb726-8"><a href="time-series-analysis.html#cb726-8" tabindex="-1"></a><span class="fu">ggplot</span>(df_airpassengers, <span class="fu">aes</span>(<span class="at">x =</span> Month)) <span class="sc">+</span> </span>
+<span id="cb726-9"><a href="time-series-analysis.html#cb726-9" tabindex="-1"></a>  <span class="fu">geom_line</span>(<span class="fu">aes</span>(<span class="at">y =</span> Passengers), <span class="at">color =</span> <span class="st">&quot;blue&quot;</span>, <span class="at">size =</span> <span class="dv">1</span>) <span class="sc">+</span>  <span class="co"># Original data</span></span>
+<span id="cb726-10"><a href="time-series-analysis.html#cb726-10" tabindex="-1"></a>  <span class="fu">geom_line</span>(<span class="fu">aes</span>(<span class="at">y =</span> MovingAvg_Filter), <span class="at">color =</span> <span class="st">&quot;green&quot;</span>, <span class="at">size =</span> <span class="fl">1.2</span>) <span class="sc">+</span>  <span class="co"># Moving average from filter</span></span>
+<span id="cb726-11"><a href="time-series-analysis.html#cb726-11" tabindex="-1"></a>  <span class="fu">labs</span>(<span class="at">title =</span> <span class="st">&quot;AirPassengers - Moving Average (12 months, filter())&quot;</span>,</span>
+<span id="cb726-12"><a href="time-series-analysis.html#cb726-12" tabindex="-1"></a>       <span class="at">y =</span> <span class="st">&quot;Number of Passengers&quot;</span>, <span class="at">x =</span> <span class="st">&quot;Month&quot;</span>) <span class="sc">+</span></span>
+<span id="cb726-13"><a href="time-series-analysis.html#cb726-13" tabindex="-1"></a>  <span class="fu">theme_minimal</span>()</span></code></pre></div>
+<p><img src="bookdownproj_files/figure-html/unnamed-chunk-299-1.png" width="672" /></p>
 <ul>
 <li><em>The green line represents the simple moving average over a 12-month sliding window</em></li>
 </ul>
@@ -560,15 +560,15 @@ The <code>forecast</code> library can be installed by;</p>
 <p>Lets use the <code>AirPassengers</code> data to design our ARIMA model.</p>
 <p><strong>Step 1</strong>: Check stationarity</p>
 <p>To create an ARIMA model the time series data, in this case the <code>AirPassengers</code>, must be stationary i.e have a constant mean and variance. Otherwise, differencing is applied to make it stationary. The <code>diff()</code> is used to this.</p>
-<div class="sourceCode" id="cb650"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb650-1"><a href="time-series-analysis.html#cb650-1" tabindex="-1"></a><span class="co"># Load necessary library</span></span>
-<span id="cb650-2"><a href="time-series-analysis.html#cb650-2" tabindex="-1"></a><span class="fu">library</span>(forecast)</span></code></pre></div>
+<div class="sourceCode" id="cb728"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb728-1"><a href="time-series-analysis.html#cb728-1" tabindex="-1"></a><span class="co"># Load necessary library</span></span>
+<span id="cb728-2"><a href="time-series-analysis.html#cb728-2" tabindex="-1"></a><span class="fu">library</span>(forecast)</span></code></pre></div>
 <pre><code>## Registered S3 method overwritten by &#39;quantmod&#39;:
 ##   method            from
 ##   as.zoo.data.frame zoo</code></pre>
-<div class="sourceCode" id="cb652"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb652-1"><a href="time-series-analysis.html#cb652-1" tabindex="-1"></a><span class="co"># Load the AirPassengers data set if not loaded already</span></span>
-<span id="cb652-2"><a href="time-series-analysis.html#cb652-2" tabindex="-1"></a></span>
-<span id="cb652-3"><a href="time-series-analysis.html#cb652-3" tabindex="-1"></a><span class="co"># Make the data stationary by differencing</span></span>
-<span id="cb652-4"><a href="time-series-analysis.html#cb652-4" tabindex="-1"></a>diff_passengers <span class="ot">&lt;-</span> <span class="fu">diff</span>(<span class="fu">log</span>(AirPassengers))</span></code></pre></div>
+<div class="sourceCode" id="cb730"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb730-1"><a href="time-series-analysis.html#cb730-1" tabindex="-1"></a><span class="co"># Load the AirPassengers data set if not loaded already</span></span>
+<span id="cb730-2"><a href="time-series-analysis.html#cb730-2" tabindex="-1"></a></span>
+<span id="cb730-3"><a href="time-series-analysis.html#cb730-3" tabindex="-1"></a><span class="co"># Make the data stationary by differencing</span></span>
+<span id="cb730-4"><a href="time-series-analysis.html#cb730-4" tabindex="-1"></a>diff_passengers <span class="ot">&lt;-</span> <span class="fu">diff</span>(<span class="fu">log</span>(AirPassengers))</span></code></pre></div>
 <p><strong>Step 2</strong>: Use the ACF and PACF Plots to Identify ARIMA Parameters</p>
 <ul>
 <li><p>The <strong>ACF</strong> is used to find the correlation between the time series and the lagged versions((previous) of itself. Thats the <code>q</code> (MA) parameter.</p></li>
@@ -576,33 +576,33 @@ The <code>forecast</code> library can be installed by;</p>
 </ul>
 <p><strong>Step 3</strong>: Plot the ACF and PACF</p>
 <p>The <code>acf()</code> and <code>pacf</code> functions are used to generate the plots.</p>
-<div class="sourceCode" id="cb653"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb653-1"><a href="time-series-analysis.html#cb653-1" tabindex="-1"></a><span class="co"># Plot the ACF and PACF of the differenced data</span></span>
-<span id="cb653-2"><a href="time-series-analysis.html#cb653-2" tabindex="-1"></a><span class="fu">par</span>(<span class="at">mfrow =</span> <span class="fu">c</span>(<span class="dv">1</span>, <span class="dv">2</span>))  <span class="co"># Set up for side-by-side plots</span></span>
-<span id="cb653-3"><a href="time-series-analysis.html#cb653-3" tabindex="-1"></a></span>
-<span id="cb653-4"><a href="time-series-analysis.html#cb653-4" tabindex="-1"></a><span class="co"># ACF plot</span></span>
-<span id="cb653-5"><a href="time-series-analysis.html#cb653-5" tabindex="-1"></a><span class="fu">acf</span>(diff_passengers, <span class="at">main =</span> <span class="st">&quot;ACF of Differenced AirPassengers&quot;</span>)</span></code></pre></div>
-<p><img src="bookdownproj_files/figure-html/unnamed-chunk-291-1.png" width="672" /></p>
-<div class="sourceCode" id="cb654"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb654-1"><a href="time-series-analysis.html#cb654-1" tabindex="-1"></a><span class="co"># PACF plot</span></span>
-<span id="cb654-2"><a href="time-series-analysis.html#cb654-2" tabindex="-1"></a><span class="fu">pacf</span>(diff_passengers, <span class="at">main =</span> <span class="st">&quot;PACF of Differenced AirPassengers&quot;</span>)</span></code></pre></div>
-<p><img src="bookdownproj_files/figure-html/unnamed-chunk-292-1.png" width="672" /></p>
+<div class="sourceCode" id="cb731"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb731-1"><a href="time-series-analysis.html#cb731-1" tabindex="-1"></a><span class="co"># Plot the ACF and PACF of the differenced data</span></span>
+<span id="cb731-2"><a href="time-series-analysis.html#cb731-2" tabindex="-1"></a><span class="fu">par</span>(<span class="at">mfrow =</span> <span class="fu">c</span>(<span class="dv">1</span>, <span class="dv">2</span>))  <span class="co"># Set up for side-by-side plots</span></span>
+<span id="cb731-3"><a href="time-series-analysis.html#cb731-3" tabindex="-1"></a></span>
+<span id="cb731-4"><a href="time-series-analysis.html#cb731-4" tabindex="-1"></a><span class="co"># ACF plot</span></span>
+<span id="cb731-5"><a href="time-series-analysis.html#cb731-5" tabindex="-1"></a><span class="fu">acf</span>(diff_passengers, <span class="at">main =</span> <span class="st">&quot;ACF of Differenced AirPassengers&quot;</span>)</span></code></pre></div>
+<p><img src="bookdownproj_files/figure-html/unnamed-chunk-301-1.png" width="672" /></p>
+<div class="sourceCode" id="cb732"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb732-1"><a href="time-series-analysis.html#cb732-1" tabindex="-1"></a><span class="co"># PACF plot</span></span>
+<span id="cb732-2"><a href="time-series-analysis.html#cb732-2" tabindex="-1"></a><span class="fu">pacf</span>(diff_passengers, <span class="at">main =</span> <span class="st">&quot;PACF of Differenced AirPassengers&quot;</span>)</span></code></pre></div>
+<p><img src="bookdownproj_files/figure-html/unnamed-chunk-302-1.png" width="672" /></p>
 <p>&lt;-<strong>Interpret the plots</strong>-&gt;</p>
 <p>The <code>AirPassengers</code> data set is not stationary, therefore the data will be transformed by log-transform before applying differencing</p>
-<div class="sourceCode" id="cb655"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb655-1"><a href="time-series-analysis.html#cb655-1" tabindex="-1"></a><span class="co"># Log transformation to stabilize variance</span></span>
-<span id="cb655-2"><a href="time-series-analysis.html#cb655-2" tabindex="-1"></a>log_passengers <span class="ot">&lt;-</span> <span class="fu">log</span>(AirPassengers)</span>
-<span id="cb655-3"><a href="time-series-analysis.html#cb655-3" tabindex="-1"></a></span>
-<span id="cb655-4"><a href="time-series-analysis.html#cb655-4" tabindex="-1"></a><span class="co"># Difference the log-transformed data to make it stationary</span></span>
-<span id="cb655-5"><a href="time-series-analysis.html#cb655-5" tabindex="-1"></a>diff_passengers <span class="ot">&lt;-</span> <span class="fu">diff</span>(log_passengers)</span>
-<span id="cb655-6"><a href="time-series-analysis.html#cb655-6" tabindex="-1"></a></span>
-<span id="cb655-7"><a href="time-series-analysis.html#cb655-7" tabindex="-1"></a><span class="co"># Plot the differenced series to check stationarity</span></span>
-<span id="cb655-8"><a href="time-series-analysis.html#cb655-8" tabindex="-1"></a><span class="fu">plot</span>(diff_passengers, <span class="at">main =</span> <span class="st">&quot;Differenced Log of AirPassengers&quot;</span>, <span class="at">ylab =</span> <span class="st">&quot;Differenced Log(Passengers)&quot;</span>, <span class="at">xlab =</span> <span class="st">&quot;Time&quot;</span>)</span></code></pre></div>
-<p><img src="bookdownproj_files/figure-html/unnamed-chunk-293-1.png" width="672" /></p>
+<div class="sourceCode" id="cb733"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb733-1"><a href="time-series-analysis.html#cb733-1" tabindex="-1"></a><span class="co"># Log transformation to stabilize variance</span></span>
+<span id="cb733-2"><a href="time-series-analysis.html#cb733-2" tabindex="-1"></a>log_passengers <span class="ot">&lt;-</span> <span class="fu">log</span>(AirPassengers)</span>
+<span id="cb733-3"><a href="time-series-analysis.html#cb733-3" tabindex="-1"></a></span>
+<span id="cb733-4"><a href="time-series-analysis.html#cb733-4" tabindex="-1"></a><span class="co"># Difference the log-transformed data to make it stationary</span></span>
+<span id="cb733-5"><a href="time-series-analysis.html#cb733-5" tabindex="-1"></a>diff_passengers <span class="ot">&lt;-</span> <span class="fu">diff</span>(log_passengers)</span>
+<span id="cb733-6"><a href="time-series-analysis.html#cb733-6" tabindex="-1"></a></span>
+<span id="cb733-7"><a href="time-series-analysis.html#cb733-7" tabindex="-1"></a><span class="co"># Plot the differenced series to check stationarity</span></span>
+<span id="cb733-8"><a href="time-series-analysis.html#cb733-8" tabindex="-1"></a><span class="fu">plot</span>(diff_passengers, <span class="at">main =</span> <span class="st">&quot;Differenced Log of AirPassengers&quot;</span>, <span class="at">ylab =</span> <span class="st">&quot;Differenced Log(Passengers)&quot;</span>, <span class="at">xlab =</span> <span class="st">&quot;Time&quot;</span>)</span></code></pre></div>
+<p><img src="bookdownproj_files/figure-html/unnamed-chunk-303-1.png" width="672" /></p>
 <p><strong>Step 4</strong>: Fit the ARIMA model</p>
 <p>The <code>auto.arima()</code> function can be used to automate the process of selecting the <code>p</code>, <code>d</code>, <code>q</code> parameters.</p>
-<div class="sourceCode" id="cb656"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb656-1"><a href="time-series-analysis.html#cb656-1" tabindex="-1"></a><span class="co"># Auto-identify ARIMA parameters and fit the model</span></span>
-<span id="cb656-2"><a href="time-series-analysis.html#cb656-2" tabindex="-1"></a>fit_arima <span class="ot">&lt;-</span> <span class="fu">auto.arima</span>(log_passengers)</span>
-<span id="cb656-3"><a href="time-series-analysis.html#cb656-3" tabindex="-1"></a></span>
-<span id="cb656-4"><a href="time-series-analysis.html#cb656-4" tabindex="-1"></a><span class="co"># Display the summary of the fitted ARIMA model</span></span>
-<span id="cb656-5"><a href="time-series-analysis.html#cb656-5" tabindex="-1"></a><span class="fu">summary</span>(fit_arima)</span></code></pre></div>
+<div class="sourceCode" id="cb734"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb734-1"><a href="time-series-analysis.html#cb734-1" tabindex="-1"></a><span class="co"># Auto-identify ARIMA parameters and fit the model</span></span>
+<span id="cb734-2"><a href="time-series-analysis.html#cb734-2" tabindex="-1"></a>fit_arima <span class="ot">&lt;-</span> <span class="fu">auto.arima</span>(log_passengers)</span>
+<span id="cb734-3"><a href="time-series-analysis.html#cb734-3" tabindex="-1"></a></span>
+<span id="cb734-4"><a href="time-series-analysis.html#cb734-4" tabindex="-1"></a><span class="co"># Display the summary of the fitted ARIMA model</span></span>
+<span id="cb734-5"><a href="time-series-analysis.html#cb734-5" tabindex="-1"></a><span class="fu">summary</span>(fit_arima)</span></code></pre></div>
 <pre><code>## Series: log_passengers 
 ## ARIMA(0,1,1)(0,1,1)[12] 
 ## 
@@ -620,11 +620,11 @@ The <code>forecast</code> library can be installed by;</p>
 ##                    ACF1
 ## Training set 0.01443892</code></pre>
 <p>Lets fit the ARIMA model with of order <code>1 1 1</code> to represent <code>p d q</code> respectively.</p>
-<div class="sourceCode" id="cb658"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb658-1"><a href="time-series-analysis.html#cb658-1" tabindex="-1"></a><span class="co"># Fit ARIMA(1,1,1) model</span></span>
-<span id="cb658-2"><a href="time-series-analysis.html#cb658-2" tabindex="-1"></a>fit_manual_arima <span class="ot">&lt;-</span> <span class="fu">arima</span>(log_passengers, <span class="at">order =</span> <span class="fu">c</span>(<span class="dv">1</span>, <span class="dv">1</span>, <span class="dv">1</span>))</span>
-<span id="cb658-3"><a href="time-series-analysis.html#cb658-3" tabindex="-1"></a></span>
-<span id="cb658-4"><a href="time-series-analysis.html#cb658-4" tabindex="-1"></a><span class="co"># Display the summary of the fitted ARIMA model</span></span>
-<span id="cb658-5"><a href="time-series-analysis.html#cb658-5" tabindex="-1"></a><span class="fu">summary</span>(fit_manual_arima)</span></code></pre></div>
+<div class="sourceCode" id="cb736"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb736-1"><a href="time-series-analysis.html#cb736-1" tabindex="-1"></a><span class="co"># Fit ARIMA(1,1,1) model</span></span>
+<span id="cb736-2"><a href="time-series-analysis.html#cb736-2" tabindex="-1"></a>fit_manual_arima <span class="ot">&lt;-</span> <span class="fu">arima</span>(log_passengers, <span class="at">order =</span> <span class="fu">c</span>(<span class="dv">1</span>, <span class="dv">1</span>, <span class="dv">1</span>))</span>
+<span id="cb736-3"><a href="time-series-analysis.html#cb736-3" tabindex="-1"></a></span>
+<span id="cb736-4"><a href="time-series-analysis.html#cb736-4" tabindex="-1"></a><span class="co"># Display the summary of the fitted ARIMA model</span></span>
+<span id="cb736-5"><a href="time-series-analysis.html#cb736-5" tabindex="-1"></a><span class="fu">summary</span>(fit_manual_arima)</span></code></pre></div>
 <pre><code>## 
 ## Call:
 ## arima(x = log_passengers, order = c(1, 1, 1))
@@ -643,12 +643,12 @@ The <code>forecast</code> library can be installed by;</p>
 ## Training set 0.010984</code></pre>
 <p><strong>Step 5</strong>: Forecast with the ARIMA model</p>
 <p>The fitted ARIMA model can now be used for forecasting the future values using the <code>arima()</code> function.</p>
-<div class="sourceCode" id="cb660"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb660-1"><a href="time-series-analysis.html#cb660-1" tabindex="-1"></a><span class="co"># Forecast for the next 24 months (2 years)</span></span>
-<span id="cb660-2"><a href="time-series-analysis.html#cb660-2" tabindex="-1"></a>forecast_arima <span class="ot">&lt;-</span> <span class="fu">forecast</span>(fit_arima, <span class="at">h =</span> <span class="dv">24</span>)</span>
-<span id="cb660-3"><a href="time-series-analysis.html#cb660-3" tabindex="-1"></a></span>
-<span id="cb660-4"><a href="time-series-analysis.html#cb660-4" tabindex="-1"></a><span class="co"># Plot the forecast</span></span>
-<span id="cb660-5"><a href="time-series-analysis.html#cb660-5" tabindex="-1"></a><span class="fu">plot</span>(forecast_arima, <span class="at">main =</span> <span class="st">&quot;ARIMA Forecast for AirPassengers&quot;</span>, <span class="at">xlab =</span> <span class="st">&quot;Time&quot;</span>, <span class="at">ylab =</span> <span class="st">&quot;Log(Passengers)&quot;</span>)</span></code></pre></div>
-<p><img src="bookdownproj_files/figure-html/unnamed-chunk-296-1.png" width="672" /></p>
+<div class="sourceCode" id="cb738"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb738-1"><a href="time-series-analysis.html#cb738-1" tabindex="-1"></a><span class="co"># Forecast for the next 24 months (2 years)</span></span>
+<span id="cb738-2"><a href="time-series-analysis.html#cb738-2" tabindex="-1"></a>forecast_arima <span class="ot">&lt;-</span> <span class="fu">forecast</span>(fit_arima, <span class="at">h =</span> <span class="dv">24</span>)</span>
+<span id="cb738-3"><a href="time-series-analysis.html#cb738-3" tabindex="-1"></a></span>
+<span id="cb738-4"><a href="time-series-analysis.html#cb738-4" tabindex="-1"></a><span class="co"># Plot the forecast</span></span>
+<span id="cb738-5"><a href="time-series-analysis.html#cb738-5" tabindex="-1"></a><span class="fu">plot</span>(forecast_arima, <span class="at">main =</span> <span class="st">&quot;ARIMA Forecast for AirPassengers&quot;</span>, <span class="at">xlab =</span> <span class="st">&quot;Time&quot;</span>, <span class="at">ylab =</span> <span class="st">&quot;Log(Passengers)&quot;</span>)</span></code></pre></div>
+<p><img src="bookdownproj_files/figure-html/unnamed-chunk-306-1.png" width="672" /></p>
 <p>The blue part of the plot represents the forecasted values.</p>
 <p><span style="color: green;"><strong>Practical exercise</strong></span></p>
 <p>Fit the ARIMA model to the Amazon Stock Prices Prediction data and interpret the results.</p>
