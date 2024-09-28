@@ -23,7 +23,7 @@
 <meta name="author" content="YOUR NAME HERE" />
 
 
-<meta name="date" content="2024-09-27" />
+<meta name="date" content="2024-09-28" />
 
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <meta name="apple-mobile-web-app-capable" content="yes" />
@@ -1306,6 +1306,43 @@ head(Pima.te)</code></pre>
 ##  64.52896</code></pre>
 <p><span style="color: green;"><strong>Practical exercise</strong></span></p>
 <p>Conduct one sample t-test on the sepal length of the setosa iris. The pre-assumed mean is 5.84 units.</p>
+<hr />
+<p><span style="color: brown;"><strong>Solution</strong></span></p>
+<ul>
+<li>Null Hypothesis(<span class="math inline">\(H_0\)</span>): There is no significant difference between the setosa sepal length mean and the pre-assumed mean</li>
+<li>Alternate Hypothesis(<span class="math inline">\(H_a\)</span>): There is a significant difference between the setosa sepal length and the pre-assumed mean</li>
+</ul>
+<p><strong>Note</strong>: If the pre-assumed mean is not given in the question therefore the whole population mean is used(as the pre-assumed mean). In this case, the setosa sepal length mean of the whole iris species.</p>
+<div class="sourceCode" id="cb629"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb629-1"><a href="statistical-analysis.html#cb629-1" tabindex="-1"></a><span class="fu">library</span>(dplyr)</span>
+<span id="cb629-2"><a href="statistical-analysis.html#cb629-2" tabindex="-1"></a><span class="co"># Load the data</span></span>
+<span id="cb629-3"><a href="statistical-analysis.html#cb629-3" tabindex="-1"></a><span class="fu">data</span>(iris)</span>
+<span id="cb629-4"><a href="statistical-analysis.html#cb629-4" tabindex="-1"></a></span>
+<span id="cb629-5"><a href="statistical-analysis.html#cb629-5" tabindex="-1"></a><span class="co"># Get the setosa sepal length</span></span>
+<span id="cb629-6"><a href="statistical-analysis.html#cb629-6" tabindex="-1"></a>setosa <span class="ot">&lt;-</span> iris <span class="sc">%&gt;%</span> </span>
+<span id="cb629-7"><a href="statistical-analysis.html#cb629-7" tabindex="-1"></a>  <span class="fu">filter</span>(Species<span class="sc">==</span><span class="st">&quot;setosa&quot;</span>)</span>
+<span id="cb629-8"><a href="statistical-analysis.html#cb629-8" tabindex="-1"></a></span>
+<span id="cb629-9"><a href="statistical-analysis.html#cb629-9" tabindex="-1"></a>setosa.sepal.length <span class="ot">&lt;-</span> setosa<span class="sc">$</span>Sepal.Length</span>
+<span id="cb629-10"><a href="statistical-analysis.html#cb629-10" tabindex="-1"></a></span>
+<span id="cb629-11"><a href="statistical-analysis.html#cb629-11" tabindex="-1"></a><span class="co"># Calculate one-sample ttest </span></span>
+<span id="cb629-12"><a href="statistical-analysis.html#cb629-12" tabindex="-1"></a><span class="do">## Set the pre-assumed mean </span></span>
+<span id="cb629-13"><a href="statistical-analysis.html#cb629-13" tabindex="-1"></a>pre_assumed_mean <span class="ot">&lt;-</span> <span class="fl">5.84</span> <span class="co"># as in the question</span></span>
+<span id="cb629-14"><a href="statistical-analysis.html#cb629-14" tabindex="-1"></a></span>
+<span id="cb629-15"><a href="statistical-analysis.html#cb629-15" tabindex="-1"></a>t_test_result <span class="ot">&lt;-</span> <span class="fu">t.test</span>(setosa.sepal.length, <span class="at">mu =</span> pre_assumed_mean)</span>
+<span id="cb629-16"><a href="statistical-analysis.html#cb629-16" tabindex="-1"></a></span>
+<span id="cb629-17"><a href="statistical-analysis.html#cb629-17" tabindex="-1"></a><span class="fu">print</span>(t_test_result)</span></code></pre></div>
+<pre><code>## 
+##  One Sample t-test
+## 
+## data:  setosa.sepal.length
+## t = -16.73, df = 49, p-value &lt; 2.2e-16
+## alternative hypothesis: true mean is not equal to 5.84
+## 95 percent confidence interval:
+##  4.905824 5.106176
+## sample estimates:
+## mean of x 
+##     5.006</code></pre>
+<p>The p-value is much below 0.05, therefore the null hypothesis is rejected. It is concluded that there is a significant difference between the sepal length mean and the pre-assumed mean</p>
+<p><span style="color: brown;"><strong>________________________________________________________________________________</strong></span></p>
 <ul>
 <li><em>Two-Sample t-test</em></li>
 </ul>
@@ -1326,22 +1363,22 @@ head(Pima.te)</code></pre>
 <li><span class="math inline">\(n_1\)</span> and <span class="math inline">\(n_2\)</span> are the sample sizes of the first and second sample respectively.</li>
 </ul>
 <p>Let create a random population of student scores for two classes and perform two-sample t-test in R;</p>
-<div class="sourceCode" id="cb629"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb629-1"><a href="statistical-analysis.html#cb629-1" tabindex="-1"></a><span class="co"># Generate the population sample</span></span>
-<span id="cb629-2"><a href="statistical-analysis.html#cb629-2" tabindex="-1"></a><span class="fu">set.seed</span>(<span class="dv">123</span>)</span>
-<span id="cb629-3"><a href="statistical-analysis.html#cb629-3" tabindex="-1"></a>group_A_scores <span class="ot">&lt;-</span> <span class="fu">rnorm</span>(<span class="dv">25</span>, <span class="at">mean =</span> <span class="dv">75</span>, <span class="at">sd =</span> <span class="dv">8</span>)  <span class="co"># Group A</span></span>
-<span id="cb629-4"><a href="statistical-analysis.html#cb629-4" tabindex="-1"></a>group_B_scores <span class="ot">&lt;-</span> <span class="fu">rnorm</span>(<span class="dv">25</span>, <span class="at">mean =</span> <span class="dv">80</span>, <span class="at">sd =</span> <span class="dv">10</span>)  <span class="co"># Group B</span></span>
-<span id="cb629-5"><a href="statistical-analysis.html#cb629-5" tabindex="-1"></a></span>
-<span id="cb629-6"><a href="statistical-analysis.html#cb629-6" tabindex="-1"></a><span class="co"># Display the first few scores of each group</span></span>
-<span id="cb629-7"><a href="statistical-analysis.html#cb629-7" tabindex="-1"></a><span class="fu">head</span>(group_A_scores)</span></code></pre></div>
+<div class="sourceCode" id="cb631"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb631-1"><a href="statistical-analysis.html#cb631-1" tabindex="-1"></a><span class="co"># Generate the population sample</span></span>
+<span id="cb631-2"><a href="statistical-analysis.html#cb631-2" tabindex="-1"></a><span class="fu">set.seed</span>(<span class="dv">123</span>)</span>
+<span id="cb631-3"><a href="statistical-analysis.html#cb631-3" tabindex="-1"></a>group_A_scores <span class="ot">&lt;-</span> <span class="fu">rnorm</span>(<span class="dv">25</span>, <span class="at">mean =</span> <span class="dv">75</span>, <span class="at">sd =</span> <span class="dv">8</span>)  <span class="co"># Group A</span></span>
+<span id="cb631-4"><a href="statistical-analysis.html#cb631-4" tabindex="-1"></a>group_B_scores <span class="ot">&lt;-</span> <span class="fu">rnorm</span>(<span class="dv">25</span>, <span class="at">mean =</span> <span class="dv">80</span>, <span class="at">sd =</span> <span class="dv">10</span>)  <span class="co"># Group B</span></span>
+<span id="cb631-5"><a href="statistical-analysis.html#cb631-5" tabindex="-1"></a></span>
+<span id="cb631-6"><a href="statistical-analysis.html#cb631-6" tabindex="-1"></a><span class="co"># Display the first few scores of each group</span></span>
+<span id="cb631-7"><a href="statistical-analysis.html#cb631-7" tabindex="-1"></a><span class="fu">head</span>(group_A_scores)</span></code></pre></div>
 <pre><code>## [1] 70.51619 73.15858 87.46967 75.56407 76.03430 88.72052</code></pre>
-<div class="sourceCode" id="cb631"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb631-1"><a href="statistical-analysis.html#cb631-1" tabindex="-1"></a><span class="fu">head</span>(group_B_scores)</span></code></pre></div>
+<div class="sourceCode" id="cb633"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb633-1"><a href="statistical-analysis.html#cb633-1" tabindex="-1"></a><span class="fu">head</span>(group_B_scores)</span></code></pre></div>
 <pre><code>## [1] 63.13307 88.37787 81.53373 68.61863 92.53815 84.26464</code></pre>
 <p>Performing the two sample t-test. Lets set the confidence level to 95%(0.95)</p>
-<div class="sourceCode" id="cb633"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb633-1"><a href="statistical-analysis.html#cb633-1" tabindex="-1"></a>ttest_result <span class="ot">=</span> <span class="fu">t.test</span>(group_A_scores, group_B_scores, </span>
-<span id="cb633-2"><a href="statistical-analysis.html#cb633-2" tabindex="-1"></a>                      <span class="at">alternative =</span> <span class="st">&quot;two.sided&quot;</span>, <span class="at">mu =</span> <span class="dv">0</span>, <span class="at">paired =</span> <span class="cn">FALSE</span>,</span>
-<span id="cb633-3"><a href="statistical-analysis.html#cb633-3" tabindex="-1"></a>                      <span class="at">var.equal =</span> <span class="cn">FALSE</span>, <span class="at">conf.level =</span> <span class="fl">0.95</span>)</span>
-<span id="cb633-4"><a href="statistical-analysis.html#cb633-4" tabindex="-1"></a></span>
-<span id="cb633-5"><a href="statistical-analysis.html#cb633-5" tabindex="-1"></a>ttest_result</span></code></pre></div>
+<div class="sourceCode" id="cb635"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb635-1"><a href="statistical-analysis.html#cb635-1" tabindex="-1"></a>ttest_result <span class="ot">=</span> <span class="fu">t.test</span>(group_A_scores, group_B_scores, </span>
+<span id="cb635-2"><a href="statistical-analysis.html#cb635-2" tabindex="-1"></a>                      <span class="at">alternative =</span> <span class="st">&quot;two.sided&quot;</span>, <span class="at">mu =</span> <span class="dv">0</span>, <span class="at">paired =</span> <span class="cn">FALSE</span>,</span>
+<span id="cb635-3"><a href="statistical-analysis.html#cb635-3" tabindex="-1"></a>                      <span class="at">var.equal =</span> <span class="cn">FALSE</span>, <span class="at">conf.level =</span> <span class="fl">0.95</span>)</span>
+<span id="cb635-4"><a href="statistical-analysis.html#cb635-4" tabindex="-1"></a></span>
+<span id="cb635-5"><a href="statistical-analysis.html#cb635-5" tabindex="-1"></a>ttest_result</span></code></pre></div>
 <pre><code>## 
 ##  Welch Two Sample t-test
 ## 
@@ -1363,6 +1400,50 @@ head(Pima.te)</code></pre>
 <p>In summary, the test shows a significant difference between the means of the two groups, with Group B having higher scores</p>
 <p><span style="color: green;"><strong>Practical exercise</strong></span></p>
 <p>Using the iris data set, compare the petal length of the <em>versicolor</em> and <em>virginica</em> species using two-sample t-test. Interpret the results</p>
+<hr />
+<p><span style="color: brown;"><strong>Solution</strong></span></p>
+<p>Lets formulate the hypothesis;</p>
+<ul>
+<li>Null Hypothesis(<span class="math inline">\(H_0\)</span>): There is no significant difference between the mean of virginica and the mean of versicolor</li>
+<li>Alternate Hypothesis(<span class="math inline">\(H_a\)</span>): There is a significant difference between the mean of virginica and the versicolor</li>
+</ul>
+<div class="sourceCode" id="cb637"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb637-1"><a href="statistical-analysis.html#cb637-1" tabindex="-1"></a><span class="fu">library</span>(dplyr)</span>
+<span id="cb637-2"><a href="statistical-analysis.html#cb637-2" tabindex="-1"></a></span>
+<span id="cb637-3"><a href="statistical-analysis.html#cb637-3" tabindex="-1"></a><span class="co"># Load the data </span></span>
+<span id="cb637-4"><a href="statistical-analysis.html#cb637-4" tabindex="-1"></a><span class="fu">data</span>(iris)</span>
+<span id="cb637-5"><a href="statistical-analysis.html#cb637-5" tabindex="-1"></a></span>
+<span id="cb637-6"><a href="statistical-analysis.html#cb637-6" tabindex="-1"></a><span class="co"># Retrieve the data for the two species </span></span>
+<span id="cb637-7"><a href="statistical-analysis.html#cb637-7" tabindex="-1"></a><span class="do">## Virginica petal length</span></span>
+<span id="cb637-8"><a href="statistical-analysis.html#cb637-8" tabindex="-1"></a>virginica <span class="ot">&lt;-</span> iris<span class="sc">%&gt;%</span> </span>
+<span id="cb637-9"><a href="statistical-analysis.html#cb637-9" tabindex="-1"></a>  <span class="fu">filter</span>(Species<span class="sc">==</span><span class="st">&quot;virginica&quot;</span>)</span>
+<span id="cb637-10"><a href="statistical-analysis.html#cb637-10" tabindex="-1"></a></span>
+<span id="cb637-11"><a href="statistical-analysis.html#cb637-11" tabindex="-1"></a>virginica.petal.length <span class="ot">&lt;-</span> virginica<span class="sc">$</span>Petal.Length</span>
+<span id="cb637-12"><a href="statistical-analysis.html#cb637-12" tabindex="-1"></a></span>
+<span id="cb637-13"><a href="statistical-analysis.html#cb637-13" tabindex="-1"></a><span class="do">## Versicolor petal length</span></span>
+<span id="cb637-14"><a href="statistical-analysis.html#cb637-14" tabindex="-1"></a>versicolor <span class="ot">&lt;-</span> iris<span class="sc">%&gt;%</span> </span>
+<span id="cb637-15"><a href="statistical-analysis.html#cb637-15" tabindex="-1"></a>  <span class="fu">filter</span>(Species<span class="sc">==</span><span class="st">&quot;versicolor&quot;</span>)</span>
+<span id="cb637-16"><a href="statistical-analysis.html#cb637-16" tabindex="-1"></a></span>
+<span id="cb637-17"><a href="statistical-analysis.html#cb637-17" tabindex="-1"></a>versicolor.petal.length <span class="ot">&lt;-</span> versicolor<span class="sc">$</span>Petal.Length</span>
+<span id="cb637-18"><a href="statistical-analysis.html#cb637-18" tabindex="-1"></a></span>
+<span id="cb637-19"><a href="statistical-analysis.html#cb637-19" tabindex="-1"></a><span class="co"># Conduct two-sample t-test</span></span>
+<span id="cb637-20"><a href="statistical-analysis.html#cb637-20" tabindex="-1"></a>ttest_result <span class="ot">=</span> <span class="fu">t.test</span>(virginica.petal.length, versicolor.petal.length, </span>
+<span id="cb637-21"><a href="statistical-analysis.html#cb637-21" tabindex="-1"></a>                      <span class="at">alternative =</span> <span class="st">&quot;two.sided&quot;</span>, <span class="at">mu =</span> <span class="dv">0</span>, <span class="at">paired =</span> <span class="cn">FALSE</span>,</span>
+<span id="cb637-22"><a href="statistical-analysis.html#cb637-22" tabindex="-1"></a>                      <span class="at">var.equal =</span> <span class="cn">FALSE</span>, <span class="at">conf.level =</span> <span class="fl">0.95</span>)</span>
+<span id="cb637-23"><a href="statistical-analysis.html#cb637-23" tabindex="-1"></a></span>
+<span id="cb637-24"><a href="statistical-analysis.html#cb637-24" tabindex="-1"></a>ttest_result</span></code></pre></div>
+<pre><code>## 
+##  Welch Two Sample t-test
+## 
+## data:  virginica.petal.length and versicolor.petal.length
+## t = 12.604, df = 95.57, p-value &lt; 2.2e-16
+## alternative hypothesis: true difference in means is not equal to 0
+## 95 percent confidence interval:
+##  1.08851 1.49549
+## sample estimates:
+## mean of x mean of y 
+##     5.552     4.260</code></pre>
+<p>With a p-value of less than 0.05, the null hypothesis is rejected. It is concluded that there is a significant difference between the mean of virginica species and the mean of versicolor species.</p>
+<p><span style="color: brown;"><strong>________________________________________________________________________________</strong></span></p>
 </div>
 <div id="anova-analysis-of-variance" class="section level4 hasAnchor" number="7.3.1.3">
 <h4><span class="header-section-number">7.3.1.3</span> ANOVA (Analysis of Variance)<a href="statistical-analysis.html#anova-analysis-of-variance" class="anchor-section" aria-label="Anchor link to header"></a></h4>
@@ -1376,9 +1457,9 @@ head(Pima.te)</code></pre>
 <li><strong>Homogeinity of variance</strong>: All the groups being tested should have similar variations.</li>
 </ol>
 <p>Lets calculate the ANOVA using the the crop yield data set. The fertilizer are in three categories; 1, 2 and 3</p>
-<div class="sourceCode" id="cb635"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb635-1"><a href="statistical-analysis.html#cb635-1" tabindex="-1"></a><span class="co"># Load the data set </span></span>
-<span id="cb635-2"><a href="statistical-analysis.html#cb635-2" tabindex="-1"></a>crop_df <span class="ot">&lt;-</span> <span class="fu">read.csv</span>(<span class="st">&quot;data/cropdata.csv&quot;</span>)</span>
-<span id="cb635-3"><a href="statistical-analysis.html#cb635-3" tabindex="-1"></a><span class="fu">head</span>(crop_df) <span class="co"># view the first few rows of the data set</span></span></code></pre></div>
+<div class="sourceCode" id="cb639"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb639-1"><a href="statistical-analysis.html#cb639-1" tabindex="-1"></a><span class="co"># Load the data set </span></span>
+<span id="cb639-2"><a href="statistical-analysis.html#cb639-2" tabindex="-1"></a>crop_df <span class="ot">&lt;-</span> <span class="fu">read.csv</span>(<span class="st">&quot;data/cropdata.csv&quot;</span>)</span>
+<span id="cb639-3"><a href="statistical-analysis.html#cb639-3" tabindex="-1"></a><span class="fu">head</span>(crop_df) <span class="co"># view the first few rows of the data set</span></span></code></pre></div>
 <pre><code>##   density block fertilizer    yield
 ## 1       1     1          1 177.2287
 ## 2       2     2          1 177.5500
@@ -1386,9 +1467,9 @@ head(Pima.te)</code></pre>
 ## 4       2     4          1 177.7036
 ## 5       1     1          1 177.1255
 ## 6       2     2          1 176.7783</code></pre>
-<div class="sourceCode" id="cb637"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb637-1"><a href="statistical-analysis.html#cb637-1" tabindex="-1"></a><span class="co"># Calculate one way ANOVA </span></span>
-<span id="cb637-2"><a href="statistical-analysis.html#cb637-2" tabindex="-1"></a>anova <span class="ot">&lt;-</span> <span class="fu">aov</span>(yield <span class="sc">~</span> fertilizer, <span class="at">data =</span> crop_df)</span>
-<span id="cb637-3"><a href="statistical-analysis.html#cb637-3" tabindex="-1"></a>anova</span></code></pre></div>
+<div class="sourceCode" id="cb641"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb641-1"><a href="statistical-analysis.html#cb641-1" tabindex="-1"></a><span class="co"># Calculate one way ANOVA </span></span>
+<span id="cb641-2"><a href="statistical-analysis.html#cb641-2" tabindex="-1"></a>anova <span class="ot">&lt;-</span> <span class="fu">aov</span>(yield <span class="sc">~</span> fertilizer, <span class="at">data =</span> crop_df)</span>
+<span id="cb641-3"><a href="statistical-analysis.html#cb641-3" tabindex="-1"></a>anova</span></code></pre></div>
 <pre><code>## Call:
 ##    aov(formula = yield ~ fertilizer, data = crop_df)
 ## 
@@ -1411,6 +1492,28 @@ head(Pima.te)</code></pre>
 <p>In conclusion, while the fertilizer has some effect on crop yield, the overall variability and potential unbalanced data need further exploration for a complete understanding.</p>
 <p><span style="color: green;"><strong>Practical exercise</strong></span></p>
 <p>Perform ANOVA on the sepal width of the three species in the iris data set and interpret the results.</p>
+<hr />
+<p><span style="color: brown;"><strong>Solution</strong></span></p>
+<p>Lets formulate the hypothesis;</p>
+<ul>
+<li>Null Hypothesis(<span class="math inline">\(H_0\)</span>): There is no siginificant difference among the sepal width of all the iris species.</li>
+<li>Alternate Hypothesis(<span class="math inline">\(H_a\)</span>): There is a signifincant difference among the sepal width of all the iris species</li>
+</ul>
+<div class="sourceCode" id="cb643"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb643-1"><a href="statistical-analysis.html#cb643-1" tabindex="-1"></a><span class="co"># Load the data </span></span>
+<span id="cb643-2"><a href="statistical-analysis.html#cb643-2" tabindex="-1"></a><span class="fu">data</span>(iris)</span>
+<span id="cb643-3"><a href="statistical-analysis.html#cb643-3" tabindex="-1"></a></span>
+<span id="cb643-4"><a href="statistical-analysis.html#cb643-4" tabindex="-1"></a><span class="co"># Perform the ANOVA</span></span>
+<span id="cb643-5"><a href="statistical-analysis.html#cb643-5" tabindex="-1"></a>anova_result <span class="ot">&lt;-</span> <span class="fu">aov</span>(Sepal.Width <span class="sc">~</span> Species, <span class="at">data =</span> iris)</span>
+<span id="cb643-6"><a href="statistical-analysis.html#cb643-6" tabindex="-1"></a></span>
+<span id="cb643-7"><a href="statistical-analysis.html#cb643-7" tabindex="-1"></a><span class="co"># Display the ANOVA table</span></span>
+<span id="cb643-8"><a href="statistical-analysis.html#cb643-8" tabindex="-1"></a><span class="fu">summary</span>(anova_result)</span></code></pre></div>
+<pre><code>##              Df Sum Sq Mean Sq F value Pr(&gt;F)    
+## Species       2  11.35   5.672   49.16 &lt;2e-16 ***
+## Residuals   147  16.96   0.115                   
+## ---
+## Signif. codes:  0 &#39;***&#39; 0.001 &#39;**&#39; 0.01 &#39;*&#39; 0.05 &#39;.&#39; 0.1 &#39; &#39; 1</code></pre>
+<p>it indicates that there are statistically significant differences in the mean <code>Sepal.Width</code> between the species.</p>
+<p><span style="color: brown;"><strong>________________________________________________________________________________</strong></span></p>
 </div>
 <div id="chi-square-test" class="section level4 hasAnchor" number="7.3.1.4">
 <h4><span class="header-section-number">7.3.1.4</span> Chi-Square Test<a href="statistical-analysis.html#chi-square-test" class="anchor-section" aria-label="Anchor link to header"></a></h4>
@@ -1429,10 +1532,10 @@ head(Pima.te)</code></pre>
 <li>ALternate Hypothesis (<span class="math inline">\(H_a\)</span>): The smoking habit is dependent on the exercise level.</li>
 </ul>
 <p>Load the data</p>
-<div class="sourceCode" id="cb639"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb639-1"><a href="statistical-analysis.html#cb639-1" tabindex="-1"></a><span class="co"># Load the library</span></span>
-<span id="cb639-2"><a href="statistical-analysis.html#cb639-2" tabindex="-1"></a><span class="fu">library</span>(MASS)</span>
-<span id="cb639-3"><a href="statistical-analysis.html#cb639-3" tabindex="-1"></a></span>
-<span id="cb639-4"><a href="statistical-analysis.html#cb639-4" tabindex="-1"></a><span class="fu">head</span>(survey) <span class="co"># view the data</span></span></code></pre></div>
+<div class="sourceCode" id="cb645"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb645-1"><a href="statistical-analysis.html#cb645-1" tabindex="-1"></a><span class="co"># Load the library</span></span>
+<span id="cb645-2"><a href="statistical-analysis.html#cb645-2" tabindex="-1"></a><span class="fu">library</span>(MASS)</span>
+<span id="cb645-3"><a href="statistical-analysis.html#cb645-3" tabindex="-1"></a></span>
+<span id="cb645-4"><a href="statistical-analysis.html#cb645-4" tabindex="-1"></a><span class="fu">head</span>(survey) <span class="co"># view the data</span></span></code></pre></div>
 <pre><code>##      Sex Wr.Hnd NW.Hnd W.Hnd    Fold Pulse    Clap Exer Smoke Height      M.I
 ## 1 Female   18.5   18.0 Right  R on L    92    Left Some Never 173.00   Metric
 ## 2   Male   19.5   20.5  Left  R on L   104    Left None Regul 177.80 Imperial
@@ -1448,10 +1551,10 @@ head(Pima.te)</code></pre>
 ## 5 23.667
 ## 6 21.000</code></pre>
 <p>Create a contigency table between the Smoke and the Exercise leel.</p>
-<div class="sourceCode" id="cb641"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb641-1"><a href="statistical-analysis.html#cb641-1" tabindex="-1"></a><span class="co"># Create a contingency table with the needed variables.       </span></span>
-<span id="cb641-2"><a href="statistical-analysis.html#cb641-2" tabindex="-1"></a>stu_data <span class="ot">=</span> <span class="fu">table</span>(survey<span class="sc">$</span>Smoke,survey<span class="sc">$</span>Exer) </span>
-<span id="cb641-3"><a href="statistical-analysis.html#cb641-3" tabindex="-1"></a>                 </span>
-<span id="cb641-4"><a href="statistical-analysis.html#cb641-4" tabindex="-1"></a><span class="fu">print</span>(stu_data)</span></code></pre></div>
+<div class="sourceCode" id="cb647"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb647-1"><a href="statistical-analysis.html#cb647-1" tabindex="-1"></a><span class="co"># Create a contingency table with the needed variables.       </span></span>
+<span id="cb647-2"><a href="statistical-analysis.html#cb647-2" tabindex="-1"></a>stu_data <span class="ot">=</span> <span class="fu">table</span>(survey<span class="sc">$</span>Smoke,survey<span class="sc">$</span>Exer) </span>
+<span id="cb647-3"><a href="statistical-analysis.html#cb647-3" tabindex="-1"></a>                 </span>
+<span id="cb647-4"><a href="statistical-analysis.html#cb647-4" tabindex="-1"></a><span class="fu">print</span>(stu_data)</span></code></pre></div>
 <pre><code>##        
 ##         Freq None Some
 ##   Heavy    7    1    3
@@ -1459,8 +1562,8 @@ head(Pima.te)</code></pre>
 ##   Occas   12    3    4
 ##   Regul    9    1    7</code></pre>
 <p>Perform the chi-square test on the <code>stu_data</code>, the contigency table.</p>
-<div class="sourceCode" id="cb643"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb643-1"><a href="statistical-analysis.html#cb643-1" tabindex="-1"></a><span class="co"># applying chisq.test() function</span></span>
-<span id="cb643-2"><a href="statistical-analysis.html#cb643-2" tabindex="-1"></a><span class="fu">print</span>(<span class="fu">chisq.test</span>(stu_data))</span></code></pre></div>
+<div class="sourceCode" id="cb649"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb649-1"><a href="statistical-analysis.html#cb649-1" tabindex="-1"></a><span class="co"># applying chisq.test() function</span></span>
+<span id="cb649-2"><a href="statistical-analysis.html#cb649-2" tabindex="-1"></a><span class="fu">print</span>(<span class="fu">chisq.test</span>(stu_data))</span></code></pre></div>
 <pre><code>## 
 ##  Pearson&#39;s Chi-squared test
 ## 
@@ -1468,17 +1571,17 @@ head(Pima.te)</code></pre>
 ## X-squared = 5.4885, df = 6, p-value = 0.4828</code></pre>
 <p>From the results, the p-value is 0.4828 which is greater than 0.05 therefore the null hypothesis is not rejected. It’c concluded that the smoking habit is independent of the exercise level since there is weak to now correlation between the <code>Smoke</code> and <code>Exer</code> variables.</p>
 <p>Finally, lets visualize the results from the contigency table;</p>
-<div class="sourceCode" id="cb645"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb645-1"><a href="statistical-analysis.html#cb645-1" tabindex="-1"></a><span class="co"># Visualize the data with a bar plot</span></span>
-<span id="cb645-2"><a href="statistical-analysis.html#cb645-2" tabindex="-1"></a><span class="fu">barplot</span>(stu_data, <span class="at">beside =</span> <span class="cn">TRUE</span>, <span class="at">col =</span> <span class="fu">c</span>(<span class="st">&quot;lightblue&quot;</span>, <span class="st">&quot;lightgreen&quot;</span>),</span>
-<span id="cb645-3"><a href="statistical-analysis.html#cb645-3" tabindex="-1"></a>        <span class="at">main =</span> <span class="st">&quot;Smoking Habits vs Exercise Levels&quot;</span>,</span>
-<span id="cb645-4"><a href="statistical-analysis.html#cb645-4" tabindex="-1"></a>        <span class="at">xlab =</span> <span class="st">&quot;Exercise Level&quot;</span>, <span class="at">ylab =</span> <span class="st">&quot;Number of Students&quot;</span>)</span>
-<span id="cb645-5"><a href="statistical-analysis.html#cb645-5" tabindex="-1"></a> </span>
-<span id="cb645-6"><a href="statistical-analysis.html#cb645-6" tabindex="-1"></a><span class="co"># Add legend separately</span></span>
-<span id="cb645-7"><a href="statistical-analysis.html#cb645-7" tabindex="-1"></a><span class="fu">legend</span>(<span class="st">&quot;center&quot;</span>, <span class="at">legend =</span> <span class="fu">rownames</span>(stu_data), <span class="at">fill =</span> <span class="fu">c</span>(<span class="st">&quot;lightblue&quot;</span>, <span class="st">&quot;lightgreen&quot;</span>))</span></code></pre></div>
-<p><img src="bookdownproj_files/figure-html/unnamed-chunk-272-1.png" width="672" /></p>
+<div class="sourceCode" id="cb651"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb651-1"><a href="statistical-analysis.html#cb651-1" tabindex="-1"></a><span class="co"># Visualize the data with a bar plot</span></span>
+<span id="cb651-2"><a href="statistical-analysis.html#cb651-2" tabindex="-1"></a><span class="fu">barplot</span>(stu_data, <span class="at">beside =</span> <span class="cn">TRUE</span>, <span class="at">col =</span> <span class="fu">c</span>(<span class="st">&quot;lightblue&quot;</span>, <span class="st">&quot;lightgreen&quot;</span>),</span>
+<span id="cb651-3"><a href="statistical-analysis.html#cb651-3" tabindex="-1"></a>        <span class="at">main =</span> <span class="st">&quot;Smoking Habits vs Exercise Levels&quot;</span>,</span>
+<span id="cb651-4"><a href="statistical-analysis.html#cb651-4" tabindex="-1"></a>        <span class="at">xlab =</span> <span class="st">&quot;Exercise Level&quot;</span>, <span class="at">ylab =</span> <span class="st">&quot;Number of Students&quot;</span>)</span>
+<span id="cb651-5"><a href="statistical-analysis.html#cb651-5" tabindex="-1"></a> </span>
+<span id="cb651-6"><a href="statistical-analysis.html#cb651-6" tabindex="-1"></a><span class="co"># Add legend separately</span></span>
+<span id="cb651-7"><a href="statistical-analysis.html#cb651-7" tabindex="-1"></a><span class="fu">legend</span>(<span class="st">&quot;center&quot;</span>, <span class="at">legend =</span> <span class="fu">rownames</span>(stu_data), <span class="at">fill =</span> <span class="fu">c</span>(<span class="st">&quot;lightblue&quot;</span>, <span class="st">&quot;lightgreen&quot;</span>))</span></code></pre></div>
+<p><img src="bookdownproj_files/figure-html/unnamed-chunk-275-1.png" width="672" /></p>
 <p>You can see from the table, those students who never smoke lead in every exercise level while the heavy smokers are the least in every group.</p>
 <p><span style="color: green;"><strong>Practical exercise</strong></span></p>
-<p>Using the Iris dataset, perform a Chi-square test to determine if there is a relationship between two categorical variables: the species (Species) and a new categorical variable that classifies sepal length (Sepal.Length) into categories (e.g., “Short”, “Medium”, “Long”).</p>
+<p>Using the Iris data set, perform a Chi-square test to determine if there is a relationship between two categorical variables: the species (Species) and a new categorical variable that classifies sepal width (Sepal.Length) into categories (e.g., “Short”, “Medium”, “Long”).</p>
 <ul>
 <li>“Short”: below 3.0</li>
 <li>“Medium”: above 3.0 to 3.8</li>
@@ -1486,10 +1589,67 @@ head(Pima.te)</code></pre>
 </ul>
 <p>Follow the steps below;</p>
 <ol style="list-style-type: decimal">
-<li>Create a new variable <code>sepal.Length.Category</code> in the data set by categorizing the Sepal.Length variable into 3 categories: <code>"Short"</code>, <code>"Medium"</code>, and <code>"Long"</code> (as per the defined ranges).</li>
-<li>Perform a Chi-square test to see if there’s an association between the new <code>sepal.Length.Category</code> categories and the <code>Species</code> column.</li>
+<li>Create a new variable <code>sepal.Width.Category</code> in the data set by categorizing the Sepal.Width variable into 3 categories: <code>"Short"</code>, <code>"Medium"</code>, and <code>"Long"</code> (as per the defined ranges).</li>
+<li>Perform a Chi-square test to see if there’s an association between the new <code>sepal.Width.Category</code> categories and the <code>Species</code> column.</li>
 <li>Interpret the results of the Chi-square test</li>
 </ol>
+<hr />
+<p><span style="color: brown;"><strong>Solution</strong></span></p>
+<p>Load the data set</p>
+<div class="sourceCode" id="cb652"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb652-1"><a href="statistical-analysis.html#cb652-1" tabindex="-1"></a><span class="fu">data</span>(iris) </span></code></pre></div>
+<ol style="list-style-type: decimal">
+<li>Create a new variable <code>sepal.Width.Category</code> in the data set by categorizing the <code>Sepal.Width</code> variable into 3 categories: <code>"Short"</code>, <code>"Medium"</code>, and <code>"Long"</code> (as per the defined ranges).</li>
+</ol>
+<div class="sourceCode" id="cb653"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb653-1"><a href="statistical-analysis.html#cb653-1" tabindex="-1"></a><span class="co"># Load necessary libraries</span></span>
+<span id="cb653-2"><a href="statistical-analysis.html#cb653-2" tabindex="-1"></a><span class="fu">library</span>(dplyr)</span>
+<span id="cb653-3"><a href="statistical-analysis.html#cb653-3" tabindex="-1"></a></span>
+<span id="cb653-4"><a href="statistical-analysis.html#cb653-4" tabindex="-1"></a><span class="co"># Create a new column &#39;Sepal_Width_Category&#39; based on conditions</span></span>
+<span id="cb653-5"><a href="statistical-analysis.html#cb653-5" tabindex="-1"></a>iris <span class="ot">&lt;-</span> iris <span class="sc">%&gt;%</span></span>
+<span id="cb653-6"><a href="statistical-analysis.html#cb653-6" tabindex="-1"></a>  <span class="fu">mutate</span>(<span class="at">sepal.Width.Category =</span> <span class="fu">case_when</span>(</span>
+<span id="cb653-7"><a href="statistical-analysis.html#cb653-7" tabindex="-1"></a>    Sepal.Width <span class="sc">&lt;</span> <span class="fl">3.0</span> <span class="sc">~</span> <span class="st">&quot;Short&quot;</span>,</span>
+<span id="cb653-8"><a href="statistical-analysis.html#cb653-8" tabindex="-1"></a>    Sepal.Width <span class="sc">&gt;=</span> <span class="fl">3.0</span> <span class="sc">&amp;</span> Sepal.Width <span class="sc">&lt;=</span> <span class="fl">3.8</span> <span class="sc">~</span> <span class="st">&quot;Medium&quot;</span>,</span>
+<span id="cb653-9"><a href="statistical-analysis.html#cb653-9" tabindex="-1"></a>    Sepal.Width <span class="sc">&gt;</span> <span class="fl">3.8</span> <span class="sc">~</span> <span class="st">&quot;Long&quot;</span></span>
+<span id="cb653-10"><a href="statistical-analysis.html#cb653-10" tabindex="-1"></a>  ))</span>
+<span id="cb653-11"><a href="statistical-analysis.html#cb653-11" tabindex="-1"></a></span>
+<span id="cb653-12"><a href="statistical-analysis.html#cb653-12" tabindex="-1"></a><span class="co"># Display the first few rows to see the new column</span></span>
+<span id="cb653-13"><a href="statistical-analysis.html#cb653-13" tabindex="-1"></a><span class="fu">head</span>(iris)</span></code></pre></div>
+<pre><code>##   Sepal.Length Sepal.Width Petal.Length Petal.Width Species
+## 1          5.1         3.5          1.4         0.2  setosa
+## 2          4.9         3.0          1.4         0.2  setosa
+## 3          4.7         3.2          1.3         0.2  setosa
+## 4          4.6         3.1          1.5         0.2  setosa
+## 5          5.0         3.6          1.4         0.2  setosa
+## 6          5.4         3.9          1.7         0.4  setosa
+##   sepal.Width.Category
+## 1               Medium
+## 2               Medium
+## 3               Medium
+## 4               Medium
+## 5               Medium
+## 6                 Long</code></pre>
+<ol start="2" style="list-style-type: decimal">
+<li>Perform a Chi-square test to see if there’s an association between the new <code>sepal.Width.Category</code> categories and the <code>Species</code> column.</li>
+</ol>
+<div class="sourceCode" id="cb655"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb655-1"><a href="statistical-analysis.html#cb655-1" tabindex="-1"></a><span class="co"># Create a contigency table </span></span>
+<span id="cb655-2"><a href="statistical-analysis.html#cb655-2" tabindex="-1"></a>sepal_width_data <span class="ot">=</span> <span class="fu">table</span>(iris<span class="sc">$</span>sepal.Width.Category,iris<span class="sc">$</span>Species) </span>
+<span id="cb655-3"><a href="statistical-analysis.html#cb655-3" tabindex="-1"></a></span>
+<span id="cb655-4"><a href="statistical-analysis.html#cb655-4" tabindex="-1"></a><span class="fu">print</span>(sepal_width_data)</span></code></pre></div>
+<pre><code>##         
+##          setosa versicolor virginica
+##   Long        6          0         0
+##   Medium     42         16        29
+##   Short       2         34        21</code></pre>
+<div class="sourceCode" id="cb657"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb657-1"><a href="statistical-analysis.html#cb657-1" tabindex="-1"></a><span class="co"># applying chisq.test() function</span></span>
+<span id="cb657-2"><a href="statistical-analysis.html#cb657-2" tabindex="-1"></a><span class="fu">print</span>(<span class="fu">chisq.test</span>(sepal_width_data))</span></code></pre></div>
+<pre><code>## Warning in chisq.test(sepal_width_data): Chi-squared approximation may be
+## incorrect</code></pre>
+<pre><code>## 
+##  Pearson&#39;s Chi-squared test
+## 
+## data:  sepal_width_data
+## X-squared = 50.918, df = 4, p-value = 2.322e-10</code></pre>
+<p><strong>Intepret the results</strong></p>
+<p><span style="color: brown;"><strong>________________________________________________________________________________</strong></span></p>
 </div>
 </div>
 <div id="hands-on-exercises-3" class="section level3 hasAnchor" number="7.3.2">
@@ -1501,6 +1661,79 @@ head(Pima.te)</code></pre>
 <li>Perform ANOVA between the presence of Punxsutawney Phil and the February average temperature</li>
 </ul>
 <p>Interpret the results</p>
+<hr />
+<p><span style="color: brown;"><strong>Solution</strong></span></p>
+<p>Load the data</p>
+<div class="sourceCode" id="cb660"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb660-1"><a href="statistical-analysis.html#cb660-1" tabindex="-1"></a>df <span class="ot">&lt;-</span> <span class="fu">read.csv</span>(<span class="st">&quot;data/GroundhogDayForecastsandTemperaturesdata.csv&quot;</span>)</span></code></pre></div>
+<ul>
+<li>Perform one sample t-test on February Average temperature. The pre-assumed mean is 35</li>
+</ul>
+<p>Formulate the hypothesis
+- Null hypothesis (<span class="math inline">\(H_0\)</span>): There is no significant difference between the February Average Temeprature mean and the pre-assumed mean
+- Alternate Hypothesis(<span class="math inline">\(H_a\)</span>): There is a significant difference between the February Average Temperature and the pre-assumed mean.</p>
+<div class="sourceCode" id="cb661"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb661-1"><a href="statistical-analysis.html#cb661-1" tabindex="-1"></a>one.sample.ttest <span class="ot">&lt;-</span> <span class="fu">t.test</span>(df<span class="sc">$</span>February.Average.Temperature, <span class="at">mu=</span><span class="dv">35</span>)</span>
+<span id="cb661-2"><a href="statistical-analysis.html#cb661-2" tabindex="-1"></a></span>
+<span id="cb661-3"><a href="statistical-analysis.html#cb661-3" tabindex="-1"></a><span class="co"># Display the results </span></span>
+<span id="cb661-4"><a href="statistical-analysis.html#cb661-4" tabindex="-1"></a><span class="fu">print</span>(one.sample.ttest)</span></code></pre></div>
+<pre><code>## 
+##  One Sample t-test
+## 
+## data:  df$February.Average.Temperature
+## t = -4.061, df = 122, p-value = 8.671e-05
+## alternative hypothesis: true mean is not equal to 35
+## 95 percent confidence interval:
+##  33.21928 34.38641
+## sample estimates:
+## mean of x 
+##  33.80285</code></pre>
+<p>The p-value is below 0.05, therefore the is enough evidence to reject the null hypothesis and conclude that there is a significant difference between the February Average Temperature and the pre-assumed mean(35).</p>
+<ul>
+<li>Conduct two sample t-test between the North East average temperature for March and the overall March daily temperature.</li>
+</ul>
+<p>Formulate the hypothesis:</p>
+<ul>
+<li>Null hypothesis(<span class="math inline">\(H_0\)</span>): There is no significant difference between the North East Average Temperature for March and the March daily temparature.</li>
+<li>ALternate Hypothesis(<span class="math inline">\(H_a\)</span>): There is a significant difference between the North East Average Temperature and the March daily temparature.</li>
+</ul>
+<div class="sourceCode" id="cb663"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb663-1"><a href="statistical-analysis.html#cb663-1" tabindex="-1"></a><span class="co"># Perform two sample ttest</span></span>
+<span id="cb663-2"><a href="statistical-analysis.html#cb663-2" tabindex="-1"></a>ttest_result <span class="ot">=</span> <span class="fu">t.test</span>(df<span class="sc">$</span>March.Average.Temperature..Northeast., </span>
+<span id="cb663-3"><a href="statistical-analysis.html#cb663-3" tabindex="-1"></a>                      df<span class="sc">$</span>March.Average.Temperature, </span>
+<span id="cb663-4"><a href="statistical-analysis.html#cb663-4" tabindex="-1"></a>                      <span class="at">alternative =</span> <span class="st">&quot;two.sided&quot;</span>, <span class="at">mu =</span> <span class="dv">0</span>, <span class="at">paired =</span> <span class="cn">FALSE</span>,</span>
+<span id="cb663-5"><a href="statistical-analysis.html#cb663-5" tabindex="-1"></a>                      <span class="at">var.equal =</span> <span class="cn">FALSE</span>, <span class="at">conf.level =</span> <span class="fl">0.95</span>)</span>
+<span id="cb663-6"><a href="statistical-analysis.html#cb663-6" tabindex="-1"></a></span>
+<span id="cb663-7"><a href="statistical-analysis.html#cb663-7" tabindex="-1"></a>ttest_result</span></code></pre></div>
+<pre><code>## 
+##  Welch Two Sample t-test
+## 
+## data:  df$March.Average.Temperature..Northeast. and df$March.Average.Temperature
+## t = -21.288, df = 227.4, p-value &lt; 2.2e-16
+## alternative hypothesis: true difference in means is not equal to 0
+## 95 percent confidence interval:
+##  -10.193516  -8.466321
+## sample estimates:
+## mean of x mean of y 
+##  32.36748  41.69740</code></pre>
+<p>The p-value is less than 0.05, therefore the null hypothesis is rejected. It is concluded that there is significant difference between the North East Average Temperature for March and overall Average daily Temperature for March</p>
+<ul>
+<li>Perform ANOVA between the presence of Punxsutawney Phil and the February average temperature</li>
+</ul>
+<p>Formulate the hypothesis</p>
+<ul>
+<li>Null Hypothesis(<span class="math inline">\(H_0\)</span>): There is no significant difference between the presence and the absence of Punxsutawney Phil during February based on the Average Temperature</li>
+<li>Alternate Hypothesis(<span class="math inline">\(H_a\)</span>): There is a significant difference between the presence and the absence of Punxsutawney Phil during February based on the Average Temperature</li>
+</ul>
+<div class="sourceCode" id="cb665"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb665-1"><a href="statistical-analysis.html#cb665-1" tabindex="-1"></a><span class="co"># Perform ANOVA</span></span>
+<span id="cb665-2"><a href="statistical-analysis.html#cb665-2" tabindex="-1"></a>anova_result <span class="ot">&lt;-</span> <span class="fu">aov</span>(February.Average.Temperature <span class="sc">~</span> df<span class="sc">$</span>Punxsutawney.Phil, <span class="at">data =</span> df)</span>
+<span id="cb665-3"><a href="statistical-analysis.html#cb665-3" tabindex="-1"></a></span>
+<span id="cb665-4"><a href="statistical-analysis.html#cb665-4" tabindex="-1"></a><span class="co"># Display the ANOVA table</span></span>
+<span id="cb665-5"><a href="statistical-analysis.html#cb665-5" tabindex="-1"></a><span class="fu">summary</span>(anova_result)</span></code></pre></div>
+<pre><code>##                       Df Sum Sq Mean Sq F value Pr(&gt;F)  
+## df$Punxsutawney.Phil   4   92.7   23.18   2.258 0.0669 .
+## Residuals            118 1211.3   10.27                 
+## ---
+## Signif. codes:  0 &#39;***&#39; 0.001 &#39;**&#39; 0.01 &#39;*&#39; 0.05 &#39;.&#39; 0.1 &#39; &#39; 1
+## 9 observations deleted due to missingness</code></pre>
+<p><span style="color: brown;"><strong>________________________________________________________________________________</strong></span></p>
 </div>
 </div>
 <div id="project-applying-statistical-analysis" class="section level2 hasAnchor" number="7.4">
