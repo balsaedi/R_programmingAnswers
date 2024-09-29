@@ -954,3 +954,63 @@ You will be required to download the Furniture Sales Dataset from [here](https:/
 
   i. What store type had products made of fabric material sold? 
   ii.  What is the average `"profit margin"` for each `"category"` of products?
+
+_______________________________________________________________________
+<span style="color: brown;">**Solution**</span> 
+
+Load the data and libraries
+```{r}
+library(dplyr)
+
+# Load the data 
+furniture_sales <- read.csv("data/Furniture.csv")
+```
+1. Perform the following tasks using a combination of `select()`, `filter()`, `arrange()`, `mutate()`, and `group_by()`.
+
+i. Select the columns `"category"`, `"sales"`, and `"profit_margin"`. Filter the data set to include only orders with a `"sales"` amount greater than 25, and arrange the data by `"profit_margin"` in descending order.
+```{r}
+high_sales <- furniture_sales %>% 
+  select(category, sales, profit_margin)%>%
+  filter(sales > 25)%>%
+  arrange(desc(profit_margin))
+```
+
+ii. Group the data by `"category"` and calculate the total `sales` and `profit_margin` for each category. Arrange the results by total sales in ascending order.  
+```{r}
+sales_by_category <- furniture_sales %>%
+  group_by(category) %>%
+  summarise(total_sales = sum(sales), total_profit_margin = sum(profit_margin)) %>%
+  arrange(desc(total_sales))
+
+# View the result
+print(sales_by_category)
+```
+
+2. Answer the following questions by chaining two or three dplyr verbs:
+
+i. What store type had products made of fabric material sold?
+```{r}
+fabric_stores <- furniture_sales %>%
+  select(store_type, material) %>% # select relevant columns
+  filter(material=="Fabric")
+
+unique(fabric_stores$store_type)
+```
+ Both the Online and Retail stores had products made of Fabric materials 
+ 
+ii. What is the average `"profit margin"` for each `"category"` of products?
+```{r}
+profit_margin_by_category <- furniture_sales %>% 
+  select(category, profit_margin) %>% # Select relevant columns
+  group_by(category) %>%
+  summarise(total_profit_margin = sum(profit_margin))
+
+profit_margin_by_category
+```
+
+<span style="color: brown;">**________________________________________________________________________________**</span>
+
+**Problem Found on;**
+
+- groupby
+- summarize 

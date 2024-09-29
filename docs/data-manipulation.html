@@ -1523,6 +1523,77 @@ In this case we can calculate the log off Sepal length in the iris data</p>
 <li>What store type had products made of fabric material sold?</li>
 <li>What is the average <code>"profit margin"</code> for each <code>"category"</code> of products?</li>
 </ol>
+<hr />
+<p><span style="color: brown;"><strong>Solution</strong></span></p>
+<p>Load the data and libraries</p>
+<div class="sourceCode" id="cb428"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb428-1"><a href="data-manipulation.html#cb428-1" tabindex="-1"></a><span class="fu">library</span>(dplyr)</span>
+<span id="cb428-2"><a href="data-manipulation.html#cb428-2" tabindex="-1"></a></span>
+<span id="cb428-3"><a href="data-manipulation.html#cb428-3" tabindex="-1"></a><span class="co"># Load the data </span></span>
+<span id="cb428-4"><a href="data-manipulation.html#cb428-4" tabindex="-1"></a>furniture_sales <span class="ot">&lt;-</span> <span class="fu">read.csv</span>(<span class="st">&quot;data/Furniture.csv&quot;</span>)</span></code></pre></div>
+<ol style="list-style-type: decimal">
+<li>Perform the following tasks using a combination of <code>select()</code>, <code>filter()</code>, <code>arrange()</code>, <code>mutate()</code>, and <code>group_by()</code>.</li>
+</ol>
+<ol style="list-style-type: lower-roman">
+<li>Select the columns <code>"category"</code>, <code>"sales"</code>, and <code>"profit_margin"</code>. Filter the data set to include only orders with a <code>"sales"</code> amount greater than 25, and arrange the data by <code>"profit_margin"</code> in descending order.</li>
+</ol>
+<div class="sourceCode" id="cb429"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb429-1"><a href="data-manipulation.html#cb429-1" tabindex="-1"></a>high_sales <span class="ot">&lt;-</span> furniture_sales <span class="sc">%&gt;%</span> </span>
+<span id="cb429-2"><a href="data-manipulation.html#cb429-2" tabindex="-1"></a>  <span class="fu">select</span>(category, sales, profit_margin)<span class="sc">%&gt;%</span></span>
+<span id="cb429-3"><a href="data-manipulation.html#cb429-3" tabindex="-1"></a>  <span class="fu">filter</span>(sales <span class="sc">&gt;</span> <span class="dv">25</span>)<span class="sc">%&gt;%</span></span>
+<span id="cb429-4"><a href="data-manipulation.html#cb429-4" tabindex="-1"></a>  <span class="fu">arrange</span>(<span class="fu">desc</span>(profit_margin))</span></code></pre></div>
+<ol start="2" style="list-style-type: lower-roman">
+<li>Group the data by <code>"category"</code> and calculate the total <code>sales</code> and <code>profit_margin</code> for each category. Arrange the results by total sales in ascending order.</li>
+</ol>
+<div class="sourceCode" id="cb430"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb430-1"><a href="data-manipulation.html#cb430-1" tabindex="-1"></a>sales_by_category <span class="ot">&lt;-</span> furniture_sales <span class="sc">%&gt;%</span></span>
+<span id="cb430-2"><a href="data-manipulation.html#cb430-2" tabindex="-1"></a>  <span class="fu">group_by</span>(category) <span class="sc">%&gt;%</span></span>
+<span id="cb430-3"><a href="data-manipulation.html#cb430-3" tabindex="-1"></a>  <span class="fu">summarise</span>(<span class="at">total_sales =</span> <span class="fu">sum</span>(sales), <span class="at">total_profit_margin =</span> <span class="fu">sum</span>(profit_margin)) <span class="sc">%&gt;%</span></span>
+<span id="cb430-4"><a href="data-manipulation.html#cb430-4" tabindex="-1"></a>  <span class="fu">arrange</span>(<span class="fu">desc</span>(total_sales))</span>
+<span id="cb430-5"><a href="data-manipulation.html#cb430-5" tabindex="-1"></a></span>
+<span id="cb430-6"><a href="data-manipulation.html#cb430-6" tabindex="-1"></a><span class="co"># View the result</span></span>
+<span id="cb430-7"><a href="data-manipulation.html#cb430-7" tabindex="-1"></a><span class="fu">print</span>(sales_by_category)</span></code></pre></div>
+<pre><code>## # A tibble: 5 × 3
+##   category total_sales total_profit_margin
+##   &lt;chr&gt;          &lt;int&gt;               &lt;dbl&gt;
+## 1 Table          13320              15919.
+## 2 Sofa           12585              14670.
+## 3 Chair          12286              14988.
+## 4 Desk           12151              15114.
+## 5 Bed            11968              14830.</code></pre>
+<ol start="2" style="list-style-type: decimal">
+<li>Answer the following questions by chaining two or three dplyr verbs:</li>
+</ol>
+<ol style="list-style-type: lower-roman">
+<li>What store type had products made of fabric material sold?</li>
+</ol>
+<div class="sourceCode" id="cb432"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb432-1"><a href="data-manipulation.html#cb432-1" tabindex="-1"></a>fabric_stores <span class="ot">&lt;-</span> furniture_sales <span class="sc">%&gt;%</span></span>
+<span id="cb432-2"><a href="data-manipulation.html#cb432-2" tabindex="-1"></a>  <span class="fu">select</span>(store_type, material) <span class="sc">%&gt;%</span> <span class="co"># select relevant columns</span></span>
+<span id="cb432-3"><a href="data-manipulation.html#cb432-3" tabindex="-1"></a>  <span class="fu">filter</span>(material<span class="sc">==</span><span class="st">&quot;Fabric&quot;</span>)</span>
+<span id="cb432-4"><a href="data-manipulation.html#cb432-4" tabindex="-1"></a></span>
+<span id="cb432-5"><a href="data-manipulation.html#cb432-5" tabindex="-1"></a><span class="fu">unique</span>(fabric_stores<span class="sc">$</span>store_type)</span></code></pre></div>
+<pre><code>## [1] &quot;Retail&quot; &quot;Online&quot;</code></pre>
+<p>Both the Online and Retail stores had products made of Fabric materials</p>
+<ol start="2" style="list-style-type: lower-roman">
+<li>What is the average <code>"profit margin"</code> for each <code>"category"</code> of products?</li>
+</ol>
+<div class="sourceCode" id="cb434"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb434-1"><a href="data-manipulation.html#cb434-1" tabindex="-1"></a>profit_margin_by_category <span class="ot">&lt;-</span> furniture_sales <span class="sc">%&gt;%</span> </span>
+<span id="cb434-2"><a href="data-manipulation.html#cb434-2" tabindex="-1"></a>  <span class="fu">select</span>(category, profit_margin) <span class="sc">%&gt;%</span> <span class="co"># Select relevant columns</span></span>
+<span id="cb434-3"><a href="data-manipulation.html#cb434-3" tabindex="-1"></a>  <span class="fu">group_by</span>(category) <span class="sc">%&gt;%</span></span>
+<span id="cb434-4"><a href="data-manipulation.html#cb434-4" tabindex="-1"></a>  <span class="fu">summarise</span>(<span class="at">total_profit_margin =</span> <span class="fu">sum</span>(profit_margin))</span>
+<span id="cb434-5"><a href="data-manipulation.html#cb434-5" tabindex="-1"></a></span>
+<span id="cb434-6"><a href="data-manipulation.html#cb434-6" tabindex="-1"></a>profit_margin_by_category</span></code></pre></div>
+<pre><code>## # A tibble: 5 × 2
+##   category total_profit_margin
+##   &lt;chr&gt;                  &lt;dbl&gt;
+## 1 Bed                   14830.
+## 2 Chair                 14988.
+## 3 Desk                  15114.
+## 4 Sofa                  14670.
+## 5 Table                 15919.</code></pre>
+<p><span style="color: brown;"><strong>________________________________________________________________________________</strong></span></p>
+<p><strong>Problem Found on;</strong></p>
+<ul>
+<li>groupby</li>
+<li>summarize</li>
+</ul>
 
 </div>
 </div>
