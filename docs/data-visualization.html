@@ -23,7 +23,7 @@
 <meta name="author" content="YOUR NAME HERE" />
 
 
-<meta name="date" content="2024-09-28" />
+<meta name="date" content="2024-09-29" />
 
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <meta name="apple-mobile-web-app-capable" content="yes" />
@@ -348,22 +348,22 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <li><strong>The Layers or geoms</strong> - The actual plot type - e.g Bar plot, Box plot, Violin plot etc.</li>
 </ol>
 <p>Here is an example of a layered approach in creating charts by applying the “Grammar of Graphics”.</p>
-<div class="sourceCode" id="cb422"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb422-1"><a href="data-visualization.html#cb422-1" tabindex="-1"></a><span class="fu">library</span>(ggplot2)</span>
-<span id="cb422-2"><a href="data-visualization.html#cb422-2" tabindex="-1"></a></span>
-<span id="cb422-3"><a href="data-visualization.html#cb422-3" tabindex="-1"></a><span class="co"># Sample data</span></span>
-<span id="cb422-4"><a href="data-visualization.html#cb422-4" tabindex="-1"></a>df <span class="ot">&lt;-</span> <span class="fu">data.frame</span>(</span>
-<span id="cb422-5"><a href="data-visualization.html#cb422-5" tabindex="-1"></a>  <span class="at">x =</span> <span class="fu">rnorm</span>(<span class="dv">100</span>),</span>
-<span id="cb422-6"><a href="data-visualization.html#cb422-6" tabindex="-1"></a>  <span class="at">y =</span> <span class="fu">rnorm</span>(<span class="dv">100</span>),</span>
-<span id="cb422-7"><a href="data-visualization.html#cb422-7" tabindex="-1"></a>  <span class="at">category =</span> <span class="fu">sample</span>(<span class="fu">c</span>(<span class="st">&quot;A&quot;</span>, <span class="st">&quot;B&quot;</span>), <span class="dv">100</span>, <span class="at">replace =</span> <span class="cn">TRUE</span>)</span>
-<span id="cb422-8"><a href="data-visualization.html#cb422-8" tabindex="-1"></a>)</span>
-<span id="cb422-9"><a href="data-visualization.html#cb422-9" tabindex="-1"></a></span>
-<span id="cb422-10"><a href="data-visualization.html#cb422-10" tabindex="-1"></a><span class="co"># Creating a scatter plot</span></span>
-<span id="cb422-11"><a href="data-visualization.html#cb422-11" tabindex="-1"></a><span class="fu">ggplot</span>(df, <span class="co"># data</span></span>
-<span id="cb422-12"><a href="data-visualization.html#cb422-12" tabindex="-1"></a>       <span class="fu">aes</span>(<span class="at">x =</span> x, <span class="at">y =</span> y, <span class="at">color =</span> category)) <span class="sc">+</span> <span class="co">#aesthetics</span></span>
-<span id="cb422-13"><a href="data-visualization.html#cb422-13" tabindex="-1"></a>  <span class="fu">geom_point</span>() <span class="sc">+</span> <span class="co">#geometrics</span></span>
-<span id="cb422-14"><a href="data-visualization.html#cb422-14" tabindex="-1"></a>  <span class="fu">labs</span>(<span class="at">title =</span> <span class="st">&quot;Scatter Plot Example&quot;</span>, <span class="at">x =</span> <span class="st">&quot;X-Axis&quot;</span>, <span class="at">y =</span> <span class="st">&quot;Y-Axis&quot;</span>) <span class="sc">+</span></span>
-<span id="cb422-15"><a href="data-visualization.html#cb422-15" tabindex="-1"></a>  <span class="fu">theme_minimal</span>()</span></code></pre></div>
-<p><img src="bookdownproj_files/figure-html/unnamed-chunk-184-1.png" width="672" /></p>
+<div class="sourceCode" id="cb430"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb430-1"><a href="data-visualization.html#cb430-1" tabindex="-1"></a><span class="fu">library</span>(ggplot2)</span>
+<span id="cb430-2"><a href="data-visualization.html#cb430-2" tabindex="-1"></a></span>
+<span id="cb430-3"><a href="data-visualization.html#cb430-3" tabindex="-1"></a><span class="co"># Sample data</span></span>
+<span id="cb430-4"><a href="data-visualization.html#cb430-4" tabindex="-1"></a>df <span class="ot">&lt;-</span> <span class="fu">data.frame</span>(</span>
+<span id="cb430-5"><a href="data-visualization.html#cb430-5" tabindex="-1"></a>  <span class="at">x =</span> <span class="fu">rnorm</span>(<span class="dv">100</span>),</span>
+<span id="cb430-6"><a href="data-visualization.html#cb430-6" tabindex="-1"></a>  <span class="at">y =</span> <span class="fu">rnorm</span>(<span class="dv">100</span>),</span>
+<span id="cb430-7"><a href="data-visualization.html#cb430-7" tabindex="-1"></a>  <span class="at">category =</span> <span class="fu">sample</span>(<span class="fu">c</span>(<span class="st">&quot;A&quot;</span>, <span class="st">&quot;B&quot;</span>), <span class="dv">100</span>, <span class="at">replace =</span> <span class="cn">TRUE</span>)</span>
+<span id="cb430-8"><a href="data-visualization.html#cb430-8" tabindex="-1"></a>)</span>
+<span id="cb430-9"><a href="data-visualization.html#cb430-9" tabindex="-1"></a></span>
+<span id="cb430-10"><a href="data-visualization.html#cb430-10" tabindex="-1"></a><span class="co"># Creating a scatter plot</span></span>
+<span id="cb430-11"><a href="data-visualization.html#cb430-11" tabindex="-1"></a><span class="fu">ggplot</span>(df, <span class="co"># data</span></span>
+<span id="cb430-12"><a href="data-visualization.html#cb430-12" tabindex="-1"></a>       <span class="fu">aes</span>(<span class="at">x =</span> x, <span class="at">y =</span> y, <span class="at">color =</span> category)) <span class="sc">+</span> <span class="co">#aesthetics</span></span>
+<span id="cb430-13"><a href="data-visualization.html#cb430-13" tabindex="-1"></a>  <span class="fu">geom_point</span>() <span class="sc">+</span> <span class="co">#geometrics</span></span>
+<span id="cb430-14"><a href="data-visualization.html#cb430-14" tabindex="-1"></a>  <span class="fu">labs</span>(<span class="at">title =</span> <span class="st">&quot;Scatter Plot Example&quot;</span>, <span class="at">x =</span> <span class="st">&quot;X-Axis&quot;</span>, <span class="at">y =</span> <span class="st">&quot;Y-Axis&quot;</span>) <span class="sc">+</span></span>
+<span id="cb430-15"><a href="data-visualization.html#cb430-15" tabindex="-1"></a>  <span class="fu">theme_minimal</span>()</span></code></pre></div>
+<p><img src="bookdownproj_files/figure-html/unnamed-chunk-178-1.png" width="672" /></p>
 <div id="creating-basic-plots" class="section level4 hasAnchor" number="5.1.1.1">
 <h4><span class="header-section-number">5.1.1.1</span> Creating Basic Plots<a href="data-visualization.html#creating-basic-plots" class="anchor-section" aria-label="Anchor link to header"></a></h4>
 <ul>
@@ -371,25 +371,25 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 </ul>
 <p>Scatter plot is used to show a numerical relationship between two or more variables for instance height versus weight of footballers. It is also used to detect correlation, the increase in one variable can lead to increase/decrease of another variable. Furthermore scatter plots are used to detect outliers, values that appear out of the general patterns of other data points is said to be an outlier in this case. However, scatter plots is not suitable when working with categorical data especially when only two variables are to be analyzed.</p>
 <p>Lets create a basic scatter plot to compare height and weight;-</p>
-<div class="sourceCode" id="cb423"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb423-1"><a href="data-visualization.html#cb423-1" tabindex="-1"></a><span class="co">#Prepare a Sample data</span></span>
-<span id="cb423-2"><a href="data-visualization.html#cb423-2" tabindex="-1"></a>df <span class="ot">&lt;-</span> <span class="fu">data.frame</span>(</span>
-<span id="cb423-3"><a href="data-visualization.html#cb423-3" tabindex="-1"></a>  <span class="at">height =</span> <span class="fu">c</span>(<span class="dv">150</span>, <span class="dv">160</span>, <span class="dv">170</span>, <span class="dv">180</span>, <span class="dv">190</span>),</span>
-<span id="cb423-4"><a href="data-visualization.html#cb423-4" tabindex="-1"></a>  <span class="at">weight =</span> <span class="fu">c</span>(<span class="dv">50</span>, <span class="dv">60</span>, <span class="dv">70</span>, <span class="dv">80</span>, <span class="dv">90</span>)</span>
-<span id="cb423-5"><a href="data-visualization.html#cb423-5" tabindex="-1"></a>)</span>
-<span id="cb423-6"><a href="data-visualization.html#cb423-6" tabindex="-1"></a></span>
-<span id="cb423-7"><a href="data-visualization.html#cb423-7" tabindex="-1"></a><span class="co"># Creating a basic scatter plot</span></span>
-<span id="cb423-8"><a href="data-visualization.html#cb423-8" tabindex="-1"></a><span class="fu">ggplot</span>(df, <span class="co"># data</span></span>
-<span id="cb423-9"><a href="data-visualization.html#cb423-9" tabindex="-1"></a>       <span class="fu">aes</span>(<span class="at">x =</span> height, <span class="at">y =</span> weight)) <span class="sc">+</span> <span class="co"># aesthetics</span></span>
-<span id="cb423-10"><a href="data-visualization.html#cb423-10" tabindex="-1"></a>  <span class="fu">geom_point</span>() </span></code></pre></div>
-<p><img src="bookdownproj_files/figure-html/unnamed-chunk-185-1.png" width="672" />
+<div class="sourceCode" id="cb431"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb431-1"><a href="data-visualization.html#cb431-1" tabindex="-1"></a><span class="co">#Prepare a Sample data</span></span>
+<span id="cb431-2"><a href="data-visualization.html#cb431-2" tabindex="-1"></a>df <span class="ot">&lt;-</span> <span class="fu">data.frame</span>(</span>
+<span id="cb431-3"><a href="data-visualization.html#cb431-3" tabindex="-1"></a>  <span class="at">height =</span> <span class="fu">c</span>(<span class="dv">150</span>, <span class="dv">160</span>, <span class="dv">170</span>, <span class="dv">180</span>, <span class="dv">190</span>),</span>
+<span id="cb431-4"><a href="data-visualization.html#cb431-4" tabindex="-1"></a>  <span class="at">weight =</span> <span class="fu">c</span>(<span class="dv">50</span>, <span class="dv">60</span>, <span class="dv">70</span>, <span class="dv">80</span>, <span class="dv">90</span>)</span>
+<span id="cb431-5"><a href="data-visualization.html#cb431-5" tabindex="-1"></a>)</span>
+<span id="cb431-6"><a href="data-visualization.html#cb431-6" tabindex="-1"></a></span>
+<span id="cb431-7"><a href="data-visualization.html#cb431-7" tabindex="-1"></a><span class="co"># Creating a basic scatter plot</span></span>
+<span id="cb431-8"><a href="data-visualization.html#cb431-8" tabindex="-1"></a><span class="fu">ggplot</span>(df, <span class="co"># data</span></span>
+<span id="cb431-9"><a href="data-visualization.html#cb431-9" tabindex="-1"></a>       <span class="fu">aes</span>(<span class="at">x =</span> height, <span class="at">y =</span> weight)) <span class="sc">+</span> <span class="co"># aesthetics</span></span>
+<span id="cb431-10"><a href="data-visualization.html#cb431-10" tabindex="-1"></a>  <span class="fu">geom_point</span>() </span></code></pre></div>
+<p><img src="bookdownproj_files/figure-html/unnamed-chunk-179-1.png" width="672" />
 To make the chart more informative, titles and labels are added.</p>
-<div class="sourceCode" id="cb424"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb424-1"><a href="data-visualization.html#cb424-1" tabindex="-1"></a><span class="co"># Creating a basic scatter plot</span></span>
-<span id="cb424-2"><a href="data-visualization.html#cb424-2" tabindex="-1"></a><span class="fu">ggplot</span>(df, <span class="co"># data</span></span>
-<span id="cb424-3"><a href="data-visualization.html#cb424-3" tabindex="-1"></a>       <span class="fu">aes</span>(<span class="at">x =</span> height, <span class="at">y =</span> weight)) <span class="sc">+</span> <span class="co"># aesthetics</span></span>
-<span id="cb424-4"><a href="data-visualization.html#cb424-4" tabindex="-1"></a>  <span class="fu">geom_point</span>() <span class="sc">+</span></span>
-<span id="cb424-5"><a href="data-visualization.html#cb424-5" tabindex="-1"></a>  <span class="fu">labs</span>(<span class="at">title =</span> <span class="st">&quot;Height vs. Weight&quot;</span>, <span class="at">x =</span> <span class="st">&quot;Height (cm)&quot;</span>, <span class="at">y =</span> <span class="st">&quot;Weight (kg)&quot;</span>) <span class="sc">+</span></span>
-<span id="cb424-6"><a href="data-visualization.html#cb424-6" tabindex="-1"></a>  <span class="fu">theme_minimal</span>()</span></code></pre></div>
-<p><img src="bookdownproj_files/figure-html/unnamed-chunk-186-1.png" width="672" /></p>
+<div class="sourceCode" id="cb432"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb432-1"><a href="data-visualization.html#cb432-1" tabindex="-1"></a><span class="co"># Creating a basic scatter plot</span></span>
+<span id="cb432-2"><a href="data-visualization.html#cb432-2" tabindex="-1"></a><span class="fu">ggplot</span>(df, <span class="co"># data</span></span>
+<span id="cb432-3"><a href="data-visualization.html#cb432-3" tabindex="-1"></a>       <span class="fu">aes</span>(<span class="at">x =</span> height, <span class="at">y =</span> weight)) <span class="sc">+</span> <span class="co"># aesthetics</span></span>
+<span id="cb432-4"><a href="data-visualization.html#cb432-4" tabindex="-1"></a>  <span class="fu">geom_point</span>() <span class="sc">+</span></span>
+<span id="cb432-5"><a href="data-visualization.html#cb432-5" tabindex="-1"></a>  <span class="fu">labs</span>(<span class="at">title =</span> <span class="st">&quot;Height vs. Weight&quot;</span>, <span class="at">x =</span> <span class="st">&quot;Height (cm)&quot;</span>, <span class="at">y =</span> <span class="st">&quot;Weight (kg)&quot;</span>) <span class="sc">+</span></span>
+<span id="cb432-6"><a href="data-visualization.html#cb432-6" tabindex="-1"></a>  <span class="fu">theme_minimal</span>()</span></code></pre></div>
+<p><img src="bookdownproj_files/figure-html/unnamed-chunk-180-1.png" width="672" /></p>
 <p>Lets explain the chart step by step;-</p>
 <ul>
 <li><code>ggplot(df, aes(x = height, y = weight))</code>: Initializes the ggplot object, specifying the data frame (<code>df</code>) and mapping the <code>height</code> variable to the x-axis and the <code>weight</code> variable to the y-axis using the <code>aes()</code> function.</li>
@@ -408,13 +408,13 @@ To make the chart more informative, titles and labels are added.</p>
 <ol style="list-style-type: lower-roman">
 <li>Using the <code>"mtcars"</code> inbuilt data set, plot a scatter chart to visualize the relationship between <code>mpg</code> (miles per gallon) and <code>hp</code> (horsepower). Label the axes appropriately. Hint: the data set can be loaded by <code>data("mtcars")</code> command.</li>
 </ol>
-<div class="sourceCode" id="cb425"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb425-1"><a href="data-visualization.html#cb425-1" tabindex="-1"></a><span class="co"># Import the libraries</span></span>
-<span id="cb425-2"><a href="data-visualization.html#cb425-2" tabindex="-1"></a><span class="fu">library</span>(ggplot2)</span>
-<span id="cb425-3"><a href="data-visualization.html#cb425-3" tabindex="-1"></a></span>
-<span id="cb425-4"><a href="data-visualization.html#cb425-4" tabindex="-1"></a><span class="co"># Load the data and show the first few rows</span></span>
-<span id="cb425-5"><a href="data-visualization.html#cb425-5" tabindex="-1"></a><span class="fu">data</span>(mtcars)</span>
-<span id="cb425-6"><a href="data-visualization.html#cb425-6" tabindex="-1"></a></span>
-<span id="cb425-7"><a href="data-visualization.html#cb425-7" tabindex="-1"></a><span class="fu">head</span>(mtcars)</span></code></pre></div>
+<div class="sourceCode" id="cb433"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb433-1"><a href="data-visualization.html#cb433-1" tabindex="-1"></a><span class="co"># Import the libraries</span></span>
+<span id="cb433-2"><a href="data-visualization.html#cb433-2" tabindex="-1"></a><span class="fu">library</span>(ggplot2)</span>
+<span id="cb433-3"><a href="data-visualization.html#cb433-3" tabindex="-1"></a></span>
+<span id="cb433-4"><a href="data-visualization.html#cb433-4" tabindex="-1"></a><span class="co"># Load the data and show the first few rows</span></span>
+<span id="cb433-5"><a href="data-visualization.html#cb433-5" tabindex="-1"></a><span class="fu">data</span>(mtcars)</span>
+<span id="cb433-6"><a href="data-visualization.html#cb433-6" tabindex="-1"></a></span>
+<span id="cb433-7"><a href="data-visualization.html#cb433-7" tabindex="-1"></a><span class="fu">head</span>(mtcars)</span></code></pre></div>
 <pre><code>##                    mpg cyl disp  hp drat    wt  qsec vs am gear carb
 ## Mazda RX4         21.0   6  160 110 3.90 2.620 16.46  0  1    4    4
 ## Mazda RX4 Wag     21.0   6  160 110 3.90 2.875 17.02  0  1    4    4
@@ -422,17 +422,17 @@ To make the chart more informative, titles and labels are added.</p>
 ## Hornet 4 Drive    21.4   6  258 110 3.08 3.215 19.44  1  0    3    1
 ## Hornet Sportabout 18.7   8  360 175 3.15 3.440 17.02  0  0    3    2
 ## Valiant           18.1   6  225 105 2.76 3.460 20.22  1  0    3    1</code></pre>
-<div class="sourceCode" id="cb427"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb427-1"><a href="data-visualization.html#cb427-1" tabindex="-1"></a><span class="co"># Creating a scatter plot</span></span>
-<span id="cb427-2"><a href="data-visualization.html#cb427-2" tabindex="-1"></a><span class="fu">ggplot</span>(mtcars, <span class="co"># data</span></span>
-<span id="cb427-3"><a href="data-visualization.html#cb427-3" tabindex="-1"></a>       <span class="fu">aes</span>(<span class="at">x =</span> hp, <span class="at">y =</span> mpg)) <span class="sc">+</span> <span class="co"># aesthetics</span></span>
-<span id="cb427-4"><a href="data-visualization.html#cb427-4" tabindex="-1"></a>  <span class="fu">geom_point</span>()</span></code></pre></div>
-<p><img src="bookdownproj_files/figure-html/unnamed-chunk-187-1.png" width="672" /></p>
+<div class="sourceCode" id="cb435"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb435-1"><a href="data-visualization.html#cb435-1" tabindex="-1"></a><span class="co"># Creating a scatter plot</span></span>
+<span id="cb435-2"><a href="data-visualization.html#cb435-2" tabindex="-1"></a><span class="fu">ggplot</span>(mtcars, <span class="co"># data</span></span>
+<span id="cb435-3"><a href="data-visualization.html#cb435-3" tabindex="-1"></a>       <span class="fu">aes</span>(<span class="at">x =</span> hp, <span class="at">y =</span> mpg)) <span class="sc">+</span> <span class="co"># aesthetics</span></span>
+<span id="cb435-4"><a href="data-visualization.html#cb435-4" tabindex="-1"></a>  <span class="fu">geom_point</span>()</span></code></pre></div>
+<p><img src="bookdownproj_files/figure-html/unnamed-chunk-181-1.png" width="672" /></p>
 <ol start="2" style="list-style-type: lower-roman">
 <li>Using the <code>airquality</code> data set, plot a scatter plot to show the relationship between <code>Wind</code> and <code>Temp</code>. <strong>Hint</strong>: the data set can be loaded by <code>data("airquality")</code> command.</li>
 </ol>
-<div class="sourceCode" id="cb428"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb428-1"><a href="data-visualization.html#cb428-1" tabindex="-1"></a><span class="co"># Load the data </span></span>
-<span id="cb428-2"><a href="data-visualization.html#cb428-2" tabindex="-1"></a><span class="fu">data</span>(<span class="st">&quot;airquality&quot;</span>)</span>
-<span id="cb428-3"><a href="data-visualization.html#cb428-3" tabindex="-1"></a><span class="fu">head</span>(airquality)</span></code></pre></div>
+<div class="sourceCode" id="cb436"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb436-1"><a href="data-visualization.html#cb436-1" tabindex="-1"></a><span class="co"># Load the data </span></span>
+<span id="cb436-2"><a href="data-visualization.html#cb436-2" tabindex="-1"></a><span class="fu">data</span>(<span class="st">&quot;airquality&quot;</span>)</span>
+<span id="cb436-3"><a href="data-visualization.html#cb436-3" tabindex="-1"></a><span class="fu">head</span>(airquality)</span></code></pre></div>
 <pre><code>##   Ozone Solar.R Wind Temp Month Day
 ## 1    41     190  7.4   67     5   1
 ## 2    36     118  8.0   72     5   2
@@ -440,11 +440,11 @@ To make the chart more informative, titles and labels are added.</p>
 ## 4    18     313 11.5   62     5   4
 ## 5    NA      NA 14.3   56     5   5
 ## 6    28      NA 14.9   66     5   6</code></pre>
-<div class="sourceCode" id="cb430"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb430-1"><a href="data-visualization.html#cb430-1" tabindex="-1"></a><span class="co"># Creating a scatter plot</span></span>
-<span id="cb430-2"><a href="data-visualization.html#cb430-2" tabindex="-1"></a><span class="fu">ggplot</span>(airquality, <span class="co"># data</span></span>
-<span id="cb430-3"><a href="data-visualization.html#cb430-3" tabindex="-1"></a>       <span class="fu">aes</span>(<span class="at">x =</span> Wind, <span class="at">y =</span> Temp)) <span class="sc">+</span> <span class="co"># aesthetics</span></span>
-<span id="cb430-4"><a href="data-visualization.html#cb430-4" tabindex="-1"></a>  <span class="fu">geom_point</span>()</span></code></pre></div>
-<p><img src="bookdownproj_files/figure-html/unnamed-chunk-188-1.png" width="672" />
+<div class="sourceCode" id="cb438"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb438-1"><a href="data-visualization.html#cb438-1" tabindex="-1"></a><span class="co"># Creating a scatter plot</span></span>
+<span id="cb438-2"><a href="data-visualization.html#cb438-2" tabindex="-1"></a><span class="fu">ggplot</span>(airquality, <span class="co"># data</span></span>
+<span id="cb438-3"><a href="data-visualization.html#cb438-3" tabindex="-1"></a>       <span class="fu">aes</span>(<span class="at">x =</span> Wind, <span class="at">y =</span> Temp)) <span class="sc">+</span> <span class="co"># aesthetics</span></span>
+<span id="cb438-4"><a href="data-visualization.html#cb438-4" tabindex="-1"></a>  <span class="fu">geom_point</span>()</span></code></pre></div>
+<p><img src="bookdownproj_files/figure-html/unnamed-chunk-182-1.png" width="672" />
 <span style="color: brown;"><strong>________________________________________________________________________________</strong></span></p>
 <ul>
 <li><strong>Bar Charts</strong></li>
@@ -459,76 +459,76 @@ To make the chart more informative, titles and labels are added.</p>
 </ol>
 <p>There are many more uses of bar charts however there are some use cases where bar charts are not preferred like when working with continuous data, scatter and line charts are more befitting. Also, bar charts are not appropriate where data has too many categories, heatmaps will do better.</p>
 <p>To create a simple bar chart using ggplot2, we use <code>geom_bar</code> to define thats its a bar chart.</p>
-<div class="sourceCode" id="cb431"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb431-1"><a href="data-visualization.html#cb431-1" tabindex="-1"></a><span class="co"># Sample data</span></span>
-<span id="cb431-2"><a href="data-visualization.html#cb431-2" tabindex="-1"></a>df <span class="ot">&lt;-</span> <span class="fu">data.frame</span>(</span>
-<span id="cb431-3"><a href="data-visualization.html#cb431-3" tabindex="-1"></a>  <span class="at">category =</span> <span class="fu">c</span>(<span class="st">&quot;A&quot;</span>, <span class="st">&quot;B&quot;</span>, <span class="st">&quot;C&quot;</span>, <span class="st">&quot;D&quot;</span>),</span>
-<span id="cb431-4"><a href="data-visualization.html#cb431-4" tabindex="-1"></a>  <span class="at">value =</span> <span class="fu">c</span>(<span class="dv">23</span>, <span class="dv">17</span>, <span class="dv">35</span>, <span class="dv">10</span>)</span>
-<span id="cb431-5"><a href="data-visualization.html#cb431-5" tabindex="-1"></a>)</span>
-<span id="cb431-6"><a href="data-visualization.html#cb431-6" tabindex="-1"></a></span>
-<span id="cb431-7"><a href="data-visualization.html#cb431-7" tabindex="-1"></a><span class="do">## The data set above will be used to create a bar chart</span></span>
-<span id="cb431-8"><a href="data-visualization.html#cb431-8" tabindex="-1"></a><span class="co"># Creating a bar chart</span></span>
-<span id="cb431-9"><a href="data-visualization.html#cb431-9" tabindex="-1"></a><span class="fu">ggplot</span>(df, <span class="fu">aes</span>(<span class="at">x =</span> category, <span class="at">y =</span> value)) <span class="sc">+</span></span>
-<span id="cb431-10"><a href="data-visualization.html#cb431-10" tabindex="-1"></a>  <span class="fu">geom_bar</span>(<span class="at">stat =</span> <span class="st">&quot;identity&quot;</span>) <span class="sc">+</span></span>
-<span id="cb431-11"><a href="data-visualization.html#cb431-11" tabindex="-1"></a>  <span class="fu">labs</span>(<span class="at">title =</span> <span class="st">&quot;Value by Category&quot;</span>, <span class="at">x =</span> <span class="st">&quot;Category&quot;</span>, <span class="at">y =</span> <span class="st">&quot;Value&quot;</span>) <span class="sc">+</span></span>
-<span id="cb431-12"><a href="data-visualization.html#cb431-12" tabindex="-1"></a>  <span class="fu">theme_minimal</span>()</span></code></pre></div>
-<p><img src="bookdownproj_files/figure-html/unnamed-chunk-189-1.png" width="672" /></p>
+<div class="sourceCode" id="cb439"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb439-1"><a href="data-visualization.html#cb439-1" tabindex="-1"></a><span class="co"># Sample data</span></span>
+<span id="cb439-2"><a href="data-visualization.html#cb439-2" tabindex="-1"></a>df <span class="ot">&lt;-</span> <span class="fu">data.frame</span>(</span>
+<span id="cb439-3"><a href="data-visualization.html#cb439-3" tabindex="-1"></a>  <span class="at">category =</span> <span class="fu">c</span>(<span class="st">&quot;A&quot;</span>, <span class="st">&quot;B&quot;</span>, <span class="st">&quot;C&quot;</span>, <span class="st">&quot;D&quot;</span>),</span>
+<span id="cb439-4"><a href="data-visualization.html#cb439-4" tabindex="-1"></a>  <span class="at">value =</span> <span class="fu">c</span>(<span class="dv">23</span>, <span class="dv">17</span>, <span class="dv">35</span>, <span class="dv">10</span>)</span>
+<span id="cb439-5"><a href="data-visualization.html#cb439-5" tabindex="-1"></a>)</span>
+<span id="cb439-6"><a href="data-visualization.html#cb439-6" tabindex="-1"></a></span>
+<span id="cb439-7"><a href="data-visualization.html#cb439-7" tabindex="-1"></a><span class="do">## The data set above will be used to create a bar chart</span></span>
+<span id="cb439-8"><a href="data-visualization.html#cb439-8" tabindex="-1"></a><span class="co"># Creating a bar chart</span></span>
+<span id="cb439-9"><a href="data-visualization.html#cb439-9" tabindex="-1"></a><span class="fu">ggplot</span>(df, <span class="fu">aes</span>(<span class="at">x =</span> category, <span class="at">y =</span> value)) <span class="sc">+</span></span>
+<span id="cb439-10"><a href="data-visualization.html#cb439-10" tabindex="-1"></a>  <span class="fu">geom_bar</span>(<span class="at">stat =</span> <span class="st">&quot;identity&quot;</span>) <span class="sc">+</span></span>
+<span id="cb439-11"><a href="data-visualization.html#cb439-11" tabindex="-1"></a>  <span class="fu">labs</span>(<span class="at">title =</span> <span class="st">&quot;Value by Category&quot;</span>, <span class="at">x =</span> <span class="st">&quot;Category&quot;</span>, <span class="at">y =</span> <span class="st">&quot;Value&quot;</span>) <span class="sc">+</span></span>
+<span id="cb439-12"><a href="data-visualization.html#cb439-12" tabindex="-1"></a>  <span class="fu">theme_minimal</span>()</span></code></pre></div>
+<p><img src="bookdownproj_files/figure-html/unnamed-chunk-183-1.png" width="672" /></p>
 <p><span style="color: green;"><strong>Practical exercise</strong></span></p>
 <p>Using the <code>mtcars</code> data set, create a bar plot to visualize the number of cars for each unique number of cylinders (<code>cyl</code>) in the mtcars data set. Label the bars with the appropriate cylinder categories and provide axis labels for clarity.</p>
 <hr />
 <p><span style="color: brown;"><strong>Solution</strong></span></p>
-<div class="sourceCode" id="cb432"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb432-1"><a href="data-visualization.html#cb432-1" tabindex="-1"></a><span class="fu">library</span>(ggplot2)</span>
-<span id="cb432-2"><a href="data-visualization.html#cb432-2" tabindex="-1"></a><span class="fu">library</span>(dplyr)</span>
-<span id="cb432-3"><a href="data-visualization.html#cb432-3" tabindex="-1"></a></span>
-<span id="cb432-4"><a href="data-visualization.html#cb432-4" tabindex="-1"></a><span class="co"># Load the data</span></span>
-<span id="cb432-5"><a href="data-visualization.html#cb432-5" tabindex="-1"></a><span class="fu">data</span>(<span class="st">&quot;mtcars&quot;</span>)</span>
-<span id="cb432-6"><a href="data-visualization.html#cb432-6" tabindex="-1"></a></span>
-<span id="cb432-7"><a href="data-visualization.html#cb432-7" tabindex="-1"></a><span class="co"># Apply data manipulation techniques</span></span>
-<span id="cb432-8"><a href="data-visualization.html#cb432-8" tabindex="-1"></a>mtcars_by_cyl <span class="ot">&lt;-</span> mtcars <span class="sc">%&gt;%</span></span>
-<span id="cb432-9"><a href="data-visualization.html#cb432-9" tabindex="-1"></a>  <span class="fu">group_by</span>(cyl) <span class="sc">%&gt;%</span></span>
-<span id="cb432-10"><a href="data-visualization.html#cb432-10" tabindex="-1"></a>  <span class="fu">summarise</span>(<span class="at">number_of_cars =</span> <span class="fu">n</span>()) <span class="co"># get the number of cars per each cylinder</span></span>
-<span id="cb432-11"><a href="data-visualization.html#cb432-11" tabindex="-1"></a></span>
-<span id="cb432-12"><a href="data-visualization.html#cb432-12" tabindex="-1"></a><span class="co"># Creating a bar chart</span></span>
-<span id="cb432-13"><a href="data-visualization.html#cb432-13" tabindex="-1"></a><span class="fu">ggplot</span>(mtcars_by_cyl, <span class="fu">aes</span>(<span class="at">x =</span> <span class="fu">as.character</span>(cyl), <span class="at">y =</span> number_of_cars)) <span class="sc">+</span></span>
-<span id="cb432-14"><a href="data-visualization.html#cb432-14" tabindex="-1"></a>  <span class="fu">geom_bar</span>(<span class="at">stat =</span> <span class="st">&quot;identity&quot;</span>) <span class="sc">+</span></span>
-<span id="cb432-15"><a href="data-visualization.html#cb432-15" tabindex="-1"></a>  <span class="fu">labs</span>(<span class="at">title =</span> <span class="st">&quot;Cars by Cyclinders&quot;</span>, <span class="at">x =</span> <span class="st">&quot;Number of Cylinders&quot;</span>, <span class="at">y =</span> <span class="st">&quot;Number of Cars&quot;</span>) <span class="sc">+</span></span>
-<span id="cb432-16"><a href="data-visualization.html#cb432-16" tabindex="-1"></a>  <span class="fu">theme_minimal</span>()</span></code></pre></div>
-<p><img src="bookdownproj_files/figure-html/unnamed-chunk-190-1.png" width="672" /></p>
+<div class="sourceCode" id="cb440"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb440-1"><a href="data-visualization.html#cb440-1" tabindex="-1"></a><span class="fu">library</span>(ggplot2)</span>
+<span id="cb440-2"><a href="data-visualization.html#cb440-2" tabindex="-1"></a><span class="fu">library</span>(dplyr)</span>
+<span id="cb440-3"><a href="data-visualization.html#cb440-3" tabindex="-1"></a></span>
+<span id="cb440-4"><a href="data-visualization.html#cb440-4" tabindex="-1"></a><span class="co"># Load the data</span></span>
+<span id="cb440-5"><a href="data-visualization.html#cb440-5" tabindex="-1"></a><span class="fu">data</span>(<span class="st">&quot;mtcars&quot;</span>)</span>
+<span id="cb440-6"><a href="data-visualization.html#cb440-6" tabindex="-1"></a></span>
+<span id="cb440-7"><a href="data-visualization.html#cb440-7" tabindex="-1"></a><span class="co"># Apply data manipulation techniques</span></span>
+<span id="cb440-8"><a href="data-visualization.html#cb440-8" tabindex="-1"></a>mtcars_by_cyl <span class="ot">&lt;-</span> mtcars <span class="sc">%&gt;%</span></span>
+<span id="cb440-9"><a href="data-visualization.html#cb440-9" tabindex="-1"></a>  <span class="fu">group_by</span>(cyl) <span class="sc">%&gt;%</span></span>
+<span id="cb440-10"><a href="data-visualization.html#cb440-10" tabindex="-1"></a>  <span class="fu">summarise</span>(<span class="at">number_of_cars =</span> <span class="fu">n</span>()) <span class="co"># get the number of cars per each cylinder</span></span>
+<span id="cb440-11"><a href="data-visualization.html#cb440-11" tabindex="-1"></a></span>
+<span id="cb440-12"><a href="data-visualization.html#cb440-12" tabindex="-1"></a><span class="co"># Creating a bar chart</span></span>
+<span id="cb440-13"><a href="data-visualization.html#cb440-13" tabindex="-1"></a><span class="fu">ggplot</span>(mtcars_by_cyl, <span class="fu">aes</span>(<span class="at">x =</span> <span class="fu">as.character</span>(cyl), <span class="at">y =</span> number_of_cars)) <span class="sc">+</span></span>
+<span id="cb440-14"><a href="data-visualization.html#cb440-14" tabindex="-1"></a>  <span class="fu">geom_bar</span>(<span class="at">stat =</span> <span class="st">&quot;identity&quot;</span>) <span class="sc">+</span></span>
+<span id="cb440-15"><a href="data-visualization.html#cb440-15" tabindex="-1"></a>  <span class="fu">labs</span>(<span class="at">title =</span> <span class="st">&quot;Cars by Cyclinders&quot;</span>, <span class="at">x =</span> <span class="st">&quot;Number of Cylinders&quot;</span>, <span class="at">y =</span> <span class="st">&quot;Number of Cars&quot;</span>) <span class="sc">+</span></span>
+<span id="cb440-16"><a href="data-visualization.html#cb440-16" tabindex="-1"></a>  <span class="fu">theme_minimal</span>()</span></code></pre></div>
+<p><img src="bookdownproj_files/figure-html/unnamed-chunk-184-1.png" width="672" /></p>
 <p><span style="color: brown;"><strong>________________________________________________________________________________</strong></span></p>
 <ul>
 <li><strong>Histograms</strong></li>
 </ul>
 <p>Histogram is visually similar to the bar chart however it is used show frequency and distribution across a list-like data set(vectors, lists, sets, arrays, etc) that stores continuous numeric values. The count of observation within a certain range of values are displayed.</p>
 <p>Lets create a vector of random 100 ages and plot the data to a histogram.</p>
-<div class="sourceCode" id="cb433"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb433-1"><a href="data-visualization.html#cb433-1" tabindex="-1"></a><span class="co"># Generate random 1000 ages between 0 and 100</span></span>
-<span id="cb433-2"><a href="data-visualization.html#cb433-2" tabindex="-1"></a><span class="fu">set.seed</span>(<span class="dv">42</span>)</span>
-<span id="cb433-3"><a href="data-visualization.html#cb433-3" tabindex="-1"></a>ages <span class="ot">&lt;-</span> <span class="fu">sample</span>(<span class="dv">0</span><span class="sc">:</span><span class="dv">100</span>, <span class="dv">1000</span>, <span class="at">replace =</span> <span class="cn">TRUE</span>)</span>
-<span id="cb433-4"><a href="data-visualization.html#cb433-4" tabindex="-1"></a></span>
-<span id="cb433-5"><a href="data-visualization.html#cb433-5" tabindex="-1"></a><span class="co"># Create a data frame to use with ggplot</span></span>
-<span id="cb433-6"><a href="data-visualization.html#cb433-6" tabindex="-1"></a>age_data <span class="ot">&lt;-</span> <span class="fu">data.frame</span>(<span class="at">Age =</span> ages)</span>
-<span id="cb433-7"><a href="data-visualization.html#cb433-7" tabindex="-1"></a></span>
-<span id="cb433-8"><a href="data-visualization.html#cb433-8" tabindex="-1"></a><span class="co"># PLOTTING</span></span>
-<span id="cb433-9"><a href="data-visualization.html#cb433-9" tabindex="-1"></a><span class="co"># Create the histogram using ggplot</span></span>
-<span id="cb433-10"><a href="data-visualization.html#cb433-10" tabindex="-1"></a><span class="fu">ggplot</span>(age_data, <span class="fu">aes</span>(<span class="at">x =</span> Age)) <span class="sc">+</span></span>
-<span id="cb433-11"><a href="data-visualization.html#cb433-11" tabindex="-1"></a>  <span class="fu">geom_histogram</span>(<span class="at">binwidth =</span> <span class="dv">5</span>, <span class="at">fill =</span> <span class="st">&quot;blue&quot;</span>, <span class="at">color =</span> <span class="st">&quot;black&quot;</span>) <span class="sc">+</span></span>
-<span id="cb433-12"><a href="data-visualization.html#cb433-12" tabindex="-1"></a>  <span class="fu">labs</span>(<span class="at">title =</span> <span class="st">&quot;Histogram of Randomly Generated Ages&quot;</span>, <span class="at">x =</span> <span class="st">&quot;Age&quot;</span>, <span class="at">y =</span> <span class="st">&quot;Frequency&quot;</span>) <span class="sc">+</span></span>
-<span id="cb433-13"><a href="data-visualization.html#cb433-13" tabindex="-1"></a>  <span class="fu">theme_minimal</span>()</span></code></pre></div>
-<p><img src="bookdownproj_files/figure-html/unnamed-chunk-191-1.png" width="672" /></p>
+<div class="sourceCode" id="cb441"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb441-1"><a href="data-visualization.html#cb441-1" tabindex="-1"></a><span class="co"># Generate random 1000 ages between 0 and 100</span></span>
+<span id="cb441-2"><a href="data-visualization.html#cb441-2" tabindex="-1"></a><span class="fu">set.seed</span>(<span class="dv">42</span>)</span>
+<span id="cb441-3"><a href="data-visualization.html#cb441-3" tabindex="-1"></a>ages <span class="ot">&lt;-</span> <span class="fu">sample</span>(<span class="dv">0</span><span class="sc">:</span><span class="dv">100</span>, <span class="dv">1000</span>, <span class="at">replace =</span> <span class="cn">TRUE</span>)</span>
+<span id="cb441-4"><a href="data-visualization.html#cb441-4" tabindex="-1"></a></span>
+<span id="cb441-5"><a href="data-visualization.html#cb441-5" tabindex="-1"></a><span class="co"># Create a data frame to use with ggplot</span></span>
+<span id="cb441-6"><a href="data-visualization.html#cb441-6" tabindex="-1"></a>age_data <span class="ot">&lt;-</span> <span class="fu">data.frame</span>(<span class="at">Age =</span> ages)</span>
+<span id="cb441-7"><a href="data-visualization.html#cb441-7" tabindex="-1"></a></span>
+<span id="cb441-8"><a href="data-visualization.html#cb441-8" tabindex="-1"></a><span class="co"># PLOTTING</span></span>
+<span id="cb441-9"><a href="data-visualization.html#cb441-9" tabindex="-1"></a><span class="co"># Create the histogram using ggplot</span></span>
+<span id="cb441-10"><a href="data-visualization.html#cb441-10" tabindex="-1"></a><span class="fu">ggplot</span>(age_data, <span class="fu">aes</span>(<span class="at">x =</span> Age)) <span class="sc">+</span></span>
+<span id="cb441-11"><a href="data-visualization.html#cb441-11" tabindex="-1"></a>  <span class="fu">geom_histogram</span>(<span class="at">binwidth =</span> <span class="dv">5</span>, <span class="at">fill =</span> <span class="st">&quot;blue&quot;</span>, <span class="at">color =</span> <span class="st">&quot;black&quot;</span>) <span class="sc">+</span></span>
+<span id="cb441-12"><a href="data-visualization.html#cb441-12" tabindex="-1"></a>  <span class="fu">labs</span>(<span class="at">title =</span> <span class="st">&quot;Histogram of Randomly Generated Ages&quot;</span>, <span class="at">x =</span> <span class="st">&quot;Age&quot;</span>, <span class="at">y =</span> <span class="st">&quot;Frequency&quot;</span>) <span class="sc">+</span></span>
+<span id="cb441-13"><a href="data-visualization.html#cb441-13" tabindex="-1"></a>  <span class="fu">theme_minimal</span>()</span></code></pre></div>
+<p><img src="bookdownproj_files/figure-html/unnamed-chunk-185-1.png" width="672" /></p>
 <p>The bins are groups of ages ranging 5 years.</p>
 <p><span style="color: green;"><strong>Practical exercise</strong></span></p>
 <p>Using the <code>rivers</code> in built R data set, plot a histogram to visualize the distribution of rivers’ length. <strong>Hint</strong>: The data set is loaded by the command <code>data("rivers")</code>.</p>
 <hr />
 <p><span style="color: brown;"><strong>Solution</strong></span></p>
-<div class="sourceCode" id="cb434"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb434-1"><a href="data-visualization.html#cb434-1" tabindex="-1"></a><span class="fu">library</span>(ggplot2)</span>
-<span id="cb434-2"><a href="data-visualization.html#cb434-2" tabindex="-1"></a></span>
-<span id="cb434-3"><a href="data-visualization.html#cb434-3" tabindex="-1"></a><span class="co"># Load the data</span></span>
-<span id="cb434-4"><a href="data-visualization.html#cb434-4" tabindex="-1"></a><span class="fu">data</span>(<span class="st">&quot;rivers&quot;</span>)</span>
-<span id="cb434-5"><a href="data-visualization.html#cb434-5" tabindex="-1"></a></span>
-<span id="cb434-6"><a href="data-visualization.html#cb434-6" tabindex="-1"></a><span class="co"># Create the histogram using ggplot</span></span>
-<span id="cb434-7"><a href="data-visualization.html#cb434-7" tabindex="-1"></a><span class="fu">ggplot</span>(<span class="fu">as.data.frame</span>(rivers), <span class="fu">aes</span>(<span class="at">x =</span> rivers)) <span class="sc">+</span></span>
-<span id="cb434-8"><a href="data-visualization.html#cb434-8" tabindex="-1"></a>  <span class="fu">geom_histogram</span>(<span class="at">bins =</span> <span class="dv">8</span>, <span class="at">fill =</span> <span class="st">&quot;blue&quot;</span>, <span class="at">color =</span> <span class="st">&quot;black&quot;</span>) <span class="sc">+</span></span>
-<span id="cb434-9"><a href="data-visualization.html#cb434-9" tabindex="-1"></a>  <span class="fu">labs</span>(<span class="at">title =</span> <span class="st">&quot;Distribution of Rivers&#39; Length&quot;</span>, <span class="at">x =</span> <span class="st">&quot;rivers&quot;</span>, <span class="at">y =</span> <span class="st">&quot;frequency&quot;</span>) <span class="sc">+</span></span>
-<span id="cb434-10"><a href="data-visualization.html#cb434-10" tabindex="-1"></a>  <span class="fu">theme_minimal</span>()</span></code></pre></div>
-<p><img src="bookdownproj_files/figure-html/unnamed-chunk-192-1.png" width="672" /></p>
+<div class="sourceCode" id="cb442"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb442-1"><a href="data-visualization.html#cb442-1" tabindex="-1"></a><span class="fu">library</span>(ggplot2)</span>
+<span id="cb442-2"><a href="data-visualization.html#cb442-2" tabindex="-1"></a></span>
+<span id="cb442-3"><a href="data-visualization.html#cb442-3" tabindex="-1"></a><span class="co"># Load the data</span></span>
+<span id="cb442-4"><a href="data-visualization.html#cb442-4" tabindex="-1"></a><span class="fu">data</span>(<span class="st">&quot;rivers&quot;</span>)</span>
+<span id="cb442-5"><a href="data-visualization.html#cb442-5" tabindex="-1"></a></span>
+<span id="cb442-6"><a href="data-visualization.html#cb442-6" tabindex="-1"></a><span class="co"># Create the histogram using ggplot</span></span>
+<span id="cb442-7"><a href="data-visualization.html#cb442-7" tabindex="-1"></a><span class="fu">ggplot</span>(<span class="fu">as.data.frame</span>(rivers), <span class="fu">aes</span>(<span class="at">x =</span> rivers)) <span class="sc">+</span></span>
+<span id="cb442-8"><a href="data-visualization.html#cb442-8" tabindex="-1"></a>  <span class="fu">geom_histogram</span>(<span class="at">bins =</span> <span class="dv">8</span>, <span class="at">fill =</span> <span class="st">&quot;blue&quot;</span>, <span class="at">color =</span> <span class="st">&quot;black&quot;</span>) <span class="sc">+</span></span>
+<span id="cb442-9"><a href="data-visualization.html#cb442-9" tabindex="-1"></a>  <span class="fu">labs</span>(<span class="at">title =</span> <span class="st">&quot;Distribution of Rivers&#39; Length&quot;</span>, <span class="at">x =</span> <span class="st">&quot;rivers&quot;</span>, <span class="at">y =</span> <span class="st">&quot;frequency&quot;</span>) <span class="sc">+</span></span>
+<span id="cb442-10"><a href="data-visualization.html#cb442-10" tabindex="-1"></a>  <span class="fu">theme_minimal</span>()</span></code></pre></div>
+<p><img src="bookdownproj_files/figure-html/unnamed-chunk-186-1.png" width="672" /></p>
 <p><span style="color: brown;"><strong>________________________________________________________________________________</strong></span></p>
 </div>
 <div id="customizing-plots" class="section level4 hasAnchor" number="5.1.1.2">
@@ -538,44 +538,44 @@ To make the chart more informative, titles and labels are added.</p>
 </ul>
 <p>Themes in <code>ggplot2</code> control the overall appearance of the plot for instance the grid line, font style, background color etc. To clearly explain the <code>theme</code> concept we will create a sample data set and plot it. The theme will be altered to show the changes in the appearance.</p>
 <p>Create a data set and plot a basic bar plot from <code>ggplot2</code></p>
-<div class="sourceCode" id="cb435"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb435-1"><a href="data-visualization.html#cb435-1" tabindex="-1"></a><span class="co"># Sample data</span></span>
-<span id="cb435-2"><a href="data-visualization.html#cb435-2" tabindex="-1"></a>df <span class="ot">&lt;-</span> <span class="fu">data.frame</span>(</span>
-<span id="cb435-3"><a href="data-visualization.html#cb435-3" tabindex="-1"></a>  <span class="at">category =</span> <span class="fu">c</span>(<span class="st">&quot;A&quot;</span>, <span class="st">&quot;B&quot;</span>, <span class="st">&quot;C&quot;</span>, <span class="st">&quot;D&quot;</span>),</span>
-<span id="cb435-4"><a href="data-visualization.html#cb435-4" tabindex="-1"></a>  <span class="at">value =</span> <span class="fu">c</span>(<span class="dv">23</span>, <span class="dv">17</span>, <span class="dv">35</span>, <span class="dv">10</span>)</span>
-<span id="cb435-5"><a href="data-visualization.html#cb435-5" tabindex="-1"></a>)</span>
-<span id="cb435-6"><a href="data-visualization.html#cb435-6" tabindex="-1"></a></span>
-<span id="cb435-7"><a href="data-visualization.html#cb435-7" tabindex="-1"></a><span class="co"># Plot a basic bar chart</span></span>
-<span id="cb435-8"><a href="data-visualization.html#cb435-8" tabindex="-1"></a><span class="co"># Create a basic bar plot</span></span>
-<span id="cb435-9"><a href="data-visualization.html#cb435-9" tabindex="-1"></a><span class="fu">ggplot</span>(df, <span class="fu">aes</span>(<span class="at">x =</span> category, <span class="at">y =</span> value)) <span class="sc">+</span></span>
-<span id="cb435-10"><a href="data-visualization.html#cb435-10" tabindex="-1"></a>  <span class="fu">geom_bar</span>(<span class="at">stat =</span> <span class="st">&quot;identity&quot;</span>)</span></code></pre></div>
-<p><img src="bookdownproj_files/figure-html/unnamed-chunk-193-1.png" width="672" /></p>
+<div class="sourceCode" id="cb443"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb443-1"><a href="data-visualization.html#cb443-1" tabindex="-1"></a><span class="co"># Sample data</span></span>
+<span id="cb443-2"><a href="data-visualization.html#cb443-2" tabindex="-1"></a>df <span class="ot">&lt;-</span> <span class="fu">data.frame</span>(</span>
+<span id="cb443-3"><a href="data-visualization.html#cb443-3" tabindex="-1"></a>  <span class="at">category =</span> <span class="fu">c</span>(<span class="st">&quot;A&quot;</span>, <span class="st">&quot;B&quot;</span>, <span class="st">&quot;C&quot;</span>, <span class="st">&quot;D&quot;</span>),</span>
+<span id="cb443-4"><a href="data-visualization.html#cb443-4" tabindex="-1"></a>  <span class="at">value =</span> <span class="fu">c</span>(<span class="dv">23</span>, <span class="dv">17</span>, <span class="dv">35</span>, <span class="dv">10</span>)</span>
+<span id="cb443-5"><a href="data-visualization.html#cb443-5" tabindex="-1"></a>)</span>
+<span id="cb443-6"><a href="data-visualization.html#cb443-6" tabindex="-1"></a></span>
+<span id="cb443-7"><a href="data-visualization.html#cb443-7" tabindex="-1"></a><span class="co"># Plot a basic bar chart</span></span>
+<span id="cb443-8"><a href="data-visualization.html#cb443-8" tabindex="-1"></a><span class="co"># Create a basic bar plot</span></span>
+<span id="cb443-9"><a href="data-visualization.html#cb443-9" tabindex="-1"></a><span class="fu">ggplot</span>(df, <span class="fu">aes</span>(<span class="at">x =</span> category, <span class="at">y =</span> value)) <span class="sc">+</span></span>
+<span id="cb443-10"><a href="data-visualization.html#cb443-10" tabindex="-1"></a>  <span class="fu">geom_bar</span>(<span class="at">stat =</span> <span class="st">&quot;identity&quot;</span>)</span></code></pre></div>
+<p><img src="bookdownproj_files/figure-html/unnamed-chunk-187-1.png" width="672" /></p>
 <p>Lets apply some built-in themes from <code>ggplot</code>. In this case, we will use the <code>theme_minimal()</code>.</p>
-<div class="sourceCode" id="cb436"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb436-1"><a href="data-visualization.html#cb436-1" tabindex="-1"></a><span class="co"># Bar plot with theme_minimal</span></span>
-<span id="cb436-2"><a href="data-visualization.html#cb436-2" tabindex="-1"></a><span class="fu">ggplot</span>(df, <span class="fu">aes</span>(<span class="at">x =</span> category, <span class="at">y =</span> value)) <span class="sc">+</span></span>
-<span id="cb436-3"><a href="data-visualization.html#cb436-3" tabindex="-1"></a>  <span class="fu">geom_bar</span>(<span class="at">stat =</span> <span class="st">&quot;identity&quot;</span>) <span class="sc">+</span></span>
-<span id="cb436-4"><a href="data-visualization.html#cb436-4" tabindex="-1"></a>  <span class="fu">theme_minimal</span>()</span></code></pre></div>
-<p><img src="bookdownproj_files/figure-html/unnamed-chunk-194-1.png" width="672" />
+<div class="sourceCode" id="cb444"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb444-1"><a href="data-visualization.html#cb444-1" tabindex="-1"></a><span class="co"># Bar plot with theme_minimal</span></span>
+<span id="cb444-2"><a href="data-visualization.html#cb444-2" tabindex="-1"></a><span class="fu">ggplot</span>(df, <span class="fu">aes</span>(<span class="at">x =</span> category, <span class="at">y =</span> value)) <span class="sc">+</span></span>
+<span id="cb444-3"><a href="data-visualization.html#cb444-3" tabindex="-1"></a>  <span class="fu">geom_bar</span>(<span class="at">stat =</span> <span class="st">&quot;identity&quot;</span>) <span class="sc">+</span></span>
+<span id="cb444-4"><a href="data-visualization.html#cb444-4" tabindex="-1"></a>  <span class="fu">theme_minimal</span>()</span></code></pre></div>
+<p><img src="bookdownproj_files/figure-html/unnamed-chunk-188-1.png" width="672" />
 The <code>theme_minimal()</code> removes background colors, extra gridlines and axes’ tickers to give the a chart a clean look.</p>
 <p>Now, lets try with the <code>theme_classic()</code></p>
-<div class="sourceCode" id="cb437"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb437-1"><a href="data-visualization.html#cb437-1" tabindex="-1"></a><span class="co"># Bar plot with theme_classic</span></span>
-<span id="cb437-2"><a href="data-visualization.html#cb437-2" tabindex="-1"></a><span class="fu">ggplot</span>(df, <span class="fu">aes</span>(<span class="at">x =</span> category, <span class="at">y =</span> value)) <span class="sc">+</span></span>
-<span id="cb437-3"><a href="data-visualization.html#cb437-3" tabindex="-1"></a>  <span class="fu">geom_bar</span>(<span class="at">stat =</span> <span class="st">&quot;identity&quot;</span>) <span class="sc">+</span></span>
-<span id="cb437-4"><a href="data-visualization.html#cb437-4" tabindex="-1"></a>  <span class="fu">theme_classic</span>()</span></code></pre></div>
-<p><img src="bookdownproj_files/figure-html/unnamed-chunk-195-1.png" width="672" /></p>
+<div class="sourceCode" id="cb445"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb445-1"><a href="data-visualization.html#cb445-1" tabindex="-1"></a><span class="co"># Bar plot with theme_classic</span></span>
+<span id="cb445-2"><a href="data-visualization.html#cb445-2" tabindex="-1"></a><span class="fu">ggplot</span>(df, <span class="fu">aes</span>(<span class="at">x =</span> category, <span class="at">y =</span> value)) <span class="sc">+</span></span>
+<span id="cb445-3"><a href="data-visualization.html#cb445-3" tabindex="-1"></a>  <span class="fu">geom_bar</span>(<span class="at">stat =</span> <span class="st">&quot;identity&quot;</span>) <span class="sc">+</span></span>
+<span id="cb445-4"><a href="data-visualization.html#cb445-4" tabindex="-1"></a>  <span class="fu">theme_classic</span>()</span></code></pre></div>
+<p><img src="bookdownproj_files/figure-html/unnamed-chunk-189-1.png" width="672" /></p>
 <p>The <code>theme_classic()</code> gives the bar plot a clear white background, black borderline with raised 0 point on the axes and bars.</p>
 <p>The third theme in this course is the <code>theme_light()</code>. Lets try it with the same data set.</p>
-<div class="sourceCode" id="cb438"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb438-1"><a href="data-visualization.html#cb438-1" tabindex="-1"></a><span class="co"># Bar plot with theme_light</span></span>
-<span id="cb438-2"><a href="data-visualization.html#cb438-2" tabindex="-1"></a><span class="fu">ggplot</span>(df, <span class="fu">aes</span>(<span class="at">x =</span> category, <span class="at">y =</span> value)) <span class="sc">+</span></span>
-<span id="cb438-3"><a href="data-visualization.html#cb438-3" tabindex="-1"></a>  <span class="fu">geom_bar</span>(<span class="at">stat =</span> <span class="st">&quot;identity&quot;</span>) <span class="sc">+</span></span>
-<span id="cb438-4"><a href="data-visualization.html#cb438-4" tabindex="-1"></a>  <span class="fu">theme_light</span>()</span></code></pre></div>
-<p><img src="bookdownproj_files/figure-html/unnamed-chunk-196-1.png" width="672" /></p>
+<div class="sourceCode" id="cb446"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb446-1"><a href="data-visualization.html#cb446-1" tabindex="-1"></a><span class="co"># Bar plot with theme_light</span></span>
+<span id="cb446-2"><a href="data-visualization.html#cb446-2" tabindex="-1"></a><span class="fu">ggplot</span>(df, <span class="fu">aes</span>(<span class="at">x =</span> category, <span class="at">y =</span> value)) <span class="sc">+</span></span>
+<span id="cb446-3"><a href="data-visualization.html#cb446-3" tabindex="-1"></a>  <span class="fu">geom_bar</span>(<span class="at">stat =</span> <span class="st">&quot;identity&quot;</span>) <span class="sc">+</span></span>
+<span id="cb446-4"><a href="data-visualization.html#cb446-4" tabindex="-1"></a>  <span class="fu">theme_light</span>()</span></code></pre></div>
+<p><img src="bookdownproj_files/figure-html/unnamed-chunk-190-1.png" width="672" /></p>
 <p>The <code>theme_light()</code> is gives grey gridlines, grey borderline and raised bars(not touching the axes).</p>
 <p>The last theme in this list is the <code>theme_dark()</code>. Lets try it below here;</p>
-<div class="sourceCode" id="cb439"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb439-1"><a href="data-visualization.html#cb439-1" tabindex="-1"></a><span class="co"># Bar plot with theme_dark</span></span>
-<span id="cb439-2"><a href="data-visualization.html#cb439-2" tabindex="-1"></a><span class="fu">ggplot</span>(df, <span class="fu">aes</span>(<span class="at">x =</span> category, <span class="at">y =</span> value)) <span class="sc">+</span></span>
-<span id="cb439-3"><a href="data-visualization.html#cb439-3" tabindex="-1"></a>  <span class="fu">geom_bar</span>(<span class="at">stat =</span> <span class="st">&quot;identity&quot;</span>) <span class="sc">+</span></span>
-<span id="cb439-4"><a href="data-visualization.html#cb439-4" tabindex="-1"></a>  <span class="fu">theme_dark</span>()</span></code></pre></div>
-<p><img src="bookdownproj_files/figure-html/unnamed-chunk-197-1.png" width="672" />
+<div class="sourceCode" id="cb447"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb447-1"><a href="data-visualization.html#cb447-1" tabindex="-1"></a><span class="co"># Bar plot with theme_dark</span></span>
+<span id="cb447-2"><a href="data-visualization.html#cb447-2" tabindex="-1"></a><span class="fu">ggplot</span>(df, <span class="fu">aes</span>(<span class="at">x =</span> category, <span class="at">y =</span> value)) <span class="sc">+</span></span>
+<span id="cb447-3"><a href="data-visualization.html#cb447-3" tabindex="-1"></a>  <span class="fu">geom_bar</span>(<span class="at">stat =</span> <span class="st">&quot;identity&quot;</span>) <span class="sc">+</span></span>
+<span id="cb447-4"><a href="data-visualization.html#cb447-4" tabindex="-1"></a>  <span class="fu">theme_dark</span>()</span></code></pre></div>
+<p><img src="bookdownproj_files/figure-html/unnamed-chunk-191-1.png" width="672" />
 The <code>theme_dark()</code> is a clear opposite of <code>theme_light</code> as it produces a plot with a dark grid lines.</p>
 <p>There are more themes provided in <code>ggplot2</code> like <code>theme_bw()</code></p>
 <p><span style="color: green;"><strong>Practical exercise</strong></span></p>
@@ -583,110 +583,110 @@ The <code>theme_dark()</code> is a clear opposite of <code>theme_light</code> as
 <hr />
 <p><span style="color: brown;"><strong>Solution</strong></span></p>
 <p>Preparing the data</p>
-<div class="sourceCode" id="cb440"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb440-1"><a href="data-visualization.html#cb440-1" tabindex="-1"></a><span class="fu">library</span>(ggplot2)</span>
-<span id="cb440-2"><a href="data-visualization.html#cb440-2" tabindex="-1"></a><span class="fu">library</span>(dplyr)</span>
-<span id="cb440-3"><a href="data-visualization.html#cb440-3" tabindex="-1"></a></span>
-<span id="cb440-4"><a href="data-visualization.html#cb440-4" tabindex="-1"></a><span class="co"># Load the data</span></span>
-<span id="cb440-5"><a href="data-visualization.html#cb440-5" tabindex="-1"></a><span class="fu">data</span>(<span class="st">&quot;mtcars&quot;</span>)</span>
-<span id="cb440-6"><a href="data-visualization.html#cb440-6" tabindex="-1"></a></span>
-<span id="cb440-7"><a href="data-visualization.html#cb440-7" tabindex="-1"></a>mtcars_by_cyl <span class="ot">&lt;-</span> mtcars <span class="sc">%&gt;%</span></span>
-<span id="cb440-8"><a href="data-visualization.html#cb440-8" tabindex="-1"></a>  <span class="fu">group_by</span>(cyl) <span class="sc">%&gt;%</span></span>
-<span id="cb440-9"><a href="data-visualization.html#cb440-9" tabindex="-1"></a>  <span class="fu">summarise</span>(<span class="at">number_of_cars =</span> <span class="fu">n</span>()) <span class="co"># get the number of cars per each cylinder</span></span></code></pre></div>
+<div class="sourceCode" id="cb448"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb448-1"><a href="data-visualization.html#cb448-1" tabindex="-1"></a><span class="fu">library</span>(ggplot2)</span>
+<span id="cb448-2"><a href="data-visualization.html#cb448-2" tabindex="-1"></a><span class="fu">library</span>(dplyr)</span>
+<span id="cb448-3"><a href="data-visualization.html#cb448-3" tabindex="-1"></a></span>
+<span id="cb448-4"><a href="data-visualization.html#cb448-4" tabindex="-1"></a><span class="co"># Load the data</span></span>
+<span id="cb448-5"><a href="data-visualization.html#cb448-5" tabindex="-1"></a><span class="fu">data</span>(<span class="st">&quot;mtcars&quot;</span>)</span>
+<span id="cb448-6"><a href="data-visualization.html#cb448-6" tabindex="-1"></a></span>
+<span id="cb448-7"><a href="data-visualization.html#cb448-7" tabindex="-1"></a>mtcars_by_cyl <span class="ot">&lt;-</span> mtcars <span class="sc">%&gt;%</span></span>
+<span id="cb448-8"><a href="data-visualization.html#cb448-8" tabindex="-1"></a>  <span class="fu">group_by</span>(cyl) <span class="sc">%&gt;%</span></span>
+<span id="cb448-9"><a href="data-visualization.html#cb448-9" tabindex="-1"></a>  <span class="fu">summarise</span>(<span class="at">number_of_cars =</span> <span class="fu">n</span>()) <span class="co"># get the number of cars per each cylinder</span></span></code></pre></div>
 <p><em>Minimal theme</em></p>
-<div class="sourceCode" id="cb441"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb441-1"><a href="data-visualization.html#cb441-1" tabindex="-1"></a><span class="co"># Creating a bar chart</span></span>
-<span id="cb441-2"><a href="data-visualization.html#cb441-2" tabindex="-1"></a><span class="fu">ggplot</span>(mtcars_by_cyl, <span class="fu">aes</span>(<span class="at">x =</span> <span class="fu">as.character</span>(cyl), <span class="at">y =</span> number_of_cars)) <span class="sc">+</span></span>
-<span id="cb441-3"><a href="data-visualization.html#cb441-3" tabindex="-1"></a>  <span class="fu">geom_bar</span>(<span class="at">stat =</span> <span class="st">&quot;identity&quot;</span>) <span class="sc">+</span></span>
-<span id="cb441-4"><a href="data-visualization.html#cb441-4" tabindex="-1"></a>  <span class="fu">labs</span>(<span class="at">title =</span> <span class="st">&quot;Cars by Cyclinders&quot;</span>, <span class="at">x =</span> <span class="st">&quot;Number of Cylinders&quot;</span>, <span class="at">y =</span> <span class="st">&quot;Number of Cars&quot;</span>) <span class="sc">+</span></span>
-<span id="cb441-5"><a href="data-visualization.html#cb441-5" tabindex="-1"></a>  <span class="fu">theme_minimal</span>()</span></code></pre></div>
-<p><img src="bookdownproj_files/figure-html/unnamed-chunk-199-1.png" width="672" /></p>
+<div class="sourceCode" id="cb449"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb449-1"><a href="data-visualization.html#cb449-1" tabindex="-1"></a><span class="co"># Creating a bar chart</span></span>
+<span id="cb449-2"><a href="data-visualization.html#cb449-2" tabindex="-1"></a><span class="fu">ggplot</span>(mtcars_by_cyl, <span class="fu">aes</span>(<span class="at">x =</span> <span class="fu">as.character</span>(cyl), <span class="at">y =</span> number_of_cars)) <span class="sc">+</span></span>
+<span id="cb449-3"><a href="data-visualization.html#cb449-3" tabindex="-1"></a>  <span class="fu">geom_bar</span>(<span class="at">stat =</span> <span class="st">&quot;identity&quot;</span>) <span class="sc">+</span></span>
+<span id="cb449-4"><a href="data-visualization.html#cb449-4" tabindex="-1"></a>  <span class="fu">labs</span>(<span class="at">title =</span> <span class="st">&quot;Cars by Cyclinders&quot;</span>, <span class="at">x =</span> <span class="st">&quot;Number of Cylinders&quot;</span>, <span class="at">y =</span> <span class="st">&quot;Number of Cars&quot;</span>) <span class="sc">+</span></span>
+<span id="cb449-5"><a href="data-visualization.html#cb449-5" tabindex="-1"></a>  <span class="fu">theme_minimal</span>()</span></code></pre></div>
+<p><img src="bookdownproj_files/figure-html/unnamed-chunk-193-1.png" width="672" /></p>
 <p><em>Classic theme</em></p>
-<div class="sourceCode" id="cb442"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb442-1"><a href="data-visualization.html#cb442-1" tabindex="-1"></a><span class="co"># Creating a bar chart</span></span>
-<span id="cb442-2"><a href="data-visualization.html#cb442-2" tabindex="-1"></a><span class="fu">ggplot</span>(mtcars_by_cyl, <span class="fu">aes</span>(<span class="at">x =</span> <span class="fu">as.character</span>(cyl), <span class="at">y =</span> number_of_cars)) <span class="sc">+</span></span>
-<span id="cb442-3"><a href="data-visualization.html#cb442-3" tabindex="-1"></a>  <span class="fu">geom_bar</span>(<span class="at">stat =</span> <span class="st">&quot;identity&quot;</span>) <span class="sc">+</span></span>
-<span id="cb442-4"><a href="data-visualization.html#cb442-4" tabindex="-1"></a>  <span class="fu">labs</span>(<span class="at">title =</span> <span class="st">&quot;Cars by Cyclinders&quot;</span>, <span class="at">x =</span> <span class="st">&quot;Number of Cylinders&quot;</span>, <span class="at">y =</span> <span class="st">&quot;Number of Cars&quot;</span>) <span class="sc">+</span></span>
-<span id="cb442-5"><a href="data-visualization.html#cb442-5" tabindex="-1"></a>  <span class="fu">theme_classic</span>()</span></code></pre></div>
-<p><img src="bookdownproj_files/figure-html/unnamed-chunk-200-1.png" width="672" /></p>
+<div class="sourceCode" id="cb450"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb450-1"><a href="data-visualization.html#cb450-1" tabindex="-1"></a><span class="co"># Creating a bar chart</span></span>
+<span id="cb450-2"><a href="data-visualization.html#cb450-2" tabindex="-1"></a><span class="fu">ggplot</span>(mtcars_by_cyl, <span class="fu">aes</span>(<span class="at">x =</span> <span class="fu">as.character</span>(cyl), <span class="at">y =</span> number_of_cars)) <span class="sc">+</span></span>
+<span id="cb450-3"><a href="data-visualization.html#cb450-3" tabindex="-1"></a>  <span class="fu">geom_bar</span>(<span class="at">stat =</span> <span class="st">&quot;identity&quot;</span>) <span class="sc">+</span></span>
+<span id="cb450-4"><a href="data-visualization.html#cb450-4" tabindex="-1"></a>  <span class="fu">labs</span>(<span class="at">title =</span> <span class="st">&quot;Cars by Cyclinders&quot;</span>, <span class="at">x =</span> <span class="st">&quot;Number of Cylinders&quot;</span>, <span class="at">y =</span> <span class="st">&quot;Number of Cars&quot;</span>) <span class="sc">+</span></span>
+<span id="cb450-5"><a href="data-visualization.html#cb450-5" tabindex="-1"></a>  <span class="fu">theme_classic</span>()</span></code></pre></div>
+<p><img src="bookdownproj_files/figure-html/unnamed-chunk-194-1.png" width="672" /></p>
 <p><em>Light theme</em></p>
-<div class="sourceCode" id="cb443"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb443-1"><a href="data-visualization.html#cb443-1" tabindex="-1"></a><span class="co"># Creating a bar chart</span></span>
-<span id="cb443-2"><a href="data-visualization.html#cb443-2" tabindex="-1"></a><span class="fu">ggplot</span>(mtcars_by_cyl, <span class="fu">aes</span>(<span class="at">x =</span> <span class="fu">as.character</span>(cyl), <span class="at">y =</span> number_of_cars)) <span class="sc">+</span></span>
-<span id="cb443-3"><a href="data-visualization.html#cb443-3" tabindex="-1"></a>  <span class="fu">geom_bar</span>(<span class="at">stat =</span> <span class="st">&quot;identity&quot;</span>) <span class="sc">+</span></span>
-<span id="cb443-4"><a href="data-visualization.html#cb443-4" tabindex="-1"></a>  <span class="fu">labs</span>(<span class="at">title =</span> <span class="st">&quot;Cars by Cyclinders&quot;</span>, <span class="at">x =</span> <span class="st">&quot;Number of Cylinders&quot;</span>, <span class="at">y =</span> <span class="st">&quot;Number of Cars&quot;</span>) <span class="sc">+</span></span>
-<span id="cb443-5"><a href="data-visualization.html#cb443-5" tabindex="-1"></a>  <span class="fu">theme_light</span>()</span></code></pre></div>
-<p><img src="bookdownproj_files/figure-html/unnamed-chunk-201-1.png" width="672" /></p>
+<div class="sourceCode" id="cb451"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb451-1"><a href="data-visualization.html#cb451-1" tabindex="-1"></a><span class="co"># Creating a bar chart</span></span>
+<span id="cb451-2"><a href="data-visualization.html#cb451-2" tabindex="-1"></a><span class="fu">ggplot</span>(mtcars_by_cyl, <span class="fu">aes</span>(<span class="at">x =</span> <span class="fu">as.character</span>(cyl), <span class="at">y =</span> number_of_cars)) <span class="sc">+</span></span>
+<span id="cb451-3"><a href="data-visualization.html#cb451-3" tabindex="-1"></a>  <span class="fu">geom_bar</span>(<span class="at">stat =</span> <span class="st">&quot;identity&quot;</span>) <span class="sc">+</span></span>
+<span id="cb451-4"><a href="data-visualization.html#cb451-4" tabindex="-1"></a>  <span class="fu">labs</span>(<span class="at">title =</span> <span class="st">&quot;Cars by Cyclinders&quot;</span>, <span class="at">x =</span> <span class="st">&quot;Number of Cylinders&quot;</span>, <span class="at">y =</span> <span class="st">&quot;Number of Cars&quot;</span>) <span class="sc">+</span></span>
+<span id="cb451-5"><a href="data-visualization.html#cb451-5" tabindex="-1"></a>  <span class="fu">theme_light</span>()</span></code></pre></div>
+<p><img src="bookdownproj_files/figure-html/unnamed-chunk-195-1.png" width="672" /></p>
 <p><em>Dark theme</em></p>
-<div class="sourceCode" id="cb444"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb444-1"><a href="data-visualization.html#cb444-1" tabindex="-1"></a><span class="co"># Creating a bar chart</span></span>
-<span id="cb444-2"><a href="data-visualization.html#cb444-2" tabindex="-1"></a><span class="fu">ggplot</span>(mtcars_by_cyl, <span class="fu">aes</span>(<span class="at">x =</span> <span class="fu">as.character</span>(cyl), <span class="at">y =</span> number_of_cars)) <span class="sc">+</span></span>
-<span id="cb444-3"><a href="data-visualization.html#cb444-3" tabindex="-1"></a>  <span class="fu">geom_bar</span>(<span class="at">stat =</span> <span class="st">&quot;identity&quot;</span>) <span class="sc">+</span></span>
-<span id="cb444-4"><a href="data-visualization.html#cb444-4" tabindex="-1"></a>  <span class="fu">labs</span>(<span class="at">title =</span> <span class="st">&quot;Cars by Cyclinders&quot;</span>, <span class="at">x =</span> <span class="st">&quot;Number of Cylinders&quot;</span>, <span class="at">y =</span> <span class="st">&quot;Number of Cars&quot;</span>) <span class="sc">+</span></span>
-<span id="cb444-5"><a href="data-visualization.html#cb444-5" tabindex="-1"></a>  <span class="fu">theme_dark</span>()</span></code></pre></div>
-<p><img src="bookdownproj_files/figure-html/unnamed-chunk-202-1.png" width="672" /></p>
+<div class="sourceCode" id="cb452"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb452-1"><a href="data-visualization.html#cb452-1" tabindex="-1"></a><span class="co"># Creating a bar chart</span></span>
+<span id="cb452-2"><a href="data-visualization.html#cb452-2" tabindex="-1"></a><span class="fu">ggplot</span>(mtcars_by_cyl, <span class="fu">aes</span>(<span class="at">x =</span> <span class="fu">as.character</span>(cyl), <span class="at">y =</span> number_of_cars)) <span class="sc">+</span></span>
+<span id="cb452-3"><a href="data-visualization.html#cb452-3" tabindex="-1"></a>  <span class="fu">geom_bar</span>(<span class="at">stat =</span> <span class="st">&quot;identity&quot;</span>) <span class="sc">+</span></span>
+<span id="cb452-4"><a href="data-visualization.html#cb452-4" tabindex="-1"></a>  <span class="fu">labs</span>(<span class="at">title =</span> <span class="st">&quot;Cars by Cyclinders&quot;</span>, <span class="at">x =</span> <span class="st">&quot;Number of Cylinders&quot;</span>, <span class="at">y =</span> <span class="st">&quot;Number of Cars&quot;</span>) <span class="sc">+</span></span>
+<span id="cb452-5"><a href="data-visualization.html#cb452-5" tabindex="-1"></a>  <span class="fu">theme_dark</span>()</span></code></pre></div>
+<p><img src="bookdownproj_files/figure-html/unnamed-chunk-196-1.png" width="672" /></p>
 <p><span style="color: brown;"><strong>________________________________________________________________________________</strong></span></p>
 <ul>
 <li><strong>Labels and Titles</strong></li>
 </ul>
 <p>The appearance of the charts can be made more appealing and informative by adding labels and titles. This can be achieved adding the function <code>labs</code> to a ready plot.</p>
 <p>Lets plot the same bar chart as above and add more information with labels;</p>
-<div class="sourceCode" id="cb445"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb445-1"><a href="data-visualization.html#cb445-1" tabindex="-1"></a><span class="co"># Create a basic bar plot</span></span>
-<span id="cb445-2"><a href="data-visualization.html#cb445-2" tabindex="-1"></a>p <span class="ot">&lt;-</span> <span class="fu">ggplot</span>(df, <span class="fu">aes</span>(<span class="at">x =</span> category, <span class="at">y =</span> value)) <span class="sc">+</span></span>
-<span id="cb445-3"><a href="data-visualization.html#cb445-3" tabindex="-1"></a>  <span class="fu">geom_bar</span>(<span class="at">stat =</span> <span class="st">&quot;identity&quot;</span>)</span>
-<span id="cb445-4"><a href="data-visualization.html#cb445-4" tabindex="-1"></a></span>
-<span id="cb445-5"><a href="data-visualization.html#cb445-5" tabindex="-1"></a>p <span class="co"># Show the plot</span></span></code></pre></div>
-<p><img src="bookdownproj_files/figure-html/unnamed-chunk-203-1.png" width="672" /></p>
+<div class="sourceCode" id="cb453"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb453-1"><a href="data-visualization.html#cb453-1" tabindex="-1"></a><span class="co"># Create a basic bar plot</span></span>
+<span id="cb453-2"><a href="data-visualization.html#cb453-2" tabindex="-1"></a>p <span class="ot">&lt;-</span> <span class="fu">ggplot</span>(df, <span class="fu">aes</span>(<span class="at">x =</span> category, <span class="at">y =</span> value)) <span class="sc">+</span></span>
+<span id="cb453-3"><a href="data-visualization.html#cb453-3" tabindex="-1"></a>  <span class="fu">geom_bar</span>(<span class="at">stat =</span> <span class="st">&quot;identity&quot;</span>)</span>
+<span id="cb453-4"><a href="data-visualization.html#cb453-4" tabindex="-1"></a></span>
+<span id="cb453-5"><a href="data-visualization.html#cb453-5" tabindex="-1"></a>p <span class="co"># Show the plot</span></span></code></pre></div>
+<p><img src="bookdownproj_files/figure-html/unnamed-chunk-197-1.png" width="672" /></p>
 <p>The above chart is stored in a variable <code>p</code>. Lets add/modify the labels and titles using the <code>labs()</code> function.</p>
-<div class="sourceCode" id="cb446"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb446-1"><a href="data-visualization.html#cb446-1" tabindex="-1"></a><span class="co"># Bar plot with title, axis labels, and caption</span></span>
-<span id="cb446-2"><a href="data-visualization.html#cb446-2" tabindex="-1"></a>p <span class="sc">+</span> <span class="fu">labs</span>(</span>
-<span id="cb446-3"><a href="data-visualization.html#cb446-3" tabindex="-1"></a>  <span class="at">title =</span> <span class="st">&quot;Bar Plot of Categories&quot;</span>,</span>
-<span id="cb446-4"><a href="data-visualization.html#cb446-4" tabindex="-1"></a>  <span class="at">subtitle =</span> <span class="st">&quot;Values by Category&quot;</span>,</span>
-<span id="cb446-5"><a href="data-visualization.html#cb446-5" tabindex="-1"></a>  <span class="at">x =</span> <span class="st">&quot;Category&quot;</span>,</span>
-<span id="cb446-6"><a href="data-visualization.html#cb446-6" tabindex="-1"></a>  <span class="at">y =</span> <span class="st">&quot;Value&quot;</span>,</span>
-<span id="cb446-7"><a href="data-visualization.html#cb446-7" tabindex="-1"></a>  <span class="at">caption =</span> <span class="st">&quot;Source: Sample Data&quot;</span></span>
-<span id="cb446-8"><a href="data-visualization.html#cb446-8" tabindex="-1"></a>)</span></code></pre></div>
-<p><img src="bookdownproj_files/figure-html/unnamed-chunk-204-1.png" width="672" /></p>
-<div class="sourceCode" id="cb447"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb447-1"><a href="data-visualization.html#cb447-1" tabindex="-1"></a><span class="co"># Remember `p` is the bar plot</span></span></code></pre></div>
+<div class="sourceCode" id="cb454"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb454-1"><a href="data-visualization.html#cb454-1" tabindex="-1"></a><span class="co"># Bar plot with title, axis labels, and caption</span></span>
+<span id="cb454-2"><a href="data-visualization.html#cb454-2" tabindex="-1"></a>p <span class="sc">+</span> <span class="fu">labs</span>(</span>
+<span id="cb454-3"><a href="data-visualization.html#cb454-3" tabindex="-1"></a>  <span class="at">title =</span> <span class="st">&quot;Bar Plot of Categories&quot;</span>,</span>
+<span id="cb454-4"><a href="data-visualization.html#cb454-4" tabindex="-1"></a>  <span class="at">subtitle =</span> <span class="st">&quot;Values by Category&quot;</span>,</span>
+<span id="cb454-5"><a href="data-visualization.html#cb454-5" tabindex="-1"></a>  <span class="at">x =</span> <span class="st">&quot;Category&quot;</span>,</span>
+<span id="cb454-6"><a href="data-visualization.html#cb454-6" tabindex="-1"></a>  <span class="at">y =</span> <span class="st">&quot;Value&quot;</span>,</span>
+<span id="cb454-7"><a href="data-visualization.html#cb454-7" tabindex="-1"></a>  <span class="at">caption =</span> <span class="st">&quot;Source: Sample Data&quot;</span></span>
+<span id="cb454-8"><a href="data-visualization.html#cb454-8" tabindex="-1"></a>)</span></code></pre></div>
+<p><img src="bookdownproj_files/figure-html/unnamed-chunk-198-1.png" width="672" /></p>
+<div class="sourceCode" id="cb455"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb455-1"><a href="data-visualization.html#cb455-1" tabindex="-1"></a><span class="co"># Remember `p` is the bar plot</span></span></code></pre></div>
 <p>The bar plot is more informative now. Lets make the chart more appealing by modifying the appearance of the labels using the <code>theme()</code> function along with the <code>element_text()</code> function.</p>
-<div class="sourceCode" id="cb448"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb448-1"><a href="data-visualization.html#cb448-1" tabindex="-1"></a><span class="co"># Bar plot with customized title and labels</span></span>
-<span id="cb448-2"><a href="data-visualization.html#cb448-2" tabindex="-1"></a>p <span class="sc">+</span> <span class="fu">labs</span>(</span>
-<span id="cb448-3"><a href="data-visualization.html#cb448-3" tabindex="-1"></a>  <span class="at">title =</span> <span class="st">&quot;Bar Plot of Categories&quot;</span>,</span>
-<span id="cb448-4"><a href="data-visualization.html#cb448-4" tabindex="-1"></a>  <span class="at">subtitle =</span> <span class="st">&quot;Values by Category&quot;</span>,</span>
-<span id="cb448-5"><a href="data-visualization.html#cb448-5" tabindex="-1"></a>  <span class="at">x =</span> <span class="st">&quot;Category&quot;</span>,</span>
-<span id="cb448-6"><a href="data-visualization.html#cb448-6" tabindex="-1"></a>  <span class="at">y =</span> <span class="st">&quot;Value&quot;</span>,</span>
-<span id="cb448-7"><a href="data-visualization.html#cb448-7" tabindex="-1"></a>  <span class="at">caption =</span> <span class="st">&quot;Source: Sample Data&quot;</span></span>
-<span id="cb448-8"><a href="data-visualization.html#cb448-8" tabindex="-1"></a>) <span class="sc">+</span></span>
-<span id="cb448-9"><a href="data-visualization.html#cb448-9" tabindex="-1"></a>  <span class="fu">theme</span>(</span>
-<span id="cb448-10"><a href="data-visualization.html#cb448-10" tabindex="-1"></a>    <span class="at">plot.title =</span> <span class="fu">element_text</span>(<span class="at">hjust =</span> <span class="fl">0.5</span>, <span class="at">face =</span> <span class="st">&quot;bold&quot;</span>, <span class="at">size =</span> <span class="dv">16</span>),</span>
-<span id="cb448-11"><a href="data-visualization.html#cb448-11" tabindex="-1"></a>    <span class="at">plot.subtitle =</span> <span class="fu">element_text</span>(<span class="at">hjust =</span> <span class="fl">0.5</span>, <span class="at">size =</span> <span class="dv">14</span>),</span>
-<span id="cb448-12"><a href="data-visualization.html#cb448-12" tabindex="-1"></a>    <span class="at">axis.title.x =</span> <span class="fu">element_text</span>(<span class="at">face =</span> <span class="st">&quot;italic&quot;</span>, <span class="at">size =</span> <span class="dv">12</span>),</span>
-<span id="cb448-13"><a href="data-visualization.html#cb448-13" tabindex="-1"></a>    <span class="at">axis.title.y =</span> <span class="fu">element_text</span>(<span class="at">face =</span> <span class="st">&quot;italic&quot;</span>, <span class="at">size =</span> <span class="dv">12</span>),</span>
-<span id="cb448-14"><a href="data-visualization.html#cb448-14" tabindex="-1"></a>    <span class="at">plot.caption =</span> <span class="fu">element_text</span>(<span class="at">hjust =</span> <span class="dv">0</span>, <span class="at">face =</span> <span class="st">&quot;italic&quot;</span>, <span class="at">size =</span> <span class="dv">10</span>)</span>
-<span id="cb448-15"><a href="data-visualization.html#cb448-15" tabindex="-1"></a>  )</span></code></pre></div>
-<p><img src="bookdownproj_files/figure-html/unnamed-chunk-205-1.png" width="672" /></p>
+<div class="sourceCode" id="cb456"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb456-1"><a href="data-visualization.html#cb456-1" tabindex="-1"></a><span class="co"># Bar plot with customized title and labels</span></span>
+<span id="cb456-2"><a href="data-visualization.html#cb456-2" tabindex="-1"></a>p <span class="sc">+</span> <span class="fu">labs</span>(</span>
+<span id="cb456-3"><a href="data-visualization.html#cb456-3" tabindex="-1"></a>  <span class="at">title =</span> <span class="st">&quot;Bar Plot of Categories&quot;</span>,</span>
+<span id="cb456-4"><a href="data-visualization.html#cb456-4" tabindex="-1"></a>  <span class="at">subtitle =</span> <span class="st">&quot;Values by Category&quot;</span>,</span>
+<span id="cb456-5"><a href="data-visualization.html#cb456-5" tabindex="-1"></a>  <span class="at">x =</span> <span class="st">&quot;Category&quot;</span>,</span>
+<span id="cb456-6"><a href="data-visualization.html#cb456-6" tabindex="-1"></a>  <span class="at">y =</span> <span class="st">&quot;Value&quot;</span>,</span>
+<span id="cb456-7"><a href="data-visualization.html#cb456-7" tabindex="-1"></a>  <span class="at">caption =</span> <span class="st">&quot;Source: Sample Data&quot;</span></span>
+<span id="cb456-8"><a href="data-visualization.html#cb456-8" tabindex="-1"></a>) <span class="sc">+</span></span>
+<span id="cb456-9"><a href="data-visualization.html#cb456-9" tabindex="-1"></a>  <span class="fu">theme</span>(</span>
+<span id="cb456-10"><a href="data-visualization.html#cb456-10" tabindex="-1"></a>    <span class="at">plot.title =</span> <span class="fu">element_text</span>(<span class="at">hjust =</span> <span class="fl">0.5</span>, <span class="at">face =</span> <span class="st">&quot;bold&quot;</span>, <span class="at">size =</span> <span class="dv">16</span>),</span>
+<span id="cb456-11"><a href="data-visualization.html#cb456-11" tabindex="-1"></a>    <span class="at">plot.subtitle =</span> <span class="fu">element_text</span>(<span class="at">hjust =</span> <span class="fl">0.5</span>, <span class="at">size =</span> <span class="dv">14</span>),</span>
+<span id="cb456-12"><a href="data-visualization.html#cb456-12" tabindex="-1"></a>    <span class="at">axis.title.x =</span> <span class="fu">element_text</span>(<span class="at">face =</span> <span class="st">&quot;italic&quot;</span>, <span class="at">size =</span> <span class="dv">12</span>),</span>
+<span id="cb456-13"><a href="data-visualization.html#cb456-13" tabindex="-1"></a>    <span class="at">axis.title.y =</span> <span class="fu">element_text</span>(<span class="at">face =</span> <span class="st">&quot;italic&quot;</span>, <span class="at">size =</span> <span class="dv">12</span>),</span>
+<span id="cb456-14"><a href="data-visualization.html#cb456-14" tabindex="-1"></a>    <span class="at">plot.caption =</span> <span class="fu">element_text</span>(<span class="at">hjust =</span> <span class="dv">0</span>, <span class="at">face =</span> <span class="st">&quot;italic&quot;</span>, <span class="at">size =</span> <span class="dv">10</span>)</span>
+<span id="cb456-15"><a href="data-visualization.html#cb456-15" tabindex="-1"></a>  )</span></code></pre></div>
+<p><img src="bookdownproj_files/figure-html/unnamed-chunk-199-1.png" width="672" /></p>
 <p><span style="color: green;"><strong>Practical exercise</strong></span></p>
 <p>Using the <code>mtcars</code> data set, create a bar plot to visualize the number of cars for each unique number of cylinders (<code>cyl</code>) in the mtcars data set. Add <code>x</code>, <code>y</code> axes labels and titles to the plot.</p>
 <hr />
 <p><span style="color: brown;"><strong>Solution</strong></span></p>
-<div class="sourceCode" id="cb449"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb449-1"><a href="data-visualization.html#cb449-1" tabindex="-1"></a><span class="co"># Creating a bar chart</span></span>
-<span id="cb449-2"><a href="data-visualization.html#cb449-2" tabindex="-1"></a><span class="fu">ggplot</span>(mtcars_by_cyl, <span class="fu">aes</span>(<span class="at">x =</span> <span class="fu">as.character</span>(cyl), <span class="at">y =</span> number_of_cars)) <span class="sc">+</span></span>
-<span id="cb449-3"><a href="data-visualization.html#cb449-3" tabindex="-1"></a>  <span class="fu">geom_bar</span>(<span class="at">stat =</span> <span class="st">&quot;identity&quot;</span>) <span class="sc">+</span></span>
-<span id="cb449-4"><a href="data-visualization.html#cb449-4" tabindex="-1"></a>  <span class="fu">labs</span>(<span class="at">title =</span> <span class="st">&quot;Cars by Cyclinders&quot;</span>, <span class="at">x =</span> <span class="st">&quot;Number of Cylinders&quot;</span>, <span class="at">y =</span> <span class="st">&quot;Number of Cars&quot;</span>)</span></code></pre></div>
-<p><img src="bookdownproj_files/figure-html/unnamed-chunk-206-1.png" width="672" /></p>
+<div class="sourceCode" id="cb457"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb457-1"><a href="data-visualization.html#cb457-1" tabindex="-1"></a><span class="co"># Creating a bar chart</span></span>
+<span id="cb457-2"><a href="data-visualization.html#cb457-2" tabindex="-1"></a><span class="fu">ggplot</span>(mtcars_by_cyl, <span class="fu">aes</span>(<span class="at">x =</span> <span class="fu">as.character</span>(cyl), <span class="at">y =</span> number_of_cars)) <span class="sc">+</span></span>
+<span id="cb457-3"><a href="data-visualization.html#cb457-3" tabindex="-1"></a>  <span class="fu">geom_bar</span>(<span class="at">stat =</span> <span class="st">&quot;identity&quot;</span>) <span class="sc">+</span></span>
+<span id="cb457-4"><a href="data-visualization.html#cb457-4" tabindex="-1"></a>  <span class="fu">labs</span>(<span class="at">title =</span> <span class="st">&quot;Cars by Cyclinders&quot;</span>, <span class="at">x =</span> <span class="st">&quot;Number of Cylinders&quot;</span>, <span class="at">y =</span> <span class="st">&quot;Number of Cars&quot;</span>)</span></code></pre></div>
+<p><img src="bookdownproj_files/figure-html/unnamed-chunk-200-1.png" width="672" /></p>
 <p><span style="color: brown;"><strong>________________________________________________________________________________</strong></span></p>
 <ul>
 <li><strong>Color and aesthetics</strong></li>
 </ul>
 <p>The general aesthetics are essential when presenting the analysis results. They enhance the visual appearance of the charts. It also allows the users/analyst to distinguish different properties/categories in a variable. These are; color, size and shape.</p>
 <p>Lets plot a simple bar chart and add a flavor of aesthetics.</p>
-<div class="sourceCode" id="cb450"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb450-1"><a href="data-visualization.html#cb450-1" tabindex="-1"></a><span class="co"># Sample data with an additional variable. Modified the original one</span></span>
-<span id="cb450-2"><a href="data-visualization.html#cb450-2" tabindex="-1"></a>df <span class="ot">&lt;-</span> <span class="fu">data.frame</span>(</span>
-<span id="cb450-3"><a href="data-visualization.html#cb450-3" tabindex="-1"></a>  <span class="at">category =</span> <span class="fu">c</span>(<span class="st">&quot;A&quot;</span>, <span class="st">&quot;B&quot;</span>, <span class="st">&quot;C&quot;</span>, <span class="st">&quot;D&quot;</span>),</span>
-<span id="cb450-4"><a href="data-visualization.html#cb450-4" tabindex="-1"></a>  <span class="at">value =</span> <span class="fu">c</span>(<span class="dv">23</span>, <span class="dv">17</span>, <span class="dv">35</span>, <span class="dv">10</span>),</span>
-<span id="cb450-5"><a href="data-visualization.html#cb450-5" tabindex="-1"></a>  <span class="at">group =</span> <span class="fu">c</span>(<span class="st">&quot;G1&quot;</span>, <span class="st">&quot;G2&quot;</span>, <span class="st">&quot;G1&quot;</span>, <span class="st">&quot;G2&quot;</span>)</span>
-<span id="cb450-6"><a href="data-visualization.html#cb450-6" tabindex="-1"></a>)</span>
-<span id="cb450-7"><a href="data-visualization.html#cb450-7" tabindex="-1"></a></span>
-<span id="cb450-8"><a href="data-visualization.html#cb450-8" tabindex="-1"></a></span>
-<span id="cb450-9"><a href="data-visualization.html#cb450-9" tabindex="-1"></a><span class="co"># Bar plot with mapped color, size, and shape</span></span>
-<span id="cb450-10"><a href="data-visualization.html#cb450-10" tabindex="-1"></a><span class="fu">ggplot</span>(df, <span class="fu">aes</span>(<span class="at">x =</span> category, <span class="at">y =</span> value, <span class="at">color =</span> group, <span class="at">size =</span> value, <span class="at">shape =</span> group)) <span class="sc">+</span></span>
-<span id="cb450-11"><a href="data-visualization.html#cb450-11" tabindex="-1"></a>  <span class="fu">geom_point</span>()</span></code></pre></div>
-<p><img src="bookdownproj_files/figure-html/unnamed-chunk-207-1.png" width="672" /></p>
+<div class="sourceCode" id="cb458"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb458-1"><a href="data-visualization.html#cb458-1" tabindex="-1"></a><span class="co"># Sample data with an additional variable. Modified the original one</span></span>
+<span id="cb458-2"><a href="data-visualization.html#cb458-2" tabindex="-1"></a>df <span class="ot">&lt;-</span> <span class="fu">data.frame</span>(</span>
+<span id="cb458-3"><a href="data-visualization.html#cb458-3" tabindex="-1"></a>  <span class="at">category =</span> <span class="fu">c</span>(<span class="st">&quot;A&quot;</span>, <span class="st">&quot;B&quot;</span>, <span class="st">&quot;C&quot;</span>, <span class="st">&quot;D&quot;</span>),</span>
+<span id="cb458-4"><a href="data-visualization.html#cb458-4" tabindex="-1"></a>  <span class="at">value =</span> <span class="fu">c</span>(<span class="dv">23</span>, <span class="dv">17</span>, <span class="dv">35</span>, <span class="dv">10</span>),</span>
+<span id="cb458-5"><a href="data-visualization.html#cb458-5" tabindex="-1"></a>  <span class="at">group =</span> <span class="fu">c</span>(<span class="st">&quot;G1&quot;</span>, <span class="st">&quot;G2&quot;</span>, <span class="st">&quot;G1&quot;</span>, <span class="st">&quot;G2&quot;</span>)</span>
+<span id="cb458-6"><a href="data-visualization.html#cb458-6" tabindex="-1"></a>)</span>
+<span id="cb458-7"><a href="data-visualization.html#cb458-7" tabindex="-1"></a></span>
+<span id="cb458-8"><a href="data-visualization.html#cb458-8" tabindex="-1"></a></span>
+<span id="cb458-9"><a href="data-visualization.html#cb458-9" tabindex="-1"></a><span class="co"># Bar plot with mapped color, size, and shape</span></span>
+<span id="cb458-10"><a href="data-visualization.html#cb458-10" tabindex="-1"></a><span class="fu">ggplot</span>(df, <span class="fu">aes</span>(<span class="at">x =</span> category, <span class="at">y =</span> value, <span class="at">color =</span> group, <span class="at">size =</span> value, <span class="at">shape =</span> group)) <span class="sc">+</span></span>
+<span id="cb458-11"><a href="data-visualization.html#cb458-11" tabindex="-1"></a>  <span class="fu">geom_point</span>()</span></code></pre></div>
+<p><img src="bookdownproj_files/figure-html/unnamed-chunk-201-1.png" width="672" /></p>
 <p>Lets break down the scatter plot on how aesthetics are applied.</p>
 <ol style="list-style-type: lower-roman">
 <li><code>color = group</code>: Maps the group variable to the color of the points. Each group will have a different color.</li>
@@ -694,11 +694,11 @@ The <code>theme_dark()</code> is a clear opposite of <code>theme_light</code> as
 <li><code>shape = group</code>: Maps the group variable to the shape of the points. Different groups will have different shapes.</li>
 </ol>
 <p>Above there, the color was selected automatically by R. It can also be customized to fit our taste. Lets do a bit of color customization.</p>
-<div class="sourceCode" id="cb451"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb451-1"><a href="data-visualization.html#cb451-1" tabindex="-1"></a><span class="co"># Customizing colors manually</span></span>
-<span id="cb451-2"><a href="data-visualization.html#cb451-2" tabindex="-1"></a><span class="fu">ggplot</span>(df, <span class="fu">aes</span>(<span class="at">x =</span> category, <span class="at">y =</span> value, <span class="at">color =</span> group)) <span class="sc">+</span></span>
-<span id="cb451-3"><a href="data-visualization.html#cb451-3" tabindex="-1"></a>  <span class="fu">geom_point</span>(<span class="at">size =</span> <span class="dv">5</span>) <span class="sc">+</span></span>
-<span id="cb451-4"><a href="data-visualization.html#cb451-4" tabindex="-1"></a>  <span class="fu">scale_color_manual</span>(<span class="at">values =</span> <span class="fu">c</span>(<span class="st">&quot;G1&quot;</span> <span class="ot">=</span> <span class="st">&quot;blue&quot;</span>, <span class="st">&quot;G2&quot;</span> <span class="ot">=</span> <span class="st">&quot;red&quot;</span>))</span></code></pre></div>
-<p><img src="bookdownproj_files/figure-html/unnamed-chunk-208-1.png" width="672" /></p>
+<div class="sourceCode" id="cb459"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb459-1"><a href="data-visualization.html#cb459-1" tabindex="-1"></a><span class="co"># Customizing colors manually</span></span>
+<span id="cb459-2"><a href="data-visualization.html#cb459-2" tabindex="-1"></a><span class="fu">ggplot</span>(df, <span class="fu">aes</span>(<span class="at">x =</span> category, <span class="at">y =</span> value, <span class="at">color =</span> group)) <span class="sc">+</span></span>
+<span id="cb459-3"><a href="data-visualization.html#cb459-3" tabindex="-1"></a>  <span class="fu">geom_point</span>(<span class="at">size =</span> <span class="dv">5</span>) <span class="sc">+</span></span>
+<span id="cb459-4"><a href="data-visualization.html#cb459-4" tabindex="-1"></a>  <span class="fu">scale_color_manual</span>(<span class="at">values =</span> <span class="fu">c</span>(<span class="st">&quot;G1&quot;</span> <span class="ot">=</span> <span class="st">&quot;blue&quot;</span>, <span class="st">&quot;G2&quot;</span> <span class="ot">=</span> <span class="st">&quot;red&quot;</span>))</span></code></pre></div>
+<p><img src="bookdownproj_files/figure-html/unnamed-chunk-202-1.png" width="672" /></p>
 <p>The <code>scale_color_manual()</code> function allows you to manually set the colors for each level of the group variable. In this case, G1 is set to blue and G2 to red.</p>
 <p><span style="color: green;"><strong>Practical exercise</strong></span></p>
 <p>Using the <code>mtcars</code> data set, create a bar plot to visualize the number of cars for each unique number of cylinders (<code>cyl</code>) in the mtcars data set. Play with different foreground and background colors to come up with the best looking plot.</p>
@@ -720,112 +720,112 @@ The <code>theme_dark()</code> is a clear opposite of <code>theme_light</code> as
 </ul>
 <p>Box plot is a type of chart that uses boxes and lines to show distributions of one or more groups of a continuous numeric data. They provide a high-level information at a glance for instance the data symmetry, skew and variance. They can also be used to show outliers within a data set. This is the only chart that can effectively give the measure of spread and central tendency(median, quartiles and range).</p>
 <p>Lets plot a simple boxplot for the age of employees from the IBM Human Resource Analytics data; The data can be downloaded from <a href="https://www.kaggle.com/code/faressayah/ibm-hr-analytics-employee-attrition-performance/input">here</a></p>
-<div class="sourceCode" id="cb452"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb452-1"><a href="data-visualization.html#cb452-1" tabindex="-1"></a>df <span class="ot">&lt;-</span> <span class="fu">read.csv</span>(<span class="st">&quot;data/HR-Employee-Attrition.csv&quot;</span>)</span>
-<span id="cb452-2"><a href="data-visualization.html#cb452-2" tabindex="-1"></a></span>
-<span id="cb452-3"><a href="data-visualization.html#cb452-3" tabindex="-1"></a><span class="co"># Plot a boxplot</span></span>
-<span id="cb452-4"><a href="data-visualization.html#cb452-4" tabindex="-1"></a><span class="fu">ggplot</span>(df, <span class="fu">aes</span>(<span class="at">y=</span>Age))<span class="sc">+</span></span>
-<span id="cb452-5"><a href="data-visualization.html#cb452-5" tabindex="-1"></a>  <span class="fu">geom_boxplot</span>(<span class="at">fill=</span><span class="st">&quot;black&quot;</span>)</span></code></pre></div>
-<p><img src="bookdownproj_files/figure-html/unnamed-chunk-209-1.png" width="672" /></p>
+<div class="sourceCode" id="cb460"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb460-1"><a href="data-visualization.html#cb460-1" tabindex="-1"></a>df <span class="ot">&lt;-</span> <span class="fu">read.csv</span>(<span class="st">&quot;data/HR-Employee-Attrition.csv&quot;</span>)</span>
+<span id="cb460-2"><a href="data-visualization.html#cb460-2" tabindex="-1"></a></span>
+<span id="cb460-3"><a href="data-visualization.html#cb460-3" tabindex="-1"></a><span class="co"># Plot a boxplot</span></span>
+<span id="cb460-4"><a href="data-visualization.html#cb460-4" tabindex="-1"></a><span class="fu">ggplot</span>(df, <span class="fu">aes</span>(<span class="at">y=</span>Age))<span class="sc">+</span></span>
+<span id="cb460-5"><a href="data-visualization.html#cb460-5" tabindex="-1"></a>  <span class="fu">geom_boxplot</span>(<span class="at">fill=</span><span class="st">&quot;black&quot;</span>)</span></code></pre></div>
+<p><img src="bookdownproj_files/figure-html/unnamed-chunk-203-1.png" width="672" /></p>
 <p>The upper quartile for the employees’ age is 43(Q3) while the lower quartile(Q1) is 30.The median age is approximately 36 (Median is represented by the line that appears in the middle of the box). There are no outliers in the dataset. Lets compare the distribution of ages between male and female employees; (The <code>x</code> argument, in this case <code>Gender</code> will be introduced in <code>aes()</code> function to achieve comparison between genders)</p>
-<div class="sourceCode" id="cb453"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb453-1"><a href="data-visualization.html#cb453-1" tabindex="-1"></a><span class="co"># Plot a boxplot</span></span>
-<span id="cb453-2"><a href="data-visualization.html#cb453-2" tabindex="-1"></a><span class="fu">ggplot</span>(df, <span class="fu">aes</span>(<span class="at">y=</span>Age, <span class="at">x=</span>Gender))<span class="sc">+</span></span>
-<span id="cb453-3"><a href="data-visualization.html#cb453-3" tabindex="-1"></a>  <span class="fu">geom_boxplot</span>(<span class="at">fill=</span><span class="fu">c</span>(<span class="st">&quot;pink&quot;</span>, <span class="st">&quot;lightblue&quot;</span>))</span></code></pre></div>
-<p><img src="bookdownproj_files/figure-html/unnamed-chunk-210-1.png" width="672" /></p>
+<div class="sourceCode" id="cb461"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb461-1"><a href="data-visualization.html#cb461-1" tabindex="-1"></a><span class="co"># Plot a boxplot</span></span>
+<span id="cb461-2"><a href="data-visualization.html#cb461-2" tabindex="-1"></a><span class="fu">ggplot</span>(df, <span class="fu">aes</span>(<span class="at">y=</span>Age, <span class="at">x=</span>Gender))<span class="sc">+</span></span>
+<span id="cb461-3"><a href="data-visualization.html#cb461-3" tabindex="-1"></a>  <span class="fu">geom_boxplot</span>(<span class="at">fill=</span><span class="fu">c</span>(<span class="st">&quot;pink&quot;</span>, <span class="st">&quot;lightblue&quot;</span>))</span></code></pre></div>
+<p><img src="bookdownproj_files/figure-html/unnamed-chunk-204-1.png" width="672" /></p>
 <p>The female employee have an older working population than the male counterparts with a median age of approximately 36 and 35 respectively.</p>
 <p>The distance between Q3 and Q1 (in this case the height of the box) is know as the Interquartile Range(IQR).</p>
 <p>The above boxplots are vertical, they can be shifted to horizontal by interchanging the <code>y</code> and <code>x</code> argument in the function <code>aes()</code>. Lets do it;</p>
-<div class="sourceCode" id="cb454"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb454-1"><a href="data-visualization.html#cb454-1" tabindex="-1"></a><span class="co"># Plot a horizontal boxplot </span></span>
-<span id="cb454-2"><a href="data-visualization.html#cb454-2" tabindex="-1"></a><span class="fu">ggplot</span>(df, <span class="fu">aes</span>(<span class="at">x=</span>Age, <span class="at">y=</span>Gender))<span class="sc">+</span></span>
-<span id="cb454-3"><a href="data-visualization.html#cb454-3" tabindex="-1"></a>  <span class="fu">geom_boxplot</span>(<span class="at">fill=</span><span class="fu">c</span>(<span class="st">&quot;pink&quot;</span>, <span class="st">&quot;lightblue&quot;</span>))</span></code></pre></div>
-<p><img src="bookdownproj_files/figure-html/unnamed-chunk-211-1.png" width="672" /></p>
+<div class="sourceCode" id="cb462"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb462-1"><a href="data-visualization.html#cb462-1" tabindex="-1"></a><span class="co"># Plot a horizontal boxplot </span></span>
+<span id="cb462-2"><a href="data-visualization.html#cb462-2" tabindex="-1"></a><span class="fu">ggplot</span>(df, <span class="fu">aes</span>(<span class="at">x=</span>Age, <span class="at">y=</span>Gender))<span class="sc">+</span></span>
+<span id="cb462-3"><a href="data-visualization.html#cb462-3" tabindex="-1"></a>  <span class="fu">geom_boxplot</span>(<span class="at">fill=</span><span class="fu">c</span>(<span class="st">&quot;pink&quot;</span>, <span class="st">&quot;lightblue&quot;</span>))</span></code></pre></div>
+<p><img src="bookdownproj_files/figure-html/unnamed-chunk-205-1.png" width="672" /></p>
 <p>Lets add a few customization to make the graph more informative and visually appealing</p>
-<div class="sourceCode" id="cb455"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb455-1"><a href="data-visualization.html#cb455-1" tabindex="-1"></a><span class="co"># BOXPLOT </span></span>
-<span id="cb455-2"><a href="data-visualization.html#cb455-2" tabindex="-1"></a><span class="fu">ggplot</span>(df, <span class="fu">aes</span>(<span class="at">x=</span>Age, <span class="at">y=</span>Gender))<span class="sc">+</span></span>
-<span id="cb455-3"><a href="data-visualization.html#cb455-3" tabindex="-1"></a>  <span class="fu">geom_boxplot</span>(<span class="at">fill=</span><span class="fu">c</span>(<span class="st">&quot;pink&quot;</span>, <span class="st">&quot;lightblue&quot;</span>))<span class="sc">+</span></span>
-<span id="cb455-4"><a href="data-visualization.html#cb455-4" tabindex="-1"></a>  <span class="fu">theme_dark</span>() <span class="sc">+</span> </span>
-<span id="cb455-5"><a href="data-visualization.html#cb455-5" tabindex="-1"></a>  <span class="fu">labs</span>(</span>
-<span id="cb455-6"><a href="data-visualization.html#cb455-6" tabindex="-1"></a>  <span class="at">title =</span> <span class="st">&quot;IBM HR Analytics&quot;</span>,</span>
-<span id="cb455-7"><a href="data-visualization.html#cb455-7" tabindex="-1"></a>  <span class="at">subtitle =</span> <span class="st">&quot;Boxplots of Employees&#39; age by Gender&quot;</span>,</span>
-<span id="cb455-8"><a href="data-visualization.html#cb455-8" tabindex="-1"></a>  <span class="at">x =</span> <span class="st">&quot;Age&quot;</span>,</span>
-<span id="cb455-9"><a href="data-visualization.html#cb455-9" tabindex="-1"></a>  <span class="at">y =</span> <span class="st">&quot;Gender&quot;</span>,</span>
-<span id="cb455-10"><a href="data-visualization.html#cb455-10" tabindex="-1"></a>  <span class="at">caption =</span> <span class="st">&quot;Source: Kaggle&quot;</span></span>
-<span id="cb455-11"><a href="data-visualization.html#cb455-11" tabindex="-1"></a>) <span class="sc">+</span></span>
-<span id="cb455-12"><a href="data-visualization.html#cb455-12" tabindex="-1"></a>  <span class="fu">theme</span>(</span>
-<span id="cb455-13"><a href="data-visualization.html#cb455-13" tabindex="-1"></a>    <span class="at">plot.title =</span> <span class="fu">element_text</span>(<span class="at">hjust =</span> <span class="fl">0.5</span>, <span class="at">face =</span> <span class="st">&quot;bold&quot;</span>, <span class="at">size =</span> <span class="dv">16</span>),</span>
-<span id="cb455-14"><a href="data-visualization.html#cb455-14" tabindex="-1"></a>    <span class="at">plot.subtitle =</span> <span class="fu">element_text</span>(<span class="at">hjust =</span> <span class="fl">0.5</span>, <span class="at">size =</span> <span class="dv">14</span>),</span>
-<span id="cb455-15"><a href="data-visualization.html#cb455-15" tabindex="-1"></a>    <span class="at">axis.title.x =</span> <span class="fu">element_text</span>(<span class="at">face =</span> <span class="st">&quot;italic&quot;</span>, <span class="at">size =</span> <span class="dv">12</span>),</span>
-<span id="cb455-16"><a href="data-visualization.html#cb455-16" tabindex="-1"></a>    <span class="at">axis.title.y =</span> <span class="fu">element_text</span>(<span class="at">face =</span> <span class="st">&quot;italic&quot;</span>, <span class="at">size =</span> <span class="dv">12</span>),</span>
-<span id="cb455-17"><a href="data-visualization.html#cb455-17" tabindex="-1"></a>    <span class="at">plot.caption =</span> <span class="fu">element_text</span>(<span class="at">hjust =</span> <span class="dv">0</span>, <span class="at">face =</span> <span class="st">&quot;italic&quot;</span>, <span class="at">size =</span> <span class="dv">10</span>)</span>
-<span id="cb455-18"><a href="data-visualization.html#cb455-18" tabindex="-1"></a>  )</span></code></pre></div>
-<p><img src="bookdownproj_files/figure-html/unnamed-chunk-212-1.png" width="672" /></p>
+<div class="sourceCode" id="cb463"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb463-1"><a href="data-visualization.html#cb463-1" tabindex="-1"></a><span class="co"># BOXPLOT </span></span>
+<span id="cb463-2"><a href="data-visualization.html#cb463-2" tabindex="-1"></a><span class="fu">ggplot</span>(df, <span class="fu">aes</span>(<span class="at">x=</span>Age, <span class="at">y=</span>Gender))<span class="sc">+</span></span>
+<span id="cb463-3"><a href="data-visualization.html#cb463-3" tabindex="-1"></a>  <span class="fu">geom_boxplot</span>(<span class="at">fill=</span><span class="fu">c</span>(<span class="st">&quot;pink&quot;</span>, <span class="st">&quot;lightblue&quot;</span>))<span class="sc">+</span></span>
+<span id="cb463-4"><a href="data-visualization.html#cb463-4" tabindex="-1"></a>  <span class="fu">theme_dark</span>() <span class="sc">+</span> </span>
+<span id="cb463-5"><a href="data-visualization.html#cb463-5" tabindex="-1"></a>  <span class="fu">labs</span>(</span>
+<span id="cb463-6"><a href="data-visualization.html#cb463-6" tabindex="-1"></a>  <span class="at">title =</span> <span class="st">&quot;IBM HR Analytics&quot;</span>,</span>
+<span id="cb463-7"><a href="data-visualization.html#cb463-7" tabindex="-1"></a>  <span class="at">subtitle =</span> <span class="st">&quot;Boxplots of Employees&#39; age by Gender&quot;</span>,</span>
+<span id="cb463-8"><a href="data-visualization.html#cb463-8" tabindex="-1"></a>  <span class="at">x =</span> <span class="st">&quot;Age&quot;</span>,</span>
+<span id="cb463-9"><a href="data-visualization.html#cb463-9" tabindex="-1"></a>  <span class="at">y =</span> <span class="st">&quot;Gender&quot;</span>,</span>
+<span id="cb463-10"><a href="data-visualization.html#cb463-10" tabindex="-1"></a>  <span class="at">caption =</span> <span class="st">&quot;Source: Kaggle&quot;</span></span>
+<span id="cb463-11"><a href="data-visualization.html#cb463-11" tabindex="-1"></a>) <span class="sc">+</span></span>
+<span id="cb463-12"><a href="data-visualization.html#cb463-12" tabindex="-1"></a>  <span class="fu">theme</span>(</span>
+<span id="cb463-13"><a href="data-visualization.html#cb463-13" tabindex="-1"></a>    <span class="at">plot.title =</span> <span class="fu">element_text</span>(<span class="at">hjust =</span> <span class="fl">0.5</span>, <span class="at">face =</span> <span class="st">&quot;bold&quot;</span>, <span class="at">size =</span> <span class="dv">16</span>),</span>
+<span id="cb463-14"><a href="data-visualization.html#cb463-14" tabindex="-1"></a>    <span class="at">plot.subtitle =</span> <span class="fu">element_text</span>(<span class="at">hjust =</span> <span class="fl">0.5</span>, <span class="at">size =</span> <span class="dv">14</span>),</span>
+<span id="cb463-15"><a href="data-visualization.html#cb463-15" tabindex="-1"></a>    <span class="at">axis.title.x =</span> <span class="fu">element_text</span>(<span class="at">face =</span> <span class="st">&quot;italic&quot;</span>, <span class="at">size =</span> <span class="dv">12</span>),</span>
+<span id="cb463-16"><a href="data-visualization.html#cb463-16" tabindex="-1"></a>    <span class="at">axis.title.y =</span> <span class="fu">element_text</span>(<span class="at">face =</span> <span class="st">&quot;italic&quot;</span>, <span class="at">size =</span> <span class="dv">12</span>),</span>
+<span id="cb463-17"><a href="data-visualization.html#cb463-17" tabindex="-1"></a>    <span class="at">plot.caption =</span> <span class="fu">element_text</span>(<span class="at">hjust =</span> <span class="dv">0</span>, <span class="at">face =</span> <span class="st">&quot;italic&quot;</span>, <span class="at">size =</span> <span class="dv">10</span>)</span>
+<span id="cb463-18"><a href="data-visualization.html#cb463-18" tabindex="-1"></a>  )</span></code></pre></div>
+<p><img src="bookdownproj_files/figure-html/unnamed-chunk-206-1.png" width="672" /></p>
 <p><span style="color: green;"><strong>Practical exercise</strong></span></p>
 <p>Load the inbuilt <code>ToothGrowth</code> data set and create a boxplot to compare the distribution of tooth length (<code>len</code>) across the different dose levels (<code>dose</code>) of Vitamin C in the <code>ToothGrowth</code> data set. Make sure to label the axes and title the plot appropriately.</p>
 <hr />
 <p><span style="color: brown;"><strong>Solution</strong></span></p>
-<div class="sourceCode" id="cb456"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb456-1"><a href="data-visualization.html#cb456-1" tabindex="-1"></a><span class="fu">library</span>(ggplot2)</span>
-<span id="cb456-2"><a href="data-visualization.html#cb456-2" tabindex="-1"></a><span class="fu">library</span>(dplyr)</span>
-<span id="cb456-3"><a href="data-visualization.html#cb456-3" tabindex="-1"></a></span>
-<span id="cb456-4"><a href="data-visualization.html#cb456-4" tabindex="-1"></a><span class="co"># Load the data</span></span>
-<span id="cb456-5"><a href="data-visualization.html#cb456-5" tabindex="-1"></a><span class="fu">data</span>(<span class="st">&quot;ToothGrowth&quot;</span>)</span>
-<span id="cb456-6"><a href="data-visualization.html#cb456-6" tabindex="-1"></a></span>
-<span id="cb456-7"><a href="data-visualization.html#cb456-7" tabindex="-1"></a><span class="co"># Filter to get Vitamin C</span></span>
-<span id="cb456-8"><a href="data-visualization.html#cb456-8" tabindex="-1"></a>vit_C_data <span class="ot">&lt;-</span> ToothGrowth <span class="sc">%&gt;%</span></span>
-<span id="cb456-9"><a href="data-visualization.html#cb456-9" tabindex="-1"></a>  <span class="fu">filter</span>(supp<span class="sc">==</span><span class="st">&quot;VC&quot;</span>)</span>
-<span id="cb456-10"><a href="data-visualization.html#cb456-10" tabindex="-1"></a></span>
-<span id="cb456-11"><a href="data-visualization.html#cb456-11" tabindex="-1"></a><span class="co"># CREATE BOXPLOT </span></span>
-<span id="cb456-12"><a href="data-visualization.html#cb456-12" tabindex="-1"></a><span class="fu">ggplot</span>(vit_C_data, <span class="fu">aes</span>(<span class="at">x=</span>len, <span class="at">y=</span><span class="fu">as.character</span>(dose)))<span class="sc">+</span></span>
-<span id="cb456-13"><a href="data-visualization.html#cb456-13" tabindex="-1"></a>  <span class="fu">geom_boxplot</span>()<span class="sc">+</span></span>
-<span id="cb456-14"><a href="data-visualization.html#cb456-14" tabindex="-1"></a>  <span class="fu">theme_dark</span>() <span class="sc">+</span> </span>
-<span id="cb456-15"><a href="data-visualization.html#cb456-15" tabindex="-1"></a>  <span class="fu">labs</span>(</span>
-<span id="cb456-16"><a href="data-visualization.html#cb456-16" tabindex="-1"></a>  <span class="at">title =</span> <span class="st">&quot;Tooth Length distribution comparison&quot;</span>,</span>
-<span id="cb456-17"><a href="data-visualization.html#cb456-17" tabindex="-1"></a>  <span class="at">x =</span> <span class="st">&quot;Tooth Length&quot;</span>,</span>
-<span id="cb456-18"><a href="data-visualization.html#cb456-18" tabindex="-1"></a>  <span class="at">y =</span> <span class="st">&quot;Dose&quot;</span></span>
-<span id="cb456-19"><a href="data-visualization.html#cb456-19" tabindex="-1"></a>) <span class="sc">+</span></span>
-<span id="cb456-20"><a href="data-visualization.html#cb456-20" tabindex="-1"></a>  <span class="fu">theme</span>(</span>
-<span id="cb456-21"><a href="data-visualization.html#cb456-21" tabindex="-1"></a>    <span class="at">plot.title =</span> <span class="fu">element_text</span>(<span class="at">hjust =</span> <span class="fl">0.5</span>, <span class="at">face =</span> <span class="st">&quot;bold&quot;</span>, <span class="at">size =</span> <span class="dv">16</span>),</span>
-<span id="cb456-22"><a href="data-visualization.html#cb456-22" tabindex="-1"></a>    <span class="at">axis.title.x =</span> <span class="fu">element_text</span>(<span class="at">face =</span> <span class="st">&quot;italic&quot;</span>, <span class="at">size =</span> <span class="dv">12</span>),</span>
-<span id="cb456-23"><a href="data-visualization.html#cb456-23" tabindex="-1"></a>    <span class="at">axis.title.y =</span> <span class="fu">element_text</span>(<span class="at">face =</span> <span class="st">&quot;italic&quot;</span>, <span class="at">size =</span> <span class="dv">12</span>)</span>
-<span id="cb456-24"><a href="data-visualization.html#cb456-24" tabindex="-1"></a>    )</span></code></pre></div>
-<p><img src="bookdownproj_files/figure-html/unnamed-chunk-213-1.png" width="672" /></p>
+<div class="sourceCode" id="cb464"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb464-1"><a href="data-visualization.html#cb464-1" tabindex="-1"></a><span class="fu">library</span>(ggplot2)</span>
+<span id="cb464-2"><a href="data-visualization.html#cb464-2" tabindex="-1"></a><span class="fu">library</span>(dplyr)</span>
+<span id="cb464-3"><a href="data-visualization.html#cb464-3" tabindex="-1"></a></span>
+<span id="cb464-4"><a href="data-visualization.html#cb464-4" tabindex="-1"></a><span class="co"># Load the data</span></span>
+<span id="cb464-5"><a href="data-visualization.html#cb464-5" tabindex="-1"></a><span class="fu">data</span>(<span class="st">&quot;ToothGrowth&quot;</span>)</span>
+<span id="cb464-6"><a href="data-visualization.html#cb464-6" tabindex="-1"></a></span>
+<span id="cb464-7"><a href="data-visualization.html#cb464-7" tabindex="-1"></a><span class="co"># Filter to get Vitamin C</span></span>
+<span id="cb464-8"><a href="data-visualization.html#cb464-8" tabindex="-1"></a>vit_C_data <span class="ot">&lt;-</span> ToothGrowth <span class="sc">%&gt;%</span></span>
+<span id="cb464-9"><a href="data-visualization.html#cb464-9" tabindex="-1"></a>  <span class="fu">filter</span>(supp<span class="sc">==</span><span class="st">&quot;VC&quot;</span>)</span>
+<span id="cb464-10"><a href="data-visualization.html#cb464-10" tabindex="-1"></a></span>
+<span id="cb464-11"><a href="data-visualization.html#cb464-11" tabindex="-1"></a><span class="co"># CREATE BOXPLOT </span></span>
+<span id="cb464-12"><a href="data-visualization.html#cb464-12" tabindex="-1"></a><span class="fu">ggplot</span>(vit_C_data, <span class="fu">aes</span>(<span class="at">x=</span>len, <span class="at">y=</span><span class="fu">as.character</span>(dose)))<span class="sc">+</span></span>
+<span id="cb464-13"><a href="data-visualization.html#cb464-13" tabindex="-1"></a>  <span class="fu">geom_boxplot</span>()<span class="sc">+</span></span>
+<span id="cb464-14"><a href="data-visualization.html#cb464-14" tabindex="-1"></a>  <span class="fu">theme_dark</span>() <span class="sc">+</span> </span>
+<span id="cb464-15"><a href="data-visualization.html#cb464-15" tabindex="-1"></a>  <span class="fu">labs</span>(</span>
+<span id="cb464-16"><a href="data-visualization.html#cb464-16" tabindex="-1"></a>  <span class="at">title =</span> <span class="st">&quot;Tooth Length distribution comparison&quot;</span>,</span>
+<span id="cb464-17"><a href="data-visualization.html#cb464-17" tabindex="-1"></a>  <span class="at">x =</span> <span class="st">&quot;Tooth Length&quot;</span>,</span>
+<span id="cb464-18"><a href="data-visualization.html#cb464-18" tabindex="-1"></a>  <span class="at">y =</span> <span class="st">&quot;Dose&quot;</span></span>
+<span id="cb464-19"><a href="data-visualization.html#cb464-19" tabindex="-1"></a>) <span class="sc">+</span></span>
+<span id="cb464-20"><a href="data-visualization.html#cb464-20" tabindex="-1"></a>  <span class="fu">theme</span>(</span>
+<span id="cb464-21"><a href="data-visualization.html#cb464-21" tabindex="-1"></a>    <span class="at">plot.title =</span> <span class="fu">element_text</span>(<span class="at">hjust =</span> <span class="fl">0.5</span>, <span class="at">face =</span> <span class="st">&quot;bold&quot;</span>, <span class="at">size =</span> <span class="dv">16</span>),</span>
+<span id="cb464-22"><a href="data-visualization.html#cb464-22" tabindex="-1"></a>    <span class="at">axis.title.x =</span> <span class="fu">element_text</span>(<span class="at">face =</span> <span class="st">&quot;italic&quot;</span>, <span class="at">size =</span> <span class="dv">12</span>),</span>
+<span id="cb464-23"><a href="data-visualization.html#cb464-23" tabindex="-1"></a>    <span class="at">axis.title.y =</span> <span class="fu">element_text</span>(<span class="at">face =</span> <span class="st">&quot;italic&quot;</span>, <span class="at">size =</span> <span class="dv">12</span>)</span>
+<span id="cb464-24"><a href="data-visualization.html#cb464-24" tabindex="-1"></a>    )</span></code></pre></div>
+<p><img src="bookdownproj_files/figure-html/unnamed-chunk-207-1.png" width="672" /></p>
 <p><span style="color: brown;"><strong>________________________________________________________________________________</strong></span></p>
 <ul>
 <li><strong>Violin Plots</strong></li>
 </ul>
 <p>An alternative to the boxplot is the violin plot. The violin plot addresses the issue of distribution. It shows the distribution curve unlike the boxplot and histogram.</p>
 <p>To demonstrate this, lets visualize the distribution of employees age using a violin plot.</p>
-<div class="sourceCode" id="cb457"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb457-1"><a href="data-visualization.html#cb457-1" tabindex="-1"></a><span class="co"># VIOLINE PLOT </span></span>
-<span id="cb457-2"><a href="data-visualization.html#cb457-2" tabindex="-1"></a><span class="fu">ggplot</span>(df, <span class="fu">aes</span>(<span class="at">x=</span>Age, <span class="at">y=</span><span class="st">&quot;&quot;</span>))<span class="sc">+</span></span>
-<span id="cb457-3"><a href="data-visualization.html#cb457-3" tabindex="-1"></a>  <span class="fu">geom_violin</span>(<span class="at">fill =</span> <span class="st">&quot;skyblue&quot;</span>, <span class="at">color =</span> <span class="st">&quot;darkblue&quot;</span>)</span></code></pre></div>
-<p><img src="bookdownproj_files/figure-html/unnamed-chunk-214-1.png" width="672" /></p>
+<div class="sourceCode" id="cb465"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb465-1"><a href="data-visualization.html#cb465-1" tabindex="-1"></a><span class="co"># VIOLINE PLOT </span></span>
+<span id="cb465-2"><a href="data-visualization.html#cb465-2" tabindex="-1"></a><span class="fu">ggplot</span>(df, <span class="fu">aes</span>(<span class="at">x=</span>Age, <span class="at">y=</span><span class="st">&quot;&quot;</span>))<span class="sc">+</span></span>
+<span id="cb465-3"><a href="data-visualization.html#cb465-3" tabindex="-1"></a>  <span class="fu">geom_violin</span>(<span class="at">fill =</span> <span class="st">&quot;skyblue&quot;</span>, <span class="at">color =</span> <span class="st">&quot;darkblue&quot;</span>)</span></code></pre></div>
+<p><img src="bookdownproj_files/figure-html/unnamed-chunk-208-1.png" width="672" /></p>
 <p><span style="color: green;"><strong>Practical exercise</strong></span></p>
 <p>Using the same <code>ToothGrowth</code> data set and create a violin plot to compare the distribution of tooth length (<code>len</code>) across the different dose levels (<code>dose</code>) of Vitamin C in the <code>ToothGrowth</code> data set. Make sure to label the axes and title the plot appropriately.</p>
 <hr />
 <p><span style="color: brown;"><strong>Solution</strong></span></p>
-<div class="sourceCode" id="cb458"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb458-1"><a href="data-visualization.html#cb458-1" tabindex="-1"></a><span class="fu">library</span>(ggplot2)</span>
-<span id="cb458-2"><a href="data-visualization.html#cb458-2" tabindex="-1"></a><span class="fu">library</span>(dplyr)</span>
-<span id="cb458-3"><a href="data-visualization.html#cb458-3" tabindex="-1"></a></span>
-<span id="cb458-4"><a href="data-visualization.html#cb458-4" tabindex="-1"></a><span class="co"># Load the data</span></span>
-<span id="cb458-5"><a href="data-visualization.html#cb458-5" tabindex="-1"></a><span class="fu">data</span>(<span class="st">&quot;ToothGrowth&quot;</span>)</span>
-<span id="cb458-6"><a href="data-visualization.html#cb458-6" tabindex="-1"></a></span>
-<span id="cb458-7"><a href="data-visualization.html#cb458-7" tabindex="-1"></a><span class="co"># Filter to get Vitamin C</span></span>
-<span id="cb458-8"><a href="data-visualization.html#cb458-8" tabindex="-1"></a>vit_C_data <span class="ot">&lt;-</span> ToothGrowth <span class="sc">%&gt;%</span></span>
-<span id="cb458-9"><a href="data-visualization.html#cb458-9" tabindex="-1"></a>  <span class="fu">filter</span>(supp<span class="sc">==</span><span class="st">&quot;VC&quot;</span>)</span>
-<span id="cb458-10"><a href="data-visualization.html#cb458-10" tabindex="-1"></a></span>
-<span id="cb458-11"><a href="data-visualization.html#cb458-11" tabindex="-1"></a><span class="co"># CREATE BOXPLOT </span></span>
-<span id="cb458-12"><a href="data-visualization.html#cb458-12" tabindex="-1"></a><span class="fu">ggplot</span>(vit_C_data, <span class="fu">aes</span>(<span class="at">x=</span>len, <span class="at">y=</span><span class="fu">as.character</span>(dose)))<span class="sc">+</span></span>
-<span id="cb458-13"><a href="data-visualization.html#cb458-13" tabindex="-1"></a>  <span class="fu">geom_violin</span>()<span class="sc">+</span></span>
-<span id="cb458-14"><a href="data-visualization.html#cb458-14" tabindex="-1"></a>  <span class="fu">theme_dark</span>() <span class="sc">+</span> </span>
-<span id="cb458-15"><a href="data-visualization.html#cb458-15" tabindex="-1"></a>  <span class="fu">labs</span>(</span>
-<span id="cb458-16"><a href="data-visualization.html#cb458-16" tabindex="-1"></a>  <span class="at">title =</span> <span class="st">&quot;Tooth Length distribution comparison&quot;</span>,</span>
-<span id="cb458-17"><a href="data-visualization.html#cb458-17" tabindex="-1"></a>  <span class="at">x =</span> <span class="st">&quot;Tooth Length&quot;</span>,</span>
-<span id="cb458-18"><a href="data-visualization.html#cb458-18" tabindex="-1"></a>  <span class="at">y =</span> <span class="st">&quot;Dose&quot;</span></span>
-<span id="cb458-19"><a href="data-visualization.html#cb458-19" tabindex="-1"></a>) <span class="sc">+</span></span>
-<span id="cb458-20"><a href="data-visualization.html#cb458-20" tabindex="-1"></a>  <span class="fu">theme</span>(</span>
-<span id="cb458-21"><a href="data-visualization.html#cb458-21" tabindex="-1"></a>    <span class="at">plot.title =</span> <span class="fu">element_text</span>(<span class="at">hjust =</span> <span class="fl">0.5</span>, <span class="at">face =</span> <span class="st">&quot;bold&quot;</span>, <span class="at">size =</span> <span class="dv">16</span>),</span>
-<span id="cb458-22"><a href="data-visualization.html#cb458-22" tabindex="-1"></a>    <span class="at">axis.title.x =</span> <span class="fu">element_text</span>(<span class="at">face =</span> <span class="st">&quot;italic&quot;</span>, <span class="at">size =</span> <span class="dv">12</span>),</span>
-<span id="cb458-23"><a href="data-visualization.html#cb458-23" tabindex="-1"></a>    <span class="at">axis.title.y =</span> <span class="fu">element_text</span>(<span class="at">face =</span> <span class="st">&quot;italic&quot;</span>, <span class="at">size =</span> <span class="dv">12</span>)</span>
-<span id="cb458-24"><a href="data-visualization.html#cb458-24" tabindex="-1"></a>    )</span></code></pre></div>
-<p><img src="bookdownproj_files/figure-html/unnamed-chunk-215-1.png" width="672" /></p>
+<div class="sourceCode" id="cb466"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb466-1"><a href="data-visualization.html#cb466-1" tabindex="-1"></a><span class="fu">library</span>(ggplot2)</span>
+<span id="cb466-2"><a href="data-visualization.html#cb466-2" tabindex="-1"></a><span class="fu">library</span>(dplyr)</span>
+<span id="cb466-3"><a href="data-visualization.html#cb466-3" tabindex="-1"></a></span>
+<span id="cb466-4"><a href="data-visualization.html#cb466-4" tabindex="-1"></a><span class="co"># Load the data</span></span>
+<span id="cb466-5"><a href="data-visualization.html#cb466-5" tabindex="-1"></a><span class="fu">data</span>(<span class="st">&quot;ToothGrowth&quot;</span>)</span>
+<span id="cb466-6"><a href="data-visualization.html#cb466-6" tabindex="-1"></a></span>
+<span id="cb466-7"><a href="data-visualization.html#cb466-7" tabindex="-1"></a><span class="co"># Filter to get Vitamin C</span></span>
+<span id="cb466-8"><a href="data-visualization.html#cb466-8" tabindex="-1"></a>vit_C_data <span class="ot">&lt;-</span> ToothGrowth <span class="sc">%&gt;%</span></span>
+<span id="cb466-9"><a href="data-visualization.html#cb466-9" tabindex="-1"></a>  <span class="fu">filter</span>(supp<span class="sc">==</span><span class="st">&quot;VC&quot;</span>)</span>
+<span id="cb466-10"><a href="data-visualization.html#cb466-10" tabindex="-1"></a></span>
+<span id="cb466-11"><a href="data-visualization.html#cb466-11" tabindex="-1"></a><span class="co"># CREATE BOXPLOT </span></span>
+<span id="cb466-12"><a href="data-visualization.html#cb466-12" tabindex="-1"></a><span class="fu">ggplot</span>(vit_C_data, <span class="fu">aes</span>(<span class="at">x=</span>len, <span class="at">y=</span><span class="fu">as.character</span>(dose)))<span class="sc">+</span></span>
+<span id="cb466-13"><a href="data-visualization.html#cb466-13" tabindex="-1"></a>  <span class="fu">geom_violin</span>()<span class="sc">+</span></span>
+<span id="cb466-14"><a href="data-visualization.html#cb466-14" tabindex="-1"></a>  <span class="fu">theme_dark</span>() <span class="sc">+</span> </span>
+<span id="cb466-15"><a href="data-visualization.html#cb466-15" tabindex="-1"></a>  <span class="fu">labs</span>(</span>
+<span id="cb466-16"><a href="data-visualization.html#cb466-16" tabindex="-1"></a>  <span class="at">title =</span> <span class="st">&quot;Tooth Length distribution comparison&quot;</span>,</span>
+<span id="cb466-17"><a href="data-visualization.html#cb466-17" tabindex="-1"></a>  <span class="at">x =</span> <span class="st">&quot;Tooth Length&quot;</span>,</span>
+<span id="cb466-18"><a href="data-visualization.html#cb466-18" tabindex="-1"></a>  <span class="at">y =</span> <span class="st">&quot;Dose&quot;</span></span>
+<span id="cb466-19"><a href="data-visualization.html#cb466-19" tabindex="-1"></a>) <span class="sc">+</span></span>
+<span id="cb466-20"><a href="data-visualization.html#cb466-20" tabindex="-1"></a>  <span class="fu">theme</span>(</span>
+<span id="cb466-21"><a href="data-visualization.html#cb466-21" tabindex="-1"></a>    <span class="at">plot.title =</span> <span class="fu">element_text</span>(<span class="at">hjust =</span> <span class="fl">0.5</span>, <span class="at">face =</span> <span class="st">&quot;bold&quot;</span>, <span class="at">size =</span> <span class="dv">16</span>),</span>
+<span id="cb466-22"><a href="data-visualization.html#cb466-22" tabindex="-1"></a>    <span class="at">axis.title.x =</span> <span class="fu">element_text</span>(<span class="at">face =</span> <span class="st">&quot;italic&quot;</span>, <span class="at">size =</span> <span class="dv">12</span>),</span>
+<span id="cb466-23"><a href="data-visualization.html#cb466-23" tabindex="-1"></a>    <span class="at">axis.title.y =</span> <span class="fu">element_text</span>(<span class="at">face =</span> <span class="st">&quot;italic&quot;</span>, <span class="at">size =</span> <span class="dv">12</span>)</span>
+<span id="cb466-24"><a href="data-visualization.html#cb466-24" tabindex="-1"></a>    )</span></code></pre></div>
+<p><img src="bookdownproj_files/figure-html/unnamed-chunk-209-1.png" width="672" /></p>
 <p><span style="color: brown;"><strong>________________________________________________________________________________</strong></span></p>
 <ul>
 <li><strong>Facet Grids</strong></li>
@@ -837,16 +837,16 @@ The <code>theme_dark()</code> is a clear opposite of <code>theme_light</code> as
 </ol>
 <p>Lets create a box plot to demonstrate <code>facet_wrap()</code> and <code>facet_grid()</code>.</p>
 <p>Create a sample data for demonstrations</p>
-<div class="sourceCode" id="cb459"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb459-1"><a href="data-visualization.html#cb459-1" tabindex="-1"></a><span class="co"># Create sample data</span></span>
-<span id="cb459-2"><a href="data-visualization.html#cb459-2" tabindex="-1"></a>df <span class="ot">&lt;-</span> <span class="fu">data.frame</span>(</span>
-<span id="cb459-3"><a href="data-visualization.html#cb459-3" tabindex="-1"></a>  <span class="at">category =</span> <span class="fu">rep</span>(<span class="fu">c</span>(<span class="st">&quot;A&quot;</span>, <span class="st">&quot;B&quot;</span>, <span class="st">&quot;C&quot;</span>), <span class="at">each =</span> <span class="dv">100</span>),</span>
-<span id="cb459-4"><a href="data-visualization.html#cb459-4" tabindex="-1"></a>  <span class="at">sub_category =</span> <span class="fu">rep</span>(<span class="fu">c</span>(<span class="st">&quot;X&quot;</span>, <span class="st">&quot;Y&quot;</span>), <span class="at">each =</span> <span class="dv">50</span>, <span class="at">times =</span> <span class="dv">3</span>),</span>
-<span id="cb459-5"><a href="data-visualization.html#cb459-5" tabindex="-1"></a>  <span class="at">value =</span> <span class="fu">c</span>(<span class="fu">rnorm</span>(<span class="dv">100</span>, <span class="at">mean =</span> <span class="dv">10</span>, <span class="at">sd =</span> <span class="dv">2</span>),</span>
-<span id="cb459-6"><a href="data-visualization.html#cb459-6" tabindex="-1"></a>            <span class="fu">rnorm</span>(<span class="dv">100</span>, <span class="at">mean =</span> <span class="dv">15</span>, <span class="at">sd =</span> <span class="fl">2.5</span>),</span>
-<span id="cb459-7"><a href="data-visualization.html#cb459-7" tabindex="-1"></a>            <span class="fu">rnorm</span>(<span class="dv">100</span>, <span class="at">mean =</span> <span class="dv">20</span>, <span class="at">sd =</span> <span class="dv">3</span>))</span>
-<span id="cb459-8"><a href="data-visualization.html#cb459-8" tabindex="-1"></a>)</span>
-<span id="cb459-9"><a href="data-visualization.html#cb459-9" tabindex="-1"></a></span>
-<span id="cb459-10"><a href="data-visualization.html#cb459-10" tabindex="-1"></a><span class="fu">head</span>(df)</span></code></pre></div>
+<div class="sourceCode" id="cb467"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb467-1"><a href="data-visualization.html#cb467-1" tabindex="-1"></a><span class="co"># Create sample data</span></span>
+<span id="cb467-2"><a href="data-visualization.html#cb467-2" tabindex="-1"></a>df <span class="ot">&lt;-</span> <span class="fu">data.frame</span>(</span>
+<span id="cb467-3"><a href="data-visualization.html#cb467-3" tabindex="-1"></a>  <span class="at">category =</span> <span class="fu">rep</span>(<span class="fu">c</span>(<span class="st">&quot;A&quot;</span>, <span class="st">&quot;B&quot;</span>, <span class="st">&quot;C&quot;</span>), <span class="at">each =</span> <span class="dv">100</span>),</span>
+<span id="cb467-4"><a href="data-visualization.html#cb467-4" tabindex="-1"></a>  <span class="at">sub_category =</span> <span class="fu">rep</span>(<span class="fu">c</span>(<span class="st">&quot;X&quot;</span>, <span class="st">&quot;Y&quot;</span>), <span class="at">each =</span> <span class="dv">50</span>, <span class="at">times =</span> <span class="dv">3</span>),</span>
+<span id="cb467-5"><a href="data-visualization.html#cb467-5" tabindex="-1"></a>  <span class="at">value =</span> <span class="fu">c</span>(<span class="fu">rnorm</span>(<span class="dv">100</span>, <span class="at">mean =</span> <span class="dv">10</span>, <span class="at">sd =</span> <span class="dv">2</span>),</span>
+<span id="cb467-6"><a href="data-visualization.html#cb467-6" tabindex="-1"></a>            <span class="fu">rnorm</span>(<span class="dv">100</span>, <span class="at">mean =</span> <span class="dv">15</span>, <span class="at">sd =</span> <span class="fl">2.5</span>),</span>
+<span id="cb467-7"><a href="data-visualization.html#cb467-7" tabindex="-1"></a>            <span class="fu">rnorm</span>(<span class="dv">100</span>, <span class="at">mean =</span> <span class="dv">20</span>, <span class="at">sd =</span> <span class="dv">3</span>))</span>
+<span id="cb467-8"><a href="data-visualization.html#cb467-8" tabindex="-1"></a>)</span>
+<span id="cb467-9"><a href="data-visualization.html#cb467-9" tabindex="-1"></a></span>
+<span id="cb467-10"><a href="data-visualization.html#cb467-10" tabindex="-1"></a><span class="fu">head</span>(df)</span></code></pre></div>
 <pre><code>##   category sub_category     value
 ## 1        A            X  8.853046
 ## 2        A            X  6.143750
@@ -855,53 +855,53 @@ The <code>theme_dark()</code> is a clear opposite of <code>theme_light</code> as
 ## 5        A            X  7.290799
 ## 6        A            X  3.964135</code></pre>
 <p>A basic box plot to show the distribution of <code>"value"</code>.</p>
-<div class="sourceCode" id="cb461"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb461-1"><a href="data-visualization.html#cb461-1" tabindex="-1"></a><span class="co"># Basic boxplot</span></span>
-<span id="cb461-2"><a href="data-visualization.html#cb461-2" tabindex="-1"></a>p <span class="ot">&lt;-</span> <span class="fu">ggplot</span>(df, <span class="fu">aes</span>(<span class="at">x =</span> sub_category, <span class="at">y =</span> value)) <span class="sc">+</span></span>
-<span id="cb461-3"><a href="data-visualization.html#cb461-3" tabindex="-1"></a>  <span class="fu">geom_boxplot</span>() <span class="sc">+</span></span>
-<span id="cb461-4"><a href="data-visualization.html#cb461-4" tabindex="-1"></a>  <span class="fu">labs</span>(</span>
-<span id="cb461-5"><a href="data-visualization.html#cb461-5" tabindex="-1"></a>    <span class="at">title =</span> <span class="st">&quot;Boxplot of Values by Sub-Category&quot;</span>,</span>
-<span id="cb461-6"><a href="data-visualization.html#cb461-6" tabindex="-1"></a>    <span class="at">x =</span> <span class="st">&quot;Sub-Category&quot;</span>,</span>
-<span id="cb461-7"><a href="data-visualization.html#cb461-7" tabindex="-1"></a>    <span class="at">y =</span> <span class="st">&quot;Value&quot;</span></span>
-<span id="cb461-8"><a href="data-visualization.html#cb461-8" tabindex="-1"></a>  )</span>
-<span id="cb461-9"><a href="data-visualization.html#cb461-9" tabindex="-1"></a></span>
-<span id="cb461-10"><a href="data-visualization.html#cb461-10" tabindex="-1"></a>p</span></code></pre></div>
-<p><img src="bookdownproj_files/figure-html/unnamed-chunk-217-1.png" width="672" /></p>
+<div class="sourceCode" id="cb469"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb469-1"><a href="data-visualization.html#cb469-1" tabindex="-1"></a><span class="co"># Basic boxplot</span></span>
+<span id="cb469-2"><a href="data-visualization.html#cb469-2" tabindex="-1"></a>p <span class="ot">&lt;-</span> <span class="fu">ggplot</span>(df, <span class="fu">aes</span>(<span class="at">x =</span> sub_category, <span class="at">y =</span> value)) <span class="sc">+</span></span>
+<span id="cb469-3"><a href="data-visualization.html#cb469-3" tabindex="-1"></a>  <span class="fu">geom_boxplot</span>() <span class="sc">+</span></span>
+<span id="cb469-4"><a href="data-visualization.html#cb469-4" tabindex="-1"></a>  <span class="fu">labs</span>(</span>
+<span id="cb469-5"><a href="data-visualization.html#cb469-5" tabindex="-1"></a>    <span class="at">title =</span> <span class="st">&quot;Boxplot of Values by Sub-Category&quot;</span>,</span>
+<span id="cb469-6"><a href="data-visualization.html#cb469-6" tabindex="-1"></a>    <span class="at">x =</span> <span class="st">&quot;Sub-Category&quot;</span>,</span>
+<span id="cb469-7"><a href="data-visualization.html#cb469-7" tabindex="-1"></a>    <span class="at">y =</span> <span class="st">&quot;Value&quot;</span></span>
+<span id="cb469-8"><a href="data-visualization.html#cb469-8" tabindex="-1"></a>  )</span>
+<span id="cb469-9"><a href="data-visualization.html#cb469-9" tabindex="-1"></a></span>
+<span id="cb469-10"><a href="data-visualization.html#cb469-10" tabindex="-1"></a>p</span></code></pre></div>
+<p><img src="bookdownproj_files/figure-html/unnamed-chunk-211-1.png" width="672" /></p>
 <p>Facet with <code>facet_wrap()</code>. This will divide <code>"value"</code> into categories based on the <code>category</code> column and create a separate boxplot for each category.</p>
-<div class="sourceCode" id="cb462"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb462-1"><a href="data-visualization.html#cb462-1" tabindex="-1"></a><span class="co"># Facet the plot by &#39;category&#39; using facet_wrap</span></span>
-<span id="cb462-2"><a href="data-visualization.html#cb462-2" tabindex="-1"></a>p <span class="sc">+</span> <span class="fu">facet_wrap</span>(<span class="sc">~</span> category)</span></code></pre></div>
-<p><img src="bookdownproj_files/figure-html/unnamed-chunk-218-1.png" width="672" /></p>
+<div class="sourceCode" id="cb470"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb470-1"><a href="data-visualization.html#cb470-1" tabindex="-1"></a><span class="co"># Facet the plot by &#39;category&#39; using facet_wrap</span></span>
+<span id="cb470-2"><a href="data-visualization.html#cb470-2" tabindex="-1"></a>p <span class="sc">+</span> <span class="fu">facet_wrap</span>(<span class="sc">~</span> category)</span></code></pre></div>
+<p><img src="bookdownproj_files/figure-html/unnamed-chunk-212-1.png" width="672" /></p>
 <p>Facet with the <code>facet_grid()</code> to create a grid of plots based on each <code>category</code> and <code>sub_category</code></p>
-<div class="sourceCode" id="cb463"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb463-1"><a href="data-visualization.html#cb463-1" tabindex="-1"></a><span class="co"># Facet the plot by &#39;category&#39; and &#39;sub_category&#39; using facet_grid</span></span>
-<span id="cb463-2"><a href="data-visualization.html#cb463-2" tabindex="-1"></a>p <span class="sc">+</span> <span class="fu">facet_grid</span>(category <span class="sc">~</span> sub_category)</span></code></pre></div>
-<p><img src="bookdownproj_files/figure-html/unnamed-chunk-219-1.png" width="672" />
+<div class="sourceCode" id="cb471"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb471-1"><a href="data-visualization.html#cb471-1" tabindex="-1"></a><span class="co"># Facet the plot by &#39;category&#39; and &#39;sub_category&#39; using facet_grid</span></span>
+<span id="cb471-2"><a href="data-visualization.html#cb471-2" tabindex="-1"></a>p <span class="sc">+</span> <span class="fu">facet_grid</span>(category <span class="sc">~</span> sub_category)</span></code></pre></div>
+<p><img src="bookdownproj_files/figure-html/unnamed-chunk-213-1.png" width="672" />
 As seen above, there is a boxplot to represent the distribution for each <code>sub_category</code> in a <code>category</code>.</p>
 <p><span style="color: green;"><strong>Practical exercise</strong></span></p>
 <p>Using the same <code>ToothGrowth</code> data set, create a violin plot to visualize the distribution of tooth length (<code>len</code>) across the different dose levels (<code>dose</code>). Use <code>facet_wrap()</code> or <code>facet_grid()</code> to split the plot by the supplement type (<code>supp</code>). Make sure to label the axes and add an appropriate title</p>
 <hr />
 <p><span style="color: brown;"><strong>Solution</strong></span></p>
 <p>Load the data and libraries</p>
-<div class="sourceCode" id="cb464"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb464-1"><a href="data-visualization.html#cb464-1" tabindex="-1"></a><span class="fu">library</span>(ggplot2)</span>
-<span id="cb464-2"><a href="data-visualization.html#cb464-2" tabindex="-1"></a></span>
-<span id="cb464-3"><a href="data-visualization.html#cb464-3" tabindex="-1"></a><span class="co"># Load the data </span></span>
-<span id="cb464-4"><a href="data-visualization.html#cb464-4" tabindex="-1"></a><span class="fu">data</span>(<span class="st">&quot;ToothGrowth&quot;</span>)</span></code></pre></div>
+<div class="sourceCode" id="cb472"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb472-1"><a href="data-visualization.html#cb472-1" tabindex="-1"></a><span class="fu">library</span>(ggplot2)</span>
+<span id="cb472-2"><a href="data-visualization.html#cb472-2" tabindex="-1"></a></span>
+<span id="cb472-3"><a href="data-visualization.html#cb472-3" tabindex="-1"></a><span class="co"># Load the data </span></span>
+<span id="cb472-4"><a href="data-visualization.html#cb472-4" tabindex="-1"></a><span class="fu">data</span>(<span class="st">&quot;ToothGrowth&quot;</span>)</span></code></pre></div>
 <p>Create a basic violin plot</p>
-<div class="sourceCode" id="cb465"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb465-1"><a href="data-visualization.html#cb465-1" tabindex="-1"></a><span class="co"># Basic violin plot</span></span>
-<span id="cb465-2"><a href="data-visualization.html#cb465-2" tabindex="-1"></a>p <span class="ot">&lt;-</span> <span class="fu">ggplot</span>(ToothGrowth, <span class="fu">aes</span>(<span class="at">x =</span> len, <span class="at">y =</span> <span class="fu">as.character</span>(dose))) <span class="sc">+</span></span>
-<span id="cb465-3"><a href="data-visualization.html#cb465-3" tabindex="-1"></a>  <span class="fu">geom_violin</span>() <span class="sc">+</span></span>
-<span id="cb465-4"><a href="data-visualization.html#cb465-4" tabindex="-1"></a>  <span class="fu">labs</span>(</span>
-<span id="cb465-5"><a href="data-visualization.html#cb465-5" tabindex="-1"></a>    <span class="at">title =</span> <span class="st">&quot;Distribution of length across different dose levels&quot;</span>,</span>
-<span id="cb465-6"><a href="data-visualization.html#cb465-6" tabindex="-1"></a>    <span class="at">x =</span> <span class="st">&quot;Tooth Length&quot;</span>,</span>
-<span id="cb465-7"><a href="data-visualization.html#cb465-7" tabindex="-1"></a>    <span class="at">y =</span> <span class="st">&quot;Dose levels&quot;</span></span>
-<span id="cb465-8"><a href="data-visualization.html#cb465-8" tabindex="-1"></a>  )</span>
-<span id="cb465-9"><a href="data-visualization.html#cb465-9" tabindex="-1"></a></span>
-<span id="cb465-10"><a href="data-visualization.html#cb465-10" tabindex="-1"></a>p <span class="co"># variable to store out plot/chart</span></span></code></pre></div>
-<p><img src="bookdownproj_files/figure-html/unnamed-chunk-221-1.png" width="672" /></p>
+<div class="sourceCode" id="cb473"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb473-1"><a href="data-visualization.html#cb473-1" tabindex="-1"></a><span class="co"># Basic violin plot</span></span>
+<span id="cb473-2"><a href="data-visualization.html#cb473-2" tabindex="-1"></a>p <span class="ot">&lt;-</span> <span class="fu">ggplot</span>(ToothGrowth, <span class="fu">aes</span>(<span class="at">x =</span> len, <span class="at">y =</span> <span class="fu">as.character</span>(dose))) <span class="sc">+</span></span>
+<span id="cb473-3"><a href="data-visualization.html#cb473-3" tabindex="-1"></a>  <span class="fu">geom_violin</span>() <span class="sc">+</span></span>
+<span id="cb473-4"><a href="data-visualization.html#cb473-4" tabindex="-1"></a>  <span class="fu">labs</span>(</span>
+<span id="cb473-5"><a href="data-visualization.html#cb473-5" tabindex="-1"></a>    <span class="at">title =</span> <span class="st">&quot;Distribution of length across different dose levels&quot;</span>,</span>
+<span id="cb473-6"><a href="data-visualization.html#cb473-6" tabindex="-1"></a>    <span class="at">x =</span> <span class="st">&quot;Tooth Length&quot;</span>,</span>
+<span id="cb473-7"><a href="data-visualization.html#cb473-7" tabindex="-1"></a>    <span class="at">y =</span> <span class="st">&quot;Dose levels&quot;</span></span>
+<span id="cb473-8"><a href="data-visualization.html#cb473-8" tabindex="-1"></a>  )</span>
+<span id="cb473-9"><a href="data-visualization.html#cb473-9" tabindex="-1"></a></span>
+<span id="cb473-10"><a href="data-visualization.html#cb473-10" tabindex="-1"></a>p <span class="co"># variable to store out plot/chart</span></span></code></pre></div>
+<p><img src="bookdownproj_files/figure-html/unnamed-chunk-215-1.png" width="672" /></p>
 <p>Use <code>facet_wrap()</code> to divide values into categories based on the <code>supp</code> column</p>
-<div class="sourceCode" id="cb466"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb466-1"><a href="data-visualization.html#cb466-1" tabindex="-1"></a>p <span class="sc">+</span> <span class="fu">facet_wrap</span>(<span class="sc">~</span> supp) <span class="co"># facet plot the supp column</span></span></code></pre></div>
-<p><img src="bookdownproj_files/figure-html/unnamed-chunk-222-1.png" width="672" /></p>
+<div class="sourceCode" id="cb474"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb474-1"><a href="data-visualization.html#cb474-1" tabindex="-1"></a>p <span class="sc">+</span> <span class="fu">facet_wrap</span>(<span class="sc">~</span> supp) <span class="co"># facet plot the supp column</span></span></code></pre></div>
+<p><img src="bookdownproj_files/figure-html/unnamed-chunk-216-1.png" width="672" /></p>
 <p>Lets make the facet more interesting by adding <code>facet_grids</code></p>
-<div class="sourceCode" id="cb467"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb467-1"><a href="data-visualization.html#cb467-1" tabindex="-1"></a>p <span class="sc">+</span> <span class="fu">facet_grid</span>(supp <span class="sc">~</span> <span class="fu">as.character</span>(dose))</span></code></pre></div>
-<p><img src="bookdownproj_files/figure-html/unnamed-chunk-223-1.png" width="672" /></p>
+<div class="sourceCode" id="cb475"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb475-1"><a href="data-visualization.html#cb475-1" tabindex="-1"></a>p <span class="sc">+</span> <span class="fu">facet_grid</span>(supp <span class="sc">~</span> <span class="fu">as.character</span>(dose))</span></code></pre></div>
+<p><img src="bookdownproj_files/figure-html/unnamed-chunk-217-1.png" width="672" /></p>
 <p><span style="color: brown;"><strong>________________________________________________________________________________</strong></span></p>
 </div>
 <div id="combining-multiple-plots" class="section level3 hasAnchor" number="5.3.2">
@@ -916,31 +916,31 @@ As seen above, there is a boxplot to represent the distribution for each <code>s
 <p>Install the library</p>
 <pre><code>install.packages(&quot;patchwork&quot;)</code></pre>
 <p>Lets then make some plots from the <code>mtcars</code> data set and combine them</p>
-<div class="sourceCode" id="cb469"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb469-1"><a href="data-visualization.html#cb469-1" tabindex="-1"></a><span class="co"># Load the library</span></span>
-<span id="cb469-2"><a href="data-visualization.html#cb469-2" tabindex="-1"></a><span class="fu">library</span>(patchwork)</span>
-<span id="cb469-3"><a href="data-visualization.html#cb469-3" tabindex="-1"></a></span>
-<span id="cb469-4"><a href="data-visualization.html#cb469-4" tabindex="-1"></a><span class="co"># Load the data </span></span>
-<span id="cb469-5"><a href="data-visualization.html#cb469-5" tabindex="-1"></a><span class="fu">data</span>(<span class="st">&quot;mtcars&quot;</span>)</span>
-<span id="cb469-6"><a href="data-visualization.html#cb469-6" tabindex="-1"></a></span>
-<span id="cb469-7"><a href="data-visualization.html#cb469-7" tabindex="-1"></a><span class="co"># Make three plots </span></span>
-<span id="cb469-8"><a href="data-visualization.html#cb469-8" tabindex="-1"></a>p1 <span class="ot">&lt;-</span> <span class="fu">ggplot</span>(mtcars, <span class="fu">aes</span>(<span class="at">x =</span> mpg, <span class="at">y =</span> disp)) <span class="sc">+</span> <span class="fu">geom_point</span>() <span class="sc">+</span> <span class="fu">ggtitle</span>(<span class="st">&quot;Scatter Plot&quot;</span>)</span>
-<span id="cb469-9"><a href="data-visualization.html#cb469-9" tabindex="-1"></a>p2 <span class="ot">&lt;-</span> <span class="fu">ggplot</span>(mtcars, <span class="fu">aes</span>(<span class="at">x =</span> <span class="fu">factor</span>(cyl), <span class="at">y =</span> mpg)) <span class="sc">+</span> <span class="fu">geom_boxplot</span>() <span class="sc">+</span> <span class="fu">ggtitle</span>(<span class="st">&quot;Boxplot&quot;</span>)</span>
-<span id="cb469-10"><a href="data-visualization.html#cb469-10" tabindex="-1"></a>p3 <span class="ot">&lt;-</span> <span class="fu">ggplot</span>(mtcars, <span class="fu">aes</span>(<span class="at">x =</span> <span class="fu">factor</span>(cyl))) <span class="sc">+</span> <span class="fu">geom_bar</span>() <span class="sc">+</span> <span class="fu">ggtitle</span>(<span class="st">&quot;Bar Chart&quot;</span>)</span></code></pre></div>
+<div class="sourceCode" id="cb477"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb477-1"><a href="data-visualization.html#cb477-1" tabindex="-1"></a><span class="co"># Load the library</span></span>
+<span id="cb477-2"><a href="data-visualization.html#cb477-2" tabindex="-1"></a><span class="fu">library</span>(patchwork)</span>
+<span id="cb477-3"><a href="data-visualization.html#cb477-3" tabindex="-1"></a></span>
+<span id="cb477-4"><a href="data-visualization.html#cb477-4" tabindex="-1"></a><span class="co"># Load the data </span></span>
+<span id="cb477-5"><a href="data-visualization.html#cb477-5" tabindex="-1"></a><span class="fu">data</span>(<span class="st">&quot;mtcars&quot;</span>)</span>
+<span id="cb477-6"><a href="data-visualization.html#cb477-6" tabindex="-1"></a></span>
+<span id="cb477-7"><a href="data-visualization.html#cb477-7" tabindex="-1"></a><span class="co"># Make three plots </span></span>
+<span id="cb477-8"><a href="data-visualization.html#cb477-8" tabindex="-1"></a>p1 <span class="ot">&lt;-</span> <span class="fu">ggplot</span>(mtcars, <span class="fu">aes</span>(<span class="at">x =</span> mpg, <span class="at">y =</span> disp)) <span class="sc">+</span> <span class="fu">geom_point</span>() <span class="sc">+</span> <span class="fu">ggtitle</span>(<span class="st">&quot;Scatter Plot&quot;</span>)</span>
+<span id="cb477-9"><a href="data-visualization.html#cb477-9" tabindex="-1"></a>p2 <span class="ot">&lt;-</span> <span class="fu">ggplot</span>(mtcars, <span class="fu">aes</span>(<span class="at">x =</span> <span class="fu">factor</span>(cyl), <span class="at">y =</span> mpg)) <span class="sc">+</span> <span class="fu">geom_boxplot</span>() <span class="sc">+</span> <span class="fu">ggtitle</span>(<span class="st">&quot;Boxplot&quot;</span>)</span>
+<span id="cb477-10"><a href="data-visualization.html#cb477-10" tabindex="-1"></a>p3 <span class="ot">&lt;-</span> <span class="fu">ggplot</span>(mtcars, <span class="fu">aes</span>(<span class="at">x =</span> <span class="fu">factor</span>(cyl))) <span class="sc">+</span> <span class="fu">geom_bar</span>() <span class="sc">+</span> <span class="fu">ggtitle</span>(<span class="st">&quot;Bar Chart&quot;</span>)</span></code></pre></div>
 <p>Combine the plots side by side</p>
-<div class="sourceCode" id="cb470"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb470-1"><a href="data-visualization.html#cb470-1" tabindex="-1"></a><span class="co"># Combine plots side by side</span></span>
-<span id="cb470-2"><a href="data-visualization.html#cb470-2" tabindex="-1"></a>p1 <span class="sc">+</span> p2 <span class="sc">+</span> p3</span></code></pre></div>
-<p><img src="bookdownproj_files/figure-html/unnamed-chunk-225-1.png" width="672" /></p>
+<div class="sourceCode" id="cb478"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb478-1"><a href="data-visualization.html#cb478-1" tabindex="-1"></a><span class="co"># Combine plots side by side</span></span>
+<span id="cb478-2"><a href="data-visualization.html#cb478-2" tabindex="-1"></a>p1 <span class="sc">+</span> p2 <span class="sc">+</span> p3</span></code></pre></div>
+<p><img src="bookdownproj_files/figure-html/unnamed-chunk-219-1.png" width="672" /></p>
 <p>The plots can also be combined by stacking them together</p>
-<div class="sourceCode" id="cb471"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb471-1"><a href="data-visualization.html#cb471-1" tabindex="-1"></a><span class="co"># Stack plots vertically</span></span>
-<span id="cb471-2"><a href="data-visualization.html#cb471-2" tabindex="-1"></a>p1 <span class="sc">/</span> p2 <span class="sc">/</span> p3</span></code></pre></div>
-<p><img src="bookdownproj_files/figure-html/unnamed-chunk-226-1.png" width="672" /></p>
+<div class="sourceCode" id="cb479"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb479-1"><a href="data-visualization.html#cb479-1" tabindex="-1"></a><span class="co"># Stack plots vertically</span></span>
+<span id="cb479-2"><a href="data-visualization.html#cb479-2" tabindex="-1"></a>p1 <span class="sc">/</span> p2 <span class="sc">/</span> p3</span></code></pre></div>
+<p><img src="bookdownproj_files/figure-html/unnamed-chunk-220-1.png" width="672" /></p>
 <p><code>+</code> is used to combine the plots side by side while <code>/</code> is used to stack the plots vertically. Brackets <code>()</code> are used to group two or more plots together.</p>
 <p>Lets create a complex layout where two plots are grouped to the right and one plot is one the left side.</p>
-<div class="sourceCode" id="cb472"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb472-1"><a href="data-visualization.html#cb472-1" tabindex="-1"></a>(p1<span class="sc">+</span>(p2<span class="sc">/</span>p3))</span></code></pre></div>
-<p><img src="bookdownproj_files/figure-html/unnamed-chunk-227-1.png" width="672" /></p>
+<div class="sourceCode" id="cb480"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb480-1"><a href="data-visualization.html#cb480-1" tabindex="-1"></a>(p1<span class="sc">+</span>(p2<span class="sc">/</span>p3))</span></code></pre></div>
+<p><img src="bookdownproj_files/figure-html/unnamed-chunk-221-1.png" width="672" /></p>
 <p>Alternatively the plots can be plotted by using <code>|</code> instead of <code>+</code>.</p>
-<div class="sourceCode" id="cb473"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb473-1"><a href="data-visualization.html#cb473-1" tabindex="-1"></a>(p1<span class="sc">|</span>(p2<span class="sc">/</span>p3)) <span class="co"># Note the &#39;|&#39; instead of &#39;+&#39;</span></span></code></pre></div>
-<p><img src="bookdownproj_files/figure-html/unnamed-chunk-228-1.png" width="672" /></p>
+<div class="sourceCode" id="cb481"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb481-1"><a href="data-visualization.html#cb481-1" tabindex="-1"></a>(p1<span class="sc">|</span>(p2<span class="sc">/</span>p3)) <span class="co"># Note the &#39;|&#39; instead of &#39;+&#39;</span></span></code></pre></div>
+<p><img src="bookdownproj_files/figure-html/unnamed-chunk-222-1.png" width="672" /></p>
 <ol start="2" style="list-style-type: lower-roman">
 <li><strong>gridExtra</strong></li>
 </ol>
@@ -948,22 +948,22 @@ As seen above, there is a boxplot to represent the distribution for each <code>s
 <p>Install the <code>gridExtra</code> package</p>
 <pre><code>install.packages(&quot;gridExtra&quot;)</code></pre>
 <p>Load the package and combine the three plots</p>
-<div class="sourceCode" id="cb475"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb475-1"><a href="data-visualization.html#cb475-1" tabindex="-1"></a><span class="fu">library</span>(gridExtra)</span></code></pre></div>
+<div class="sourceCode" id="cb483"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb483-1"><a href="data-visualization.html#cb483-1" tabindex="-1"></a><span class="fu">library</span>(gridExtra)</span></code></pre></div>
 <pre><code>## 
 ## Attaching package: &#39;gridExtra&#39;</code></pre>
 <pre><code>## The following object is masked from &#39;package:dplyr&#39;:
 ## 
 ##     combine</code></pre>
-<div class="sourceCode" id="cb478"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb478-1"><a href="data-visualization.html#cb478-1" tabindex="-1"></a><span class="co"># Combine plots using gridExtra</span></span>
-<span id="cb478-2"><a href="data-visualization.html#cb478-2" tabindex="-1"></a><span class="fu">grid.arrange</span>(p1, p2, p3, <span class="at">nrow =</span> <span class="dv">2</span>, <span class="at">ncol =</span> <span class="dv">2</span>)</span></code></pre></div>
-<p><img src="bookdownproj_files/figure-html/unnamed-chunk-229-1.png" width="672" /></p>
+<div class="sourceCode" id="cb486"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb486-1"><a href="data-visualization.html#cb486-1" tabindex="-1"></a><span class="co"># Combine plots using gridExtra</span></span>
+<span id="cb486-2"><a href="data-visualization.html#cb486-2" tabindex="-1"></a><span class="fu">grid.arrange</span>(p1, p2, p3, <span class="at">nrow =</span> <span class="dv">2</span>, <span class="at">ncol =</span> <span class="dv">2</span>)</span></code></pre></div>
+<p><img src="bookdownproj_files/figure-html/unnamed-chunk-223-1.png" width="672" /></p>
 <p>Lets stack the plots</p>
-<div class="sourceCode" id="cb479"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb479-1"><a href="data-visualization.html#cb479-1" tabindex="-1"></a><span class="co"># Stack the plots </span></span>
-<span id="cb479-2"><a href="data-visualization.html#cb479-2" tabindex="-1"></a><span class="fu">grid.arrange</span>(p1, p2, p3, <span class="at">nrow =</span> <span class="dv">3</span>, <span class="at">ncol =</span> <span class="dv">1</span>)</span></code></pre></div>
-<p><img src="bookdownproj_files/figure-html/unnamed-chunk-230-1.png" width="672" /></p>
+<div class="sourceCode" id="cb487"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb487-1"><a href="data-visualization.html#cb487-1" tabindex="-1"></a><span class="co"># Stack the plots </span></span>
+<span id="cb487-2"><a href="data-visualization.html#cb487-2" tabindex="-1"></a><span class="fu">grid.arrange</span>(p1, p2, p3, <span class="at">nrow =</span> <span class="dv">3</span>, <span class="at">ncol =</span> <span class="dv">1</span>)</span></code></pre></div>
+<p><img src="bookdownproj_files/figure-html/unnamed-chunk-224-1.png" width="672" /></p>
 <p>Now combine the three plots side by side</p>
-<div class="sourceCode" id="cb480"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb480-1"><a href="data-visualization.html#cb480-1" tabindex="-1"></a><span class="fu">grid.arrange</span>(p1, p2, p3, <span class="at">nrow =</span> <span class="dv">1</span>, <span class="at">ncol =</span> <span class="dv">3</span>)</span></code></pre></div>
-<p><img src="bookdownproj_files/figure-html/unnamed-chunk-231-1.png" width="672" /></p>
+<div class="sourceCode" id="cb488"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb488-1"><a href="data-visualization.html#cb488-1" tabindex="-1"></a><span class="fu">grid.arrange</span>(p1, p2, p3, <span class="at">nrow =</span> <span class="dv">1</span>, <span class="at">ncol =</span> <span class="dv">3</span>)</span></code></pre></div>
+<p><img src="bookdownproj_files/figure-html/unnamed-chunk-225-1.png" width="672" /></p>
 <p><span style="color: green;"><strong>Practical exercise</strong></span></p>
 <p>Download the E-commerce Customer Behavior Data set from <a href="https://www.kaggle.com/datasets/samps74/e-commerce-customer-behavior-dataset/data">here</a>. Create multiple plots that will combine;</p>
 <ul>

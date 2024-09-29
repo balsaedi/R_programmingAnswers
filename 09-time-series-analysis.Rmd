@@ -46,6 +46,27 @@ decomposed_ts <- decompose(AirPassengers)
 
 In this course, you will be required to download the amazon stock prices prediction data set from [here](https://www.kaggle.com/datasets/aenes95/amazon-stock-price-prediction)
 
+_______________________________________________________________________
+<span style="color: brown;">**Solution**</span> 
+
+```{r}
+library(dplyr)
+
+# Load the data 
+amazon_stocks <- read.csv("data/amazon_trends.csv")
+
+# Ensure the data is ordered by date (if necessary)
+amazon_stocks <- amazon_stocks %>% arrange(Date)
+
+# Convert to time series object 
+ts_data <- ts(amazon_stocks$Google_Trends, frequency = 365)
+
+# Decompose the time series data
+decomposed_data <- decompose(ts_data)
+```
+
+<span style="color: brown;">**________________________________________________________________________________**</span>
+
 Decompose the time series data set into trend, seasonal and residual components. 
 
 - **Visualization of Time Series Data**
@@ -117,6 +138,29 @@ head(df_decomposed)
 <span style="color: green;">**Practical exercise**</span>
 
 Using the amazon stock prices prediction data set, plot the data to identify time series patterns and trends
+
+_______________________________________________________________________
+<span style="color: brown;">**Solution**</span> 
+
+```{r}
+library(dplyr)
+
+# Load the data 
+amazon_stocks <- read.csv("data/amazon_trends.csv")
+
+# Ensure the data is ordered by date (if necessary)
+amazon_stocks <- amazon_stocks %>% arrange(Date)
+
+# Convert to time series object 
+ts_data <- ts(amazon_stocks$Google_Trends, frequency = 365)
+
+# Decompose the time series data
+decomposed_data <- decompose(ts_data)
+
+# Plot the decomposed data
+plot(decomposed_data)
+```
+<span style="color: brown;">**________________________________________________________________________________**</span>
 
 ## Basic Time Series Forecasting 
 ### Moving Averages
@@ -195,7 +239,40 @@ ggplot(df_airpassengers, aes(x = Month)) +
 
 <span style="color: green;">**Practical exercise**</span>
 
-Apply moving averages to smooth and forecast the amazon stock prices prediction data for the next one year
+Apply 30-day moving averages on the amazon stock.
+
+_______________________________________________________________________
+<span style="color: brown;">**Solution**</span> 
+
+```{r}
+library(dplyr)
+library(zoo)
+library(ggplot2)
+
+# Load the data 
+amazon_stocks <- read.csv("data/amazon_trends.csv")
+
+# Ensure the data is ordered by date (if necessary)
+amazon_stocks <- amazon_stocks %>% arrange(Date)
+
+# Calculate 30-day moving average (approximate for monthly)
+amazon_stocks <- amazon_stocks %>%
+  mutate(moving_avg_30 = rollmean(Google_Trends, k = 30, fill = NA))
+
+# Plot the original data and moving average
+ggplot(amazon_stocks, aes(x = Date)) +
+  geom_line(aes(y = Google_Trends, color = "Original"), size = 1) + 
+  geom_line(aes(y = moving_avg_30, color = "30-Day Moving Avg"), size = 1) +
+  labs(title = "Stock Price with 30-Day Moving Average",
+       x = "Date", y = "Stock Price") +
+  scale_color_manual(values = c("Original" = "blue", "30-Day Moving Avg" = "red")) +
+  theme_minimal() +
+  theme(legend.title = element_blank())
+```
+
+**Work on it later- Copy the guide**
+
+<span style="color: brown;">**________________________________________________________________________________**</span>
 
 ### ARIMA model 
 **ARIMA** stands for *AutoRegressive Integrated Moving Average* that is defined in three parameters namely; p, d and q where;
