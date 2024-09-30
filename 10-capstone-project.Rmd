@@ -26,6 +26,10 @@ https://www.kaggle.com/datasets/mlg-ulb/creditcardfraud
 
 4. **Social Media Data**
 
+https://www.kaggle.com/datasets/datasnaek/youtube-new?select=USvideos.csv
+
+https://www.kaggle.com/datasets/datasnaek/youtube-new?select=GBvideos.csv
+
 5. **Environmental Data set**
 
 https://www.kaggle.com/datasets/sevgisarac/temperature-change
