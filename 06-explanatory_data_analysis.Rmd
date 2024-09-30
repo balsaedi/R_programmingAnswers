@@ -107,7 +107,7 @@ The relationship between the discount amount and the gross amount using a scatte
 # Create a scatter plot 
 ggplot(ecommerce, # data
        aes(x = Gross.Amount, y = Discount.Amount..INR.)) + # aesthetics
-  geom_point() + 
+  geom_point(color="blue") + 
   labs(
     title="The relationship between Gross Amount and Discount",
     y="Discount Amount",
@@ -131,7 +131,7 @@ Plot the data on a bar chart
 ```{r}
 # Create a bar chart 
 ggplot(discount_per_category, aes(x = Product.Category, y = Average.Discount)) +
-  geom_bar(stat = "identity") +
+  geom_bar(stat = "identity", fill="blue") +
   labs(title = "Average discount per the product category", 
        x = "Product Category", 
        y = "Average Discount") +
@@ -153,7 +153,7 @@ Display on a bar chart
 ```{r}
 # Create a bar chart 
 ggplot(purchase_method_count, aes(x = Purchase.Method, y = Count)) +
-  geom_bar(stat = "identity") +
+  geom_bar(stat = "identity", fill="blue") +
   labs(title = "Count of purchases by purchase method", 
        x = "Purchase Method", 
        y = "Count") +

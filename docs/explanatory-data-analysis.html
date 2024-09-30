@@ -266,6 +266,7 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <li class="chapter" data-level="7.4.1" data-path="statistical-analysis.html"><a href="statistical-analysis.html#project-overview"><i class="fa fa-check"></i><b>7.4.1</b> Project Overview</a></li>
 <li class="chapter" data-level="7.4.2" data-path="statistical-analysis.html"><a href="statistical-analysis.html#conducting-statistical-analysis"><i class="fa fa-check"></i><b>7.4.2</b> Conducting Statistical Analysis</a></li>
 <li class="chapter" data-level="7.4.3" data-path="statistical-analysis.html"><a href="statistical-analysis.html#presenting-statistical-findings"><i class="fa fa-check"></i><b>7.4.3</b> Presenting Statistical Findings</a></li>
+<li class="chapter" data-level="7.4.4" data-path="statistical-analysis.html"><a href="statistical-analysis.html#example-ecommerce-statistical-analysis"><i class="fa fa-check"></i><b>7.4.4</b> <span style="color: brown;">Example: Ecommerce Statistical Analysis</span></a></li>
 </ul></li>
 </ul></li>
 <li class="chapter" data-level="8" data-path="working-with-real-world-data.html"><a href="working-with-real-world-data.html"><i class="fa fa-check"></i><b>8</b> Working with Real-World Data</a>
@@ -481,7 +482,7 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <div class="sourceCode" id="cb512"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb512-1"><a href="explanatory-data-analysis.html#cb512-1" tabindex="-1"></a><span class="co"># Create a scatter plot </span></span>
 <span id="cb512-2"><a href="explanatory-data-analysis.html#cb512-2" tabindex="-1"></a><span class="fu">ggplot</span>(ecommerce, <span class="co"># data</span></span>
 <span id="cb512-3"><a href="explanatory-data-analysis.html#cb512-3" tabindex="-1"></a>       <span class="fu">aes</span>(<span class="at">x =</span> Gross.Amount, <span class="at">y =</span> Discount.Amount..INR.)) <span class="sc">+</span> <span class="co"># aesthetics</span></span>
-<span id="cb512-4"><a href="explanatory-data-analysis.html#cb512-4" tabindex="-1"></a>  <span class="fu">geom_point</span>() <span class="sc">+</span> </span>
+<span id="cb512-4"><a href="explanatory-data-analysis.html#cb512-4" tabindex="-1"></a>  <span class="fu">geom_point</span>(<span class="at">color=</span><span class="st">&quot;blue&quot;</span>) <span class="sc">+</span> </span>
 <span id="cb512-5"><a href="explanatory-data-analysis.html#cb512-5" tabindex="-1"></a>  <span class="fu">labs</span>(</span>
 <span id="cb512-6"><a href="explanatory-data-analysis.html#cb512-6" tabindex="-1"></a>    <span class="at">title=</span><span class="st">&quot;The relationship between Gross Amount and Discount&quot;</span>,</span>
 <span id="cb512-7"><a href="explanatory-data-analysis.html#cb512-7" tabindex="-1"></a>    <span class="at">y=</span><span class="st">&quot;Discount Amount&quot;</span>,</span>
@@ -511,7 +512,7 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <p>Plot the data on a bar chart</p>
 <div class="sourceCode" id="cb515"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb515-1"><a href="explanatory-data-analysis.html#cb515-1" tabindex="-1"></a><span class="co"># Create a bar chart </span></span>
 <span id="cb515-2"><a href="explanatory-data-analysis.html#cb515-2" tabindex="-1"></a><span class="fu">ggplot</span>(discount_per_category, <span class="fu">aes</span>(<span class="at">x =</span> Product.Category, <span class="at">y =</span> Average.Discount)) <span class="sc">+</span></span>
-<span id="cb515-3"><a href="explanatory-data-analysis.html#cb515-3" tabindex="-1"></a>  <span class="fu">geom_bar</span>(<span class="at">stat =</span> <span class="st">&quot;identity&quot;</span>) <span class="sc">+</span></span>
+<span id="cb515-3"><a href="explanatory-data-analysis.html#cb515-3" tabindex="-1"></a>  <span class="fu">geom_bar</span>(<span class="at">stat =</span> <span class="st">&quot;identity&quot;</span>, <span class="at">fill=</span><span class="st">&quot;blue&quot;</span>) <span class="sc">+</span></span>
 <span id="cb515-4"><a href="explanatory-data-analysis.html#cb515-4" tabindex="-1"></a>  <span class="fu">labs</span>(<span class="at">title =</span> <span class="st">&quot;Average discount per the product category&quot;</span>, </span>
 <span id="cb515-5"><a href="explanatory-data-analysis.html#cb515-5" tabindex="-1"></a>       <span class="at">x =</span> <span class="st">&quot;Product Category&quot;</span>, </span>
 <span id="cb515-6"><a href="explanatory-data-analysis.html#cb515-6" tabindex="-1"></a>       <span class="at">y =</span> <span class="st">&quot;Average Discount&quot;</span>) <span class="sc">+</span></span>
@@ -538,7 +539,7 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <p>Display on a bar chart</p>
 <div class="sourceCode" id="cb518"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb518-1"><a href="explanatory-data-analysis.html#cb518-1" tabindex="-1"></a><span class="co"># Create a bar chart </span></span>
 <span id="cb518-2"><a href="explanatory-data-analysis.html#cb518-2" tabindex="-1"></a><span class="fu">ggplot</span>(purchase_method_count, <span class="fu">aes</span>(<span class="at">x =</span> Purchase.Method, <span class="at">y =</span> Count)) <span class="sc">+</span></span>
-<span id="cb518-3"><a href="explanatory-data-analysis.html#cb518-3" tabindex="-1"></a>  <span class="fu">geom_bar</span>(<span class="at">stat =</span> <span class="st">&quot;identity&quot;</span>) <span class="sc">+</span></span>
+<span id="cb518-3"><a href="explanatory-data-analysis.html#cb518-3" tabindex="-1"></a>  <span class="fu">geom_bar</span>(<span class="at">stat =</span> <span class="st">&quot;identity&quot;</span>, <span class="at">fill=</span><span class="st">&quot;blue&quot;</span>) <span class="sc">+</span></span>
 <span id="cb518-4"><a href="explanatory-data-analysis.html#cb518-4" tabindex="-1"></a>  <span class="fu">labs</span>(<span class="at">title =</span> <span class="st">&quot;Count of purchases by purchase method&quot;</span>, </span>
 <span id="cb518-5"><a href="explanatory-data-analysis.html#cb518-5" tabindex="-1"></a>       <span class="at">x =</span> <span class="st">&quot;Purchase Method&quot;</span>, </span>
 <span id="cb518-6"><a href="explanatory-data-analysis.html#cb518-6" tabindex="-1"></a>       <span class="at">y =</span> <span class="st">&quot;Count&quot;</span>) <span class="sc">+</span></span>

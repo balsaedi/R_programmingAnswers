@@ -94,6 +94,7 @@ project-applying-statistical-analysis
 project-overview
 conducting-statistical-analysis
 presenting-statistical-findings
+example-ecommerce-statistical-analysis
 working-with-real-world-data
 handling-large-datasets
 challenges-of-large-data-sets

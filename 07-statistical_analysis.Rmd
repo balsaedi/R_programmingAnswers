@@ -1379,3 +1379,8 @@ You will use the statistical techniques learned for instance descriptive statist
 You will finally prepare a brief presentation that will summarize the statistical analysis and research
 
 Dicuss in groups the insights obtained, challenges faced and any potential improvements
+
+_______________________________________________________________________
+### <span style="color: brown;">Example: Ecommerce Statistical Analysis</span> 
+
+<span style="color: brown;">**________________________________________________________________________________**</span>
