@@ -68,6 +68,11 @@ introduction-to-eda
 choosing-a-data-set
 conducting-eda
 present-findings
+eda---example
+introduction
+data-assessment-and-cleaning
+data-visualization-1
+key-findings
 statistical-analysis
 basic-statistical-concepts
 introduction-to-descriptive-statistics
@@ -114,7 +119,7 @@ moving-averages
 arima-model
 hands-on-exercises-6
 capstone-project
-introduction
+introduction-1
 project-overview-and-objectives
 group-formation
 project-planning

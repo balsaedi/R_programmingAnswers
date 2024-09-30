@@ -42,4 +42,163 @@ You will use the skills acquired in this camp(especially `dplyr` and `ggplot2`) 
 ## Present Findings 
 Finally, you will prepare a brief presentation of your findings ,and discuss on the insights obtained and the techniques used. 
 
+_______________________________________________________________________
+## <span style="color: brown;">EDA - Example</span> 
 
+This is just an example on how to explore EDA. Download the Ecommerce data set from [here](https://www.kaggle.com/datasets/shrishtimanja/ecommerce-dataset-for-data-analysis/data) 
+
+### <span style="color: brown;">Introduction</span> 
+
+This eCommerce dataset contains transaction-level information, including customer demographics (e.g., age, gender), purchase details (e.g., product category, payment method), and discount information. It captures both gross and net amounts, helping to analyze the impact of discounts and customer behavior across different locations. This data set provides insights into customer spending patterns and promotional effectiveness
+
+### <span style="color: brown;">Data Assessment and Cleaning</span> 
+
+Load the necessary data sets and libraries 
+```{r}
+# Load the libraries 
+library(dplyr)
+library(ggplot2)
+
+# Load the data 
+ecommerce <- read.csv("data/ecommerce.csv")
+```
+
+Show the first five rows 
+```{r}
+head(ecommerce)
+```
+
+The data set features/columns and the shape of the data set 
+```{r}
+colnames(ecommerce) #the data set features 
+
+dim(ecommerce) # the shape of the data
+```
+There are 55000 observations and 13 features/columns in the data set. Lets now find the data types of the columns'
+
+```{r}
+str(df)
+```
+
+There are 5 numeric columns and 8 non numeric columns. 
+
+Find and count the null values in the data set 
+```{r}
+sum(is.na(ecommerce))
+```
+
+The data set is complete with no missing values. Lets now find if there are any duplicated records 
+```{r}
+sum(duplicated(ecommerce))
+```
+
+There are no duplicated records
+
+Calculate the summary statistics 
+```{r}
+summary(ecommerce)
+```
+
+### <span style="color: brown;">Data Visualization</span> 
+
+The relationship between the discount amount and the gross amount using a scatter plot
+
+```{r}
+# Create a scatter plot 
+ggplot(ecommerce, # data
+       aes(x = Gross.Amount, y = Discount.Amount..INR.)) + # aesthetics
+  geom_point() + 
+  labs(
+    title="The relationship between Gross Amount and Discount",
+    y="Discount Amount",
+    x="Gross Amount"
+  )
+```
+
+There is no clear relationship between the discount amount and the gross amount 
+
+The average discount per product category
+```{r}
+discount_per_category <- ecommerce %>%
+  select(Product.Category, Discount.Amount..INR.) %>%
+  group_by(Product.Category) %>%
+  summarise(Average.Discount=mean(Discount.Amount..INR.))
+
+discount_per_category
+```
+
+Plot the data on a bar chart 
+```{r}
+# Create a bar chart 
+ggplot(discount_per_category, aes(x = Product.Category, y = Average.Discount)) +
+  geom_bar(stat = "identity") +
+  labs(title = "Average discount per the product category", 
+       x = "Product Category", 
+       y = "Average Discount") +
+  theme_classic()
+```
+
+The average discount was almost equal for all the categories 
+
+Count the purchases by purchase method
+```{r}
+purchase_method_count <- ecommerce %>% 
+  group_by(Purchase.Method)%>%
+  summarize(Count=n())
+
+purchase_method_count
+```
+Display on a bar chart
+
+```{r}
+# Create a bar chart 
+ggplot(purchase_method_count, aes(x = Purchase.Method, y = Count)) +
+  geom_bar(stat = "identity") +
+  labs(title = "Count of purchases by purchase method", 
+       x = "Purchase Method", 
+       y = "Count") +
+  theme_classic()
+```
+
+Most customers purchased goods by credit and debit cards. 
+
+Show the net amount distribution by histogram 
+```{r}
+# Create a histogram
+ggplot(ecommerce, aes(x = Net.Amount)) +
+  geom_histogram(bins = 8, fill = "blue", color = "black") +
+  labs(title = "Distribution of Net Amount", 
+       x = "Net Amount", 
+       y = "frequency") +
+  theme_minimal()
+```
+Most products range from 1000 to 4000 Indian Rupees
+
+Find out the different age groups 
+```{r}
+unique(ecommerce$Age.Group)
+```
+
+There are five different age groups, lets inspect their spending characteristics on the eCommerce site using box plots 
+```{r}
+# Plot a box plot 
+ggplot(ecommerce, 
+       aes(x=Age.Group, y=Gross.Amount, fill = Age.Group))+
+  geom_boxplot() +
+  labs(title="Spending based on different age groups",
+       x = "Age groups",
+       y = "Gross Amount") +
+  theme_classic()
+```
+
+There was no clear difference between the spending patterns based on the age groups 
+
+### <span style="color: brown;">Key Findings</span> 
+
+These were the key findings that were discovered;
+
+- The amount spend on purchase and the category of product purchased had no effect on the discount given.
+- Most of the customers find it easy using their credit and debit cards. This may be due to low fees imposed , transaction speeds, not adopted alternatives methods, or the popularity of these cards when purchasing.
+- There was no clear difference between the spending patterns based on the age groups. 
+
+<span style="color: brown;">**________________________________________________________________________________**</span>
