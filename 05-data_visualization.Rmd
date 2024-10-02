@@ -450,7 +450,26 @@ Using the `mtcars` data set, create a bar plot to visualize the number of cars f
 _______________________________________________________________________
 <span style="color: brown;">**Solution**</span> 
 
-## <span style="color: brown;">SOLUTION TO BE PROVIDED</span> 
+Let the student show his best chart
+
+```{r}
+# Load necessary libraries
+library(ggplot2)
+
+# Create the bar plot
+ggplot(mtcars, aes(x = factor(cyl))) + 
+  geom_bar(fill = "#4C72B0", color = "#DD8452", width = 0.7) + # Custom colors for bars and borders
+  labs(title = "Number of Cars by Cylinders", 
+       x = "Number of Cylinders", 
+       y = "Count of Cars") + 
+  theme_minimal(base_size = 15) + # Minimal theme
+  theme(
+    panel.background = element_rect(fill = "#F7F7F7"),  # Light background
+    plot.title = element_text(hjust = 0.5, color = "#4C72B0"), # Centered and colored title
+    axis.text.x = element_text(color = "#DD8452"),  # Custom axis text color
+    axis.text.y = element_text(color = "#DD8452")
+  )
+```
 
 <span style="color: brown;">**________________________________________________________________________________**</span>
 
@@ -779,6 +798,39 @@ Download the E-commerce Customer Behavior Data set from [here](https://www.kaggl
 _______________________________________________________________________
 <span style="color: brown;">**Solution**</span> 
 
-## <span style="color: brown;">SOLUTION TO BE PROVIDED</span>
+```{r}
+library(ggplot2)
+library(patchwork)
+
+# Load the data 
+ecommerce <- read.csv("data/E-commerce.csv")
+
+# PLOTTING 
+## A histogram to show annual income distribution
+p1 <- ggplot(ecommerce, aes(x = Annual.Income)) +
+  geom_histogram(bins = 8, fill = "blue", color = "black") +
+  labs(title = "Distribution of Annual Income", 
+       x = "Annual Income", y = "frequency") +
+  theme_minimal()
+
+# A box plot that will show Time on Site distribution
+p2 <- ggplot(ecommerce, aes(y=Time.on.Site))+
+  geom_boxplot(fill="blue", color="black") + 
+  labs(title = "Time on Site distribution") +
+  theme_minimal()
+
+# A bar chart that compare different genders count for the customers
+p3 <- ggplot(ecommerce, aes(x = factor(Gender))) + 
+  geom_bar(fill="blue", color="black") + 
+  ggtitle("Customers Gender")
+
+# A scatter plot to compare age vs annual income
+p4 <- ggplot(ecommerce, aes(x = Age, y = Annual.Income)) +
+  geom_point(color="blue") + 
+  ggtitle("Age vs Annual Income")
+
+# Combine the plots 
+(p1+p2)/(p3+p4)
+```
 
 <span style="color: brown;">**________________________________________________________________________________**</span>

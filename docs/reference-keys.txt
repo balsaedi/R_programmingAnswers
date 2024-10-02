@@ -52,11 +52,9 @@ basic-data-visualization
 introduction-to-ggplot2
 creating-basic-plots
 customizing-plots
-solution-to-be-provided
 advanced-data-visualization
 creating-complex-visualizations
 combining-multiple-plots
-solution-to-be-provided-1
 explanatory-data-analysis
 introduction-to-eda
 choosing-a-data-set
