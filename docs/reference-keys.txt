@@ -43,8 +43,8 @@ select
 filter
 arrange
 mutate
-group_by
 summarise
+group_by
 chaining
 hands-on-exercises-1
 data-visualization
