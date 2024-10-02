@@ -11,8 +11,7 @@ installation-of-r-and-rstudio
 introduction-to-rstudio-interface
 basic-r-syntax-and-commands
 hands-on-exercise
-solutions
-hands-on-exercise-1
+solution
 basic-data-types-and-structures
 data-types
 data-structures
@@ -30,9 +29,6 @@ data-importing-and-exporting
 introduction-to-data-importing
 demonstration-of-data-importing
 introduction-to-data-exporting
-practical-exercise
-solutions-1
-practical-exercise-1
 data-manipulation
 basic-data-manipulation
 introduction-to-data-manipulation
@@ -40,8 +36,6 @@ subsetting-and-filtering-data
 sorting-data
 basic-data-cleaning
 hands-on-exercises
-solutions-2
-hands-on-exercise-2
 data-manipulation-with-dplyr
 introduction-to-dplyr-package
 key-functions-in-dplyr
@@ -77,7 +71,7 @@ statistical-analysis
 basic-statistical-concepts
 introduction-to-descriptive-statistics
 visualization-of-descriptive-statistics
-hands-on-exercise-3
+hands-on-exercise-1
 correlation-and-regression-analysis
 introduction-to-correlation
 introduction-to-regression-analysis

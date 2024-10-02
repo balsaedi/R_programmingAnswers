@@ -147,15 +147,16 @@ Export the file
 writeLines(data_vector, "data/sample_data_with_writeLines.txt")
 ```
 
-## Practical Exercise
+<span style="color: brown;">**Practical Exercise**</span> 
+
 Down the house prices regression data set from [here](https://www.kaggle.com/datasets/prokshitha/home-value-insights) and do the following;
 
 i. Read the CSV file into a `data.frame` and give it a variable name `housePricesDF`
 ii. Write the `data.frame` into an Excel file locally.
 
+_______________________________________________________________________
+<span style="color: brown;">**Solution**</span> 
 
-## Solutions
-### Practical Exercise
 Down the house prices regression data set from [here](https://www.kaggle.com/datasets/prokshitha/home-value-insights) and do the following;
 
 i. Read the CSV file into a `data.frame` and give it a variable name `housePricesDF`
@@ -168,3 +169,5 @@ housePricesDF <- read.csv("data/house_price_regression_dataset.csv")
 # ii. Write the `data.frame` into an Excel file locally
 write.csv(housePricesDF, "data/saved_data/house_price_regression_dataset.csv")
 ```
+
+<span style="color: brown;">**________________________________________________________________________________**</span>

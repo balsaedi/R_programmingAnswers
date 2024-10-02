@@ -1378,9 +1378,22 @@ You will use the statistical techniques learned for instance descriptive statist
 
 You will finally prepare a brief presentation that will summarize the statistical analysis and research
 
-Dicuss in groups the insights obtained, challenges faced and any potential improvements
+Discuss in groups the insights obtained, challenges faced and any potential improvements
 
 _______________________________________________________________________
 ### <span style="color: brown;">Example: Ecommerce Statistical Analysis</span> 
+
+<span style="color: brown;">**Formulation of Hypothesis**</span> 
+
+<span style="color: brown;">**T-Tests**</span> 
+
+- <span style="color: brown;">**One-Sample T-test**</span> 
+- <span style="color: brown;">**Two-sample T-Test**</span> 
+
+<span style="color: brown;">**ANOVA(Analysis of Variance)**</span> 
+
+<span style="color: brown;">**Chi-Square Test**</span> 
+
+<span style="color: brown;">**Key Findings**</span> 
 
 <span style="color: brown;">**________________________________________________________________________________**</span>

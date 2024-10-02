@@ -367,13 +367,34 @@ print(clean_date_vector)
 
 ```
 
+
 <span style="color: green">**Practical exercise**</span>
 
 You will use the car sales data set found [here](https://github.com/balsaedi/R_programming/blob/main/data/car_sales.csv) to;
 
 i. Delete all the records that have any null value
 ii. Remove duplicated observations
-iii. Remove outliers
+
+_______________________________________________________________________
+<span style="color: brown;">**Solution**</span> 
+
+You will use the car sales data set found [here](https://github.com/balsaedi/R_programming/blob/main/data/car_sales.csv) to;
+
+i. Delete all the records that have any null value
+```{r}
+# Read the data sets 
+car_sales <- read.csv("data/car_sales.csv") # file path can be the whole link
+# i. Delete all the records that have any null value
+car_sales_1 <- na.omit(car_sales)
+```
+
+ii. Remove duplicated observations
+```{r}
+# ii. Remove duplicated observations
+car_sales_2 <- car_sales_1[!duplicated(car_sales_1), ]
+```
+
+<span style="color: brown;">**________________________________________________________________________________**</span>
 
 ### Hands-on Exercises
 Download the Bengaluru Restaurants Dataset from [here](https://www.kaggle.com/datasets/mrmars1010/restaurants-dataset-bengaluru) and use it to for the activities below. 
@@ -381,85 +402,77 @@ Download the Bengaluru Restaurants Dataset from [here](https://www.kaggle.com/da
 1. **Subsetting and Filtering**
 
 - Subset the data set to include only restaurants with a rating of 4.0 and above.
-- Filter the data set to include restaurants in specific locations: "Koramangala", "Indiranagar", and "MG Road".
-- Create a subset that includes only restaurants serving both "North Indian" and "Chinese" cuisine.
-- Filter out restaurants that have no reviews or ratings.
+- Filter out restaurants that have zero reviews or null ratings.
 
 2. **Sorting**
 
 - Sort the data set by restaurant ratings in descending order.
-- Sort the data set first by location and then by average cost for two people in ascending order.
-- Sort the data set by the number of votes a restaurant received, with the highest votes appearing first.
+- Sort the data set by the number of reviews a restaurant received, with the highest reviews appearing last
 
 3. **Data Cleaning**
 
 - Identify and remove rows with missing or null values in any key columns (e.g., ratings, cost, cuisine type).
-- Correct inconsistent data types: Ensure that numeric columns (such as "cost for two") are in the correct numeric format.
-- Remove any duplicate restaurant entries based on the restaurant name and location.
-- Ensure consistency in categorical data, such as correcting case sensitivity or spelling issues (e.g., "North Indian" vs. "north indian").
-- Identify and handle any outliers in the "cost for two" column.
 
+_______________________________________________________________________
+<span style="color: brown;">**Solution**</span> 
 
-### <span style="color: brown">Solutions</span>
-<span style="color: brown">**Practical exercise**</span>
-
-You will use the car sales data set found [here](https://github.com/balsaedi/R_programming/blob/main/data/car_sales.csv) to;
-
-i. Delete all the records that have any null value
-ii. Remove duplicated observations
-iii. Remove outliers
-```{r}
-# Read the data sets 
-car_sales <- read.csv("data/car_sales.csv") # filepath can be the whole link
-
-# i. Delete all the records that have any null value
-car_sales_1 <- na.omit(car_sales)
-
-# ii. Remove duplicated observations
-car_sales_2 <- car_sales_1[!duplicated(car_sales_1), ]
-
-# iii. Remove outliers
-## WILL BE DONE LATER
-```
-
-#### Hands-on Exercise
 Download the Bengaluru Restaurants Dataset from [here](https://www.kaggle.com/datasets/mrmars1010/restaurants-dataset-bengaluru) and use it to for the activities below. 
 
 1. **Subsetting and Filtering**
 
 - Subset the data set to include only restaurants with a rating of 4.0 and above.
-- Filter the data set to include restaurants in specific locations: "Koramangala", "Indiranagar", and "MG Road".
-- Create a subset that includes only restaurants serving both "North Indian" and "Chinese" cuisine.
-- Filter out restaurants that have no reviews or ratings.
-
 ```{r}
 df <- read.csv("data/Bengaluru_Restaurants.csv")
 # Subsetting and Filtering
 ## Subset the data set to include only restaurants with a rating of 4.0 and above.
+high_rated_restaurants <- df[df$rating >= 4.0, ]
 
-## Filter the data set to include restaurants in specific locations: "Koramangala", "Indiranagar", and "MG Road".
+head(high_rated_restaurants[, c("name", "rating") ]) # show the restaurants 
+```
 
-
-## Create a subset that includes only restaurants serving both "North Indian" and "Chinese" cuisine.
-
-
+- Filter out restaurants that have zero reviews or null ratings.
+```{r}
 ## Filter out restaurants that have no reviews or ratings.
+# Filter out restaurants with no reviews or ratings
+filtered_restaurants <- df[df$numberOfReviews>0 & !is.na(df$rating), ]
 
+head(filtered_restaurants[, c("name", "rating", "numberOfReviews") ])
 ```
 
 2. **Sorting**
 
 - Sort the data set by restaurant ratings in descending order.
-- Sort the data set first by location and then by average cost for two people in ascending order.
-- Sort the data set by the number of votes a restaurant received, with the highest votes appearing first.
+```{r}
+# Sort the restaurants by ratings in descending order
+sorted_restaurants <- df[order(-df$rating), ]
+
+# Display the sorted data
+head(sorted_restaurants[, c("name", "rating")])
+```
+
+- Sort the data set by the number of reviews a restaurant received, with the highest reviews appearing last.
+```{r}
+# Sort the restaurants by no of reviews in ascending order
+sorted_restaurants <- df[order(df$numberOfReviews), ]
+
+# Display the sorted data
+tail(sorted_restaurants[, c("name", "numberOfReviews")])
+```
 
 3. **Data Cleaning**
 
 - Identify and remove rows with missing or null values in any key columns (e.g., ratings, cost, cuisine type).
-- Correct inconsistent data types: Ensure that numeric columns (such as "cost for two") are in the correct numeric format.
-- Remove any duplicate restaurant entries based on the restaurant name and location.
-- Ensure consistency in categorical data, such as correcting case sensitivity or spelling issues (e.g., "North Indian" vs. "north indian").
-- Identify and handle any outliers in the "cost for two" column.
+```{r}
+sum(is.na(df)) # count the null values
+
+# Count the null values 
+complete_data <- na.omit(df)
+
+# Confirm the operation
+sum(is.na(complete_data))
+```
+
+<span style="color: brown;">**________________________________________________________________________________**</span>
 
 ## Data Manipulation with Dplyr
 ### Introduction to Dplyr package 

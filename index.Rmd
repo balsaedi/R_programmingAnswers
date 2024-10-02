@@ -175,8 +175,9 @@ y <-5+3       # Also valid, but less readable
     
 2. Assign variable `d` and `f` to values `42` and `14` respectively and solve `d/f`
 
-## Solutions
-### Hands-on Exercise 
+_______________________________________________________________________
+## <span style="color: brown;">Solution</span> 
+
 1. Solve the following equations;
 
     a. `34 + 54`
@@ -204,3 +205,5 @@ f <- 14
 # solve d/f 
 d/f
 ```
+
+<span style="color: brown;">**________________________________________________________________________________**</span>
