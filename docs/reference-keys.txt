@@ -74,7 +74,6 @@ correlation-and-regression-analysis
 introduction-to-correlation
 introduction-to-regression-analysis
 hands-on-exercises-2
-to-be-done
 advanced-statistical-methods
 introduction-to-hypothesis-testing
 concept-of-hypothesis-testing

@@ -892,12 +892,26 @@ summary(model)
 
 ### Hands-on Exercises
 
-In this course, you will be required to download the Boston Housing data set from [here](https://www.kaggle.com/datasets/fedesoriano/the-boston-houseprice-data). Fit a multiple regression model to the data set. The goal is to predict the price of the houses in Boston. Interpret and discuss the multiple linear regression model and its implication
+In this course, you will be required to download the Boston Housing data set from [here](https://www.kaggle.com/datasets/fedesoriano/the-boston-houseprice-data). Fit a multiple regression model to the data set. The goal is to predict the price of the houses in Boston, the `MEDV` variable. Interpret and discuss the multiple linear regression model and its implication
 
 _______________________________________________________________________
 <span style="color: brown;">**Solution**</span> 
 
-### <span style="color: brown;">**TO BE DONE**</span> 
+```{r}
+# Load the data 
+boston_df <- read.csv("data/boston_housing.csv")
+
+# Count the null values 
+sum(is.na(boston_df))
+
+# Fit multiple linear regression model 
+model <- lm(MEDV ~ . , data = boston_df)
+
+summary(model)
+```
+
+
+The multiple linear regression model explains 73.4% of the variance in house prices (Adjusted R-squared = 0.7338). Significant predictors include crime rate (CRIM), room count (RM), and distance to employment (DIS), among others
 
 <span style="color: brown;">**________________________________________________________________________________**</span>
 
