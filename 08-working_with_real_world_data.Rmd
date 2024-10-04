@@ -250,6 +250,13 @@ After working on the previous practical exercise, you  will manage the memory by
 - Deleting the variables not required 
 - Using `gc` to accelerate the process of garbage collection
 
+_______________________________________________________________________
+<span style="color: brown;">**Solution**</span> 
+
+
+
+<span style="color: brown;">**________________________________________________________________________________**</span>
+
 ### Reading and Writing Large Files 
 #### Optimized File I/O
 The `data.table` package offers highly optimized functions like `fread()` and `fwrite()` that are much faster for reading and writing large files. They provide significant speedups due to efficient file handling and parallel processing. The I/O processes can be optimized by; 
@@ -324,6 +331,13 @@ data[, new_column := rnorm(nrow(data))]  # Add a new column
 system.time(fwrite(data, "large_output.csv"))
 ```
 
+_______________________________________________________________________
+<span style="color: brown;">**Solution**</span> 
+
+
+
+<span style="color: brown;">**________________________________________________________________________________**</span>
+
 ### Hands-On Exercises
 Download the Amazon Fine Food Reviews data set from [here](https://www.kaggle.com/datasets/snap/amazon-fine-food-reviews) and work on the following problems; 
 
@@ -334,6 +348,13 @@ iv. Reread the data set however control the threads. Set different thread value 
 v. Write the file locally(use a different file name) and use `gc()` for garbage collection
 
 Finally, discuss on the importance of scalability when dealing with real-world data.
+
+_______________________________________________________________________
+<span style="color: brown;">**Solution**</span> 
+
+
+
+<span style="color: brown;">**________________________________________________________________________________**</span>
 
 ## Data Cleaning and Transformation
 ### Introduction to Data Cleaning 
@@ -476,6 +497,12 @@ ii. Create a copy of the data set and rename it `subset_df1_copy`. Drop rows tha
 iii. Create another copy, `subset_df1_copy2` and impute the missing values based on the previous value. `.direction=down`. 
 iv. Count the null values on the copy data set
 
+_______________________________________________________________________
+<span style="color: brown;">**Solution**</span> 
+
+
+
+<span style="color: brown;">**________________________________________________________________________________**</span>
 
 ##### Dealing with Outliers
 Outliers are values that that are completely different from the other data points in the data set. They may be extremely smaller or extremely larger than the values in the data set. Also outliers can present some non-realistic values for instance a body temperature of $143^0C$ or an athlete height of 0.23 meters. They are brought about by; 
@@ -555,6 +582,13 @@ health_data[health_data$outlier_blood_pressure_zscore, c("villager_id", "blood_p
 <span style="color: green;">**Practical exercise**</span>
 
 Download the Brazil's House of Deputies Reimbursements from [here](https://www.kaggle.com/datasets/epattaro/brazils-house-of-deputies-reimbursements). Read the data set, identify numerical columns that contain the outliers and remove them
+
+_______________________________________________________________________
+<span style="color: brown;">**Solution**</span> 
+
+
+
+<span style="color: brown;">**________________________________________________________________________________**</span>
 
 ##### Data Transformation Techniques 
 - **Normalization and Standardization**
@@ -660,6 +694,13 @@ Label encoding is preferred where the categories are ordinal for instance educat
 
 Using the same Brazil's House of Deputies data set, encode the `deputy_state` and the `political_party` to have numerical values. 
 
+_______________________________________________________________________
+<span style="color: brown;">**Solution**</span> 
+
+
+
+<span style="color: brown;">**________________________________________________________________________________**</span>
+
 ### Hands-On Exercises
 In this course you will be required to use the NHANES data set from the `NHANES` package. Install the NHANES package by;
 ```
@@ -688,3 +729,10 @@ v. For the `BMI` and `Pulse` columns, calculate the Interquartile Range (IQR) an
 vi. Remove rows where outliers are found in the `BMI` and `Pulse` columns
 vii. Apply Min-Max normalization to the `BMI` and `Pulse` columns, rescaling the data between 0 and 1
 viii. Use one-hot encoding to convert the Gender column into a numerical format (i.e., create separate columns for male and female)
+
+_______________________________________________________________________
+<span style="color: brown;">**Solution**</span> 
+
+
+
+<span style="color: brown;">**________________________________________________________________________________**</span>
