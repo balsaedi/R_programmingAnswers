@@ -253,7 +253,39 @@ After working on the previous practical exercise, you  will manage the memory by
 _______________________________________________________________________
 <span style="color: brown;">**Solution**</span> 
 
+- Find the objects that fill up the memory
+```
+ls()
+```
+`"more_severe", "selected_data", "us_accidents_dtb"` are the objects that fill up the memory. 
 
+- Delete the variables not required 
+**Answer**: the three variables are required for future data analysis. If any is to be deleted for instance `"selected_data"` will be deleted by `rm(selected_data)` command. 
+
+- Use `gc` to accelerate garbage collection
+```
+library(pryr)
+
+# Compute the memory usage 
+mem_used()
+
+# Accelerate garbage collection
+gc()
+
+# Recalculate the memory usage to find the effect of garbage colection
+mem_used()
+```
+The results below shows that the `mem_used()` function initially reported 5 GB of memory usage, and after running `gc()` (garbage collection), the memory usage remained the same. This indicates that there was no significant unused memory to free up. The output shows the memory statistics, with `Ncells` and `Vcells` representing internal R objects and vector cells, respectively. The `gc()` call didn't reduce memory usage because no unnecessary objects were ready for removal, meaning R was already optimized for memory at that point
+```
+5 GB
+            used   (Mb) gc trigger   (Mb)  max used
+Ncells  13700827  731.8   28312494 1512.1  18470724
+Vcells 529470462 4039.6  770624900 5879.5 639364455
+         (Mb)
+Ncells  986.5
+Vcells 4878.0
+5 GB
+```
 
 <span style="color: brown;">**________________________________________________________________________________**</span>
 
@@ -265,7 +297,8 @@ The `data.table` package offers highly optimized functions like `fread()` and `f
 2. Efficient writing 
 3. Parallel Processing for faster import/export
 
-1. **Efficient Reading**
+
+i. **Efficient Reading**
 
 The `fread()` function is designed to read large CSV files much faster than the `read.csv()` by using multiple threads and optimized parsing. Here is how you can read the file 
 ```
@@ -278,11 +311,12 @@ data <- fread("GlobalLandTemperaturesByCity.csv")
 Download the csv file from [here](https://www.kaggle.com/datasets/berkeleyearth/climate-change-earth-surface-temperature-data). Extract the downloaded file and read the first csv file.
 
 These are the perks of reading data using `fread()` function;
+
 - Parallel Reading: Uses multiple threads to read files faster.
 - Automatic Type Detection: Automatically detects column types without needing to pre-specify them.
 - Handling Big Data: Efficient for reading gigabytes of data.
 
-2. **Efficient Writing**
+ii. **Efficient Writing**
 
 A large data.table can saved locally using the `fwrite()` function. It can handle large data volumes efficiently and supports various formats.
 
@@ -299,7 +333,7 @@ These are the features of `fwrite()`;
 - Compression: Supports compression for efficient storage.
 - Parallel Writing: Uses multiple threads to write files faster.
 
-3. **Parallel Processing for faster Import/Export**
+iii. **Parallel Processing for faster Import/Export**
 
 The `fread()` and `fwrite()` use parallel processing by default however you can configure the number of threads used for reading and writing. The `setDTthreads()` is used to achieve this. Lets now read and write the data using 4 threads
 ```
@@ -321,8 +355,8 @@ ii. Time the `fread()` when reading the file. **Hint**: replace the `"large_data
 # Timing fread() for a large file
 system.time(data <- fread("large_dataset.csv"))
 ```
-iii. Add a new column into the data set. Just the convert the temperature from $^oC$(degrees Celcius) to $^oF$(degrees Farenheit)
-iv. Write the file locally and check the time taken to write the file. **Hint**: Here is how you can achieve step iii abd iv
+iii. Add a new column into the data set. Just the convert the temperature from $^oF$(degrees Farenheit) to $^oC$(degrees Celcius)
+iv. Write the file locally and check the time taken to write the file. **Hint**: Here is how you can achieve step iii and iv
 ```
 # Do the Calculations
 
@@ -334,7 +368,24 @@ system.time(fwrite(data, "large_output.csv"))
 _______________________________________________________________________
 <span style="color: brown;">**Solution**</span> 
 
+i. Read the data set using `fread()`
+ii. Time the fread() when reading the file. Hint: replace the `"large_dataset.csv"` by the file path of the downloaded file
+```{r}
+# Timing fread() for a large file
+system.time(data <- fread("big-data/us_accidents/US_Accidents_March23.csv"))
+```
 
+iii. Add a new column into the data set. Just the convert the temperature from $^oF$(degrees Farenheit) to $^oC$(degrees Celcius)
+```{r}
+data[, `Temperature(C)` := (5/9) * (`Temperature(F)` - 32)]
+
+head(data$`Temperature(C)`)
+```
+
+iv. Write the file locally and check the time taken to write the file. Hint: Here is how you can achieve step iii and iv
+```{r}
+system.time(fwrite(data, "temp-data/us_accidents.csv"))
+```
 
 <span style="color: brown;">**________________________________________________________________________________**</span>
 
@@ -344,7 +395,7 @@ Download the Amazon Fine Food Reviews data set from [here](https://www.kaggle.co
 i. Remove any unwanted objects in the file system. Use `gc` to view any garbage collection statistics
 ii. Read the data set using `read.csv` and `fread` and time each method. Compare the time taken for each function to read the file. 
 iii. Remove the data set from the memory using `rm()` and call `gc()` again 
-iv. Reread the data set however control the threads. Set different thread value (e.g 1, 2, 3, 4 and 5) the compare the time taken for processing. 
+iv. Reread the data set using `fread()` however control the threads. Set different thread value (e.g 1, 2, 3, 4 and 5) the compare the time taken for processing. 
 v. Write the file locally(use a different file name) and use `gc()` for garbage collection
 
 Finally, discuss on the importance of scalability when dealing with real-world data.
@@ -352,7 +403,107 @@ Finally, discuss on the importance of scalability when dealing with real-world d
 _______________________________________________________________________
 <span style="color: brown;">**Solution**</span> 
 
+i. Remove any unwanted objects in the file system. Use `gc` to view any garbage collection statistics
+```{r}
+library(data.table)
 
+# Remove unwanted objects and show memory usage
+gc()
+```
+
+ii. Read the data set using `read.csv` and `fread` and time each method. Compare the time taken for each function to read the file.
+
+- Using `read.csv`
+```{r}
+# time using when reading with `read.csv` function 
+system.time(amazon_reviews_df <- 
+              read.csv("big-data/amazon-fine-food-reviews/Reviews.csv"))
+```
+
+- Using `fread()`
+```{r}
+# time using when reading with `read.csv` function 
+system.time(amazon_reviews_dtB <- 
+              fread("big-data/amazon-fine-food-reviews/Reviews.csv"))
+```
+
+The `fread()` function reads the data 4 times faster than the `fread()` function. 
+
+iii. Remove the data set from the memory using `rm()` and call `gc()` again
+```{r}
+# Remove the two data objects 
+rm(amazon_reviews_df, amazon_reviews_dtB)
+
+# Call gc() to trigger garbage collection and show memory usage
+gc()
+```
+
+iv. Reread the data set using `fread()` however control the threads. Set different thread value (e.g 1, 2, 3, 4 and 5) the compare the time taken for processing
+```{r}
+library(data.table)
+
+# The filepath 
+file_path <- "big-data/amazon-fine-food-reviews/Reviews.csv"
+
+# Loop through 1 to 5 threads
+for (threads in 1:5) {
+  
+  # Set the number of threads
+  setDTthreads(threads)
+  
+  # Print the time taken
+  time_taken <- system.time(amazon_reviews_dtB <- fread(file_path))
+  cat("Time taken with", threads, "thread(s):", time_taken, "\n")
+  
+  # Remove the data object to free memory
+  rm(amazon_reviews_dtB)
+  
+  # Run garbage collection
+  gc()
+}
+
+```
+
+The more the threads the faster it takes to read the data 
+
+v. Write the file locally(use a different file name) and use gc() for garbage collection
+```{r}
+# Set the threads and read the data 
+setDTthreads(5)
+amazon_reviews_dtB <-
+  fread("big-data/amazon-fine-food-reviews/Reviews.csv")
+
+# Write the file locally
+fwrite(amazon_reviews_dtB, "temp-data/Reviews.csv")
+
+# Garbage collection 
+rm(amazon_reviews_dtB)
+gc()
+```
+
+Finally, discuss on the importance of scalability when dealing with real-world data.
+
+<span style="color: #A9A9A9;">
+Scalability is critical when handling real-world data because datasets can grow significantly in size and complexity, often comprising millions of rows and gigabytes of information. As data grows, processing it efficiently becomes more challenging, making scalability essential for:</span>
+
+<span style="color: #A9A9A9;">
+- **Performance**: Scalable systems allow operations, such as reading, analyzing, and transforming data, to remain efficient even as data size increases, preventing long processing times.</span>
+
+<span style="color: #A9A9A9;">
+- **Resource Optimization**: Scalable solutions can adjust resource usage, such as memory and CPU, to match the data’s size, ensuring optimal performance without overwhelming the system.</span>
+
+<span style="color: #A9A9A9;">
+- **Cost Efficiency**: Scalable approaches prevent the need for costly hardware upgrades by making better use of existing resources, reducing infrastructure costs in the long term.</span>
+
+<span style="color: #A9A9A9;">
+- **Handling Big Data**: Many industries, like finance, healthcare, and e-commerce, deal with vast amounts of data. Scalable systems ensure that businesses can process and extract value from this data effectively.</span>
+
+<span style="color: #A9A9A9;">
+- **Future-Proofing**: As data needs continue to evolve, scalability ensures that systems can accommodate future growth without requiring significant overhauls or replacements. </span>
+
+<span style="color: #A9A9A9;">
+In short, scalability ensures that as data grows, the system’s capacity to process it efficiently grows too, enabling sustainable data management and analysis.
+</span>
 
 <span style="color: brown;">**________________________________________________________________________________**</span>
 
