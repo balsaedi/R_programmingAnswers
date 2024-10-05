@@ -483,25 +483,25 @@ gc()
 
 Finally, discuss on the importance of scalability when dealing with real-world data.
 
-<span style="color: #A9A9A9;">
+<span style="color: #00008B;">
 Scalability is critical when handling real-world data because datasets can grow significantly in size and complexity, often comprising millions of rows and gigabytes of information. As data grows, processing it efficiently becomes more challenging, making scalability essential for:</span>
 
-<span style="color: #A9A9A9;">
+<span style="color: #00008B;">
 - **Performance**: Scalable systems allow operations, such as reading, analyzing, and transforming data, to remain efficient even as data size increases, preventing long processing times.</span>
 
-<span style="color: #A9A9A9;">
+<span style="color: #00008B;">
 - **Resource Optimization**: Scalable solutions can adjust resource usage, such as memory and CPU, to match the data’s size, ensuring optimal performance without overwhelming the system.</span>
 
-<span style="color: #A9A9A9;">
+<span style="color: #00008B;">
 - **Cost Efficiency**: Scalable approaches prevent the need for costly hardware upgrades by making better use of existing resources, reducing infrastructure costs in the long term.</span>
 
-<span style="color: #A9A9A9;">
+<span style="color: #00008B;">
 - **Handling Big Data**: Many industries, like finance, healthcare, and e-commerce, deal with vast amounts of data. Scalable systems ensure that businesses can process and extract value from this data effectively.</span>
 
-<span style="color: #A9A9A9;">
+<span style="color: #00008B;">
 - **Future-Proofing**: As data needs continue to evolve, scalability ensures that systems can accommodate future growth without requiring significant overhauls or replacements. </span>
 
-<span style="color: #A9A9A9;">
+<span style="color: #00008B;">
 In short, scalability ensures that as data grows, the system’s capacity to process it efficiently grows too, enabling sustainable data management and analysis.
 </span>
 

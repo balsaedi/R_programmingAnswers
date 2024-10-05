@@ -617,36 +617,44 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <span id="cb754-11"><a href="working-with-real-world-data.html#cb754-11" tabindex="-1"></a><span class="co"># Summary of memory usage</span></span>
 <span id="cb754-12"><a href="working-with-real-world-data.html#cb754-12" tabindex="-1"></a><span class="fu">summaryRprof</span>()</span></code></pre></div>
 <pre><code>## $by.self
-##         self.time self.pct total.time total.pct
-## &quot;rnorm&quot;      0.12      100       0.12       100
+##           self.time self.pct total.time total.pct
+## &quot;rnorm&quot;        0.10    83.33       0.10     83.33
+## &quot;as.list&quot;      0.02    16.67       0.02     16.67
 ## 
 ## $by.total
 ##                           total.time total.pct self.time self.pct
-## &quot;rnorm&quot;                         0.12       100      0.12      100
-## &quot;block_exec&quot;                    0.12       100      0.00        0
-## &quot;call_block&quot;                    0.12       100      0.00        0
-## &quot;eng_r&quot;                         0.12       100      0.00        0
-## &quot;eval_with_user_handlers&quot;       0.12       100      0.00        0
-## &quot;eval&quot;                          0.12       100      0.00        0
-## &quot;evaluate_call&quot;                 0.12       100      0.00        0
-## &quot;evaluate::evaluate&quot;            0.12       100      0.00        0
-## &quot;evaluate&quot;                      0.12       100      0.00        0
-## &quot;generator$render&quot;              0.12       100      0.00        0
-## &quot;handle&quot;                        0.12       100      0.00        0
-## &quot;in_dir&quot;                        0.12       100      0.00        0
-## &quot;in_input_dir&quot;                  0.12       100      0.00        0
-## &quot;knitr::knit&quot;                   0.12       100      0.00        0
-## &quot;process_file&quot;                  0.12       100      0.00        0
-## &quot;process_group&quot;                 0.12       100      0.00        0
-## &quot;render_book_script&quot;            0.12       100      0.00        0
-## &quot;render_book&quot;                   0.12       100      0.00        0
-## &quot;render_cur_session&quot;            0.12       100      0.00        0
-## &quot;rmarkdown::render_site&quot;        0.12       100      0.00        0
-## &quot;rmarkdown::render&quot;             0.12       100      0.00        0
-## &quot;timing_fn&quot;                     0.12       100      0.00        0
-## &quot;withCallingHandlers&quot;           0.12       100      0.00        0
-## &quot;withVisible&quot;                   0.12       100      0.00        0
-## &quot;xfun:::handle_error&quot;           0.12       100      0.00        0
+## &quot;block_exec&quot;                    0.12    100.00      0.00     0.00
+## &quot;call_block&quot;                    0.12    100.00      0.00     0.00
+## &quot;eng_r&quot;                         0.12    100.00      0.00     0.00
+## &quot;evaluate_call&quot;                 0.12    100.00      0.00     0.00
+## &quot;evaluate::evaluate&quot;            0.12    100.00      0.00     0.00
+## &quot;evaluate&quot;                      0.12    100.00      0.00     0.00
+## &quot;generator$render&quot;              0.12    100.00      0.00     0.00
+## &quot;in_dir&quot;                        0.12    100.00      0.00     0.00
+## &quot;in_input_dir&quot;                  0.12    100.00      0.00     0.00
+## &quot;knitr::knit&quot;                   0.12    100.00      0.00     0.00
+## &quot;process_file&quot;                  0.12    100.00      0.00     0.00
+## &quot;process_group&quot;                 0.12    100.00      0.00     0.00
+## &quot;render_book_script&quot;            0.12    100.00      0.00     0.00
+## &quot;render_book&quot;                   0.12    100.00      0.00     0.00
+## &quot;render_cur_session&quot;            0.12    100.00      0.00     0.00
+## &quot;rmarkdown::render_site&quot;        0.12    100.00      0.00     0.00
+## &quot;rmarkdown::render&quot;             0.12    100.00      0.00     0.00
+## &quot;withCallingHandlers&quot;           0.12    100.00      0.00     0.00
+## &quot;xfun:::handle_error&quot;           0.12    100.00      0.00     0.00
+## &quot;rnorm&quot;                         0.10     83.33      0.10    83.33
+## &quot;eval_with_user_handlers&quot;       0.10     83.33      0.00     0.00
+## &quot;eval&quot;                          0.10     83.33      0.00     0.00
+## &quot;handle&quot;                        0.10     83.33      0.00     0.00
+## &quot;timing_fn&quot;                     0.10     83.33      0.00     0.00
+## &quot;withVisible&quot;                   0.10     83.33      0.00     0.00
+## &quot;as.list&quot;                       0.02     16.67      0.02    16.67
+## &quot;handle_output&quot;                 0.02     16.67      0.00     0.00
+## &quot;is_par_change&quot;                 0.02     16.67      0.00     0.00
+## &quot;lapply&quot;                        0.02     16.67      0.00     0.00
+## &quot;plot_calls&quot;                    0.02     16.67      0.00     0.00
+## &quot;plot_snapshot&quot;                 0.02     16.67      0.00     0.00
+## &quot;w$get_new&quot;                     0.02     16.67      0.00     0.00
 ## 
 ## $sample.interval
 ## [1] 0.02
@@ -801,7 +809,7 @@ system.time(fwrite(data, &quot;large_output.csv&quot;))</code></pre>
 <div class="sourceCode" id="cb775"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb775-1"><a href="working-with-real-world-data.html#cb775-1" tabindex="-1"></a><span class="co"># Timing fread() for a large file</span></span>
 <span id="cb775-2"><a href="working-with-real-world-data.html#cb775-2" tabindex="-1"></a><span class="fu">system.time</span>(data <span class="ot">&lt;-</span> <span class="fu">fread</span>(<span class="st">&quot;big-data/us_accidents/US_Accidents_March23.csv&quot;</span>))</span></code></pre></div>
 <pre><code>##    user  system elapsed 
-##  32.262   1.318  18.947</code></pre>
+##  31.747   1.300  18.665</code></pre>
 <ol start="3" style="list-style-type: lower-roman">
 <li>Add a new column into the data set. Just the convert the temperature from <span class="math inline">\(^oF\)</span>(degrees Farenheit) to <span class="math inline">\(^oC\)</span>(degrees Celcius)</li>
 </ol>
@@ -814,7 +822,7 @@ system.time(fwrite(data, &quot;large_output.csv&quot;))</code></pre>
 </ol>
 <div class="sourceCode" id="cb779"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb779-1"><a href="working-with-real-world-data.html#cb779-1" tabindex="-1"></a><span class="fu">system.time</span>(<span class="fu">fwrite</span>(data, <span class="st">&quot;temp-data/us_accidents.csv&quot;</span>))</span></code></pre></div>
 <pre><code>##    user  system elapsed 
-##  17.643   2.115  11.767</code></pre>
+##  19.051   2.134  12.602</code></pre>
 <p><span style="color: brown;"><strong>________________________________________________________________________________</strong></span></p>
 </div>
 </div>
@@ -839,8 +847,8 @@ system.time(fwrite(data, &quot;large_output.csv&quot;))</code></pre>
 <span id="cb781-3"><a href="working-with-real-world-data.html#cb781-3" tabindex="-1"></a><span class="co"># Remove unwanted objects and show memory usage</span></span>
 <span id="cb781-4"><a href="working-with-real-world-data.html#cb781-4" tabindex="-1"></a><span class="fu">gc</span>()</span></code></pre></div>
 <pre><code>##             used   (Mb) gc trigger    (Mb)  max used   (Mb)
-## Ncells  14308783  764.2   30491768  1628.5  14696060  784.9
-## Vcells 919716946 7016.9 1579096035 12047.6 919800572 7017.6</code></pre>
+## Ncells  14308798  764.2   30491658  1628.5  14696107  784.9
+## Vcells 919717056 7016.9 1579096224 12047.6 919800682 7017.6</code></pre>
 <ol start="2" style="list-style-type: lower-roman">
 <li>Read the data set using <code>read.csv</code> and <code>fread</code> and time each method. Compare the time taken for each function to read the file.</li>
 </ol>
@@ -851,7 +859,7 @@ system.time(fwrite(data, &quot;large_output.csv&quot;))</code></pre>
 <span id="cb783-2"><a href="working-with-real-world-data.html#cb783-2" tabindex="-1"></a><span class="fu">system.time</span>(amazon_reviews_df <span class="ot">&lt;-</span> </span>
 <span id="cb783-3"><a href="working-with-real-world-data.html#cb783-3" tabindex="-1"></a>              <span class="fu">read.csv</span>(<span class="st">&quot;big-data/amazon-fine-food-reviews/Reviews.csv&quot;</span>))</span></code></pre></div>
 <pre><code>##    user  system elapsed 
-##   5.441   0.293   5.738</code></pre>
+##   6.190   0.524   7.060</code></pre>
 <ul>
 <li>Using <code>fread()</code></li>
 </ul>
@@ -859,7 +867,7 @@ system.time(fwrite(data, &quot;large_output.csv&quot;))</code></pre>
 <span id="cb785-2"><a href="working-with-real-world-data.html#cb785-2" tabindex="-1"></a><span class="fu">system.time</span>(amazon_reviews_dtB <span class="ot">&lt;-</span> </span>
 <span id="cb785-3"><a href="working-with-real-world-data.html#cb785-3" tabindex="-1"></a>              <span class="fu">fread</span>(<span class="st">&quot;big-data/amazon-fine-food-reviews/Reviews.csv&quot;</span>))</span></code></pre></div>
 <pre><code>##    user  system elapsed 
-##   2.141   0.048   1.103</code></pre>
+##   2.236   0.118   1.788</code></pre>
 <p>The <code>fread()</code> function reads the data 4 times faster than the <code>fread()</code> function.</p>
 <ol start="3" style="list-style-type: lower-roman">
 <li>Remove the data set from the memory using <code>rm()</code> and call <code>gc()</code> again</li>
@@ -870,8 +878,8 @@ system.time(fwrite(data, &quot;large_output.csv&quot;))</code></pre>
 <span id="cb787-4"><a href="working-with-real-world-data.html#cb787-4" tabindex="-1"></a><span class="co"># Call gc() to trigger garbage collection and show memory usage</span></span>
 <span id="cb787-5"><a href="working-with-real-world-data.html#cb787-5" tabindex="-1"></a><span class="fu">gc</span>()</span></code></pre></div>
 <pre><code>##             used   (Mb) gc trigger    (Mb)  max used   (Mb)
-## Ncells  14308815  764.2   30491768  1628.5  16122805  861.1
-## Vcells 919719213 7017.0 1579096035 12047.6 975074452 7439.3</code></pre>
+## Ncells  14308830  764.2   30491658  1628.5  16122820  861.1
+## Vcells 919719323 7017.0 1579096224 12047.6 975074558 7439.3</code></pre>
 <ol start="4" style="list-style-type: lower-roman">
 <li>Reread the data set using <code>fread()</code> however control the threads. Set different thread value (e.g 1, 2, 3, 4 and 5) the compare the time taken for processing</li>
 </ol>
@@ -896,11 +904,11 @@ system.time(fwrite(data, &quot;large_output.csv&quot;))</code></pre>
 <span id="cb789-19"><a href="working-with-real-world-data.html#cb789-19" tabindex="-1"></a>  <span class="co"># Run garbage collection</span></span>
 <span id="cb789-20"><a href="working-with-real-world-data.html#cb789-20" tabindex="-1"></a>  <span class="fu">gc</span>()</span>
 <span id="cb789-21"><a href="working-with-real-world-data.html#cb789-21" tabindex="-1"></a>}</span></code></pre></div>
-<pre><code>## Time taken with 1 thread(s): 1.782 0.029 1.811 0 0 
-## Time taken with 2 thread(s): 2.739 0.086 1.424 0 0 
-## Time taken with 3 thread(s): 4.272 0.076 1.466 0 0 
-## Time taken with 4 thread(s): 5.543 0.055 1.439 0 0 
-## Time taken with 5 thread(s): 5.341 0.04 1.379 0 0</code></pre>
+<pre><code>## Time taken with 1 thread(s): 1.779 0.037 1.816 0 0 
+## Time taken with 2 thread(s): 2.77 0.082 1.437 0 0 
+## Time taken with 3 thread(s): 4.371 0.082 1.501 0 0 
+## Time taken with 4 thread(s): 5.53 0.082 1.484 0 0 
+## Time taken with 5 thread(s): 5.345 0.037 1.395 0 0</code></pre>
 <p>The more the threads the faster it takes to read the data</p>
 <ol start="22" style="list-style-type: lower-alpha">
 <li>Write the file locally(use a different file name) and use gc() for garbage collection</li>
@@ -917,22 +925,22 @@ system.time(fwrite(data, &quot;large_output.csv&quot;))</code></pre>
 <span id="cb791-10"><a href="working-with-real-world-data.html#cb791-10" tabindex="-1"></a><span class="fu">rm</span>(amazon_reviews_dtB)</span>
 <span id="cb791-11"><a href="working-with-real-world-data.html#cb791-11" tabindex="-1"></a><span class="fu">gc</span>()</span></code></pre></div>
 <pre><code>##             used   (Mb) gc trigger    (Mb)  max used   (Mb)
-## Ncells  14309343  764.3   30491768  1628.5  16122805  861.1
-## Vcells 919720715 7017.0 1579096035 12047.6 975074452 7439.3</code></pre>
+## Ncells  14309358  764.3   30491658  1628.5  16122820  861.1
+## Vcells 919720825 7017.0 1579096224 12047.6 975074558 7439.3</code></pre>
 <p>Finally, discuss on the importance of scalability when dealing with real-world data.</p>
-<p><span style="color: #A9A9A9;">
+<p><span style="color: #00008B;">
 Scalability is critical when handling real-world data because datasets can grow significantly in size and complexity, often comprising millions of rows and gigabytes of information. As data grows, processing it efficiently becomes more challenging, making scalability essential for:</span></p>
-<p><span style="color: #A9A9A9;">
+<p><span style="color: #00008B;">
 - <strong>Performance</strong>: Scalable systems allow operations, such as reading, analyzing, and transforming data, to remain efficient even as data size increases, preventing long processing times.</span></p>
-<p><span style="color: #A9A9A9;">
+<p><span style="color: #00008B;">
 - <strong>Resource Optimization</strong>: Scalable solutions can adjust resource usage, such as memory and CPU, to match the data’s size, ensuring optimal performance without overwhelming the system.</span></p>
-<p><span style="color: #A9A9A9;">
+<p><span style="color: #00008B;">
 - <strong>Cost Efficiency</strong>: Scalable approaches prevent the need for costly hardware upgrades by making better use of existing resources, reducing infrastructure costs in the long term.</span></p>
-<p><span style="color: #A9A9A9;">
+<p><span style="color: #00008B;">
 - <strong>Handling Big Data</strong>: Many industries, like finance, healthcare, and e-commerce, deal with vast amounts of data. Scalable systems ensure that businesses can process and extract value from this data effectively.</span></p>
-<p><span style="color: #A9A9A9;">
+<p><span style="color: #00008B;">
 - <strong>Future-Proofing</strong>: As data needs continue to evolve, scalability ensures that systems can accommodate future growth without requiring significant overhauls or replacements. </span></p>
-<p><span style="color: #A9A9A9;">
+<p><span style="color: #00008B;">
 In short, scalability ensures that as data grows, the system’s capacity to process it efficiently grows too, enabling sustainable data management and analysis.
 </span></p>
 <p><span style="color: brown;"><strong>________________________________________________________________________________</strong></span></p>
