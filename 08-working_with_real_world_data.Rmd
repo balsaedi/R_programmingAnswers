@@ -641,17 +641,70 @@ You can see the target columns(`age`, `athlete_id` and `sport`) are filled and h
 
 <span style="color: green;">**Practical exercise**</span>
 
-Download the Detailed NFL Play-by-Play Data 2009-2018 data from [here](https://www.kaggle.com/datasets/maxhorowitz/nflplaybyplay2009to2016). Read the data set and subset to have `Date , Drive, time, TimeUnder, TimeSecs` columns. Name the data resultant data frame `subset_df1`. Perform the following operations on `subset_df1`.
+Download the Detailed NFL Play-by-Play Data 2009-2018 data from [here](https://www.kaggle.com/datasets/maxhorowitz/nflplaybyplay2009to2016). Read the data set using `fread()` and subset to have `game_date , drive, home_timeouts_remaining, defteam` columns. Name the data resultant data table `subset_dT1`. Perform the following operations on `subset_df1`.
 
 i. Count the total null values
-ii. Create a copy of the data set and rename it `subset_df1_copy`. Drop rows that contain any null value. 
-iii. Create another copy, `subset_df1_copy2` and impute the missing values based on the previous value. `.direction=down`. 
+ii. Create a copy of the data set and rename it `subset_dT1_copy`. Drop rows that contain any null value. 
+iii. Create another copy from the `subset_dT1` and name it `subset_dT1_copy2` and impute the missing values based on the previous value. `.direction=down`. 
 iv. Count the null values on the copy data set
 
 _______________________________________________________________________
 <span style="color: brown;">**Solution**</span> 
 
+Read the data set
+```{r}
+library(data.table)
 
+# Load the data 
+nfl_dtB <- fread("big-data/NFL-Play-data/data.csv")
+
+
+# Subset the data table to find the required columns
+subset_dT1 <- nfl_dtB[, .(game_date , drive, home_timeouts_remaining, defteam)]
+
+# remove the nfl_dtB to free up space 
+rm(nfl_dtB)
+gc()
+```
+
+
+i. Count the null values 
+```{r}
+# Count the null values 
+sum(is.na(subset_dT1))
+```
+
+There are more than 12 thousand missing values in the data set
+
+ii. Create a copy of the data table and rename it `subset_dT1_copy`. Drop rows that contain any null value.
+```{r}
+# Create a copy to avoid referencing issues 
+subset_dT1_copy <- copy(subset_dT1)
+
+# Drop rows that contain null values 
+subset_dT1_copy <- na.omit(subset_dT1_copy)
+
+# Confirm the operation 
+sum(is.na(subset_dT1_copy))
+```
+
+iii. Create another copy from the `subset_dT1` and name it `subset_dT1_copy2` and impute the missing values based on the previous value. `.direction=down`. 
+```{r}
+subset_dT1_copy2 <- copy(subset_dT1)
+
+# Impute the missing values values based on the previous ones 
+library(tidyr)
+
+subset_dT1_copy2 <- subset_dT1_copy2 %>%
+  fill(game_date , drive, home_timeouts_remaining, defteam,
+       .direction="down")
+```
+
+iv. Count the null values on the copy data set
+```{r}
+# Count the null values 
+sum(is.na(subset_dT1_copy2))
+```
 
 <span style="color: brown;">**________________________________________________________________________________**</span>
 
