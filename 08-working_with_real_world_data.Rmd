@@ -740,7 +740,7 @@ head(health_data)
 ```
 
 - Find outliers using **IQR(Interquartile Range)**
-Any values larger than $1.5xIQR$ added to the upper quartile or smaller than the $1.5xIQR$ subtracted to the lower quartile. 
+Any values larger than $1.5xIQR$ added to the upper quartile or smaller than the $1.5xIQR$ subtracted to the lower quartile is considered an outlier. 
 ```{r}
 # Function to identify outliers using IQR
 identify_outliers_iqr <- function(data_column) {
@@ -790,7 +790,68 @@ Download the Brazil's House of Deputies Reimbursements from [here](https://www.k
 _______________________________________________________________________
 <span style="color: brown;">**Solution**</span> 
 
+Read the data set 
+```{r}
+library(data.table)
 
+# Load the data 
+dtB <- fread("big-data/brazil-house-of-deputies/deputies_dataset.csv")
+
+# Shape of the data set 
+dim(dtB)
+```
+
+Remove the outliers using the IQR method. The `receipt_value` column is the only numerical value with intrinsic value.
+```{r}
+# Function to identify outliers using IQR
+identify_outliers_iqr <- function(data_column) {
+  Q1 <- quantile(data_column, 0.25, na.rm = TRUE)
+  Q3 <- quantile(data_column, 0.75, na.rm = TRUE)
+  IQR_value <- IQR(data_column, na.rm = TRUE)
+  
+  lower_bound <- Q1 - 1.5 * IQR_value
+  upper_bound <- Q3 + 1.5 * IQR_value
+  
+  return(data_column < lower_bound | data_column > upper_bound)
+}
+
+# Apply the IQR method
+outliers <- identify_outliers_iqr(dtB$receipt_value)
+
+# Remove the outliers
+clean_dtB_1 <- dtB[!outliers, ]
+
+# View the shape of the data set
+dim(clean_dtB_1)
+
+rm(clean_dtB_1) # clean the memory
+```
+
+Use the zscore method
+```{r}
+# Function to identify outliers using the Z-score
+identify_outliers_zscore <- function(data_column) {
+  z_scores <- scale(data_column)
+  return(abs(z_scores) > 3)
+}
+
+# Apply the Z-score function
+outliers <- identify_outliers_zscore(dtB$receipt_value)
+
+# Convert outliers (matrix) to a logical vector
+outliers_logical <- as.vector(outliers)
+
+# Remove the outliers
+clean_dtB_2 <- dtB[!outliers_logical, ]
+
+# View the shape of the data set
+dim(clean_dtB_2)
+
+# Clean the memory
+rm(clean_dtB_2)
+```
+
+More outliers were identified using the IQR method than the Z-score method. 
 
 <span style="color: brown;">**________________________________________________________________________________**</span>
 
@@ -901,7 +962,22 @@ Using the same Brazil's House of Deputies data set, encode the `deputy_state` an
 _______________________________________________________________________
 <span style="color: brown;">**Solution**</span> 
 
+Read the data set 
+```{r}
+library(data.table)
 
+# Load the data
+dtB <- fread("big-data/brazil-house-of-deputies/deputies_dataset.csv")
+
+# View the column 
+head(dtB$political_party)
+
+# Label encode the column 
+dtB$political_party_encoded <- as.numeric(factor(dtB$political_party))
+
+# Confirm the encoding
+head(dtB[, .(political_party, political_party_encoded)])
+```
 
 <span style="color: brown;">**________________________________________________________________________________**</span>
 
@@ -929,7 +1005,7 @@ sapply(NHANES, function(x) sum(is.na(x)))
 ii. Remove the rows that have any missing values and store the results in a new data set
 iii. For columns with numeric data, impute missing values by replacing them with the mean or median of the column
 iv. For categorical columns (such as `Gender` or `SmokeNow`), impute missing values using the mode.
-v. For the `BMI` and `Pulse` columns, calculate the Interquartile Range (IQR) and dentify any data points that fall outside the 1.5 * IQR range (both lower and upper bounds) as outliers
+v. For the `BMI` and `Pulse` columns, calculate the Interquartile Range (IQR) and identify any data points that fall outside the 1.5 * IQR range (both lower and upper bounds) as outliers
 vi. Remove rows where outliers are found in the `BMI` and `Pulse` columns
 vii. Apply Min-Max normalization to the `BMI` and `Pulse` columns, rescaling the data between 0 and 1
 viii. Use one-hot encoding to convert the Gender column into a numerical format (i.e., create separate columns for male and female)
@@ -937,6 +1013,141 @@ viii. Use one-hot encoding to convert the Gender column into a numerical format 
 _______________________________________________________________________
 <span style="color: brown;">**Solution**</span> 
 
+Install the NHANES package 
+```
+install.packages("NHANES")
+```
 
+then import the library and the data set 
+```{r}
+# Load the library 
+library(NHANES)
+
+# Load the data set
+data("NHANES")
+
+# Count the total null values 
+sum(is.na(NHANES))
+```
+
+i. Count the total number of missing values in each column in the data set and find which column has the most null values
+```{r}
+# Count the null values per column 
+missing_counts <- sapply(NHANES, function(x) sum(is.na(x)))
+print(missing_counts)
+
+# Find the column with the most missing values
+column_with_most_na <- names(which.max(missing_counts))
+print(paste("Column with the most missing values:", column_with_most_na))
+```
+
+ii. Remove the rows that have any missing values and store the results in a new data set
+```{r}
+# Remove rows with missing values
+clean_NHANES <- na.omit(NHANES)
+
+# Check the new data set dimensions
+dim(clean_NHANES)
+```
+All the records are dropped therefore, removing null values is not an effective method to work on the missing values. 
+
+iii. For columns with numeric data, impute missing values by replacing them with the mean or median of the column
+```{r}
+library(dplyr)
+
+# Impute missing values for numeric columns with the mean
+NHANES_imputed <- NHANES %>%
+  mutate_if(is.numeric, function(x) ifelse(is.na(x), mean(x, na.rm = TRUE), x))
+
+# Count the null values 
+sum(is.na(NHANES_imputed))
+```
+
+If you prefer median, replace mean(x) with median(x)
+
+Null values are by more than two thirds. 
+
+iv. For categorical columns (such as `Gender` or `SmokeNow`), impute missing values using the mode.
+```{r}
+# Mode function
+get_mode <- function(v) {
+  uniqv <- unique(na.omit(v))
+  uniqv[which.max(tabulate(match(v, uniqv)))]
+}
+
+# Impute missing values for categorical columns with the mode
+NHANES_imputed <- NHANES_imputed %>%
+  mutate_if(is.factor, function(x) ifelse(is.na(x), get_mode(x), x))
+
+
+# Count the null values 
+sum(is.na(NHANES_imputed))
+```
+
+The null values are completely imputed. The data set is complete. 
+
+v. For the `BMI` and `Pulse` columns, calculate the Interquartile Range (IQR) and dentify any data points that fall outside the 1.5 * IQR range (both lower and upper bounds) as outliers
+```{r}
+# Calculate IQR for BMI
+IQR_BMI <- IQR(NHANES$BMI, na.rm = TRUE)
+Q1_BMI <- quantile(NHANES$BMI, 0.25, na.rm = TRUE)
+Q3_BMI <- quantile(NHANES$BMI, 0.75, na.rm = TRUE)
+lower_bound_BMI <- Q1_BMI - 1.5 * IQR_BMI
+upper_bound_BMI <- Q3_BMI + 1.5 * IQR_BMI
+
+# Calculate IQR for Pulse
+IQR_Pulse <- IQR(NHANES$Pulse, na.rm = TRUE)
+Q1_Pulse <- quantile(NHANES$Pulse, 0.25, na.rm = TRUE)
+Q3_Pulse <- quantile(NHANES$Pulse, 0.75, na.rm = TRUE)
+lower_bound_Pulse <- Q1_Pulse - 1.5 * IQR_Pulse
+upper_bound_Pulse <- Q3_Pulse + 1.5 * IQR_Pulse
+
+# Identify outliers for BMI and Pulse
+outliers_BMI <- NHANES$BMI < lower_bound_BMI | NHANES$BMI > upper_bound_BMI
+outliers_Pulse <- NHANES$Pulse < lower_bound_Pulse | NHANES$Pulse > upper_bound_Pulse
+```
+
+vi. Remove rows where outliers are found in the `BMI` and `Pulse` columns. 
+```{r}
+# Remove rows with outliers in BMI or Pulse
+NHANES_no_outliers <- NHANES[!outliers_BMI & !outliers_Pulse, ]
+
+# Check the new data set dimensions
+dim(NHANES_no_outliers)
+```
+
+The removal of outliers in the `BMI` and `Pulse` column reduces the number of rows, therefore IQR method is not an effective method to deal with outliers in the `NHANES` data set. 
+
+vii. Apply Min-Max normalization to the ``BMI` and `Pulse` columns, rescaling the data between 0 and 1.
+```{r}
+# Min-Max normalization
+min_max_norm <- function(x) (x - min(x, na.rm = TRUE)) / (max(x, na.rm = TRUE) - min(x, na.rm = TRUE))
+
+# Apply normalization to BMI and Pulse
+NHANES_no_outliers$BMI <- min_max_norm(NHANES_no_outliers$BMI)
+NHANES_no_outliers$Pulse <- min_max_norm(NHANES_no_outliers$Pulse)
+
+# Create a temporary data set for that
+#df_temp <- NHANES_no_outliers %>%
+#  select(BMI, Pulse)
+
+```
+
+viii. Use one-hot encoding to convert the `Gender` column into a numerical format (i.e., create separate columns for male and female)
+```{r}
+# One-hot encoding for Gender column
+NHANES_encoded <- NHANES_no_outliers %>%
+  mutate(Male = ifelse(Gender == "Male", 1, 0),
+         Female = ifelse(Gender == "Female", 1, 0))
+
+# Drop the original Gender column
+# NHANES_encoded <- NHANES_encoded %>% select(-Gender)
+
+#Check the Male column
+head(NHANES_encoded$Male)
+
+# Check the female column
+head(NHANES_encoded$Female)
+```
 
 <span style="color: brown;">**________________________________________________________________________________**</span>
