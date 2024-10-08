@@ -27,23 +27,17 @@ class(0)
 class(73)
 ```
 
-<span style="color: green;">**Activity**</span>
+<span style="color: green;">**Practical Exercise**</span>
 
 Answer the questions below; 
   
   i. Find the data type of `98.03` using `class()` function.
   ii. Assign the value `98.03` to variable `height` and find data type of `height`.
   
-```{r ex="acivity-2a", type="sample-code"}
-# I. Find the data type of 98.03 using class() function
-# CODE HERE 
+_______________________________________________________________________
+<span style="color: brown;">**Solution**</span> 
 
-
-# II. Assign the value `98.03` to variable `height` and find its data type
-# CODE HERE
-```
-
-```{r ex="acivity-2a", type="solution", include=FALSE}
+```{r}
 # I. Find the data type of 98.03 using class() function
 class(98.03)
 
@@ -53,6 +47,7 @@ height=98.03
 class(height)
 ```
 
+<span style="color: brown;">**________________________________________________________________________________**</span>
 
 - Integers
 
@@ -68,23 +63,17 @@ age = 27L
 class(age)
 ```
 
-<span style="color: green;">**Activity**</span>
+<span style="color: green;">**Practical Exercise**</span>
 
 Answer the questions below; 
 
 i. Find the data type of any whole number using `class()` function. **Remember to add `L` after the digits**
 ii. There are 27 goats in a field, assign the quantity of goats to a variable `goats` and find the data type of the variable `goats`. 
 
-```{r ex="activity-2b", type="sample-code"}
-# I. Find the data type of any whole number using `class()` function. **Remember to add `L` after the digits**
-# CODE HERE 
+_______________________________________________________________________
+<span style="color: brown;">**Solution**</span> 
 
-
-# II. There are 27 goats in a field, assign the quantity of goats to a variable `goats` and find the data type of the variable `goats`. 
-# CODE HERE
-```
-
-```{r ex="activity-2b", type="solution", include=FALSE}
+```{r}
 # I. Find the data type of any whole number using `class()` function. **Remember to add `L` after the digits**
 class(7L) # 7 is the whole number of my choice
 
@@ -94,7 +83,7 @@ goats=27L
 class(goats)
 ```
 
-
+<span style="color: brown;">**________________________________________________________________________________**</span>
 - Characters
 
 They represent text strings such as names, sentences and labels. They are enclosed in " or '. 
@@ -122,7 +111,7 @@ fullname = "Salman Khan"
 class(fullname)
 ```
 
-<span style="color: green;">**Activity**</span>
+<span style="color: green;">**Practical Exercise**</span>
 
 In the code cell below; 
 
@@ -130,18 +119,11 @@ i. Find the data type of the value `"school"` using the `class()` function.
 ii. Assign your first name to a variable `firstname` and find its data type. **Remember to enclose it in quotation marks**
 iii. Assign your full names to a variable `full_name` and find its data type. For instance if your name is "Vipin Patel" assign it like;`full_name = "Vipin Patel"`
 and find its data type. **Remember to enclose the value in quotation marks since its a character data type**
-```{r ex="activity-2c", type="sample-code"}
-# I. Find the data type of the value `"school"
-# CODE HERE
 
-# Assign your first name to variable first name and find its data type
-# CODE HERE 
+_______________________________________________________________________
+<span style="color: brown;">**Solution**</span> 
 
-# Assign your full names to a variable full_name and finds data type
-# CODE HERE 
-```
-
-```{r ex="activity-2c", type="solution", include=FALSE}
+```{r}
 # I. Find the data type of the value `"school"
 class("school")
 
@@ -154,6 +136,7 @@ full_name="Vipin Pradip"
 class(full_name)
 ```
 
+<span style="color: brown;">**________________________________________________________________________________**</span>
 
 - Logical 
 
@@ -170,21 +153,20 @@ b = FALSE
 class(b)
 ```
 
-<span style="color: green;">**Activity**</span>
+<span style="color: green;">**Practical Exercise**</span>
 
 Assign a `TRUE` to a variable `grateful` and find the data type of the variable. 
-```{r ex="activity-2d", type="sample-code"}
-# Assign a `TRUE` to a variable `grateful` and find its data type
-## CODE HERE 
-```
 
-```{r "activity-2d", type="solution", include=FALSE}
+_______________________________________________________________________
+<span style="color: brown;">**Solution**</span> 
+
+```{r}
 # Assign a `TRUE` to a variable `grateful` and find its data type
 grateful=TRUE
 class(grateful)
 ```
 
-
+<span style="color: brown;">**________________________________________________________________________________**</span>
 - Complex
 
 They represent complex numbers with real and imaginary parts
@@ -231,7 +213,7 @@ print(h)
 class(h)
 ```
 
-<span style="color: green;">**Activity**</span>
+<span style="color: green;">**Practical Exercise**</span>
 
 Find the data type of the following values; *One of them is a numeric element*
 
@@ -239,22 +221,10 @@ i. `3i + 8`
 ii. `5 - 1i`
 iii. `4i`
 iv. `12`
+_______________________________________________________________________
+<span style="color: brown;">**Solution**</span> 
 
-```{r ex="activity-2e", type="sample-code"}
-#i. 3i + 8
-# CODE HERE
-
-# ii. 5 - 1i
-# CODE HERE 
-
-# iii. 4i
-# CODE HERE 
-
-# iv. 12
-# CODE HERE
-```
-
-```{r ex="activity-2e", type="solution", include=FALSE}
+```{r}
 #i. 3i + 8
 class(3i + 8)
 
@@ -267,6 +237,8 @@ class(4i)
 # iv. 12
 class(12)
 ```
+
+<span style="color: brown;">**________________________________________________________________________________**</span>
 
 - Raw
 
@@ -296,7 +268,7 @@ print(age)
 class(age)
 ```
 
-<span style="color: green;">**Activity**</span>
+<span style="color: green;">**Practical Exercise**</span>
 
 Convert the following values to raw data types; **Hint: ** use `charToRaw()` function for character data types and `as.raw()` to other data types.  
 
@@ -306,25 +278,10 @@ iii. `69.0`
 iv. `FALSE`
 v. `12L`
 
-```{r ex="activity-2f", type="sample-code"}
-# i. "Vipin"
-# CODE HERE
+_______________________________________________________________________
+<span style="color: brown;">**Solution**</span> 
 
-# ii. 27
-# CODE HERE
-
-
-# iii. 69.0
-# CODE HERE
-
-# iv. FALSE
-# CODE HERE
-
-# v. 12L
-# CODE HERE
-```
-
-```{r ex="activity-2f", type="solution", include=FALSE}
+```{r}
 # i. "Vipin"
 charToRaw("Vipin")
 
@@ -340,6 +297,8 @@ as.raw(FALSE)
 # v. 12L
 as.raw(12L)
 ```
+
+<span style="color: brown;">**________________________________________________________________________________**</span>
 
 ## Data Structures 
 This is the organization of data into one or multiple data values in specific structures. Different types of data structures in R include;
@@ -357,19 +316,20 @@ marks = c(23, 67, 98, 34, 98, 21)
 print(marks) # print to the console
 ```
 
-<span style="color: green;">**Activity**</span>
+<span style="color: green;">**Practical Exercise**</span>
 
 Create a vector named `ages` and insert the following values `21, 32, 22, 24, 27, 54, 20, 13` and print it out on the console
-```{r ex="activity-2g", type="sample-code"}
-# vector ages with elements 21, 32, 22, 24, 27, 54, 20, 13
-# CODE HERE 
-```
 
-```{r ex="activity-2g", type="solution", include=FALSE}
+_______________________________________________________________________
+<span style="color: brown;">**Solution**</span> 
+
+```{r}
 # vector ages with elements 21, 32, 22, 24, 27, 54, 20, 13
 ages=c(21, 32, 22, 24, 27, 54, 20, 13)
 ages
 ```
+
+<span style="color: brown;">**________________________________________________________________________________**</span>
 
 The `class` function is utilized to determine the data types present within vector data values.
 ```{r}
@@ -396,7 +356,7 @@ marks = c(23, 67, 98, 34, 98, 21)
 length(marks)
 ```
 
-<span style="color: green;">**Activity**</span>
+<span style="color: green;">**Practical Exercise**</span>
 
 Create a vector named `height` with its elements/values as `120.1, 118, 123.4, 130.8, 115.2` and do the following;
 
@@ -404,25 +364,11 @@ Create a vector named `height` with its elements/values as `120.1, 118, 123.4, 1
   ii. find the data type of its elements using `class()` function
   iii. use `is.vector()` function to find if its really a vector
   iv. count the number of elements in the vector using `length()` function. 
-    
-```{r ex="activity-2h", type="sample-code"}
-#Create a vector named `height` with its elements/values as `120.1, 118, 123.4, 130.8, 115.2` and do the following;
-# CODE HERE 
 
-# print it out
-# CODE HERE 
+_______________________________________________________________________
+<span style="color: brown;">**Solution**</span> 
 
-# find the data type of its elements
-# CODE HERE
-
-# find if its really a vector
-# CODE HERE
-
-# count the number of elements in the vector
-# CODE HERE 
-```
-
-```{r ex="activity-2h", type="solution", include=FALSE}
+```{r}
 #Create a vector named `height` with its elements/values as `120.1, 118, 123.4, 130.8, 115.2` and do the following;
 height = c(120.1, 118, 123.4, 130.8, 115.2)
 
@@ -438,6 +384,8 @@ is.vector(height)
 # count the number of elements in the vector
 length(height)
 ```
+
+<span style="color: brown;">**________________________________________________________________________________**</span>
 
 Index is the position of an element in a vector, in R it starts at index 1 - lets say we find the third element by index 3
 ```{r}
@@ -473,7 +421,7 @@ marks = c(23, 67, 98, 34, 98, 21)
 rev(marks)
 ```
 
-<span style="color: green;">**Activity**</span>
+<span style="color: green;">**Practical Exercise**</span>
 
 Create a vector named `ages` and insert the following values; `13, 59, 27, 22, 19, 31, 43`. Use it to answer the questions below. 
     
@@ -482,28 +430,11 @@ Create a vector named `ages` and insert the following values; `13, 59, 27, 22, 1
   iii. Extract the values from the second to the fifth element and print them out. 
   iv. Exclude the third element
   v. Reverse the order of the elements in the vector. 
-    
-```{r ex="activity-2i", type="sample-code"}
-# Create a vector named `ages` and insert the following values; `13, 59, 27, 22, 19, 31, 43`
-# CODE HERE 
 
-# i. Print out the vector `ages` to the console
-# CODE HERE
+_______________________________________________________________________
+<span style="color: brown;">**Solution**</span> 
 
-# ii. Store the third element in a variable called `my_age` and print it out.
-# CODE HERE
-
-# iii. Extract the values from the second to the fifth element and print them out.
-# CODE HERE 
-
-# iv. Exclude the third element
-# CODE HERE
-
-# v. Reverse the order of the elements in the vector. 
-# CODE HERE
-```
-
-```{r ex="activity-2i", type="solution", include=FALSE}
+```{r}
 # Create a vector named `ages` and insert the following values; `13, 59, 27, 22, 19, 31, 43`
 ages = c(13, 59, 27, 22, 19, 31, 43)
 
@@ -523,6 +454,8 @@ ages[-3]
 # v. Reverse the order of the elements in the vector. 
 rev(ages)
 ```
+
+<span style="color: brown;">**________________________________________________________________________________**</span>
 
 #### Mathematical Operations in a vector 
 The summary/descriptive statistics are calculated by `summary()` command. 
@@ -572,7 +505,7 @@ half_marks = marks/2
 half_marks
 ```
 
-<span style="color: green;">**Activity**</span>
+<span style="color: green;">**Practical Exercise**</span>
 
 Create a vector with the following values; `67, 55, 60, 59, 57.2, 71, 62, 66, 70` and name the vector `weights`. Use the variable `weights` to solve the following problems
   
@@ -585,39 +518,11 @@ Create a vector with the following values; `67, 55, 60, 59, 57.2, 71, 62, 66, 70
   d. Subtract 15 to `weights` and name it `reduced_weights`.
   e. Scale the weights by multiplying the vector by 1.5. '
   f. Scale down the weights to a third by dividing the vector by 3.
-  
-```{r ex="activity-2j", type="sample-code"}
-# Create vector weights from 67, 55, 60, 59, 57.2, 71, 62, 66, 70
-# CODE HERE 
 
-## a. Calculate the;
-### i. median weight
-# CODE HERE 
+_______________________________________________________________________
+<span style="color: brown;">**Solution**</span> 
 
-### ii. mean(average) weight
-# CODE HERE 
-
-### iii. the total weight when summed together
-# CODE HERE
-
-
-## b. Calculate the summary statistics using the `summary()` function. 
-# CODE HERE 
-
-## c. Add 10 to variable `weights` and the answer `added_weights`.
-# CODE HERE 
-
-## d. Subtract 15 to `weights` and name it `reduced_weights`.
-# CODE HERE 
-
-## e. Scale the weights by multiplying the vector by 1.5. '
-# CODE HERE 
-
-## f. Scale down the weights to a third by dividing the vector by 3.
-# CODE HERE
-```
-
-```{r ex="activity-2j", type="solution", include=FALSE}
+```{r}
 # Create vector weights from 67, 55, 60, 59, 57.2, 71, 62, 66, 70
 weights = c(67, 55, 60, 59, 57.2, 71, 62, 66, 70)
 
@@ -649,6 +554,8 @@ weights * 1.5
 ## f. Scale down the weights to a third by dividing the vector by 3.
 weights * 3
 ```
+
+<span style="color: brown;">**________________________________________________________________________________**</span>
 
 **Vector by vector multiplication and division**
 
@@ -724,7 +631,7 @@ z=c(a,b,a) #concatenates the vectors
 z
 ```
 
-<span style="color: green;">**Activity**</span>
+<span style="color: green;">**Practical Exercise**</span>
 
 Create two vectors, `vector1`;`4, 6, 12, 7` and `vector2`:`7, 3, 5, 10`. Use the two vectors to solve the following questions.
 
@@ -735,33 +642,10 @@ Create two vectors, `vector1`;`4, 6, 12, 7` and `vector2`:`7, 3, 5, 10`. Use the
   v. Create another `vector5`; `4, 6` and multiply it with `vector1` to come up with `vector6`. Print it out. 
   vi. Concatenate `vector1`, `vector2` and `vector5` to come up with a `giant_vector`. Print it out. 
 
-```{r ex="activity-2k", type="sample-code"}
-# Create vector1 and vector2 as instructed 
-# CODE HERE 
+_______________________________________________________________________
+<span style="color: brown;">**Solution**</span> 
 
-## i. Create `vector3` by multiplying `vector1` and `vector2`. Print it out.
-# CODE HERE 
-
-## ii. Create `vector4a` by diving `vector1` by `vector2`. Print it out. 
-# CODE HERE 
-
-## iii. Create `vector4b` by dividing `vector2` by `vector1`. Print it out.
-# CODE HERE 
-
-## iv. Is there a difference between `vector4a` and `vector4b`? If there is, 
-## what brought the difference? Write the answer as a comment. 
-# COMMENT HERE 
-
-## v. Create another `vector5`; `4, 6` and multiply it with `vector1` to come up 
-## with `vector6`. Print it out. 
-# CODE HERE 
-
-## vi. Concatenate `vector1`, `vector2` and `vector5` to come up with a 
-## `giant_vector`. Print it out. 
-# CODE HERE
-```
-
-```{r ex="activity-2k", type="solution", include=FALSE}
+```{r}
 # Create vector1 and vector2 as instructed 
 vector1 = c(4, 6, 12, 7)
 vector2 = c(7, 3, 5, 10)
@@ -794,6 +678,8 @@ print(vector6)
 giant_vector = c(vector1, vector2, vector5)
 giant_vector
 ```
+
+<span style="color: brown;">**________________________________________________________________________________**</span>
 
 #### Character Vectors 
 Vectors can also contain character data types for instance 
@@ -1161,3 +1047,169 @@ data
 data$average_marks=rowMeans(data[, c(2, 3, 4, 5)])
 data # confirm if the new column is added
 ```
+
+## <span style="color: green;">Hands-on Exercises</span> 
+
+1. **Basic Data Types**
+
+- Create an integer variable `age` with value `25`.
+- Create a numeric variable `height` representing height in meters.
+- Define a string variable `name` with the value `"Alex"`.
+- Create a boolean variable `is_student` indicating whether someone is a student or not.
+- Create a complex number variable `z` representing `2 + 3i`
+- Define a raw data variable byte_value that stores the hexadecimal value `0x1a`.
+
+2. **Operators**
+
+- Add two integers: `12 + 8`.
+- Divide two numbers: `45.5 / 5`.
+- Create a logical comparison to check if `age` is greater than `20`.
+- Create a logical comparison to check if `height` is equal to `1.75`.
+
+3. **Vectors**
+
+- Create a numeric vector numbers with values `2, 4, 6, 8, 10`.
+- Create a character vector `colors` containing `"red", "blue", "green", "yellow", "purple"`.
+- Append the value `12` to the vector numbers.
+
+4. **Matrix**
+
+- Create a 3x3 matrix `A` with values from `1` to `9`.
+- Create another 3x3 matrix `B` with values from `9` to `1`.
+
+5. **Dataframes**
+
+- Create a dataframe `students_df` with the columns `Name`, `Age`, and `Grade` for three students.
+- Add a new column `Gender` to the data frame `students_df`.
+
+6. **Vector and Matrix Operations**
+
+- Add the vectors `c(2, 4, 6)` and `c(1, 3, 5)`.
+- Multiply the matrices ``A` and `B` from question 3.
+
+_______________________________________________________________________
+<span style="color: brown;">**Solution**</span> 
+
+1. **Basic Data Types**
+
+- Create an integer variable `age` with value `25`.
+- Create a numeric variable `height` representing height in meters.
+- Define a string variable `name` with the value `"Alex"`.
+- Create a boolean variable `is_student` indicating whether someone is a student or not.
+- Create a complex number variable `z` representing `2 + 3i`
+- Define a raw data variable byte_value that stores the hexadecimal value `0x1a`.
+```{r}
+# Integer
+age <- 25
+age
+
+# Numeric
+height <- 1.75
+height
+
+# String
+name <- "Alex"
+name
+
+# Boolean
+is_student <- TRUE
+is_student
+
+# Complex number
+z <- 2 + 3i
+z
+
+# Raw data
+byte_value <- as.raw(0x1a)
+byte_value
+```
+
+2. **Operators**
+
+- Add two integers: `12 + 8`.
+- Divide two numbers: `45.5 / 5`.
+- Create a logical comparison to check if `age` is greater than `20`.
+- Create a logical comparison to check if `height` is equal to `1.75`.
+
+```{r}
+# Addition
+12 + 8
+
+# Division
+45.5 / 5
+
+# Logical comparison (greater than)
+age > 20
+
+# Logical comparison (equality)
+height == 1.75
+```
+
+3. **Vectors**
+
+- Create a numeric vector numbers with values `2, 4, 6, 8, 10`.
+- Create a character vector `colors` containing `"red", "blue", "green", "yellow", "purple"`.
+- Append the value `12` to the vector numbers.
+
+```{r}
+# Numeric vector
+numbers <- c(2, 4, 6, 8, 10)
+numbers
+
+# Character vector
+colors <- c("red", "blue", "green", "yellow", "purple")
+colors
+# Append a value
+numbers <- c(numbers, 12)
+numbers
+```
+
+4. **Matrix**
+
+- Create a 3x3 matrix `A` with values from `1` to `9`.
+- Create another 3x3 matrix `B` with values from `9` to `1`.
+
+```{r}
+# Matrix A (3x3)
+A <- matrix(1:9, nrow = 3, ncol = 3)
+A
+
+# Matrix B (3x3)
+B <- matrix(9:1, nrow = 3, ncol = 3)
+B
+```
+
+5. **Dataframes**
+
+- Create a dataframe `students_df` with the columns `Name`, `Age`, and `Grade` for three students.
+- Add a new column `Gender` to the data frame `students_df`.
+
+```{r}
+# Create a dataframe
+students_df <- data.frame(
+  Name = c("John", "Mary", "Sam"),
+  Age = c(22, 23, 24),
+  Grade = c("A", "B", "A")
+)
+students_df
+
+# Add a new column (Gender)
+print("After adding Gender column")
+students_df$Gender <- c("Male", "Female", "Male")
+students_df
+```
+
+6. **Vector and Matrix Operations**
+
+- Add the vectors `c(2, 4, 6)` and `c(1, 3, 5)`.
+- Multiply the matrices ``A` and `B` from question 3.
+
+```{r}
+# Vector addition
+c(2, 4, 6) + c(1, 3, 5)
+
+# Matrix multiplication
+A %*% B
+```
+
+<span style="color: brown;">**________________________________________________________________________________**</span>

@@ -1,0 +1,1492 @@
+<!DOCTYPE html>
+<html lang="" xml:lang="">
+<head>
+
+  <meta charset="utf-8" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+  <title>Chapter 8 CODE HERE | R Course</title>
+  <meta name="description" content="Chapter 8 CODE HERE | R Course" />
+  <meta name="generator" content="bookdown 0.40 and GitBook 2.6.7" />
+
+  <meta property="og:title" content="Chapter 8 CODE HERE | R Course" />
+  <meta property="og:type" content="book" />
+  
+  
+  
+
+  <meta name="twitter:card" content="summary" />
+  <meta name="twitter:title" content="Chapter 8 CODE HERE | R Course" />
+  
+  
+  
+
+<meta name="author" content="YOUR NAME HERE" />
+
+
+<meta name="date" content="2024-10-08" />
+
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <meta name="apple-mobile-web-app-capable" content="yes" />
+  <meta name="apple-mobile-web-app-status-bar-style" content="black" />
+  
+  
+<link rel="prev" href="iv.-12.html"/>
+<link rel="next" href="data-importing-and-exporting.html"/>
+<script src="libs/jquery-3.6.0/jquery-3.6.0.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/fuse.js@6.4.6/dist/fuse.min.js"></script>
+<link href="libs/gitbook-2.6.7/css/style.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-table.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-bookdown.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-highlight.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-search.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-fontsettings.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-clipboard.css" rel="stylesheet" />
+
+
+
+
+
+
+
+
+<link href="libs/anchor-sections-1.1.0/anchor-sections.css" rel="stylesheet" />
+<link href="libs/anchor-sections-1.1.0/anchor-sections-hash.css" rel="stylesheet" />
+<script src="libs/anchor-sections-1.1.0/anchor-sections.js"></script>
+
+
+<style type="text/css">
+pre > code.sourceCode { white-space: pre; position: relative; }
+pre > code.sourceCode > span { line-height: 1.25; }
+pre > code.sourceCode > span:empty { height: 1.2em; }
+.sourceCode { overflow: visible; }
+code.sourceCode > span { color: inherit; text-decoration: inherit; }
+pre.sourceCode { margin: 0; }
+@media screen {
+div.sourceCode { overflow: auto; }
+}
+@media print {
+pre > code.sourceCode { white-space: pre-wrap; }
+pre > code.sourceCode > span { display: inline-block; text-indent: -5em; padding-left: 5em; }
+}
+pre.numberSource code
+  { counter-reset: source-line 0; }
+pre.numberSource code > span
+  { position: relative; left: -4em; counter-increment: source-line; }
+pre.numberSource code > span > a:first-child::before
+  { content: counter(source-line);
+    position: relative; left: -1em; text-align: right; vertical-align: baseline;
+    border: none; display: inline-block;
+    -webkit-touch-callout: none; -webkit-user-select: none;
+    -khtml-user-select: none; -moz-user-select: none;
+    -ms-user-select: none; user-select: none;
+    padding: 0 4px; width: 4em;
+    color: #aaaaaa;
+  }
+pre.numberSource { margin-left: 3em; border-left: 1px solid #aaaaaa;  padding-left: 4px; }
+div.sourceCode
+  {   }
+@media screen {
+pre > code.sourceCode > span > a:first-child::before { text-decoration: underline; }
+}
+code span.al { color: #ff0000; font-weight: bold; } /* Alert */
+code span.an { color: #60a0b0; font-weight: bold; font-style: italic; } /* Annotation */
+code span.at { color: #7d9029; } /* Attribute */
+code span.bn { color: #40a070; } /* BaseN */
+code span.bu { color: #008000; } /* BuiltIn */
+code span.cf { color: #007020; font-weight: bold; } /* ControlFlow */
+code span.ch { color: #4070a0; } /* Char */
+code span.cn { color: #880000; } /* Constant */
+code span.co { color: #60a0b0; font-style: italic; } /* Comment */
+code span.cv { color: #60a0b0; font-weight: bold; font-style: italic; } /* CommentVar */
+code span.do { color: #ba2121; font-style: italic; } /* Documentation */
+code span.dt { color: #902000; } /* DataType */
+code span.dv { color: #40a070; } /* DecVal */
+code span.er { color: #ff0000; font-weight: bold; } /* Error */
+code span.ex { } /* Extension */
+code span.fl { color: #40a070; } /* Float */
+code span.fu { color: #06287e; } /* Function */
+code span.im { color: #008000; font-weight: bold; } /* Import */
+code span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Information */
+code span.kw { color: #007020; font-weight: bold; } /* Keyword */
+code span.op { color: #666666; } /* Operator */
+code span.ot { color: #007020; } /* Other */
+code span.pp { color: #bc7a00; } /* Preprocessor */
+code span.sc { color: #4070a0; } /* SpecialChar */
+code span.ss { color: #bb6688; } /* SpecialString */
+code span.st { color: #4070a0; } /* String */
+code span.va { color: #19177c; } /* Variable */
+code span.vs { color: #4070a0; } /* VerbatimString */
+code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warning */
+</style>
+
+<style type="text/css">
+  
+  div.hanging-indent{margin-left: 1.5em; text-indent: -1.5em;}
+</style>
+
+<link rel="stylesheet" href="style.css" type="text/css" />
+</head>
+
+<body>
+
+
+
+  <div class="book without-animation with-summary font-size-2 font-family-1" data-basepath=".">
+
+    <div class="book-summary">
+      <nav role="navigation">
+
+<ul class="summary">
+<li><a href="./">SHORT TITLE HERE</a></li>
+
+<li class="divider"></li>
+<li class="chapter" data-level="1" data-path="index.html"><a href="index.html"><i class="fa fa-check"></i><b>1</b> Introduction to R and Basic Programming Concepts</a>
+<ul>
+<li class="chapter" data-level="1.1" data-path="index.html"><a href="index.html#overview-of-r-programming"><i class="fa fa-check"></i><b>1.1</b> Overview of R Programming</a>
+<ul>
+<li class="chapter" data-level="1.1.1" data-path="index.html"><a href="index.html#introduction-to-r"><i class="fa fa-check"></i><b>1.1.1</b> Introduction to R</a></li>
+<li class="chapter" data-level="1.1.2" data-path="index.html"><a href="index.html#importance-of-r-in-data-analysis"><i class="fa fa-check"></i><b>1.1.2</b> Importance of R in Data Analysis</a></li>
+<li class="chapter" data-level="1.1.3" data-path="index.html"><a href="index.html#application-of-r-in-various-industries"><i class="fa fa-check"></i><b>1.1.3</b> Application of R in Various Industries</a></li>
+</ul></li>
+<li class="chapter" data-level="1.2" data-path="index.html"><a href="index.html#introduction-to-the-r-ecosystem"><i class="fa fa-check"></i><b>1.2</b> Introduction to the R ecosystem</a>
+<ul>
+<li class="chapter" data-level="1.2.1" data-path="index.html"><a href="index.html#r-studio"><i class="fa fa-check"></i><b>1.2.1</b> R Studio</a></li>
+<li class="chapter" data-level="1.2.2" data-path="index.html"><a href="index.html#cran"><i class="fa fa-check"></i><b>1.2.2</b> CRAN</a></li>
+</ul></li>
+<li class="chapter" data-level="1.3" data-path="index.html"><a href="index.html#setting-up-r-environment"><i class="fa fa-check"></i><b>1.3</b> Setting Up R Environment</a>
+<ul>
+<li class="chapter" data-level="1.3.1" data-path="index.html"><a href="index.html#installation-of-r-and-rstudio"><i class="fa fa-check"></i><b>1.3.1</b> Installation of R and RStudio</a></li>
+<li class="chapter" data-level="1.3.2" data-path="index.html"><a href="index.html#introduction-to-rstudio-interface"><i class="fa fa-check"></i><b>1.3.2</b> Introduction to RStudio Interface</a></li>
+<li class="chapter" data-level="1.3.3" data-path="index.html"><a href="index.html#basic-r-syntax-and-commands"><i class="fa fa-check"></i><b>1.3.3</b> Basic R Syntax and Commands</a></li>
+</ul></li>
+<li class="chapter" data-level="1.4" data-path="index.html"><a href="index.html#hands-on-exercise"><i class="fa fa-check"></i><b>1.4</b> Hands-on Exercise</a></li>
+<li class="chapter" data-level="1.5" data-path="index.html"><a href="index.html#solution"><i class="fa fa-check"></i><b>1.5</b> <span style="color: brown;">Solution</span></a></li>
+</ul></li>
+<li class="chapter" data-level="2" data-path="basic-data-types-and-structures.html"><a href="basic-data-types-and-structures.html"><i class="fa fa-check"></i><b>2</b> Basic Data Types and Structures</a>
+<ul>
+<li class="chapter" data-level="2.1" data-path="basic-data-types-and-structures.html"><a href="basic-data-types-and-structures.html#data-types"><i class="fa fa-check"></i><b>2.1</b> Data types</a></li>
+</ul></li>
+<li class="chapter" data-level="3" data-path="ii.-5---1i.html"><a href="ii.-5---1i.html"><i class="fa fa-check"></i><b>3</b> ii. 5 - 1i</a></li>
+<li class="chapter" data-level="4" data-path="code-here.html"><a href="code-here.html"><i class="fa fa-check"></i><b>4</b> CODE HERE</a></li>
+<li class="chapter" data-level="5" data-path="iii.-4i.html"><a href="iii.-4i.html"><i class="fa fa-check"></i><b>5</b> iii. 4i</a></li>
+<li class="chapter" data-level="6" data-path="code-here-1.html"><a href="code-here-1.html"><i class="fa fa-check"></i><b>6</b> CODE HERE</a></li>
+<li class="chapter" data-level="7" data-path="iv.-12.html"><a href="iv.-12.html"><i class="fa fa-check"></i><b>7</b> iv. 12</a></li>
+<li class="chapter" data-level="8" data-path="code-here-2.html"><a href="code-here-2.html"><i class="fa fa-check"></i><b>8</b> CODE HERE</a>
+<ul>
+<li class="chapter" data-level="8.1" data-path="code-here-2.html"><a href="code-here-2.html#data-structures"><i class="fa fa-check"></i><b>8.1</b> Data Structures</a>
+<ul>
+<li class="chapter" data-level="8.1.1" data-path="code-here-2.html"><a href="code-here-2.html#vector"><i class="fa fa-check"></i><b>8.1.1</b> Vector</a></li>
+<li class="chapter" data-level="8.1.2" data-path="code-here-2.html"><a href="code-here-2.html#matrix"><i class="fa fa-check"></i><b>8.1.2</b> Matrix</a></li>
+<li class="chapter" data-level="8.1.3" data-path="code-here-2.html"><a href="code-here-2.html#data-frame"><i class="fa fa-check"></i><b>8.1.3</b> Data frame</a></li>
+</ul></li>
+<li class="chapter" data-level="8.2" data-path="code-here-2.html"><a href="code-here-2.html#hands-on-exercises"><i class="fa fa-check"></i><b>8.2</b> <span style="color: brown;">Hands-on Exercises</span></a></li>
+</ul></li>
+<li class="chapter" data-level="9" data-path="data-importing-and-exporting.html"><a href="data-importing-and-exporting.html"><i class="fa fa-check"></i><b>9</b> Data Importing and Exporting</a>
+<ul>
+<li class="chapter" data-level="9.1" data-path="data-importing-and-exporting.html"><a href="data-importing-and-exporting.html#introduction-to-data-importing"><i class="fa fa-check"></i><b>9.1</b> Introduction to Data Importing</a></li>
+<li class="chapter" data-level="9.2" data-path="data-importing-and-exporting.html"><a href="data-importing-and-exporting.html#demonstration-of-data-importing"><i class="fa fa-check"></i><b>9.2</b> Demonstration of Data Importing</a></li>
+<li class="chapter" data-level="9.3" data-path="data-importing-and-exporting.html"><a href="data-importing-and-exporting.html#introduction-to-data-exporting"><i class="fa fa-check"></i><b>9.3</b> Introduction to Data Exporting</a></li>
+</ul></li>
+<li class="chapter" data-level="10" data-path="data-manipulation.html"><a href="data-manipulation.html"><i class="fa fa-check"></i><b>10</b> Data Manipulation</a>
+<ul>
+<li class="chapter" data-level="10.1" data-path="data-manipulation.html"><a href="data-manipulation.html#basic-data-manipulation"><i class="fa fa-check"></i><b>10.1</b> Basic Data Manipulation</a>
+<ul>
+<li class="chapter" data-level="10.1.1" data-path="data-manipulation.html"><a href="data-manipulation.html#introduction-to-data-manipulation"><i class="fa fa-check"></i><b>10.1.1</b> Introduction to Data Manipulation</a></li>
+<li class="chapter" data-level="10.1.2" data-path="data-manipulation.html"><a href="data-manipulation.html#subsetting-and-filtering-data"><i class="fa fa-check"></i><b>10.1.2</b> Subsetting and Filtering Data:</a></li>
+<li class="chapter" data-level="10.1.3" data-path="data-manipulation.html"><a href="data-manipulation.html#sorting-data"><i class="fa fa-check"></i><b>10.1.3</b> Sorting Data</a></li>
+<li class="chapter" data-level="10.1.4" data-path="data-manipulation.html"><a href="data-manipulation.html#basic-data-cleaning"><i class="fa fa-check"></i><b>10.1.4</b> Basic Data Cleaning</a></li>
+<li class="chapter" data-level="10.1.5" data-path="data-manipulation.html"><a href="data-manipulation.html#hands-on-exercises-1"><i class="fa fa-check"></i><b>10.1.5</b> Hands-on Exercises</a></li>
+</ul></li>
+<li class="chapter" data-level="10.2" data-path="data-manipulation.html"><a href="data-manipulation.html#data-manipulation-with-dplyr"><i class="fa fa-check"></i><b>10.2</b> Data Manipulation with Dplyr</a>
+<ul>
+<li class="chapter" data-level="10.2.1" data-path="data-manipulation.html"><a href="data-manipulation.html#introduction-to-dplyr-package"><i class="fa fa-check"></i><b>10.2.1</b> Introduction to Dplyr package</a></li>
+<li class="chapter" data-level="10.2.2" data-path="data-manipulation.html"><a href="data-manipulation.html#key-functions-in-dplyr"><i class="fa fa-check"></i><b>10.2.2</b> Key Functions in dplyr</a></li>
+<li class="chapter" data-level="10.2.3" data-path="data-manipulation.html"><a href="data-manipulation.html#select"><i class="fa fa-check"></i><b>10.2.3</b> select</a></li>
+<li class="chapter" data-level="10.2.4" data-path="data-manipulation.html"><a href="data-manipulation.html#filter"><i class="fa fa-check"></i><b>10.2.4</b> filter</a></li>
+<li class="chapter" data-level="10.2.5" data-path="data-manipulation.html"><a href="data-manipulation.html#arrange"><i class="fa fa-check"></i><b>10.2.5</b> arrange</a></li>
+<li class="chapter" data-level="10.2.6" data-path="data-manipulation.html"><a href="data-manipulation.html#mutate"><i class="fa fa-check"></i><b>10.2.6</b> mutate</a></li>
+<li class="chapter" data-level="10.2.7" data-path="data-manipulation.html"><a href="data-manipulation.html#summarise"><i class="fa fa-check"></i><b>10.2.7</b> Summarise</a></li>
+<li class="chapter" data-level="10.2.8" data-path="data-manipulation.html"><a href="data-manipulation.html#group_by"><i class="fa fa-check"></i><b>10.2.8</b> group_by</a></li>
+</ul></li>
+<li class="chapter" data-level="10.3" data-path="data-manipulation.html"><a href="data-manipulation.html#chaining"><i class="fa fa-check"></i><b>10.3</b> Chaining</a>
+<ul>
+<li class="chapter" data-level="10.3.1" data-path="data-manipulation.html"><a href="data-manipulation.html#hands-on-exercises-2"><i class="fa fa-check"></i><b>10.3.1</b> Hands-on Exercises</a></li>
+</ul></li>
+</ul></li>
+<li class="chapter" data-level="11" data-path="data-visualization.html"><a href="data-visualization.html"><i class="fa fa-check"></i><b>11</b> Data Visualization</a>
+<ul>
+<li class="chapter" data-level="11.1" data-path="data-visualization.html"><a href="data-visualization.html#basic-data-visualization"><i class="fa fa-check"></i><b>11.1</b> Basic Data Visualization</a>
+<ul>
+<li class="chapter" data-level="11.1.1" data-path="data-visualization.html"><a href="data-visualization.html#introduction-to-ggplot2"><i class="fa fa-check"></i><b>11.1.1</b> Introduction to ggplot2</a></li>
+</ul></li>
+<li class="chapter" data-level="11.2" data-path="data-visualization.html"><a href="data-visualization.html#advanced-data-visualization"><i class="fa fa-check"></i><b>11.2</b> Advanced Data Visualization</a>
+<ul>
+<li class="chapter" data-level="11.2.1" data-path="data-visualization.html"><a href="data-visualization.html#creating-complex-visualizations"><i class="fa fa-check"></i><b>11.2.1</b> Creating Complex Visualizations</a></li>
+<li class="chapter" data-level="11.2.2" data-path="data-visualization.html"><a href="data-visualization.html#combining-multiple-plots"><i class="fa fa-check"></i><b>11.2.2</b> Combining Multiple Plots</a></li>
+</ul></li>
+</ul></li>
+<li class="chapter" data-level="12" data-path="explanatory-data-analysis.html"><a href="explanatory-data-analysis.html"><i class="fa fa-check"></i><b>12</b> Explanatory Data Analysis</a>
+<ul>
+<li class="chapter" data-level="12.1" data-path="explanatory-data-analysis.html"><a href="explanatory-data-analysis.html#introduction-to-eda"><i class="fa fa-check"></i><b>12.1</b> Introduction to EDA</a></li>
+<li class="chapter" data-level="12.2" data-path="explanatory-data-analysis.html"><a href="explanatory-data-analysis.html#choosing-a-data-set"><i class="fa fa-check"></i><b>12.2</b> Choosing a data set</a></li>
+<li class="chapter" data-level="12.3" data-path="explanatory-data-analysis.html"><a href="explanatory-data-analysis.html#conducting-eda"><i class="fa fa-check"></i><b>12.3</b> Conducting EDA</a></li>
+<li class="chapter" data-level="12.4" data-path="explanatory-data-analysis.html"><a href="explanatory-data-analysis.html#present-findings"><i class="fa fa-check"></i><b>12.4</b> Present Findings</a></li>
+<li class="chapter" data-level="12.5" data-path="explanatory-data-analysis.html"><a href="explanatory-data-analysis.html#eda---example"><i class="fa fa-check"></i><b>12.5</b> <span style="color: brown;">EDA - Example</span></a>
+<ul>
+<li class="chapter" data-level="12.5.1" data-path="explanatory-data-analysis.html"><a href="explanatory-data-analysis.html#introduction"><i class="fa fa-check"></i><b>12.5.1</b> <span style="color: brown;">Introduction</span></a></li>
+<li class="chapter" data-level="12.5.2" data-path="explanatory-data-analysis.html"><a href="explanatory-data-analysis.html#data-assessment-and-cleaning"><i class="fa fa-check"></i><b>12.5.2</b> <span style="color: brown;">Data Assessment and Cleaning</span></a></li>
+<li class="chapter" data-level="12.5.3" data-path="explanatory-data-analysis.html"><a href="explanatory-data-analysis.html#data-visualization-1"><i class="fa fa-check"></i><b>12.5.3</b> <span style="color: brown;">Data Visualization</span></a></li>
+<li class="chapter" data-level="12.5.4" data-path="explanatory-data-analysis.html"><a href="explanatory-data-analysis.html#key-findings"><i class="fa fa-check"></i><b>12.5.4</b> <span style="color: brown;">Key Findings</span></a></li>
+</ul></li>
+</ul></li>
+<li class="chapter" data-level="13" data-path="statistical-analysis.html"><a href="statistical-analysis.html"><i class="fa fa-check"></i><b>13</b> Statistical Analysis</a>
+<ul>
+<li class="chapter" data-level="13.1" data-path="statistical-analysis.html"><a href="statistical-analysis.html#basic-statistical-concepts"><i class="fa fa-check"></i><b>13.1</b> Basic Statistical Concepts</a>
+<ul>
+<li class="chapter" data-level="13.1.1" data-path="statistical-analysis.html"><a href="statistical-analysis.html#introduction-to-descriptive-statistics"><i class="fa fa-check"></i><b>13.1.1</b> Introduction to Descriptive Statistics</a></li>
+<li class="chapter" data-level="13.1.2" data-path="statistical-analysis.html"><a href="statistical-analysis.html#visualization-of-descriptive-statistics"><i class="fa fa-check"></i><b>13.1.2</b> Visualization of Descriptive Statistics</a></li>
+<li class="chapter" data-level="13.1.3" data-path="statistical-analysis.html"><a href="statistical-analysis.html#hands-on-exercise-1"><i class="fa fa-check"></i><b>13.1.3</b> Hands On Exercise</a></li>
+</ul></li>
+<li class="chapter" data-level="13.2" data-path="statistical-analysis.html"><a href="statistical-analysis.html#correlation-and-regression-analysis"><i class="fa fa-check"></i><b>13.2</b> Correlation and Regression Analysis</a>
+<ul>
+<li class="chapter" data-level="13.2.1" data-path="statistical-analysis.html"><a href="statistical-analysis.html#introduction-to-correlation"><i class="fa fa-check"></i><b>13.2.1</b> Introduction to Correlation</a></li>
+<li class="chapter" data-level="13.2.2" data-path="statistical-analysis.html"><a href="statistical-analysis.html#introduction-to-regression-analysis"><i class="fa fa-check"></i><b>13.2.2</b> Introduction to Regression Analysis</a></li>
+<li class="chapter" data-level="13.2.3" data-path="statistical-analysis.html"><a href="statistical-analysis.html#hands-on-exercises-3"><i class="fa fa-check"></i><b>13.2.3</b> Hands-on Exercises</a></li>
+</ul></li>
+<li class="chapter" data-level="13.3" data-path="statistical-analysis.html"><a href="statistical-analysis.html#advanced-statistical-methods"><i class="fa fa-check"></i><b>13.3</b> Advanced Statistical Methods</a>
+<ul>
+<li class="chapter" data-level="13.3.1" data-path="statistical-analysis.html"><a href="statistical-analysis.html#introduction-to-hypothesis-testing"><i class="fa fa-check"></i><b>13.3.1</b> Introduction to Hypothesis Testing</a></li>
+<li class="chapter" data-level="13.3.2" data-path="statistical-analysis.html"><a href="statistical-analysis.html#hands-on-exercises-4"><i class="fa fa-check"></i><b>13.3.2</b> Hands-on Exercises</a></li>
+</ul></li>
+<li class="chapter" data-level="13.4" data-path="statistical-analysis.html"><a href="statistical-analysis.html#project-applying-statistical-analysis"><i class="fa fa-check"></i><b>13.4</b> Project: Applying Statistical Analysis</a>
+<ul>
+<li class="chapter" data-level="13.4.1" data-path="statistical-analysis.html"><a href="statistical-analysis.html#project-overview"><i class="fa fa-check"></i><b>13.4.1</b> Project Overview</a></li>
+<li class="chapter" data-level="13.4.2" data-path="statistical-analysis.html"><a href="statistical-analysis.html#conducting-statistical-analysis"><i class="fa fa-check"></i><b>13.4.2</b> Conducting Statistical Analysis</a></li>
+<li class="chapter" data-level="13.4.3" data-path="statistical-analysis.html"><a href="statistical-analysis.html#presenting-statistical-findings"><i class="fa fa-check"></i><b>13.4.3</b> Presenting Statistical Findings</a></li>
+<li class="chapter" data-level="13.4.4" data-path="statistical-analysis.html"><a href="statistical-analysis.html#example-ecommerce-statistical-analysis"><i class="fa fa-check"></i><b>13.4.4</b> <span style="color: brown;">Example: Ecommerce Statistical Analysis</span></a></li>
+</ul></li>
+</ul></li>
+<li class="chapter" data-level="14" data-path="working-with-real-world-data.html"><a href="working-with-real-world-data.html"><i class="fa fa-check"></i><b>14</b> Working with Real-World Data</a>
+<ul>
+<li class="chapter" data-level="14.1" data-path="working-with-real-world-data.html"><a href="working-with-real-world-data.html#handling-large-datasets"><i class="fa fa-check"></i><b>14.1</b> Handling Large Datasets</a>
+<ul>
+<li class="chapter" data-level="14.1.1" data-path="working-with-real-world-data.html"><a href="working-with-real-world-data.html#challenges-of-large-data-sets"><i class="fa fa-check"></i><b>14.1.1</b> Challenges of Large Data sets</a></li>
+<li class="chapter" data-level="14.1.2" data-path="working-with-real-world-data.html"><a href="working-with-real-world-data.html#efficient-data-handling-techniques"><i class="fa fa-check"></i><b>14.1.2</b> Efficient Data Handling Techniques</a></li>
+<li class="chapter" data-level="14.1.3" data-path="working-with-real-world-data.html"><a href="working-with-real-world-data.html#reading-and-writing-large-files"><i class="fa fa-check"></i><b>14.1.3</b> Reading and Writing Large Files</a></li>
+<li class="chapter" data-level="14.1.4" data-path="working-with-real-world-data.html"><a href="working-with-real-world-data.html#hands-on-exercises-5"><i class="fa fa-check"></i><b>14.1.4</b> Hands-On Exercises</a></li>
+</ul></li>
+<li class="chapter" data-level="14.2" data-path="working-with-real-world-data.html"><a href="working-with-real-world-data.html#data-cleaning-and-transformation"><i class="fa fa-check"></i><b>14.2</b> Data Cleaning and Transformation</a>
+<ul>
+<li class="chapter" data-level="14.2.1" data-path="working-with-real-world-data.html"><a href="working-with-real-world-data.html#introduction-to-data-cleaning"><i class="fa fa-check"></i><b>14.2.1</b> Introduction to Data Cleaning</a></li>
+<li class="chapter" data-level="14.2.2" data-path="working-with-real-world-data.html"><a href="working-with-real-world-data.html#hands-on-exercises-6"><i class="fa fa-check"></i><b>14.2.2</b> Hands-On Exercises</a></li>
+</ul></li>
+</ul></li>
+<li class="chapter" data-level="15" data-path="time-series-analysis.html"><a href="time-series-analysis.html"><i class="fa fa-check"></i><b>15</b> Time Series Analysis</a>
+<ul>
+<li class="chapter" data-level="15.1" data-path="time-series-analysis.html"><a href="time-series-analysis.html#introduction-to-time-series-data"><i class="fa fa-check"></i><b>15.1</b> Introduction to Time Series Data</a></li>
+<li class="chapter" data-level="15.2" data-path="time-series-analysis.html"><a href="time-series-analysis.html#basic-time-series-concepts"><i class="fa fa-check"></i><b>15.2</b> Basic Time Series Concepts</a></li>
+<li class="chapter" data-level="15.3" data-path="time-series-analysis.html"><a href="time-series-analysis.html#basic-time-series-forecasting"><i class="fa fa-check"></i><b>15.3</b> Basic Time Series Forecasting</a>
+<ul>
+<li class="chapter" data-level="15.3.1" data-path="time-series-analysis.html"><a href="time-series-analysis.html#moving-averages"><i class="fa fa-check"></i><b>15.3.1</b> Moving Averages</a></li>
+<li class="chapter" data-level="15.3.2" data-path="time-series-analysis.html"><a href="time-series-analysis.html#arima-model"><i class="fa fa-check"></i><b>15.3.2</b> ARIMA model</a></li>
+</ul></li>
+<li class="chapter" data-level="15.4" data-path="time-series-analysis.html"><a href="time-series-analysis.html#hands-on-exercises-7"><i class="fa fa-check"></i><b>15.4</b> Hands-On Exercises</a></li>
+</ul></li>
+<li class="chapter" data-level="16" data-path="capstone-project.html"><a href="capstone-project.html"><i class="fa fa-check"></i><b>16</b> Capstone Project</a>
+<ul>
+<li class="chapter" data-level="16.1" data-path="capstone-project.html"><a href="capstone-project.html#introduction-1"><i class="fa fa-check"></i><b>16.1</b> Introduction</a>
+<ul>
+<li class="chapter" data-level="16.1.1" data-path="capstone-project.html"><a href="capstone-project.html#project-overview-and-objectives"><i class="fa fa-check"></i><b>16.1.1</b> Project Overview and Objectives</a></li>
+<li class="chapter" data-level="16.1.2" data-path="capstone-project.html"><a href="capstone-project.html#group-formation"><i class="fa fa-check"></i><b>16.1.2</b> Group Formation</a></li>
+</ul></li>
+<li class="chapter" data-level="16.2" data-path="capstone-project.html"><a href="capstone-project.html#project-planning"><i class="fa fa-check"></i><b>16.2</b> Project Planning</a>
+<ul>
+<li class="chapter" data-level="16.2.1" data-path="capstone-project.html"><a href="capstone-project.html#defining-the-problem-statement"><i class="fa fa-check"></i><b>16.2.1</b> Defining the problem statement</a></li>
+<li class="chapter" data-level="16.2.2" data-path="capstone-project.html"><a href="capstone-project.html#planning-the-analysis-workflow"><i class="fa fa-check"></i><b>16.2.2</b> Planning the Analysis WorkFlow</a></li>
+</ul></li>
+<li class="chapter" data-level="16.3" data-path="capstone-project.html"><a href="capstone-project.html#project-execution"><i class="fa fa-check"></i><b>16.3</b> Project Execution</a>
+<ul>
+<li class="chapter" data-level="16.3.1" data-path="capstone-project.html"><a href="capstone-project.html#part-1"><i class="fa fa-check"></i><b>16.3.1</b> Part 1</a></li>
+<li class="chapter" data-level="16.3.2" data-path="capstone-project.html"><a href="capstone-project.html#part-2"><i class="fa fa-check"></i><b>16.3.2</b> Part 2</a></li>
+</ul></li>
+<li class="chapter" data-level="16.4" data-path="capstone-project.html"><a href="capstone-project.html#project-presentations-and-feedback"><i class="fa fa-check"></i><b>16.4</b> Project Presentations and Feedback</a></li>
+</ul></li>
+<li class="chapter" data-level="17" data-path="datasets.html"><a href="datasets.html"><i class="fa fa-check"></i><b>17</b> Datasets</a></li>
+<li class="divider"></li>
+<li><a href="https://github.com/rstudio/bookdown" target="blank">Published with bookdown</a></li>
+</ul>
+
+      </nav>
+    </div>
+
+    <div class="book-body">
+      <div class="body-inner">
+        <div class="book-header" role="navigation">
+          <h1>
+            <i class="fa fa-circle-o-notch fa-spin"></i><a href="./">R Course</a>
+          </h1>
+        </div>
+
+        <div class="page-wrapper" tabindex="-1" role="main">
+          <div class="page-inner">
+
+            <section class="normal" id="section-">
+<div id="code-here-2" class="section level1 hasAnchor" number="8">
+<h1><span class="header-section-number">Chapter 8</span> CODE HERE<a href="code-here-2.html#code-here-2" class="anchor-section" aria-label="Anchor link to header"></a></h1>
+<pre><code>
+_______________________________________________________________________
+&lt;span style=&quot;color: brown;&quot;&gt;**Solution**&lt;/span&gt; 
+
+
+
+&lt;span style=&quot;color: brown;&quot;&gt;**________________________________________________________________________________**&lt;/span&gt;
+
+- Raw
+
+They represent a vector of bytes in their natural form. They are used in storing binary data. Example;
+
+
+``` r
+a=charToRaw(&quot;DNA&quot;)
+print(a)</code></pre>
+<pre><code>## [1] 44 4e 41</code></pre>
+<div class="sourceCode" id="cb94"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb94-1"><a href="code-here-2.html#cb94-1" tabindex="-1"></a><span class="fu">class</span>(a)</span></code></pre></div>
+<pre><code>## [1] &quot;raw&quot;</code></pre>
+<div class="sourceCode" id="cb96"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb96-1"><a href="code-here-2.html#cb96-1" tabindex="-1"></a><span class="co"># convert back to character </span></span>
+<span id="cb96-2"><a href="code-here-2.html#cb96-2" tabindex="-1"></a>b<span class="ot">=</span><span class="fu">rawToChar</span>(a)</span>
+<span id="cb96-3"><a href="code-here-2.html#cb96-3" tabindex="-1"></a><span class="fu">class</span>(b)</span></code></pre></div>
+<pre><code>## [1] &quot;character&quot;</code></pre>
+<p>“Hello world” can be represented as in the results below when converted to raw data type</p>
+<div class="sourceCode" id="cb98"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb98-1"><a href="code-here-2.html#cb98-1" tabindex="-1"></a>binary_data <span class="ot">=</span> <span class="fu">charToRaw</span>(<span class="st">&quot;Hello World&quot;</span>)</span>
+<span id="cb98-2"><a href="code-here-2.html#cb98-2" tabindex="-1"></a><span class="fu">print</span>(binary_data) </span></code></pre></div>
+<pre><code>##  [1] 48 65 6c 6c 6f 20 57 6f 72 6c 64</code></pre>
+<div class="sourceCode" id="cb100"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb100-1"><a href="code-here-2.html#cb100-1" tabindex="-1"></a><span class="fu">class</span>(binary_data)</span></code></pre></div>
+<pre><code>## [1] &quot;raw&quot;</code></pre>
+<p>Numeric can also be represented as raw vectors;</p>
+<div class="sourceCode" id="cb102"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb102-1"><a href="code-here-2.html#cb102-1" tabindex="-1"></a>age<span class="ot">=</span><span class="fu">as.raw</span>(<span class="dv">27</span>)</span>
+<span id="cb102-2"><a href="code-here-2.html#cb102-2" tabindex="-1"></a><span class="fu">print</span>(age)</span></code></pre></div>
+<pre><code>## [1] 1b</code></pre>
+<div class="sourceCode" id="cb104"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb104-1"><a href="code-here-2.html#cb104-1" tabindex="-1"></a><span class="fu">class</span>(age)</span></code></pre></div>
+<pre><code>## [1] &quot;raw&quot;</code></pre>
+<p><span style="color: green;"><strong>Activity</strong></span></p>
+<p>Convert the following values to raw data types; <strong>Hint: </strong> use <code>charToRaw()</code> function for character data types and <code>as.raw()</code> to other data types.</p>
+<ol style="list-style-type: lower-roman">
+<li><code>"Vipin"</code></li>
+<li><code>27</code></li>
+<li><code>69.0</code></li>
+<li><code>FALSE</code></li>
+<li><code>12L</code></li>
+</ol>
+<div class="sourceCode" id="cb106"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb106-1"><a href="code-here-2.html#cb106-1" tabindex="-1"></a><span class="co"># i. &quot;Vipin&quot;</span></span>
+<span id="cb106-2"><a href="code-here-2.html#cb106-2" tabindex="-1"></a><span class="co"># CODE HERE</span></span>
+<span id="cb106-3"><a href="code-here-2.html#cb106-3" tabindex="-1"></a></span>
+<span id="cb106-4"><a href="code-here-2.html#cb106-4" tabindex="-1"></a><span class="co"># ii. 27</span></span>
+<span id="cb106-5"><a href="code-here-2.html#cb106-5" tabindex="-1"></a><span class="co"># CODE HERE</span></span>
+<span id="cb106-6"><a href="code-here-2.html#cb106-6" tabindex="-1"></a></span>
+<span id="cb106-7"><a href="code-here-2.html#cb106-7" tabindex="-1"></a></span>
+<span id="cb106-8"><a href="code-here-2.html#cb106-8" tabindex="-1"></a><span class="co"># iii. 69.0</span></span>
+<span id="cb106-9"><a href="code-here-2.html#cb106-9" tabindex="-1"></a><span class="co"># CODE HERE</span></span>
+<span id="cb106-10"><a href="code-here-2.html#cb106-10" tabindex="-1"></a></span>
+<span id="cb106-11"><a href="code-here-2.html#cb106-11" tabindex="-1"></a><span class="co"># iv. FALSE</span></span>
+<span id="cb106-12"><a href="code-here-2.html#cb106-12" tabindex="-1"></a><span class="co"># CODE HERE</span></span>
+<span id="cb106-13"><a href="code-here-2.html#cb106-13" tabindex="-1"></a></span>
+<span id="cb106-14"><a href="code-here-2.html#cb106-14" tabindex="-1"></a><span class="co"># v. 12L</span></span>
+<span id="cb106-15"><a href="code-here-2.html#cb106-15" tabindex="-1"></a><span class="co"># CODE HERE</span></span></code></pre></div>
+<hr />
+<p><span style="color: brown;"><strong>Solution</strong></span></p>
+<div class="sourceCode" id="cb107"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb107-1"><a href="code-here-2.html#cb107-1" tabindex="-1"></a><span class="co"># i. &quot;Vipin&quot;</span></span>
+<span id="cb107-2"><a href="code-here-2.html#cb107-2" tabindex="-1"></a><span class="fu">charToRaw</span>(<span class="st">&quot;Vipin&quot;</span>)</span></code></pre></div>
+<pre><code>## [1] 56 69 70 69 6e</code></pre>
+<div class="sourceCode" id="cb109"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb109-1"><a href="code-here-2.html#cb109-1" tabindex="-1"></a><span class="co"># ii. 27</span></span>
+<span id="cb109-2"><a href="code-here-2.html#cb109-2" tabindex="-1"></a><span class="fu">as.raw</span>(<span class="dv">27</span>)</span></code></pre></div>
+<pre><code>## [1] 1b</code></pre>
+<div class="sourceCode" id="cb111"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb111-1"><a href="code-here-2.html#cb111-1" tabindex="-1"></a><span class="co"># iii. 69.0</span></span>
+<span id="cb111-2"><a href="code-here-2.html#cb111-2" tabindex="-1"></a><span class="fu">as.raw</span>(<span class="fl">69.0</span>)</span></code></pre></div>
+<pre><code>## [1] 45</code></pre>
+<div class="sourceCode" id="cb113"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb113-1"><a href="code-here-2.html#cb113-1" tabindex="-1"></a><span class="co"># iv. FALSE</span></span>
+<span id="cb113-2"><a href="code-here-2.html#cb113-2" tabindex="-1"></a><span class="fu">as.raw</span>(<span class="cn">FALSE</span>)</span></code></pre></div>
+<pre><code>## [1] 00</code></pre>
+<div class="sourceCode" id="cb115"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb115-1"><a href="code-here-2.html#cb115-1" tabindex="-1"></a><span class="co"># v. 12L</span></span>
+<span id="cb115-2"><a href="code-here-2.html#cb115-2" tabindex="-1"></a><span class="fu">as.raw</span>(<span class="dv">12</span><span class="dt">L</span>)</span></code></pre></div>
+<pre><code>## [1] 0c</code></pre>
+<p><span style="color: brown;"><strong>________________________________________________________________________________</strong></span></p>
+<div id="data-structures" class="section level2 hasAnchor" number="8.1">
+<h2><span class="header-section-number">8.1</span> Data Structures<a href="code-here-2.html#data-structures" class="anchor-section" aria-label="Anchor link to header"></a></h2>
+<p>This is the organization of data into one or multiple data values in specific structures. Different types of data structures in R include;</p>
+<ul>
+<li><p>Vector</p></li>
+<li><p>Matrix</p></li>
+<li><p>Data frame</p></li>
+</ul>
+<div id="vector" class="section level3 hasAnchor" number="8.1.1">
+<h3><span class="header-section-number">8.1.1</span> Vector<a href="code-here-2.html#vector" class="anchor-section" aria-label="Anchor link to header"></a></h3>
+<p>A vector is a single entity consisting of a collection of things. They are versatile providing a basis of many operations in statistics and data manipulation hence it is important to have knowledge of vectors for effective programming in R. Vectors are created using a <code>c()</code> function, here is an example of a vector.</p>
+<div class="sourceCode" id="cb117"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb117-1"><a href="code-here-2.html#cb117-1" tabindex="-1"></a>marks <span class="ot">=</span> <span class="fu">c</span>(<span class="dv">23</span>, <span class="dv">67</span>, <span class="dv">98</span>, <span class="dv">34</span>, <span class="dv">98</span>, <span class="dv">21</span>)</span>
+<span id="cb117-2"><a href="code-here-2.html#cb117-2" tabindex="-1"></a><span class="fu">print</span>(marks) <span class="co"># print to the console</span></span></code></pre></div>
+<pre><code>## [1] 23 67 98 34 98 21</code></pre>
+<p><span style="color: green;"><strong>Activity</strong></span></p>
+<p>Create a vector named <code>ages</code> and insert the following values <code>21, 32, 22, 24, 27, 54, 20, 13</code> and print it out on the console</p>
+<div class="sourceCode" id="cb119"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb119-1"><a href="code-here-2.html#cb119-1" tabindex="-1"></a><span class="co"># vector ages with elements 21, 32, 22, 24, 27, 54, 20, 13</span></span>
+<span id="cb119-2"><a href="code-here-2.html#cb119-2" tabindex="-1"></a><span class="co"># CODE HERE </span></span></code></pre></div>
+<hr />
+<p><span style="color: brown;"><strong>Solution</strong></span></p>
+<div class="sourceCode" id="cb120"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb120-1"><a href="code-here-2.html#cb120-1" tabindex="-1"></a><span class="co"># vector ages with elements 21, 32, 22, 24, 27, 54, 20, 13</span></span>
+<span id="cb120-2"><a href="code-here-2.html#cb120-2" tabindex="-1"></a>ages<span class="ot">=</span><span class="fu">c</span>(<span class="dv">21</span>, <span class="dv">32</span>, <span class="dv">22</span>, <span class="dv">24</span>, <span class="dv">27</span>, <span class="dv">54</span>, <span class="dv">20</span>, <span class="dv">13</span>)</span>
+<span id="cb120-3"><a href="code-here-2.html#cb120-3" tabindex="-1"></a>ages</span></code></pre></div>
+<pre><code>## [1] 21 32 22 24 27 54 20 13</code></pre>
+<p><span style="color: brown;"><strong>________________________________________________________________________________</strong></span></p>
+<p>The <code>class</code> function is utilized to determine the data types present within vector data values.</p>
+<div class="sourceCode" id="cb122"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb122-1"><a href="code-here-2.html#cb122-1" tabindex="-1"></a>marks <span class="ot">=</span> <span class="fu">c</span>(<span class="dv">23</span>, <span class="dv">67</span>, <span class="dv">98</span>, <span class="dv">34</span>, <span class="dv">98</span>, <span class="dv">21</span>)</span>
+<span id="cb122-2"><a href="code-here-2.html#cb122-2" tabindex="-1"></a><span class="fu">class</span>(marks)</span></code></pre></div>
+<pre><code>## [1] &quot;numeric&quot;</code></pre>
+<p>The vector “marks” consist of only numeric values</p>
+<p><code>is.vector</code> function is used to check if the variable is a vector. It will return a Boolean value, <code>TRUE</code> if the variable in question is truly a vector while <code>FALSE</code> if otherwise.</p>
+<div class="sourceCode" id="cb124"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb124-1"><a href="code-here-2.html#cb124-1" tabindex="-1"></a>marks <span class="ot">=</span> <span class="fu">c</span>(<span class="dv">23</span>, <span class="dv">67</span>, <span class="dv">98</span>, <span class="dv">34</span>, <span class="dv">98</span>, <span class="dv">21</span>)</span>
+<span id="cb124-2"><a href="code-here-2.html#cb124-2" tabindex="-1"></a><span class="fu">is.vector</span>(marks)</span></code></pre></div>
+<pre><code>## [1] TRUE</code></pre>
+<p>unlike matrix and data frame, vector has no dimension</p>
+<div class="sourceCode" id="cb126"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb126-1"><a href="code-here-2.html#cb126-1" tabindex="-1"></a>marks <span class="ot">=</span> <span class="fu">c</span>(<span class="dv">23</span>, <span class="dv">67</span>, <span class="dv">98</span>, <span class="dv">34</span>, <span class="dv">98</span>, <span class="dv">21</span>)</span>
+<span id="cb126-2"><a href="code-here-2.html#cb126-2" tabindex="-1"></a><span class="fu">dim</span>(marks)</span></code></pre></div>
+<pre><code>## NULL</code></pre>
+<p><code>length()</code> function is used to count number of elements in vectors. In our case vector marks, <code>marks = c(23, 67, 98, 34, 98, 21)</code> has six elements, therefore, <code>length()</code> command will return <code>6</code>.</p>
+<div class="sourceCode" id="cb128"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb128-1"><a href="code-here-2.html#cb128-1" tabindex="-1"></a>marks <span class="ot">=</span> <span class="fu">c</span>(<span class="dv">23</span>, <span class="dv">67</span>, <span class="dv">98</span>, <span class="dv">34</span>, <span class="dv">98</span>, <span class="dv">21</span>)</span>
+<span id="cb128-2"><a href="code-here-2.html#cb128-2" tabindex="-1"></a><span class="fu">length</span>(marks)</span></code></pre></div>
+<pre><code>## [1] 6</code></pre>
+<p><span style="color: green;"><strong>Activity</strong></span></p>
+<p>Create a vector named <code>height</code> with its elements/values as <code>120.1, 118, 123.4, 130.8, 115.2</code> and do the following;</p>
+<ol style="list-style-type: lower-roman">
+<li>print it out to the console using <code>print()</code> function.</li>
+<li>find the data type of its elements using <code>class()</code> function</li>
+<li>use <code>is.vector()</code> function to find if its really a vector</li>
+<li>count the number of elements in the vector using <code>length()</code> function.</li>
+</ol>
+<div class="sourceCode" id="cb130"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb130-1"><a href="code-here-2.html#cb130-1" tabindex="-1"></a><span class="co">#Create a vector named `height` with its elements/values as `120.1, 118, 123.4, 130.8, 115.2` and do the following;</span></span>
+<span id="cb130-2"><a href="code-here-2.html#cb130-2" tabindex="-1"></a><span class="co"># CODE HERE </span></span>
+<span id="cb130-3"><a href="code-here-2.html#cb130-3" tabindex="-1"></a></span>
+<span id="cb130-4"><a href="code-here-2.html#cb130-4" tabindex="-1"></a><span class="co"># print it out</span></span>
+<span id="cb130-5"><a href="code-here-2.html#cb130-5" tabindex="-1"></a><span class="co"># CODE HERE </span></span>
+<span id="cb130-6"><a href="code-here-2.html#cb130-6" tabindex="-1"></a></span>
+<span id="cb130-7"><a href="code-here-2.html#cb130-7" tabindex="-1"></a><span class="co"># find the data type of its elements</span></span>
+<span id="cb130-8"><a href="code-here-2.html#cb130-8" tabindex="-1"></a><span class="co"># CODE HERE</span></span>
+<span id="cb130-9"><a href="code-here-2.html#cb130-9" tabindex="-1"></a></span>
+<span id="cb130-10"><a href="code-here-2.html#cb130-10" tabindex="-1"></a><span class="co"># find if its really a vector</span></span>
+<span id="cb130-11"><a href="code-here-2.html#cb130-11" tabindex="-1"></a><span class="co"># CODE HERE</span></span>
+<span id="cb130-12"><a href="code-here-2.html#cb130-12" tabindex="-1"></a></span>
+<span id="cb130-13"><a href="code-here-2.html#cb130-13" tabindex="-1"></a><span class="co"># count the number of elements in the vector</span></span>
+<span id="cb130-14"><a href="code-here-2.html#cb130-14" tabindex="-1"></a><span class="co"># CODE HERE </span></span></code></pre></div>
+<hr />
+<p><span style="color: brown;"><strong>Solution</strong></span></p>
+<div class="sourceCode" id="cb131"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb131-1"><a href="code-here-2.html#cb131-1" tabindex="-1"></a><span class="co">#Create a vector named `height` with its elements/values as `120.1, 118, 123.4, 130.8, 115.2` and do the following;</span></span>
+<span id="cb131-2"><a href="code-here-2.html#cb131-2" tabindex="-1"></a>height <span class="ot">=</span> <span class="fu">c</span>(<span class="fl">120.1</span>, <span class="dv">118</span>, <span class="fl">123.4</span>, <span class="fl">130.8</span>, <span class="fl">115.2</span>)</span>
+<span id="cb131-3"><a href="code-here-2.html#cb131-3" tabindex="-1"></a></span>
+<span id="cb131-4"><a href="code-here-2.html#cb131-4" tabindex="-1"></a><span class="co"># print it out</span></span>
+<span id="cb131-5"><a href="code-here-2.html#cb131-5" tabindex="-1"></a><span class="fu">print</span>(height)</span></code></pre></div>
+<pre><code>## [1] 120.1 118.0 123.4 130.8 115.2</code></pre>
+<div class="sourceCode" id="cb133"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb133-1"><a href="code-here-2.html#cb133-1" tabindex="-1"></a><span class="co"># find the data type of its elements</span></span>
+<span id="cb133-2"><a href="code-here-2.html#cb133-2" tabindex="-1"></a><span class="fu">class</span>(height)</span></code></pre></div>
+<pre><code>## [1] &quot;numeric&quot;</code></pre>
+<div class="sourceCode" id="cb135"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb135-1"><a href="code-here-2.html#cb135-1" tabindex="-1"></a><span class="co"># find if its really a vector</span></span>
+<span id="cb135-2"><a href="code-here-2.html#cb135-2" tabindex="-1"></a><span class="fu">is.vector</span>(height)</span></code></pre></div>
+<pre><code>## [1] TRUE</code></pre>
+<div class="sourceCode" id="cb137"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb137-1"><a href="code-here-2.html#cb137-1" tabindex="-1"></a><span class="co"># count the number of elements in the vector</span></span>
+<span id="cb137-2"><a href="code-here-2.html#cb137-2" tabindex="-1"></a><span class="fu">length</span>(height)</span></code></pre></div>
+<pre><code>## [1] 5</code></pre>
+<p><span style="color: brown;"><strong>________________________________________________________________________________</strong></span></p>
+<p>Index is the position of an element in a vector, in R it starts at index 1 - lets say we find the third element by index 3</p>
+<div class="sourceCode" id="cb139"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb139-1"><a href="code-here-2.html#cb139-1" tabindex="-1"></a>marks <span class="ot">=</span> <span class="fu">c</span>(<span class="dv">23</span>, <span class="dv">67</span>, <span class="dv">98</span>, <span class="dv">34</span>, <span class="dv">98</span>, <span class="dv">21</span>)</span>
+<span id="cb139-2"><a href="code-here-2.html#cb139-2" tabindex="-1"></a>marks[<span class="dv">3</span>]</span></code></pre></div>
+<pre><code>## [1] 98</code></pre>
+<p>value “98” is at index 3, or the third in the vector. The first value/element of a vector is indexed <code>1</code>, for instance if we find the first value in the vector <code>marks</code>.</p>
+<div class="sourceCode" id="cb141"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb141-1"><a href="code-here-2.html#cb141-1" tabindex="-1"></a>marks <span class="ot">=</span> <span class="fu">c</span>(<span class="dv">23</span>, <span class="dv">67</span>, <span class="dv">98</span>, <span class="dv">34</span>, <span class="dv">98</span>, <span class="dv">21</span>)</span>
+<span id="cb141-2"><a href="code-here-2.html#cb141-2" tabindex="-1"></a>marks[<span class="dv">1</span>] <span class="co">#returns the first value</span></span></code></pre></div>
+<pre><code>## [1] 23</code></pre>
+<p>The sequence goes on, the second, third, fourth, fifth … values are indexed as , <code>2</code>, <code>3</code>, <code>4</code>, <code>5</code>… respectively. i.e the n^th value is indexed as <code>n</code>.</p>
+<p>Vectors can also be sliced to obtain values over a range of indices. For instance the code below shows how to retrieve the from the second to the fourth values as a vector</p>
+<div class="sourceCode" id="cb143"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb143-1"><a href="code-here-2.html#cb143-1" tabindex="-1"></a>marks <span class="ot">=</span> <span class="fu">c</span>(<span class="dv">23</span>, <span class="dv">67</span>, <span class="dv">98</span>, <span class="dv">34</span>, <span class="dv">98</span>, <span class="dv">21</span>)</span>
+<span id="cb143-2"><a href="code-here-2.html#cb143-2" tabindex="-1"></a><span class="fu">print</span>(marks[<span class="dv">2</span><span class="sc">:</span><span class="dv">4</span>])</span></code></pre></div>
+<pre><code>## [1] 67 98 34</code></pre>
+<div class="sourceCode" id="cb145"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb145-1"><a href="code-here-2.html#cb145-1" tabindex="-1"></a><span class="fu">is.vector</span>(marks[<span class="dv">2</span><span class="sc">:</span><span class="dv">4</span>]) <span class="co"># confirm if the retrieved values are in a vector</span></span></code></pre></div>
+<pre><code>## [1] TRUE</code></pre>
+<p>An element at a specific index in a vector can be excluded by adding a <code>-</code> sign before the index value.</p>
+<div class="sourceCode" id="cb147"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb147-1"><a href="code-here-2.html#cb147-1" tabindex="-1"></a>marks <span class="ot">=</span> <span class="fu">c</span>(<span class="dv">23</span>, <span class="dv">67</span>, <span class="dv">98</span>, <span class="dv">34</span>, <span class="dv">98</span>, <span class="dv">21</span>)</span>
+<span id="cb147-2"><a href="code-here-2.html#cb147-2" tabindex="-1"></a>marks[<span class="sc">-</span><span class="dv">2</span>] <span class="co">#exclude the element at index 2</span></span></code></pre></div>
+<pre><code>## [1] 23 98 34 98 21</code></pre>
+<p><code>rev()</code> command is used to reverse the order of elements in a vector</p>
+<div class="sourceCode" id="cb149"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb149-1"><a href="code-here-2.html#cb149-1" tabindex="-1"></a>marks <span class="ot">=</span> <span class="fu">c</span>(<span class="dv">23</span>, <span class="dv">67</span>, <span class="dv">98</span>, <span class="dv">34</span>, <span class="dv">98</span>, <span class="dv">21</span>)</span>
+<span id="cb149-2"><a href="code-here-2.html#cb149-2" tabindex="-1"></a><span class="fu">rev</span>(marks)</span></code></pre></div>
+<pre><code>## [1] 21 98 34 98 67 23</code></pre>
+<p><span style="color: green;"><strong>Activity</strong></span></p>
+<p>Create a vector named <code>ages</code> and insert the following values; <code>13, 59, 27, 22, 19, 31, 43</code>. Use it to answer the questions below.</p>
+<ol style="list-style-type: lower-roman">
+<li>Print out the vector <code>ages</code> to the console</li>
+<li>Store the third element in a variable called <code>my_age</code> and print it out.</li>
+<li>Extract the values from the second to the fifth element and print them out.</li>
+<li>Exclude the third element</li>
+<li>Reverse the order of the elements in the vector.</li>
+</ol>
+<div class="sourceCode" id="cb151"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb151-1"><a href="code-here-2.html#cb151-1" tabindex="-1"></a><span class="co"># Create a vector named `ages` and insert the following values; `13, 59, 27, 22, 19, 31, 43`</span></span>
+<span id="cb151-2"><a href="code-here-2.html#cb151-2" tabindex="-1"></a><span class="co"># CODE HERE </span></span>
+<span id="cb151-3"><a href="code-here-2.html#cb151-3" tabindex="-1"></a></span>
+<span id="cb151-4"><a href="code-here-2.html#cb151-4" tabindex="-1"></a><span class="co"># i. Print out the vector `ages` to the console</span></span>
+<span id="cb151-5"><a href="code-here-2.html#cb151-5" tabindex="-1"></a><span class="co"># CODE HERE</span></span>
+<span id="cb151-6"><a href="code-here-2.html#cb151-6" tabindex="-1"></a></span>
+<span id="cb151-7"><a href="code-here-2.html#cb151-7" tabindex="-1"></a><span class="co"># ii. Store the third element in a variable called `my_age` and print it out.</span></span>
+<span id="cb151-8"><a href="code-here-2.html#cb151-8" tabindex="-1"></a><span class="co"># CODE HERE</span></span>
+<span id="cb151-9"><a href="code-here-2.html#cb151-9" tabindex="-1"></a></span>
+<span id="cb151-10"><a href="code-here-2.html#cb151-10" tabindex="-1"></a><span class="co"># iii. Extract the values from the second to the fifth element and print them out.</span></span>
+<span id="cb151-11"><a href="code-here-2.html#cb151-11" tabindex="-1"></a><span class="co"># CODE HERE </span></span>
+<span id="cb151-12"><a href="code-here-2.html#cb151-12" tabindex="-1"></a></span>
+<span id="cb151-13"><a href="code-here-2.html#cb151-13" tabindex="-1"></a><span class="co"># iv. Exclude the third element</span></span>
+<span id="cb151-14"><a href="code-here-2.html#cb151-14" tabindex="-1"></a><span class="co"># CODE HERE</span></span>
+<span id="cb151-15"><a href="code-here-2.html#cb151-15" tabindex="-1"></a></span>
+<span id="cb151-16"><a href="code-here-2.html#cb151-16" tabindex="-1"></a><span class="co"># v. Reverse the order of the elements in the vector. </span></span>
+<span id="cb151-17"><a href="code-here-2.html#cb151-17" tabindex="-1"></a><span class="co"># CODE HERE</span></span></code></pre></div>
+<hr />
+<p><span style="color: brown;"><strong>Solution</strong></span></p>
+<div class="sourceCode" id="cb152"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb152-1"><a href="code-here-2.html#cb152-1" tabindex="-1"></a><span class="co"># Create a vector named `ages` and insert the following values; `13, 59, 27, 22, 19, 31, 43`</span></span>
+<span id="cb152-2"><a href="code-here-2.html#cb152-2" tabindex="-1"></a>ages <span class="ot">=</span> <span class="fu">c</span>(<span class="dv">13</span>, <span class="dv">59</span>, <span class="dv">27</span>, <span class="dv">22</span>, <span class="dv">19</span>, <span class="dv">31</span>, <span class="dv">43</span>)</span>
+<span id="cb152-3"><a href="code-here-2.html#cb152-3" tabindex="-1"></a></span>
+<span id="cb152-4"><a href="code-here-2.html#cb152-4" tabindex="-1"></a><span class="co"># i. Print out the vector `ages` to the console</span></span>
+<span id="cb152-5"><a href="code-here-2.html#cb152-5" tabindex="-1"></a><span class="fu">print</span>(ages)</span></code></pre></div>
+<pre><code>## [1] 13 59 27 22 19 31 43</code></pre>
+<div class="sourceCode" id="cb154"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb154-1"><a href="code-here-2.html#cb154-1" tabindex="-1"></a><span class="co"># ii. Store the third element in a variable called `my_age` and print it out.</span></span>
+<span id="cb154-2"><a href="code-here-2.html#cb154-2" tabindex="-1"></a>my_age <span class="ot">=</span> ages[<span class="dv">3</span>]</span>
+<span id="cb154-3"><a href="code-here-2.html#cb154-3" tabindex="-1"></a>my_age</span></code></pre></div>
+<pre><code>## [1] 27</code></pre>
+<div class="sourceCode" id="cb156"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb156-1"><a href="code-here-2.html#cb156-1" tabindex="-1"></a><span class="co"># iii. Extract the values from the second to the fifth element and print them out.</span></span>
+<span id="cb156-2"><a href="code-here-2.html#cb156-2" tabindex="-1"></a>ages[<span class="dv">2</span><span class="sc">:</span><span class="dv">5</span>]</span></code></pre></div>
+<pre><code>## [1] 59 27 22 19</code></pre>
+<div class="sourceCode" id="cb158"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb158-1"><a href="code-here-2.html#cb158-1" tabindex="-1"></a><span class="co"># iv. Exclude the third element</span></span>
+<span id="cb158-2"><a href="code-here-2.html#cb158-2" tabindex="-1"></a>ages[<span class="sc">-</span><span class="dv">3</span>]</span></code></pre></div>
+<pre><code>## [1] 13 59 22 19 31 43</code></pre>
+<div class="sourceCode" id="cb160"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb160-1"><a href="code-here-2.html#cb160-1" tabindex="-1"></a><span class="co"># v. Reverse the order of the elements in the vector. </span></span>
+<span id="cb160-2"><a href="code-here-2.html#cb160-2" tabindex="-1"></a><span class="fu">rev</span>(ages)</span></code></pre></div>
+<pre><code>## [1] 43 31 19 22 27 59 13</code></pre>
+<p><span style="color: brown;"><strong>________________________________________________________________________________</strong></span></p>
+<div id="mathematical-operations-in-a-vector" class="section level4 hasAnchor" number="8.1.1.1">
+<h4><span class="header-section-number">8.1.1.1</span> Mathematical Operations in a vector<a href="code-here-2.html#mathematical-operations-in-a-vector" class="anchor-section" aria-label="Anchor link to header"></a></h4>
+<p>The summary/descriptive statistics are calculated by <code>summary()</code> command.</p>
+<div class="sourceCode" id="cb162"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb162-1"><a href="code-here-2.html#cb162-1" tabindex="-1"></a>marks <span class="ot">=</span> <span class="fu">c</span>(<span class="dv">23</span>, <span class="dv">67</span>, <span class="dv">98</span>, <span class="dv">34</span>, <span class="dv">98</span>, <span class="dv">21</span>)</span>
+<span id="cb162-2"><a href="code-here-2.html#cb162-2" tabindex="-1"></a><span class="fu">summary</span>(marks)</span></code></pre></div>
+<pre><code>##    Min. 1st Qu.  Median    Mean 3rd Qu.    Max. 
+##   21.00   25.75   50.50   56.83   90.25   98.00</code></pre>
+<p><code>sum()</code>, <code>median()</code>, and <code>mean()</code> are used to calculate the total, median, average and the standard deviation of the values in a vector</p>
+<div class="sourceCode" id="cb164"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb164-1"><a href="code-here-2.html#cb164-1" tabindex="-1"></a>marks <span class="ot">=</span> <span class="fu">c</span>(<span class="dv">23</span>, <span class="dv">67</span>, <span class="dv">98</span>, <span class="dv">34</span>, <span class="dv">98</span>, <span class="dv">21</span>)</span>
+<span id="cb164-2"><a href="code-here-2.html#cb164-2" tabindex="-1"></a><span class="fu">print</span>(<span class="st">&quot;MARKS&quot;</span>)</span></code></pre></div>
+<pre><code>## [1] &quot;MARKS&quot;</code></pre>
+<div class="sourceCode" id="cb166"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb166-1"><a href="code-here-2.html#cb166-1" tabindex="-1"></a><span class="fu">print</span>(<span class="fu">paste</span>(<span class="st">&quot;TOTAL: &quot;</span>, <span class="fu">sum</span>(marks)))</span></code></pre></div>
+<pre><code>## [1] &quot;TOTAL:  341&quot;</code></pre>
+<div class="sourceCode" id="cb168"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb168-1"><a href="code-here-2.html#cb168-1" tabindex="-1"></a><span class="fu">print</span>(<span class="fu">paste</span>(<span class="st">&quot;MEDIAN: &quot;</span>, <span class="fu">median</span>(marks)))</span></code></pre></div>
+<pre><code>## [1] &quot;MEDIAN:  50.5&quot;</code></pre>
+<div class="sourceCode" id="cb170"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb170-1"><a href="code-here-2.html#cb170-1" tabindex="-1"></a><span class="fu">print</span>(<span class="fu">paste</span>(<span class="st">&quot;AVERAGE: &quot;</span>, <span class="fu">mean</span>(marks)))</span></code></pre></div>
+<pre><code>## [1] &quot;AVERAGE:  56.8333333333333&quot;</code></pre>
+<ul>
+<li><strong>Vector multiplication and division</strong> - vectors can be multiplied or divided by a scalar value of another vector of the same length and numeric data type. For instance, the vector <code>marks=c(23, 67, 98, 34, 98, 21)</code> is being multiplied by a scalar value <code>2</code>, that will multiply each element in a vector by two.</li>
+</ul>
+<div class="sourceCode" id="cb172"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb172-1"><a href="code-here-2.html#cb172-1" tabindex="-1"></a>marks <span class="ot">=</span> <span class="fu">c</span>(<span class="dv">23</span>, <span class="dv">67</span>, <span class="dv">98</span>, <span class="dv">34</span>, <span class="dv">98</span>, <span class="dv">21</span>)</span>
+<span id="cb172-2"><a href="code-here-2.html#cb172-2" tabindex="-1"></a></span>
+<span id="cb172-3"><a href="code-here-2.html#cb172-3" tabindex="-1"></a><span class="co"># Multiply each element in the vector by 2</span></span>
+<span id="cb172-4"><a href="code-here-2.html#cb172-4" tabindex="-1"></a>double_marks <span class="ot">=</span><span class="dv">2</span> <span class="sc">*</span> marks </span>
+<span id="cb172-5"><a href="code-here-2.html#cb172-5" tabindex="-1"></a></span>
+<span id="cb172-6"><a href="code-here-2.html#cb172-6" tabindex="-1"></a>marks</span></code></pre></div>
+<pre><code>## [1] 23 67 98 34 98 21</code></pre>
+<div class="sourceCode" id="cb174"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb174-1"><a href="code-here-2.html#cb174-1" tabindex="-1"></a>double_marks</span></code></pre></div>
+<pre><code>## [1]  46 134 196  68 196  42</code></pre>
+<p>The values in the vector <code>marks</code> can also be scaled down to a half when multiplied by a scalar value <code>0.5</code>.</p>
+<div class="sourceCode" id="cb176"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb176-1"><a href="code-here-2.html#cb176-1" tabindex="-1"></a>marks <span class="ot">=</span> <span class="fu">c</span>(<span class="dv">23</span>, <span class="dv">67</span>, <span class="dv">98</span>, <span class="dv">34</span>, <span class="dv">98</span>, <span class="dv">21</span>)</span>
+<span id="cb176-2"><a href="code-here-2.html#cb176-2" tabindex="-1"></a></span>
+<span id="cb176-3"><a href="code-here-2.html#cb176-3" tabindex="-1"></a><span class="co"># Multiply by 0.5 to scale the marks by a half</span></span>
+<span id="cb176-4"><a href="code-here-2.html#cb176-4" tabindex="-1"></a>half_marks <span class="ot">=</span><span class="fl">0.5</span> <span class="sc">*</span> marks </span>
+<span id="cb176-5"><a href="code-here-2.html#cb176-5" tabindex="-1"></a></span>
+<span id="cb176-6"><a href="code-here-2.html#cb176-6" tabindex="-1"></a>marks</span></code></pre></div>
+<pre><code>## [1] 23 67 98 34 98 21</code></pre>
+<div class="sourceCode" id="cb178"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb178-1"><a href="code-here-2.html#cb178-1" tabindex="-1"></a>half_marks</span></code></pre></div>
+<pre><code>## [1] 11.5 33.5 49.0 17.0 49.0 10.5</code></pre>
+<p>Alternatively, instead of multiplying the vector by <code>0.5</code>, it can be divided by <code>2</code> a scalar value two. This is what is referred to as <strong>vector division</strong>.</p>
+<div class="sourceCode" id="cb180"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb180-1"><a href="code-here-2.html#cb180-1" tabindex="-1"></a>marks <span class="ot">=</span> <span class="fu">c</span>(<span class="dv">23</span>, <span class="dv">67</span>, <span class="dv">98</span>, <span class="dv">34</span>, <span class="dv">98</span>, <span class="dv">21</span>)</span>
+<span id="cb180-2"><a href="code-here-2.html#cb180-2" tabindex="-1"></a></span>
+<span id="cb180-3"><a href="code-here-2.html#cb180-3" tabindex="-1"></a><span class="co"># Scale down the marks by a half by dividing by 2 instead of multiplying by 0.5</span></span>
+<span id="cb180-4"><a href="code-here-2.html#cb180-4" tabindex="-1"></a>half_marks <span class="ot">=</span> marks<span class="sc">/</span><span class="dv">2</span></span>
+<span id="cb180-5"><a href="code-here-2.html#cb180-5" tabindex="-1"></a>half_marks</span></code></pre></div>
+<pre><code>## [1] 11.5 33.5 49.0 17.0 49.0 10.5</code></pre>
+<p><span style="color: green;"><strong>Activity</strong></span></p>
+<p>Create a vector with the following values; <code>67, 55, 60, 59, 57.2, 71, 62, 66, 70</code> and name the vector <code>weights</code>. Use the variable <code>weights</code> to solve the following problems</p>
+<ol style="list-style-type: lower-alpha">
+<li>Calculate the;
+i. median weight
+ii. mean(average) weight
+iii. the total weight when summed together</li>
+<li>Calculate the summary statistics using the <code>summary()</code> function.</li>
+<li>Add 10 to variable <code>weights</code> and the answer <code>added_weights</code>.</li>
+<li>Subtract 15 to <code>weights</code> and name it <code>reduced_weights</code>.</li>
+<li>Scale the weights by multiplying the vector by 1.5. ’</li>
+<li>Scale down the weights to a third by dividing the vector by 3.</li>
+</ol>
+<div class="sourceCode" id="cb182"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb182-1"><a href="code-here-2.html#cb182-1" tabindex="-1"></a><span class="co"># Create vector weights from 67, 55, 60, 59, 57.2, 71, 62, 66, 70</span></span>
+<span id="cb182-2"><a href="code-here-2.html#cb182-2" tabindex="-1"></a><span class="co"># CODE HERE </span></span>
+<span id="cb182-3"><a href="code-here-2.html#cb182-3" tabindex="-1"></a></span>
+<span id="cb182-4"><a href="code-here-2.html#cb182-4" tabindex="-1"></a><span class="do">## a. Calculate the;</span></span>
+<span id="cb182-5"><a href="code-here-2.html#cb182-5" tabindex="-1"></a><span class="do">### i. median weight</span></span>
+<span id="cb182-6"><a href="code-here-2.html#cb182-6" tabindex="-1"></a><span class="co"># CODE HERE </span></span>
+<span id="cb182-7"><a href="code-here-2.html#cb182-7" tabindex="-1"></a></span>
+<span id="cb182-8"><a href="code-here-2.html#cb182-8" tabindex="-1"></a><span class="do">### ii. mean(average) weight</span></span>
+<span id="cb182-9"><a href="code-here-2.html#cb182-9" tabindex="-1"></a><span class="co"># CODE HERE </span></span>
+<span id="cb182-10"><a href="code-here-2.html#cb182-10" tabindex="-1"></a></span>
+<span id="cb182-11"><a href="code-here-2.html#cb182-11" tabindex="-1"></a><span class="do">### iii. the total weight when summed together</span></span>
+<span id="cb182-12"><a href="code-here-2.html#cb182-12" tabindex="-1"></a><span class="co"># CODE HERE</span></span>
+<span id="cb182-13"><a href="code-here-2.html#cb182-13" tabindex="-1"></a></span>
+<span id="cb182-14"><a href="code-here-2.html#cb182-14" tabindex="-1"></a></span>
+<span id="cb182-15"><a href="code-here-2.html#cb182-15" tabindex="-1"></a><span class="do">## b. Calculate the summary statistics using the `summary()` function. </span></span>
+<span id="cb182-16"><a href="code-here-2.html#cb182-16" tabindex="-1"></a><span class="co"># CODE HERE </span></span>
+<span id="cb182-17"><a href="code-here-2.html#cb182-17" tabindex="-1"></a></span>
+<span id="cb182-18"><a href="code-here-2.html#cb182-18" tabindex="-1"></a><span class="do">## c. Add 10 to variable `weights` and the answer `added_weights`.</span></span>
+<span id="cb182-19"><a href="code-here-2.html#cb182-19" tabindex="-1"></a><span class="co"># CODE HERE </span></span>
+<span id="cb182-20"><a href="code-here-2.html#cb182-20" tabindex="-1"></a></span>
+<span id="cb182-21"><a href="code-here-2.html#cb182-21" tabindex="-1"></a><span class="do">## d. Subtract 15 to `weights` and name it `reduced_weights`.</span></span>
+<span id="cb182-22"><a href="code-here-2.html#cb182-22" tabindex="-1"></a><span class="co"># CODE HERE </span></span>
+<span id="cb182-23"><a href="code-here-2.html#cb182-23" tabindex="-1"></a></span>
+<span id="cb182-24"><a href="code-here-2.html#cb182-24" tabindex="-1"></a><span class="do">## e. Scale the weights by multiplying the vector by 1.5. &#39;</span></span>
+<span id="cb182-25"><a href="code-here-2.html#cb182-25" tabindex="-1"></a><span class="co"># CODE HERE </span></span>
+<span id="cb182-26"><a href="code-here-2.html#cb182-26" tabindex="-1"></a></span>
+<span id="cb182-27"><a href="code-here-2.html#cb182-27" tabindex="-1"></a><span class="do">## f. Scale down the weights to a third by dividing the vector by 3.</span></span>
+<span id="cb182-28"><a href="code-here-2.html#cb182-28" tabindex="-1"></a><span class="co"># CODE HERE</span></span></code></pre></div>
+<hr />
+<p><span style="color: brown;"><strong>Solution</strong></span></p>
+<div class="sourceCode" id="cb183"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb183-1"><a href="code-here-2.html#cb183-1" tabindex="-1"></a><span class="co"># Create vector weights from 67, 55, 60, 59, 57.2, 71, 62, 66, 70</span></span>
+<span id="cb183-2"><a href="code-here-2.html#cb183-2" tabindex="-1"></a>weights <span class="ot">=</span> <span class="fu">c</span>(<span class="dv">67</span>, <span class="dv">55</span>, <span class="dv">60</span>, <span class="dv">59</span>, <span class="fl">57.2</span>, <span class="dv">71</span>, <span class="dv">62</span>, <span class="dv">66</span>, <span class="dv">70</span>)</span>
+<span id="cb183-3"><a href="code-here-2.html#cb183-3" tabindex="-1"></a></span>
+<span id="cb183-4"><a href="code-here-2.html#cb183-4" tabindex="-1"></a><span class="do">## a. Calculate the;</span></span>
+<span id="cb183-5"><a href="code-here-2.html#cb183-5" tabindex="-1"></a><span class="do">### i. median weight</span></span>
+<span id="cb183-6"><a href="code-here-2.html#cb183-6" tabindex="-1"></a><span class="fu">median</span>(weights)</span></code></pre></div>
+<pre><code>## [1] 62</code></pre>
+<div class="sourceCode" id="cb185"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb185-1"><a href="code-here-2.html#cb185-1" tabindex="-1"></a><span class="do">### ii. mean(average) weight</span></span>
+<span id="cb185-2"><a href="code-here-2.html#cb185-2" tabindex="-1"></a><span class="fu">mean</span>(weights)</span></code></pre></div>
+<pre><code>## [1] 63.02222</code></pre>
+<div class="sourceCode" id="cb187"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb187-1"><a href="code-here-2.html#cb187-1" tabindex="-1"></a><span class="do">### iii. the total weight when summed together</span></span>
+<span id="cb187-2"><a href="code-here-2.html#cb187-2" tabindex="-1"></a><span class="fu">sum</span>(weights)</span></code></pre></div>
+<pre><code>## [1] 567.2</code></pre>
+<div class="sourceCode" id="cb189"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb189-1"><a href="code-here-2.html#cb189-1" tabindex="-1"></a><span class="do">## b. Calculate the summary statistics using the `summary()` function. </span></span>
+<span id="cb189-2"><a href="code-here-2.html#cb189-2" tabindex="-1"></a><span class="fu">summary</span>(weights)</span></code></pre></div>
+<pre><code>##    Min. 1st Qu.  Median    Mean 3rd Qu.    Max. 
+##   55.00   59.00   62.00   63.02   67.00   71.00</code></pre>
+<div class="sourceCode" id="cb191"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb191-1"><a href="code-here-2.html#cb191-1" tabindex="-1"></a><span class="do">## c. Add 10 to variable `weights` and the answer `added_weights`.</span></span>
+<span id="cb191-2"><a href="code-here-2.html#cb191-2" tabindex="-1"></a>added_weights <span class="ot">=</span> weights <span class="sc">+</span> <span class="dv">10</span></span>
+<span id="cb191-3"><a href="code-here-2.html#cb191-3" tabindex="-1"></a>added_weights</span></code></pre></div>
+<pre><code>## [1] 77.0 65.0 70.0 69.0 67.2 81.0 72.0 76.0 80.0</code></pre>
+<div class="sourceCode" id="cb193"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb193-1"><a href="code-here-2.html#cb193-1" tabindex="-1"></a><span class="do">## d. Subtract 15 to `weights` and name it `reduced_weights`.</span></span>
+<span id="cb193-2"><a href="code-here-2.html#cb193-2" tabindex="-1"></a>reduced_weights <span class="ot">=</span> weights <span class="sc">-</span> <span class="dv">15</span></span>
+<span id="cb193-3"><a href="code-here-2.html#cb193-3" tabindex="-1"></a>reduced_weights</span></code></pre></div>
+<pre><code>## [1] 52.0 40.0 45.0 44.0 42.2 56.0 47.0 51.0 55.0</code></pre>
+<div class="sourceCode" id="cb195"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb195-1"><a href="code-here-2.html#cb195-1" tabindex="-1"></a><span class="do">## e. Scale the weights by multiplying the vector by 1.5. &#39;</span></span>
+<span id="cb195-2"><a href="code-here-2.html#cb195-2" tabindex="-1"></a>weights <span class="sc">*</span> <span class="fl">1.5</span></span></code></pre></div>
+<pre><code>## [1] 100.5  82.5  90.0  88.5  85.8 106.5  93.0  99.0 105.0</code></pre>
+<div class="sourceCode" id="cb197"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb197-1"><a href="code-here-2.html#cb197-1" tabindex="-1"></a><span class="do">## f. Scale down the weights to a third by dividing the vector by 3.</span></span>
+<span id="cb197-2"><a href="code-here-2.html#cb197-2" tabindex="-1"></a>weights <span class="sc">*</span> <span class="dv">3</span></span></code></pre></div>
+<pre><code>## [1] 201.0 165.0 180.0 177.0 171.6 213.0 186.0 198.0 210.0</code></pre>
+<p><span style="color: brown;"><strong>________________________________________________________________________________</strong></span></p>
+<p><strong>Vector by vector multiplication and division</strong></p>
+<p>Two or more vectors of numeric values of the equal length can be multiplied or divided by each other. The example below demonstrates vector by vector multiplication of vector <code>a</code>; <code>3, 5, 1</code> and vector <code>b</code>: <code>7, 3, 9</code>. Each value is multiplied by a value of a corresponding index in the next vector such that;</p>
+<ul>
+<li><p><code>3</code> is multiplied by <code>7</code> to be <code>21</code></p></li>
+<li><p><code>5</code> is multiplied by <code>3</code> to be <code>15</code></p></li>
+<li><p><code>1</code> is multiplied by <code>9</code> to be <code>9</code>.</p></li>
+</ul>
+<p>The resultant vector is now <code>21 15 9</code>.</p>
+<div class="sourceCode" id="cb199"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb199-1"><a href="code-here-2.html#cb199-1" tabindex="-1"></a>a <span class="ot">=</span> <span class="fu">c</span>(<span class="dv">3</span>, <span class="dv">5</span>, <span class="dv">1</span>)</span>
+<span id="cb199-2"><a href="code-here-2.html#cb199-2" tabindex="-1"></a>b <span class="ot">=</span> <span class="fu">c</span>(<span class="dv">7</span>, <span class="dv">3</span>, <span class="dv">9</span>)</span>
+<span id="cb199-3"><a href="code-here-2.html#cb199-3" tabindex="-1"></a>ab <span class="ot">=</span> a<span class="sc">*</span>b</span>
+<span id="cb199-4"><a href="code-here-2.html#cb199-4" tabindex="-1"></a>ab</span></code></pre></div>
+<pre><code>## [1] 21 15  9</code></pre>
+<div class="sourceCode" id="cb201"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb201-1"><a href="code-here-2.html#cb201-1" tabindex="-1"></a>ba <span class="ot">=</span> b<span class="sc">*</span>a <span class="co"># is the same as ab</span></span>
+<span id="cb201-2"><a href="code-here-2.html#cb201-2" tabindex="-1"></a>ba</span></code></pre></div>
+<pre><code>## [1] 21 15  9</code></pre>
+<p>The same vectors can also be divided by each other provided they are of the same length and all have numeric values. The order of vector division, for instance in the first case vector <code>a</code> is divided by vector <code>b</code> such that;</p>
+<ul>
+<li><p><code>3</code> is divided by <code>7</code> to be <code>0.4285714</code></p></li>
+<li><p><code>5</code> is divided by <code>3</code> to be <code>1.6666667</code></p></li>
+<li><p><code>1</code> is divided by <code>9</code> to be <code>0.1111111</code>.</p></li>
+</ul>
+<p>The resultant vector is now <code>0.4285714 1.6666667 0.1111111</code>.</p>
+<div class="sourceCode" id="cb203"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb203-1"><a href="code-here-2.html#cb203-1" tabindex="-1"></a><span class="co"># First case</span></span>
+<span id="cb203-2"><a href="code-here-2.html#cb203-2" tabindex="-1"></a>a <span class="ot">=</span> <span class="fu">c</span>(<span class="dv">3</span>, <span class="dv">5</span>, <span class="dv">1</span>)</span>
+<span id="cb203-3"><a href="code-here-2.html#cb203-3" tabindex="-1"></a>b <span class="ot">=</span> <span class="fu">c</span>(<span class="dv">7</span>, <span class="dv">3</span>, <span class="dv">9</span>)</span>
+<span id="cb203-4"><a href="code-here-2.html#cb203-4" tabindex="-1"></a></span>
+<span id="cb203-5"><a href="code-here-2.html#cb203-5" tabindex="-1"></a><span class="co"># Divide vector a by b</span></span>
+<span id="cb203-6"><a href="code-here-2.html#cb203-6" tabindex="-1"></a>abdiv<span class="ot">=</span>a<span class="sc">/</span>b</span>
+<span id="cb203-7"><a href="code-here-2.html#cb203-7" tabindex="-1"></a>abdiv</span></code></pre></div>
+<pre><code>## [1] 0.4285714 1.6666667 0.1111111</code></pre>
+<p>, and in the second case the order of vector division is reversed by vector <code>b</code> being divided by <code>a</code> (<code>b/a</code> instead of <code>a/b</code>) such that;</p>
+<ul>
+<li><p><code>7</code> is divided by <code>3</code> to be <code>2.333333</code></p></li>
+<li><p><code>3</code> is divided by <code>5</code> to be <code>0.600000</code></p></li>
+<li><p><code>9</code> is divided by <code>1</code> to be <code>9.000000</code>.</p></li>
+</ul>
+<p>The resultant vector is now <code>2.333333 0.600000 9.000000</code>.</p>
+<div class="sourceCode" id="cb205"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb205-1"><a href="code-here-2.html#cb205-1" tabindex="-1"></a><span class="co"># Second case</span></span>
+<span id="cb205-2"><a href="code-here-2.html#cb205-2" tabindex="-1"></a>a <span class="ot">=</span> <span class="fu">c</span>(<span class="dv">3</span>, <span class="dv">5</span>, <span class="dv">1</span>)</span>
+<span id="cb205-3"><a href="code-here-2.html#cb205-3" tabindex="-1"></a>b <span class="ot">=</span> <span class="fu">c</span>(<span class="dv">7</span>, <span class="dv">3</span>, <span class="dv">9</span>)</span>
+<span id="cb205-4"><a href="code-here-2.html#cb205-4" tabindex="-1"></a><span class="co"># Divide vector b by a</span></span>
+<span id="cb205-5"><a href="code-here-2.html#cb205-5" tabindex="-1"></a>badiv<span class="ot">=</span>b<span class="sc">/</span>a</span>
+<span id="cb205-6"><a href="code-here-2.html#cb205-6" tabindex="-1"></a>badiv</span></code></pre></div>
+<pre><code>## [1] 2.333333 0.600000 9.000000</code></pre>
+<p>However, when multiplying vectors of unequal length the shorter one is replicated to match the longer vector. It will then return a warning. The case below shows how vector <code>e=c(1,2,3,4,5)</code> and <code>f=c(1,2)</code> are multiplied.</p>
+<ul>
+<li>vector <code>f=c(1,2)</code> will be replicated to match the length of vector <code>e</code>, therefore, vector <code>f</code> will be <code>f=c(1,2,1,2,1)</code>. The process of vector by vector multiplication will be followed.</li>
+</ul>
+<div class="sourceCode" id="cb207"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb207-1"><a href="code-here-2.html#cb207-1" tabindex="-1"></a>e<span class="ot">=</span><span class="fu">c</span>(<span class="dv">1</span>,<span class="dv">2</span>,<span class="dv">3</span>,<span class="dv">4</span>,<span class="dv">5</span>)</span>
+<span id="cb207-2"><a href="code-here-2.html#cb207-2" tabindex="-1"></a>f<span class="ot">=</span><span class="fu">c</span>(<span class="dv">1</span>,<span class="dv">2</span>)</span>
+<span id="cb207-3"><a href="code-here-2.html#cb207-3" tabindex="-1"></a>ef <span class="ot">=</span> e<span class="sc">*</span>f <span class="co">#it shows an error</span></span></code></pre></div>
+<pre><code>## Warning in e * f: longer object length is not a multiple of shorter object
+## length</code></pre>
+<div class="sourceCode" id="cb209"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb209-1"><a href="code-here-2.html#cb209-1" tabindex="-1"></a>ef <span class="co">#shows results since f is replicated to match e as f=c(1,2,1,2,1)</span></span></code></pre></div>
+<pre><code>## [1] 1 4 3 8 5</code></pre>
+<p>Multiple vectors can be concatenated/combined to come up with one giant vector</p>
+<div class="sourceCode" id="cb211"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb211-1"><a href="code-here-2.html#cb211-1" tabindex="-1"></a>a</span></code></pre></div>
+<pre><code>## [1] 3 5 1</code></pre>
+<div class="sourceCode" id="cb213"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb213-1"><a href="code-here-2.html#cb213-1" tabindex="-1"></a>b</span></code></pre></div>
+<pre><code>## [1] 7 3 9</code></pre>
+<div class="sourceCode" id="cb215"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb215-1"><a href="code-here-2.html#cb215-1" tabindex="-1"></a>z<span class="ot">=</span><span class="fu">c</span>(a,b,a) <span class="co">#concatenates the vectors </span></span>
+<span id="cb215-2"><a href="code-here-2.html#cb215-2" tabindex="-1"></a>z</span></code></pre></div>
+<pre><code>## [1] 3 5 1 7 3 9 3 5 1</code></pre>
+<p><span style="color: green;"><strong>Activity</strong></span></p>
+<p>Create two vectors, <code>vector1</code>;<code>4, 6, 12, 7</code> and <code>vector2</code>:<code>7, 3, 5, 10</code>. Use the two vectors to solve the following questions.</p>
+<ol style="list-style-type: lower-roman">
+<li>Create <code>vector3</code> by multiplying <code>vector1</code> and <code>vector2</code>. Print it out.</li>
+<li>Create <code>vector4a</code> by diving <code>vector1</code> by <code>vector2</code>. Print it out.</li>
+<li>Create <code>vector4b</code> by dividing <code>vector2</code> by <code>vector1</code>. Print it out.</li>
+<li>Is there a difference between <code>vector4a</code> and <code>vector4b</code>? If there is, what brought the difference? Write the answer as a comment.</li>
+<li>Create another <code>vector5</code>; <code>4, 6</code> and multiply it with <code>vector1</code> to come up with <code>vector6</code>. Print it out.</li>
+<li>Concatenate <code>vector1</code>, <code>vector2</code> and <code>vector5</code> to come up with a <code>giant_vector</code>. Print it out.</li>
+</ol>
+<div class="sourceCode" id="cb217"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb217-1"><a href="code-here-2.html#cb217-1" tabindex="-1"></a><span class="co"># Create vector1 and vector2 as instructed </span></span>
+<span id="cb217-2"><a href="code-here-2.html#cb217-2" tabindex="-1"></a><span class="co"># CODE HERE </span></span>
+<span id="cb217-3"><a href="code-here-2.html#cb217-3" tabindex="-1"></a></span>
+<span id="cb217-4"><a href="code-here-2.html#cb217-4" tabindex="-1"></a><span class="do">## i. Create `vector3` by multiplying `vector1` and `vector2`. Print it out.</span></span>
+<span id="cb217-5"><a href="code-here-2.html#cb217-5" tabindex="-1"></a><span class="co"># CODE HERE </span></span>
+<span id="cb217-6"><a href="code-here-2.html#cb217-6" tabindex="-1"></a></span>
+<span id="cb217-7"><a href="code-here-2.html#cb217-7" tabindex="-1"></a><span class="do">## ii. Create `vector4a` by diving `vector1` by `vector2`. Print it out. </span></span>
+<span id="cb217-8"><a href="code-here-2.html#cb217-8" tabindex="-1"></a><span class="co"># CODE HERE </span></span>
+<span id="cb217-9"><a href="code-here-2.html#cb217-9" tabindex="-1"></a></span>
+<span id="cb217-10"><a href="code-here-2.html#cb217-10" tabindex="-1"></a><span class="do">## iii. Create `vector4b` by dividing `vector2` by `vector1`. Print it out.</span></span>
+<span id="cb217-11"><a href="code-here-2.html#cb217-11" tabindex="-1"></a><span class="co"># CODE HERE </span></span>
+<span id="cb217-12"><a href="code-here-2.html#cb217-12" tabindex="-1"></a></span>
+<span id="cb217-13"><a href="code-here-2.html#cb217-13" tabindex="-1"></a><span class="do">## iv. Is there a difference between `vector4a` and `vector4b`? If there is, </span></span>
+<span id="cb217-14"><a href="code-here-2.html#cb217-14" tabindex="-1"></a><span class="do">## what brought the difference? Write the answer as a comment. </span></span>
+<span id="cb217-15"><a href="code-here-2.html#cb217-15" tabindex="-1"></a><span class="co"># COMMENT HERE </span></span>
+<span id="cb217-16"><a href="code-here-2.html#cb217-16" tabindex="-1"></a></span>
+<span id="cb217-17"><a href="code-here-2.html#cb217-17" tabindex="-1"></a><span class="do">## v. Create another `vector5`; `4, 6` and multiply it with `vector1` to come up </span></span>
+<span id="cb217-18"><a href="code-here-2.html#cb217-18" tabindex="-1"></a><span class="do">## with `vector6`. Print it out. </span></span>
+<span id="cb217-19"><a href="code-here-2.html#cb217-19" tabindex="-1"></a><span class="co"># CODE HERE </span></span>
+<span id="cb217-20"><a href="code-here-2.html#cb217-20" tabindex="-1"></a></span>
+<span id="cb217-21"><a href="code-here-2.html#cb217-21" tabindex="-1"></a><span class="do">## vi. Concatenate `vector1`, `vector2` and `vector5` to come up with a </span></span>
+<span id="cb217-22"><a href="code-here-2.html#cb217-22" tabindex="-1"></a><span class="do">## `giant_vector`. Print it out. </span></span>
+<span id="cb217-23"><a href="code-here-2.html#cb217-23" tabindex="-1"></a><span class="co"># CODE HERE</span></span></code></pre></div>
+<hr />
+<p><span style="color: brown;"><strong>Solution</strong></span></p>
+<div class="sourceCode" id="cb218"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb218-1"><a href="code-here-2.html#cb218-1" tabindex="-1"></a><span class="co"># Create vector1 and vector2 as instructed </span></span>
+<span id="cb218-2"><a href="code-here-2.html#cb218-2" tabindex="-1"></a>vector1 <span class="ot">=</span> <span class="fu">c</span>(<span class="dv">4</span>, <span class="dv">6</span>, <span class="dv">12</span>, <span class="dv">7</span>)</span>
+<span id="cb218-3"><a href="code-here-2.html#cb218-3" tabindex="-1"></a>vector2 <span class="ot">=</span> <span class="fu">c</span>(<span class="dv">7</span>, <span class="dv">3</span>, <span class="dv">5</span>, <span class="dv">10</span>)</span>
+<span id="cb218-4"><a href="code-here-2.html#cb218-4" tabindex="-1"></a></span>
+<span id="cb218-5"><a href="code-here-2.html#cb218-5" tabindex="-1"></a><span class="do">## i. Create `vector3` by multiplying `vector1` and `vector2`. Print it out.</span></span>
+<span id="cb218-6"><a href="code-here-2.html#cb218-6" tabindex="-1"></a>vector3 <span class="ot">=</span> vector1 <span class="sc">*</span> vector2</span>
+<span id="cb218-7"><a href="code-here-2.html#cb218-7" tabindex="-1"></a>vector3</span></code></pre></div>
+<pre><code>## [1] 28 18 60 70</code></pre>
+<div class="sourceCode" id="cb220"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb220-1"><a href="code-here-2.html#cb220-1" tabindex="-1"></a><span class="do">## ii. Create `vector4a` by diving `vector1` by `vector2`. Print it out. </span></span>
+<span id="cb220-2"><a href="code-here-2.html#cb220-2" tabindex="-1"></a>vector4a <span class="ot">=</span> vector1<span class="sc">/</span>vector2</span>
+<span id="cb220-3"><a href="code-here-2.html#cb220-3" tabindex="-1"></a>vector4a</span></code></pre></div>
+<pre><code>## [1] 0.5714286 2.0000000 2.4000000 0.7000000</code></pre>
+<div class="sourceCode" id="cb222"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb222-1"><a href="code-here-2.html#cb222-1" tabindex="-1"></a><span class="do">## iii. Create `vector4b` by dividing `vector2` by `vector1`. Print it out.</span></span>
+<span id="cb222-2"><a href="code-here-2.html#cb222-2" tabindex="-1"></a>vector4b <span class="ot">=</span> vector2<span class="sc">/</span>vector1</span>
+<span id="cb222-3"><a href="code-here-2.html#cb222-3" tabindex="-1"></a>vector4b</span></code></pre></div>
+<pre><code>## [1] 1.7500000 0.5000000 0.4166667 1.4285714</code></pre>
+<div class="sourceCode" id="cb224"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb224-1"><a href="code-here-2.html#cb224-1" tabindex="-1"></a><span class="do">## iv. Is there a difference between `vector4a` and `vector4b`? If there is, </span></span>
+<span id="cb224-2"><a href="code-here-2.html#cb224-2" tabindex="-1"></a><span class="do">## what brought the difference? Write the answer as a comment. </span></span>
+<span id="cb224-3"><a href="code-here-2.html#cb224-3" tabindex="-1"></a><span class="co"># Yes, there was a difference. The difference was as a result of the difference -</span></span>
+<span id="cb224-4"><a href="code-here-2.html#cb224-4" tabindex="-1"></a><span class="co">#- the order of division</span></span>
+<span id="cb224-5"><a href="code-here-2.html#cb224-5" tabindex="-1"></a></span>
+<span id="cb224-6"><a href="code-here-2.html#cb224-6" tabindex="-1"></a><span class="do">## v. Create another `vector5`; `4, 6` and multiply it with `vector1` to come up </span></span>
+<span id="cb224-7"><a href="code-here-2.html#cb224-7" tabindex="-1"></a><span class="do">## with `vector6`. Print it out. </span></span>
+<span id="cb224-8"><a href="code-here-2.html#cb224-8" tabindex="-1"></a>vector5 <span class="ot">=</span> <span class="fu">c</span>(<span class="dv">4</span>, <span class="dv">6</span>)</span>
+<span id="cb224-9"><a href="code-here-2.html#cb224-9" tabindex="-1"></a>vector6 <span class="ot">=</span> vector1 <span class="sc">*</span> vector5</span>
+<span id="cb224-10"><a href="code-here-2.html#cb224-10" tabindex="-1"></a><span class="fu">print</span>(vector6)</span></code></pre></div>
+<pre><code>## [1] 16 36 48 42</code></pre>
+<div class="sourceCode" id="cb226"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb226-1"><a href="code-here-2.html#cb226-1" tabindex="-1"></a><span class="do">## vi. Concatenate `vector1`, `vector2` and `vector5` to come up with a </span></span>
+<span id="cb226-2"><a href="code-here-2.html#cb226-2" tabindex="-1"></a><span class="do">## `giant_vector`. Print it out. </span></span>
+<span id="cb226-3"><a href="code-here-2.html#cb226-3" tabindex="-1"></a>giant_vector <span class="ot">=</span> <span class="fu">c</span>(vector1, vector2, vector5)</span>
+<span id="cb226-4"><a href="code-here-2.html#cb226-4" tabindex="-1"></a>giant_vector</span></code></pre></div>
+<pre><code>##  [1]  4  6 12  7  7  3  5 10  4  6</code></pre>
+<p><span style="color: brown;"><strong>________________________________________________________________________________</strong></span></p>
+</div>
+<div id="character-vectors" class="section level4 hasAnchor" number="8.1.1.2">
+<h4><span class="header-section-number">8.1.1.2</span> Character Vectors<a href="code-here-2.html#character-vectors" class="anchor-section" aria-label="Anchor link to header"></a></h4>
+<p>Vectors can also contain character data types for instance</p>
+<div class="sourceCode" id="cb228"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb228-1"><a href="code-here-2.html#cb228-1" tabindex="-1"></a>my_name <span class="ot">=</span> <span class="fu">c</span>(<span class="st">&quot;My&quot;</span>, <span class="st">&quot;name&quot;</span>, <span class="st">&quot;is&quot;</span>, <span class="st">&quot;Vipin&quot;</span>)</span>
+<span id="cb228-2"><a href="code-here-2.html#cb228-2" tabindex="-1"></a>my_name[<span class="dv">5</span>] <span class="ot">=</span> <span class="st">&quot;Singh&quot;</span> <span class="co">#insert at the end </span></span>
+<span id="cb228-3"><a href="code-here-2.html#cb228-3" tabindex="-1"></a>my_name</span></code></pre></div>
+<pre><code>## [1] &quot;My&quot;    &quot;name&quot;  &quot;is&quot;    &quot;Vipin&quot; &quot;Singh&quot;</code></pre>
+<p>Combining the vectors to a single string. For instance the vector <code>my_name = c("My", "name", "is", "Vipin")</code> is combined to <code>"My name is Vipin"</code>. The <code>collapse</code> argument is used as below;</p>
+<div class="sourceCode" id="cb230"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb230-1"><a href="code-here-2.html#cb230-1" tabindex="-1"></a><span class="fu">print</span>(<span class="fu">paste</span>(my_name, <span class="at">collapse=</span><span class="st">&quot; &quot;</span>))</span></code></pre></div>
+<pre><code>## [1] &quot;My name is Vipin Singh&quot;</code></pre>
+<p>Calculate the summary/descriptive statistics of the vector by function <code>summary()</code>. It finds;</p>
+<ul>
+<li><p>Count/length</p></li>
+<li><p>Class (data type)</p></li>
+<li><p>Mode</p></li>
+</ul>
+<div class="sourceCode" id="cb232"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb232-1"><a href="code-here-2.html#cb232-1" tabindex="-1"></a><span class="fu">summary</span>(my_name)</span></code></pre></div>
+<pre><code>##    Length     Class      Mode 
+##         5 character character</code></pre>
+</div>
+<div id="vectors-with-mixed-data-types" class="section level4 hasAnchor" number="8.1.1.3">
+<h4><span class="header-section-number">8.1.1.3</span> Vectors with mixed data types<a href="code-here-2.html#vectors-with-mixed-data-types" class="anchor-section" aria-label="Anchor link to header"></a></h4>
+<p>A vector can also consist of characters values and numeric values for instance</p>
+<div class="sourceCode" id="cb234"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb234-1"><a href="code-here-2.html#cb234-1" tabindex="-1"></a>numbers<span class="ot">=</span><span class="fu">c</span>(<span class="dv">1</span>,<span class="st">&quot;two&quot;</span>, <span class="dv">3</span>, <span class="st">&quot;three&quot;</span>)</span>
+<span id="cb234-2"><a href="code-here-2.html#cb234-2" tabindex="-1"></a>numbers</span></code></pre></div>
+<pre><code>## [1] &quot;1&quot;     &quot;two&quot;   &quot;3&quot;     &quot;three&quot;</code></pre>
+<p>however the numeric elements in the vector are recognized by R as character data type. They can be converted to numeric by;</p>
+<div class="sourceCode" id="cb236"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb236-1"><a href="code-here-2.html#cb236-1" tabindex="-1"></a><span class="fu">as.numeric</span>(numbers[<span class="dv">1</span>]) <span class="sc">+</span> <span class="dv">2</span></span></code></pre></div>
+<pre><code>## [1] 3</code></pre>
+<p>the integers can be converted by;</p>
+<div class="sourceCode" id="cb238"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb238-1"><a href="code-here-2.html#cb238-1" tabindex="-1"></a><span class="fu">as.integer</span>(numbers[<span class="dv">1</span>])</span></code></pre></div>
+<pre><code>## [1] 1</code></pre>
+</div>
+<div id="named-vectors" class="section level4 hasAnchor" number="8.1.1.4">
+<h4><span class="header-section-number">8.1.1.4</span> Named Vectors<a href="code-here-2.html#named-vectors" class="anchor-section" aria-label="Anchor link to header"></a></h4>
+<p>Variable names can be assigned to vectors like;</p>
+<div class="sourceCode" id="cb240"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb240-1"><a href="code-here-2.html#cb240-1" tabindex="-1"></a>named_vector<span class="ot">=</span><span class="fu">c</span>(<span class="at">EcoR1=</span><span class="st">&quot;GAATTC&quot;</span>, <span class="at">HindIII=</span><span class="st">&quot;AAGCTT&quot;</span>, <span class="at">Pst1=</span><span class="st">&quot;CTGCAG&quot;</span>)</span>
+<span id="cb240-2"><a href="code-here-2.html#cb240-2" tabindex="-1"></a>named_vector</span></code></pre></div>
+<pre><code>##    EcoR1  HindIII     Pst1 
+## &quot;GAATTC&quot; &quot;AAGCTT&quot; &quot;CTGCAG&quot;</code></pre>
+<p>to access the names of the values is;</p>
+<div class="sourceCode" id="cb242"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb242-1"><a href="code-here-2.html#cb242-1" tabindex="-1"></a><span class="fu">names</span>(named_vector)</span></code></pre></div>
+<pre><code>## [1] &quot;EcoR1&quot;   &quot;HindIII&quot; &quot;Pst1&quot;</code></pre>
+<p>A vector element can be accessed using its name</p>
+<div class="sourceCode" id="cb244"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb244-1"><a href="code-here-2.html#cb244-1" tabindex="-1"></a>named_vector[<span class="st">&quot;EcoR1&quot;</span>] <span class="co"># find the value of a vector by its name </span></span></code></pre></div>
+<pre><code>##    EcoR1 
+## &quot;GAATTC&quot;</code></pre>
+</div>
+<div id="generating-number-series-as-vectors" class="section level4 hasAnchor" number="8.1.1.5">
+<h4><span class="header-section-number">8.1.1.5</span> Generating number series as vectors<a href="code-here-2.html#generating-number-series-as-vectors" class="anchor-section" aria-label="Anchor link to header"></a></h4>
+<p>The <code>seq</code> function in R is used to generate sequences of numbers. It takes several arguments, including <code>from</code>, <code>to</code>, <code>by</code>, and <code>length.out</code>, among others, to specify the range and increment of the sequence. Here’s a brief overview of its usage:</p>
+<ul>
+<li><code>from</code>: The starting value of the sequence.</li>
+<li><code>to</code>: The end value of the sequence.</li>
+</ul>
+<div class="sourceCode" id="cb246"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb246-1"><a href="code-here-2.html#cb246-1" tabindex="-1"></a><span class="co"># Generate a sequence from 1 to 10</span></span>
+<span id="cb246-2"><a href="code-here-2.html#cb246-2" tabindex="-1"></a>series <span class="ot">=</span> <span class="fu">seq</span>(<span class="at">from=</span><span class="dv">1</span>, <span class="at">to=</span><span class="dv">20</span>)</span>
+<span id="cb246-3"><a href="code-here-2.html#cb246-3" tabindex="-1"></a>series </span></code></pre></div>
+<pre><code>##  [1]  1  2  3  4  5  6  7  8  9 10 11 12 13 14 15 16 17 18 19 20</code></pre>
+<div class="sourceCode" id="cb248"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb248-1"><a href="code-here-2.html#cb248-1" tabindex="-1"></a><span class="co"># It can also be written as</span></span>
+<span id="cb248-2"><a href="code-here-2.html#cb248-2" tabindex="-1"></a>series <span class="ot">=</span> <span class="fu">seq</span>(<span class="dv">1</span>,<span class="dv">20</span>)</span>
+<span id="cb248-3"><a href="code-here-2.html#cb248-3" tabindex="-1"></a>series</span></code></pre></div>
+<pre><code>##  [1]  1  2  3  4  5  6  7  8  9 10 11 12 13 14 15 16 17 18 19 20</code></pre>
+<div class="sourceCode" id="cb250"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb250-1"><a href="code-here-2.html#cb250-1" tabindex="-1"></a><span class="fu">class</span>(series)</span></code></pre></div>
+<pre><code>## [1] &quot;integer&quot;</code></pre>
+<ul>
+<li><code>by</code>: The increment between consecutive values in the sequence.</li>
+</ul>
+<div class="sourceCode" id="cb252"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb252-1"><a href="code-here-2.html#cb252-1" tabindex="-1"></a><span class="co"># generate numbers 0 to 10 incremented by 0.5</span></span>
+<span id="cb252-2"><a href="code-here-2.html#cb252-2" tabindex="-1"></a>series3<span class="ot">=</span><span class="fu">seq</span>(<span class="dv">0</span>, <span class="dv">10</span>, <span class="at">by=</span><span class="fl">0.5</span>)</span>
+<span id="cb252-3"><a href="code-here-2.html#cb252-3" tabindex="-1"></a>series3</span></code></pre></div>
+<pre><code>##  [1]  0.0  0.5  1.0  1.5  2.0  2.5  3.0  3.5  4.0  4.5  5.0  5.5  6.0  6.5  7.0
+## [16]  7.5  8.0  8.5  9.0  9.5 10.0</code></pre>
+<ul>
+<li><code>length</code>: The desired length of the sequence.</li>
+</ul>
+<div class="sourceCode" id="cb254"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb254-1"><a href="code-here-2.html#cb254-1" tabindex="-1"></a><span class="co"># generate 10 numbers from 0 to 6</span></span>
+<span id="cb254-2"><a href="code-here-2.html#cb254-2" tabindex="-1"></a>series4<span class="ot">=</span><span class="fu">seq</span>(<span class="dv">0</span>, <span class="dv">6</span>, <span class="at">length=</span><span class="dv">10</span>)</span>
+<span id="cb254-3"><a href="code-here-2.html#cb254-3" tabindex="-1"></a>series4</span></code></pre></div>
+<pre><code>##  [1] 0.0000000 0.6666667 1.3333333 2.0000000 2.6666667 3.3333333 4.0000000
+##  [8] 4.6666667 5.3333333 6.0000000</code></pre>
+<div class="sourceCode" id="cb256"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb256-1"><a href="code-here-2.html#cb256-1" tabindex="-1"></a><span class="fu">seq</span>(<span class="dv">0</span>, <span class="dv">6</span>)</span></code></pre></div>
+<pre><code>## [1] 0 1 2 3 4 5 6</code></pre>
+<ul>
+<li><code>along.with</code>: An optional vector argument specifying the length and names of the output sequence.</li>
+</ul>
+<div class="sourceCode" id="cb258"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb258-1"><a href="code-here-2.html#cb258-1" tabindex="-1"></a><span class="co"># Generate a sequence along with a vector</span></span>
+<span id="cb258-2"><a href="code-here-2.html#cb258-2" tabindex="-1"></a><span class="fu">seq</span>(<span class="at">along.with =</span> <span class="fu">c</span>(<span class="st">&quot;a&quot;</span>, <span class="st">&quot;b&quot;</span>, <span class="st">&quot;c&quot;</span>))</span></code></pre></div>
+<pre><code>## [1] 1 2 3</code></pre>
+</div>
+<div id="null-data-points-in-vectors" class="section level4 hasAnchor" number="8.1.1.6">
+<h4><span class="header-section-number">8.1.1.6</span> Null data points in vectors<a href="code-here-2.html#null-data-points-in-vectors" class="anchor-section" aria-label="Anchor link to header"></a></h4>
+<p>NA data (Not available or blank) for instance</p>
+<div class="sourceCode" id="cb260"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb260-1"><a href="code-here-2.html#cb260-1" tabindex="-1"></a>marks<span class="ot">=</span><span class="fu">c</span>(<span class="dv">78</span>,<span class="dv">65</span>, <span class="dv">98</span>, <span class="dv">87</span>, <span class="dv">89</span>, <span class="cn">NA</span>)</span>
+<span id="cb260-2"><a href="code-here-2.html#cb260-2" tabindex="-1"></a><span class="fu">sum</span>(<span class="fu">is.na</span>(marks)) <span class="co">#Count the null values in a vector </span></span></code></pre></div>
+<pre><code>## [1] 1</code></pre>
+<p>Other inbuilt functions for mathematical operations cannot be done if Null values exists in a vector unless they are removed/ignored</p>
+<div class="sourceCode" id="cb262"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb262-1"><a href="code-here-2.html#cb262-1" tabindex="-1"></a><span class="co">#sum(marks) #returns an error</span></span>
+<span id="cb262-2"><a href="code-here-2.html#cb262-2" tabindex="-1"></a><span class="fu">sum</span>(marks, <span class="at">na.rm =</span> <span class="cn">TRUE</span>) <span class="co">#remove null values before calculating the sum</span></span></code></pre></div>
+<pre><code>## [1] 417</code></pre>
+<div class="sourceCode" id="cb264"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb264-1"><a href="code-here-2.html#cb264-1" tabindex="-1"></a><span class="fu">median</span>(marks, <span class="at">na.rm =</span> <span class="cn">TRUE</span>)</span></code></pre></div>
+<pre><code>## [1] 87</code></pre>
+<div class="sourceCode" id="cb266"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb266-1"><a href="code-here-2.html#cb266-1" tabindex="-1"></a><span class="fu">summary</span>(marks, <span class="at">na.rm =</span> <span class="cn">TRUE</span>)</span></code></pre></div>
+<pre><code>##    Min. 1st Qu.  Median    Mean 3rd Qu.    Max.    NA&#39;s 
+##    65.0    78.0    87.0    83.4    89.0    98.0       1</code></pre>
+</div>
+</div>
+<div id="matrix" class="section level3 hasAnchor" number="8.1.2">
+<h3><span class="header-section-number">8.1.2</span> Matrix<a href="code-here-2.html#matrix" class="anchor-section" aria-label="Anchor link to header"></a></h3>
+<p>A matrix is a two dimensional data type that contain a single class of data. The code below shows one can produce a matrix from a vector</p>
+<div class="sourceCode" id="cb268"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb268-1"><a href="code-here-2.html#cb268-1" tabindex="-1"></a>vector1 <span class="ot">=</span> <span class="fu">seq</span>(<span class="dv">1</span>, <span class="dv">9</span>) </span>
+<span id="cb268-2"><a href="code-here-2.html#cb268-2" tabindex="-1"></a></span>
+<span id="cb268-3"><a href="code-here-2.html#cb268-3" tabindex="-1"></a><span class="co"># Convert to matrix</span></span>
+<span id="cb268-4"><a href="code-here-2.html#cb268-4" tabindex="-1"></a><span class="do">## create by column </span></span>
+<span id="cb268-5"><a href="code-here-2.html#cb268-5" tabindex="-1"></a>data1<span class="ot">=</span><span class="fu">matrix</span>(vector1, <span class="at">ncol=</span><span class="dv">3</span>)</span>
+<span id="cb268-6"><a href="code-here-2.html#cb268-6" tabindex="-1"></a>data1</span></code></pre></div>
+<pre><code>##      [,1] [,2] [,3]
+## [1,]    1    4    7
+## [2,]    2    5    8
+## [3,]    3    6    9</code></pre>
+<p>A vector of values 1 to 9 is being converted to a matrix where the values are being arranged column wise by default.</p>
+<p>A matrix has a multiple dimensions, the most common type of matrix is two dimesnional.</p>
+<div class="sourceCode" id="cb270"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb270-1"><a href="code-here-2.html#cb270-1" tabindex="-1"></a>vector1 <span class="ot">=</span> <span class="fu">seq</span>(<span class="dv">1</span>, <span class="dv">9</span>) </span>
+<span id="cb270-2"><a href="code-here-2.html#cb270-2" tabindex="-1"></a></span>
+<span id="cb270-3"><a href="code-here-2.html#cb270-3" tabindex="-1"></a><span class="co"># Convert to matrix</span></span>
+<span id="cb270-4"><a href="code-here-2.html#cb270-4" tabindex="-1"></a><span class="do">## create by column </span></span>
+<span id="cb270-5"><a href="code-here-2.html#cb270-5" tabindex="-1"></a>data1<span class="ot">=</span><span class="fu">matrix</span>(vector1, <span class="at">ncol=</span><span class="dv">3</span>)</span>
+<span id="cb270-6"><a href="code-here-2.html#cb270-6" tabindex="-1"></a></span>
+<span id="cb270-7"><a href="code-here-2.html#cb270-7" tabindex="-1"></a><span class="co"># find the dimension of the vector</span></span>
+<span id="cb270-8"><a href="code-here-2.html#cb270-8" tabindex="-1"></a><span class="fu">dim</span>(data1)</span></code></pre></div>
+<pre><code>## [1] 3 3</code></pre>
+<p><code>is.matrix()</code> function is used to confirm if a given variable is a matrix and it return a boolean value.</p>
+<div class="sourceCode" id="cb272"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb272-1"><a href="code-here-2.html#cb272-1" tabindex="-1"></a>vector1 <span class="ot">=</span> <span class="fu">seq</span>(<span class="dv">1</span>, <span class="dv">9</span>) </span>
+<span id="cb272-2"><a href="code-here-2.html#cb272-2" tabindex="-1"></a></span>
+<span id="cb272-3"><a href="code-here-2.html#cb272-3" tabindex="-1"></a><span class="co"># Convert to matrix</span></span>
+<span id="cb272-4"><a href="code-here-2.html#cb272-4" tabindex="-1"></a><span class="do">## create by column </span></span>
+<span id="cb272-5"><a href="code-here-2.html#cb272-5" tabindex="-1"></a>data1<span class="ot">=</span><span class="fu">matrix</span>(vector1, <span class="at">ncol=</span><span class="dv">3</span>)</span>
+<span id="cb272-6"><a href="code-here-2.html#cb272-6" tabindex="-1"></a></span>
+<span id="cb272-7"><a href="code-here-2.html#cb272-7" tabindex="-1"></a><span class="co"># confirm if `data1` is really a matrix</span></span>
+<span id="cb272-8"><a href="code-here-2.html#cb272-8" tabindex="-1"></a><span class="fu">is.matrix</span>(data1)</span></code></pre></div>
+<pre><code>## [1] TRUE</code></pre>
+<p>A matrix can also be created row-wise from a vector.</p>
+<div class="sourceCode" id="cb274"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb274-1"><a href="code-here-2.html#cb274-1" tabindex="-1"></a>vector1 <span class="ot">=</span> <span class="fu">seq</span>(<span class="dv">1</span>, <span class="dv">9</span>) </span>
+<span id="cb274-2"><a href="code-here-2.html#cb274-2" tabindex="-1"></a></span>
+<span id="cb274-3"><a href="code-here-2.html#cb274-3" tabindex="-1"></a><span class="do">## create a matrix by row </span></span>
+<span id="cb274-4"><a href="code-here-2.html#cb274-4" tabindex="-1"></a>data2<span class="ot">=</span><span class="fu">matrix</span>(vector1, <span class="at">ncol=</span><span class="dv">3</span>, <span class="at">byrow=</span><span class="cn">TRUE</span>)</span>
+<span id="cb274-5"><a href="code-here-2.html#cb274-5" tabindex="-1"></a>data2 <span class="co"># is a transpose of data1</span></span></code></pre></div>
+<pre><code>##      [,1] [,2] [,3]
+## [1,]    1    2    3
+## [2,]    4    5    6
+## [3,]    7    8    9</code></pre>
+<p>Matrix is recognized either as a matrix or array by R</p>
+<div class="sourceCode" id="cb276"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb276-1"><a href="code-here-2.html#cb276-1" tabindex="-1"></a>vector1 <span class="ot">=</span> <span class="fu">seq</span>(<span class="dv">1</span>, <span class="dv">9</span>) </span>
+<span id="cb276-2"><a href="code-here-2.html#cb276-2" tabindex="-1"></a></span>
+<span id="cb276-3"><a href="code-here-2.html#cb276-3" tabindex="-1"></a><span class="co"># Convert to matrix</span></span>
+<span id="cb276-4"><a href="code-here-2.html#cb276-4" tabindex="-1"></a><span class="do">## create by column </span></span>
+<span id="cb276-5"><a href="code-here-2.html#cb276-5" tabindex="-1"></a>data1<span class="ot">=</span><span class="fu">matrix</span>(vector1, <span class="at">ncol=</span><span class="dv">3</span>)</span>
+<span id="cb276-6"><a href="code-here-2.html#cb276-6" tabindex="-1"></a></span>
+<span id="cb276-7"><a href="code-here-2.html#cb276-7" tabindex="-1"></a><span class="co"># find the data type of `data1`</span></span>
+<span id="cb276-8"><a href="code-here-2.html#cb276-8" tabindex="-1"></a><span class="fu">class</span>(data1) </span></code></pre></div>
+<pre><code>## [1] &quot;matrix&quot; &quot;array&quot;</code></pre>
+<p>To access a specific data point in a matrix, the matrix is indexed by row then column for instance <code>matrix_data[row_index, column_index]</code></p>
+<div class="sourceCode" id="cb278"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb278-1"><a href="code-here-2.html#cb278-1" tabindex="-1"></a>vector1 <span class="ot">=</span> <span class="fu">seq</span>(<span class="dv">1</span>, <span class="dv">9</span>) </span>
+<span id="cb278-2"><a href="code-here-2.html#cb278-2" tabindex="-1"></a></span>
+<span id="cb278-3"><a href="code-here-2.html#cb278-3" tabindex="-1"></a><span class="co"># Convert to matrix</span></span>
+<span id="cb278-4"><a href="code-here-2.html#cb278-4" tabindex="-1"></a><span class="do">## create by column </span></span>
+<span id="cb278-5"><a href="code-here-2.html#cb278-5" tabindex="-1"></a>data1<span class="ot">=</span><span class="fu">matrix</span>(vector1, <span class="at">ncol=</span><span class="dv">3</span>)</span>
+<span id="cb278-6"><a href="code-here-2.html#cb278-6" tabindex="-1"></a></span>
+<span id="cb278-7"><a href="code-here-2.html#cb278-7" tabindex="-1"></a><span class="co"># retrieve the value in the third row second column in `data1`</span></span>
+<span id="cb278-8"><a href="code-here-2.html#cb278-8" tabindex="-1"></a>data1[<span class="dv">3</span>, <span class="dv">2</span>]</span></code></pre></div>
+<pre><code>## [1] 6</code></pre>
+<p>To access a single row, in this case we find the second row which will be returned as a vector</p>
+<div class="sourceCode" id="cb280"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb280-1"><a href="code-here-2.html#cb280-1" tabindex="-1"></a>vector1 <span class="ot">=</span> <span class="fu">seq</span>(<span class="dv">1</span>, <span class="dv">9</span>) </span>
+<span id="cb280-2"><a href="code-here-2.html#cb280-2" tabindex="-1"></a></span>
+<span id="cb280-3"><a href="code-here-2.html#cb280-3" tabindex="-1"></a><span class="co"># Convert to matrix</span></span>
+<span id="cb280-4"><a href="code-here-2.html#cb280-4" tabindex="-1"></a><span class="do">## create by column </span></span>
+<span id="cb280-5"><a href="code-here-2.html#cb280-5" tabindex="-1"></a>data1<span class="ot">=</span><span class="fu">matrix</span>(vector1, <span class="at">ncol=</span><span class="dv">3</span>)</span>
+<span id="cb280-6"><a href="code-here-2.html#cb280-6" tabindex="-1"></a></span>
+<span id="cb280-7"><a href="code-here-2.html#cb280-7" tabindex="-1"></a>row2 <span class="ot">=</span> data1[<span class="dv">2</span>,] <span class="co"># access row 2 </span></span>
+<span id="cb280-8"><a href="code-here-2.html#cb280-8" tabindex="-1"></a><span class="fu">is.vector</span>(row2) <span class="co">#can be accessed by row 2</span></span></code></pre></div>
+<pre><code>## [1] TRUE</code></pre>
+<p>To access a single column</p>
+<div class="sourceCode" id="cb282"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb282-1"><a href="code-here-2.html#cb282-1" tabindex="-1"></a>vector1 <span class="ot">=</span> <span class="fu">seq</span>(<span class="dv">1</span>, <span class="dv">9</span>) </span>
+<span id="cb282-2"><a href="code-here-2.html#cb282-2" tabindex="-1"></a></span>
+<span id="cb282-3"><a href="code-here-2.html#cb282-3" tabindex="-1"></a><span class="co"># Convert to matrix</span></span>
+<span id="cb282-4"><a href="code-here-2.html#cb282-4" tabindex="-1"></a><span class="do">## create by column </span></span>
+<span id="cb282-5"><a href="code-here-2.html#cb282-5" tabindex="-1"></a>data1<span class="ot">=</span><span class="fu">matrix</span>(vector1, <span class="at">ncol=</span><span class="dv">3</span>)</span>
+<span id="cb282-6"><a href="code-here-2.html#cb282-6" tabindex="-1"></a></span>
+<span id="cb282-7"><a href="code-here-2.html#cb282-7" tabindex="-1"></a>col3<span class="ot">=</span>data1[,<span class="dv">3</span>] <span class="co"># access column 3</span></span>
+<span id="cb282-8"><a href="code-here-2.html#cb282-8" tabindex="-1"></a><span class="fu">is.vector</span>(col3) <span class="co">#can be accessed by column 3</span></span></code></pre></div>
+<pre><code>## [1] TRUE</code></pre>
+<p>Count the number of rows in a matrix</p>
+<div class="sourceCode" id="cb284"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb284-1"><a href="code-here-2.html#cb284-1" tabindex="-1"></a>vector1 <span class="ot">=</span> <span class="fu">seq</span>(<span class="dv">1</span>, <span class="dv">9</span>) </span>
+<span id="cb284-2"><a href="code-here-2.html#cb284-2" tabindex="-1"></a></span>
+<span id="cb284-3"><a href="code-here-2.html#cb284-3" tabindex="-1"></a><span class="co"># Convert to matrix</span></span>
+<span id="cb284-4"><a href="code-here-2.html#cb284-4" tabindex="-1"></a><span class="do">## create by column </span></span>
+<span id="cb284-5"><a href="code-here-2.html#cb284-5" tabindex="-1"></a>data1<span class="ot">=</span><span class="fu">matrix</span>(vector1, <span class="at">ncol=</span><span class="dv">3</span>)</span>
+<span id="cb284-6"><a href="code-here-2.html#cb284-6" tabindex="-1"></a></span>
+<span id="cb284-7"><a href="code-here-2.html#cb284-7" tabindex="-1"></a><span class="fu">nrow</span>(data1)</span></code></pre></div>
+<pre><code>## [1] 3</code></pre>
+<p><code>data1</code> has 3 rows</p>
+<p>Count the number of columns in a matrix</p>
+<div class="sourceCode" id="cb286"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb286-1"><a href="code-here-2.html#cb286-1" tabindex="-1"></a>vector1 <span class="ot">=</span> <span class="fu">seq</span>(<span class="dv">1</span>, <span class="dv">9</span>) </span>
+<span id="cb286-2"><a href="code-here-2.html#cb286-2" tabindex="-1"></a></span>
+<span id="cb286-3"><a href="code-here-2.html#cb286-3" tabindex="-1"></a><span class="co"># Convert to matrix</span></span>
+<span id="cb286-4"><a href="code-here-2.html#cb286-4" tabindex="-1"></a><span class="do">## create by column </span></span>
+<span id="cb286-5"><a href="code-here-2.html#cb286-5" tabindex="-1"></a>data1<span class="ot">=</span><span class="fu">matrix</span>(vector1, <span class="at">ncol=</span><span class="dv">3</span>)</span>
+<span id="cb286-6"><a href="code-here-2.html#cb286-6" tabindex="-1"></a></span>
+<span id="cb286-7"><a href="code-here-2.html#cb286-7" tabindex="-1"></a><span class="fu">ncol</span>(data1)</span></code></pre></div>
+<pre><code>## [1] 3</code></pre>
+<div id="mathematical-operations-in-a-matrix" class="section level4 hasAnchor" number="8.1.2.1">
+<h4><span class="header-section-number">8.1.2.1</span> Mathematical Operations in a matrix<a href="code-here-2.html#mathematical-operations-in-a-matrix" class="anchor-section" aria-label="Anchor link to header"></a></h4>
+<p><strong>Matrix Addition</strong>
+Matrix addition can be done by adding a number to the matrix or another matrix of the equal number of rows and columns.</p>
+<div class="sourceCode" id="cb288"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb288-1"><a href="code-here-2.html#cb288-1" tabindex="-1"></a>vector1 <span class="ot">=</span> <span class="fu">seq</span>(<span class="dv">1</span>, <span class="dv">9</span>) </span>
+<span id="cb288-2"><a href="code-here-2.html#cb288-2" tabindex="-1"></a></span>
+<span id="cb288-3"><a href="code-here-2.html#cb288-3" tabindex="-1"></a><span class="co"># Convert to matrix</span></span>
+<span id="cb288-4"><a href="code-here-2.html#cb288-4" tabindex="-1"></a><span class="do">## create by column </span></span>
+<span id="cb288-5"><a href="code-here-2.html#cb288-5" tabindex="-1"></a>data1<span class="ot">=</span><span class="fu">matrix</span>(vector1, <span class="at">ncol=</span><span class="dv">3</span>)</span>
+<span id="cb288-6"><a href="code-here-2.html#cb288-6" tabindex="-1"></a></span>
+<span id="cb288-7"><a href="code-here-2.html#cb288-7" tabindex="-1"></a>data2 <span class="ot">=</span> data1 <span class="sc">+</span> <span class="dv">3</span></span>
+<span id="cb288-8"><a href="code-here-2.html#cb288-8" tabindex="-1"></a>data2</span></code></pre></div>
+<pre><code>##      [,1] [,2] [,3]
+## [1,]    4    7   10
+## [2,]    5    8   11
+## [3,]    6    9   12</code></pre>
+<p>For instance, the code snippet above demonstrates matrix addition by a numeric value. Adding value 3 to a matrix adds each value in the matrix by 3. To demonstrate a matrix to a matrix addition, we will create two matrices of the equal dimensions then add to each other.</p>
+<div class="sourceCode" id="cb290"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb290-1"><a href="code-here-2.html#cb290-1" tabindex="-1"></a>data1 <span class="ot">=</span> <span class="fu">matrix</span>(<span class="fu">seq</span>(<span class="dv">1</span>, <span class="dv">9</span>), <span class="at">ncol=</span><span class="dv">3</span>, <span class="at">byrow=</span><span class="cn">TRUE</span>)</span>
+<span id="cb290-2"><a href="code-here-2.html#cb290-2" tabindex="-1"></a><span class="fu">print</span>(data1)</span></code></pre></div>
+<pre><code>##      [,1] [,2] [,3]
+## [1,]    1    2    3
+## [2,]    4    5    6
+## [3,]    7    8    9</code></pre>
+<div class="sourceCode" id="cb292"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb292-1"><a href="code-here-2.html#cb292-1" tabindex="-1"></a>data2 <span class="ot">=</span> <span class="fu">matrix</span>(<span class="fu">seq</span>(<span class="dv">1</span>, <span class="dv">18</span>, <span class="dv">2</span>), <span class="at">ncol=</span><span class="dv">3</span>, <span class="at">byrow=</span><span class="cn">TRUE</span>)</span>
+<span id="cb292-2"><a href="code-here-2.html#cb292-2" tabindex="-1"></a><span class="fu">print</span>(data2)</span></code></pre></div>
+<pre><code>##      [,1] [,2] [,3]
+## [1,]    1    3    5
+## [2,]    7    9   11
+## [3,]   13   15   17</code></pre>
+<div class="sourceCode" id="cb294"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb294-1"><a href="code-here-2.html#cb294-1" tabindex="-1"></a><span class="co"># Add data1 to data2</span></span>
+<span id="cb294-2"><a href="code-here-2.html#cb294-2" tabindex="-1"></a>resultant_matrix <span class="ot">=</span> data1 <span class="sc">+</span> data2</span>
+<span id="cb294-3"><a href="code-here-2.html#cb294-3" tabindex="-1"></a>resultant_matrix</span></code></pre></div>
+<pre><code>##      [,1] [,2] [,3]
+## [1,]    2    5    8
+## [2,]   11   14   17
+## [3,]   20   23   26</code></pre>
+<p><strong>Matrix Subtraction</strong>
+The same concept of matrix addition applies to matrix subtraction as well.</p>
+<div class="sourceCode" id="cb296"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb296-1"><a href="code-here-2.html#cb296-1" tabindex="-1"></a>data1 <span class="ot">=</span> <span class="fu">matrix</span>(<span class="fu">seq</span>(<span class="dv">1</span>, <span class="dv">9</span>), <span class="at">ncol=</span><span class="dv">3</span>, <span class="at">byrow=</span><span class="cn">TRUE</span>)</span>
+<span id="cb296-2"><a href="code-here-2.html#cb296-2" tabindex="-1"></a></span>
+<span id="cb296-3"><a href="code-here-2.html#cb296-3" tabindex="-1"></a>data3 <span class="ot">=</span> data1<span class="dv">-1</span> <span class="co">#reduce each value by 1</span></span>
+<span id="cb296-4"><a href="code-here-2.html#cb296-4" tabindex="-1"></a>data3</span></code></pre></div>
+<pre><code>##      [,1] [,2] [,3]
+## [1,]    0    1    2
+## [2,]    3    4    5
+## [3,]    6    7    8</code></pre>
+<p>Subtracting 1 to <code>data1</code> subtract each value in the matrix by 1. Lets now subtract data1 from data2.</p>
+<div class="sourceCode" id="cb298"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb298-1"><a href="code-here-2.html#cb298-1" tabindex="-1"></a>data1 <span class="ot">=</span> <span class="fu">matrix</span>(<span class="fu">seq</span>(<span class="dv">1</span>, <span class="dv">9</span>), <span class="at">ncol=</span><span class="dv">3</span>, <span class="at">byrow=</span><span class="cn">TRUE</span>)</span>
+<span id="cb298-2"><a href="code-here-2.html#cb298-2" tabindex="-1"></a>data1</span></code></pre></div>
+<pre><code>##      [,1] [,2] [,3]
+## [1,]    1    2    3
+## [2,]    4    5    6
+## [3,]    7    8    9</code></pre>
+<div class="sourceCode" id="cb300"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb300-1"><a href="code-here-2.html#cb300-1" tabindex="-1"></a>data2 <span class="ot">=</span> <span class="fu">matrix</span>(<span class="fu">seq</span>(<span class="dv">1</span>, <span class="dv">18</span>, <span class="dv">2</span>), <span class="at">ncol=</span><span class="dv">3</span>, <span class="at">byrow=</span><span class="cn">TRUE</span>)</span>
+<span id="cb300-2"><a href="code-here-2.html#cb300-2" tabindex="-1"></a>data2</span></code></pre></div>
+<pre><code>##      [,1] [,2] [,3]
+## [1,]    1    3    5
+## [2,]    7    9   11
+## [3,]   13   15   17</code></pre>
+<div class="sourceCode" id="cb302"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb302-1"><a href="code-here-2.html#cb302-1" tabindex="-1"></a>resultant_matrix <span class="ot">=</span> data2<span class="sc">-</span>data1</span>
+<span id="cb302-2"><a href="code-here-2.html#cb302-2" tabindex="-1"></a>resultant_matrix</span></code></pre></div>
+<pre><code>##      [,1] [,2] [,3]
+## [1,]    0    1    2
+## [2,]    3    4    5
+## [3,]    6    7    8</code></pre>
+<p><strong>Matrix Multiplication(scalar)</strong>
+A matrix can be multiplied by a scalar whereby the scalar value multiplies all the cells in the matrix.</p>
+<div class="sourceCode" id="cb304"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb304-1"><a href="code-here-2.html#cb304-1" tabindex="-1"></a>data1 <span class="ot">=</span> <span class="fu">matrix</span>(<span class="fu">seq</span>(<span class="dv">1</span>, <span class="dv">9</span>), <span class="at">ncol=</span><span class="dv">3</span>, <span class="at">byrow=</span><span class="cn">TRUE</span>)</span>
+<span id="cb304-2"><a href="code-here-2.html#cb304-2" tabindex="-1"></a>data1</span></code></pre></div>
+<pre><code>##      [,1] [,2] [,3]
+## [1,]    1    2    3
+## [2,]    4    5    6
+## [3,]    7    8    9</code></pre>
+<div class="sourceCode" id="cb306"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb306-1"><a href="code-here-2.html#cb306-1" tabindex="-1"></a>data4 <span class="ot">=</span> data1<span class="sc">*</span><span class="dv">5</span></span>
+<span id="cb306-2"><a href="code-here-2.html#cb306-2" tabindex="-1"></a>data4</span></code></pre></div>
+<pre><code>##      [,1] [,2] [,3]
+## [1,]    5   10   15
+## [2,]   20   25   30
+## [3,]   35   40   45</code></pre>
+<p>Matrix multiplication applies a concept of row by column. The row of the first matrix is multiplied with a row of the second matrix. It also known as the dot product.</p>
+<div class="sourceCode" id="cb308"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb308-1"><a href="code-here-2.html#cb308-1" tabindex="-1"></a>data1 <span class="ot">=</span> <span class="fu">matrix</span>(<span class="fu">seq</span>(<span class="dv">1</span>, <span class="dv">9</span>), <span class="at">ncol=</span><span class="dv">3</span>, <span class="at">byrow=</span><span class="cn">TRUE</span>)</span>
+<span id="cb308-2"><a href="code-here-2.html#cb308-2" tabindex="-1"></a>data1</span></code></pre></div>
+<pre><code>##      [,1] [,2] [,3]
+## [1,]    1    2    3
+## [2,]    4    5    6
+## [3,]    7    8    9</code></pre>
+<div class="sourceCode" id="cb310"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb310-1"><a href="code-here-2.html#cb310-1" tabindex="-1"></a>data2 <span class="ot">=</span> <span class="fu">matrix</span>(<span class="fu">seq</span>(<span class="dv">1</span>, <span class="dv">18</span>, <span class="dv">2</span>), <span class="at">ncol=</span><span class="dv">3</span>, <span class="at">byrow=</span><span class="cn">TRUE</span>)</span>
+<span id="cb310-2"><a href="code-here-2.html#cb310-2" tabindex="-1"></a>data2</span></code></pre></div>
+<pre><code>##      [,1] [,2] [,3]
+## [1,]    1    3    5
+## [2,]    7    9   11
+## [3,]   13   15   17</code></pre>
+<div class="sourceCode" id="cb312"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb312-1"><a href="code-here-2.html#cb312-1" tabindex="-1"></a><span class="co"># Find the product of the two matrices</span></span>
+<span id="cb312-2"><a href="code-here-2.html#cb312-2" tabindex="-1"></a>product_matrix <span class="ot">=</span> data1 <span class="sc">*</span> data2</span>
+<span id="cb312-3"><a href="code-here-2.html#cb312-3" tabindex="-1"></a>product_matrix</span></code></pre></div>
+<pre><code>##      [,1] [,2] [,3]
+## [1,]    1    6   15
+## [2,]   28   45   66
+## [3,]   91  120  153</code></pre>
+<p><strong>Matrix division</strong></p>
+<div class="sourceCode" id="cb314"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb314-1"><a href="code-here-2.html#cb314-1" tabindex="-1"></a>data1 <span class="ot">=</span> <span class="fu">matrix</span>(<span class="fu">seq</span>(<span class="dv">1</span>, <span class="dv">9</span>), <span class="at">ncol=</span><span class="dv">3</span>, <span class="at">byrow=</span><span class="cn">TRUE</span>)</span>
+<span id="cb314-2"><a href="code-here-2.html#cb314-2" tabindex="-1"></a>data1</span></code></pre></div>
+<pre><code>##      [,1] [,2] [,3]
+## [1,]    1    2    3
+## [2,]    4    5    6
+## [3,]    7    8    9</code></pre>
+<div class="sourceCode" id="cb316"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb316-1"><a href="code-here-2.html#cb316-1" tabindex="-1"></a><span class="co"># Divide `data1` matrix by 2</span></span>
+<span id="cb316-2"><a href="code-here-2.html#cb316-2" tabindex="-1"></a>data5 <span class="ot">=</span> data1<span class="sc">/</span><span class="dv">2</span></span>
+<span id="cb316-3"><a href="code-here-2.html#cb316-3" tabindex="-1"></a>data5</span></code></pre></div>
+<pre><code>##      [,1] [,2] [,3]
+## [1,]  0.5  1.0  1.5
+## [2,]  2.0  2.5  3.0
+## [3,]  3.5  4.0  4.5</code></pre>
+</div>
+</div>
+<div id="data-frame" class="section level3 hasAnchor" number="8.1.3">
+<h3><span class="header-section-number">8.1.3</span> Data frame<a href="code-here-2.html#data-frame" class="anchor-section" aria-label="Anchor link to header"></a></h3>
+<p>is a two dimensional data structure, like a 2d array/matrix with rows and columns.</p>
+<p>Lets convert a matrix into a data frame</p>
+<div class="sourceCode" id="cb318"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb318-1"><a href="code-here-2.html#cb318-1" tabindex="-1"></a>vector1 <span class="ot">=</span> <span class="fu">c</span>(<span class="dv">1</span><span class="sc">:</span><span class="dv">12</span>)</span>
+<span id="cb318-2"><a href="code-here-2.html#cb318-2" tabindex="-1"></a>matrix1 <span class="ot">=</span> <span class="fu">matrix</span>(vector1, <span class="at">ncol=</span><span class="dv">4</span>) <span class="co">#create a matrix from the vector </span></span>
+<span id="cb318-3"><a href="code-here-2.html#cb318-3" tabindex="-1"></a></span>
+<span id="cb318-4"><a href="code-here-2.html#cb318-4" tabindex="-1"></a><span class="co"># Adding a column student </span></span>
+<span id="cb318-5"><a href="code-here-2.html#cb318-5" tabindex="-1"></a>Students<span class="ot">=</span><span class="fu">c</span>(<span class="st">&quot;Pragya&quot;</span>, <span class="st">&quot;Deepika&quot;</span>, <span class="st">&quot;Chandran&quot;</span>)</span>
+<span id="cb318-6"><a href="code-here-2.html#cb318-6" tabindex="-1"></a>data <span class="ot">=</span> <span class="fu">data.frame</span>(Students, matrix1) </span>
+<span id="cb318-7"><a href="code-here-2.html#cb318-7" tabindex="-1"></a>data</span></code></pre></div>
+<pre><code>##   Students X1 X2 X3 X4
+## 1   Pragya  1  4  7 10
+## 2  Deepika  2  5  8 11
+## 3 Chandran  3  6  9 12</code></pre>
+<p>The above data shows scores of different students in different subjects. The column names are automatically generated by R, however, the column names can be added as below.</p>
+<div class="sourceCode" id="cb320"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb320-1"><a href="code-here-2.html#cb320-1" tabindex="-1"></a>vector1 <span class="ot">=</span> <span class="fu">c</span>(<span class="dv">1</span><span class="sc">:</span><span class="dv">12</span>)</span>
+<span id="cb320-2"><a href="code-here-2.html#cb320-2" tabindex="-1"></a>matrix1 <span class="ot">=</span> <span class="fu">matrix</span>(vector1, <span class="at">ncol=</span><span class="dv">4</span>) <span class="co">#create a matrix from the vector </span></span>
+<span id="cb320-3"><a href="code-here-2.html#cb320-3" tabindex="-1"></a></span>
+<span id="cb320-4"><a href="code-here-2.html#cb320-4" tabindex="-1"></a><span class="co"># Adding a column student </span></span>
+<span id="cb320-5"><a href="code-here-2.html#cb320-5" tabindex="-1"></a>Students<span class="ot">=</span><span class="fu">c</span>(<span class="st">&quot;Pragya&quot;</span>, <span class="st">&quot;Deepika&quot;</span>, <span class="st">&quot;Chandran&quot;</span>)</span>
+<span id="cb320-6"><a href="code-here-2.html#cb320-6" tabindex="-1"></a>data <span class="ot">=</span> <span class="fu">data.frame</span>(Students, matrix1) </span>
+<span id="cb320-7"><a href="code-here-2.html#cb320-7" tabindex="-1"></a>data</span></code></pre></div>
+<pre><code>##   Students X1 X2 X3 X4
+## 1   Pragya  1  4  7 10
+## 2  Deepika  2  5  8 11
+## 3 Chandran  3  6  9 12</code></pre>
+<div class="sourceCode" id="cb322"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb322-1"><a href="code-here-2.html#cb322-1" tabindex="-1"></a><span class="co"># Create column names</span></span>
+<span id="cb322-2"><a href="code-here-2.html#cb322-2" tabindex="-1"></a>headers<span class="ot">=</span><span class="fu">c</span>(<span class="st">&quot;Students&quot;</span>, <span class="st">&quot;Geonomics&quot;</span>, <span class="st">&quot;Proteomics&quot;</span>, <span class="st">&quot;Microbiology&quot;</span>, <span class="st">&quot;Biostatistics&quot;</span>)</span>
+<span id="cb322-3"><a href="code-here-2.html#cb322-3" tabindex="-1"></a><span class="fu">colnames</span>(data)<span class="ot">=</span>headers <span class="co">#add column names </span></span>
+<span id="cb322-4"><a href="code-here-2.html#cb322-4" tabindex="-1"></a>data</span></code></pre></div>
+<pre><code>##   Students Geonomics Proteomics Microbiology Biostatistics
+## 1   Pragya         1          4            7            10
+## 2  Deepika         2          5            8            11
+## 3 Chandran         3          6            9            12</code></pre>
+<p>A row wise addition can be performed on a data frame to find the total scores for each student in the four units</p>
+<div class="sourceCode" id="cb324"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb324-1"><a href="code-here-2.html#cb324-1" tabindex="-1"></a>vector1 <span class="ot">=</span> <span class="fu">c</span>(<span class="dv">1</span><span class="sc">:</span><span class="dv">12</span>)</span>
+<span id="cb324-2"><a href="code-here-2.html#cb324-2" tabindex="-1"></a>matrix1 <span class="ot">=</span> <span class="fu">matrix</span>(vector1, <span class="at">ncol=</span><span class="dv">4</span>) <span class="co">#create a matrix from the vector </span></span>
+<span id="cb324-3"><a href="code-here-2.html#cb324-3" tabindex="-1"></a></span>
+<span id="cb324-4"><a href="code-here-2.html#cb324-4" tabindex="-1"></a><span class="co"># Adding a column student </span></span>
+<span id="cb324-5"><a href="code-here-2.html#cb324-5" tabindex="-1"></a>Students<span class="ot">=</span><span class="fu">c</span>(<span class="st">&quot;Pragya&quot;</span>, <span class="st">&quot;Deepika&quot;</span>, <span class="st">&quot;Chandran&quot;</span>)</span>
+<span id="cb324-6"><a href="code-here-2.html#cb324-6" tabindex="-1"></a>data <span class="ot">=</span> <span class="fu">data.frame</span>(Students, matrix1) </span>
+<span id="cb324-7"><a href="code-here-2.html#cb324-7" tabindex="-1"></a>data</span></code></pre></div>
+<pre><code>##   Students X1 X2 X3 X4
+## 1   Pragya  1  4  7 10
+## 2  Deepika  2  5  8 11
+## 3 Chandran  3  6  9 12</code></pre>
+<div class="sourceCode" id="cb326"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb326-1"><a href="code-here-2.html#cb326-1" tabindex="-1"></a><span class="do">## Add a new column with total marks obtained </span></span>
+<span id="cb326-2"><a href="code-here-2.html#cb326-2" tabindex="-1"></a>data<span class="sc">$</span>total_marks<span class="ot">=</span><span class="fu">rowSums</span>(data[, <span class="fu">c</span>(<span class="dv">2</span>, <span class="dv">3</span>, <span class="dv">4</span>, <span class="dv">5</span>)]) <span class="co">#add from second to fifth column </span></span>
+<span id="cb326-3"><a href="code-here-2.html#cb326-3" tabindex="-1"></a>data</span></code></pre></div>
+<pre><code>##   Students X1 X2 X3 X4 total_marks
+## 1   Pragya  1  4  7 10          22
+## 2  Deepika  2  5  8 11          26
+## 3 Chandran  3  6  9 12          30</code></pre>
+<p>Find the average score for each student.<code>rowMeans()</code> is used the average of each row/record.</p>
+<div class="sourceCode" id="cb328"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb328-1"><a href="code-here-2.html#cb328-1" tabindex="-1"></a>vector1 <span class="ot">=</span> <span class="fu">c</span>(<span class="dv">1</span><span class="sc">:</span><span class="dv">12</span>)</span>
+<span id="cb328-2"><a href="code-here-2.html#cb328-2" tabindex="-1"></a>matrix1 <span class="ot">=</span> <span class="fu">matrix</span>(vector1, <span class="at">ncol=</span><span class="dv">4</span>) <span class="co">#create a matrix from the vector </span></span>
+<span id="cb328-3"><a href="code-here-2.html#cb328-3" tabindex="-1"></a></span>
+<span id="cb328-4"><a href="code-here-2.html#cb328-4" tabindex="-1"></a><span class="co"># Adding a column student </span></span>
+<span id="cb328-5"><a href="code-here-2.html#cb328-5" tabindex="-1"></a>Students<span class="ot">=</span><span class="fu">c</span>(<span class="st">&quot;Pragya&quot;</span>, <span class="st">&quot;Deepika&quot;</span>, <span class="st">&quot;Chandran&quot;</span>)</span>
+<span id="cb328-6"><a href="code-here-2.html#cb328-6" tabindex="-1"></a>data <span class="ot">=</span> <span class="fu">data.frame</span>(Students, matrix1) </span>
+<span id="cb328-7"><a href="code-here-2.html#cb328-7" tabindex="-1"></a>data</span></code></pre></div>
+<pre><code>##   Students X1 X2 X3 X4
+## 1   Pragya  1  4  7 10
+## 2  Deepika  2  5  8 11
+## 3 Chandran  3  6  9 12</code></pre>
+<div class="sourceCode" id="cb330"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb330-1"><a href="code-here-2.html#cb330-1" tabindex="-1"></a>data<span class="sc">$</span>average_marks<span class="ot">=</span><span class="fu">rowMeans</span>(data[, <span class="fu">c</span>(<span class="dv">2</span>, <span class="dv">3</span>, <span class="dv">4</span>, <span class="dv">5</span>)])</span>
+<span id="cb330-2"><a href="code-here-2.html#cb330-2" tabindex="-1"></a>data <span class="co"># confirm if the new column is added</span></span></code></pre></div>
+<pre><code>##   Students X1 X2 X3 X4 average_marks
+## 1   Pragya  1  4  7 10           5.5
+## 2  Deepika  2  5  8 11           6.5
+## 3 Chandran  3  6  9 12           7.5</code></pre>
+</div>
+</div>
+<div id="hands-on-exercises" class="section level2 hasAnchor" number="8.2">
+<h2><span class="header-section-number">8.2</span> <span style="color: brown;">Hands-on Exercises</span><a href="code-here-2.html#hands-on-exercises" class="anchor-section" aria-label="Anchor link to header"></a></h2>
+<ol style="list-style-type: decimal">
+<li><strong>Basic Data Types</strong></li>
+</ol>
+<ul>
+<li>Create an integer variable <code>age</code> with value <code>25</code>.</li>
+<li>Create a numeric variable <code>height</code> representing height in meters.</li>
+<li>Define a string variable <code>name</code> with the value <code>"Alex"</code>.</li>
+<li>Create a boolean variable <code>is_student</code> indicating whether someone is a student or not.</li>
+<li>Create a complex number variable <code>z</code> representing <code>2 + 3i</code></li>
+<li>Define a raw data variable byte_value that stores the hexadecimal value <code>0x1a</code>.</li>
+</ul>
+<ol start="2" style="list-style-type: decimal">
+<li><strong>Operators</strong></li>
+</ol>
+<ul>
+<li>Add two integers: <code>12 + 8</code>.</li>
+<li>Divide two numbers: <code>45.5 / 5</code>.</li>
+<li>Create a logical comparison to check if <code>age</code> is greater than <code>20</code>.</li>
+<li>Create a logical comparison to check if <code>height</code> is equal to <code>1.75</code>.</li>
+</ul>
+<ol start="3" style="list-style-type: decimal">
+<li><strong>Vectors</strong></li>
+</ol>
+<ul>
+<li>Create a numeric vector numbers with values <code>2, 4, 6, 8, 10</code>.</li>
+<li>Create a character vector <code>colors</code> containing <code>"red", "blue", "green", "yellow", "purple"</code>.</li>
+<li>Append the value <code>12</code> to the vector numbers.</li>
+</ul>
+<ol start="4" style="list-style-type: decimal">
+<li><strong>Matrix</strong></li>
+</ol>
+<ul>
+<li>Create a 3x3 matrix <code>A</code> with values from <code>1</code> to <code>9</code>.</li>
+<li>Create another 3x3 matrix <code>B</code> with values from <code>9</code> to <code>1</code>.</li>
+</ul>
+<ol start="5" style="list-style-type: decimal">
+<li><strong>Dataframes</strong></li>
+</ol>
+<ul>
+<li>Create a dataframe <code>students_df</code> with the columns <code>Name</code>, <code>Age</code>, and <code>Grade</code> for three students.</li>
+<li>Add a new column <code>Gender</code> to the data frame <code>students_df</code>.</li>
+</ul>
+<ol start="6" style="list-style-type: decimal">
+<li><strong>Vector and Matrix Operations</strong></li>
+</ol>
+<ul>
+<li>Add the vectors <code>c(2, 4, 6)</code> and <code>c(1, 3, 5)</code>.</li>
+<li>Multiply the matrices `<code>A</code> and <code>B</code> from question 3.</li>
+</ul>
+<hr />
+<p><span style="color: brown;"><strong>Solution</strong></span></p>
+<ol style="list-style-type: decimal">
+<li><strong>Basic Data Types</strong></li>
+</ol>
+<ul>
+<li>Create an integer variable <code>age</code> with value <code>25</code>.</li>
+<li>Create a numeric variable <code>height</code> representing height in meters.</li>
+<li>Define a string variable <code>name</code> with the value <code>"Alex"</code>.</li>
+<li>Create a boolean variable <code>is_student</code> indicating whether someone is a student or not.</li>
+<li>Create a complex number variable <code>z</code> representing <code>2 + 3i</code></li>
+<li>Define a raw data variable byte_value that stores the hexadecimal value <code>0x1a</code>.</li>
+</ul>
+<div class="sourceCode" id="cb332"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb332-1"><a href="code-here-2.html#cb332-1" tabindex="-1"></a><span class="co"># Integer</span></span>
+<span id="cb332-2"><a href="code-here-2.html#cb332-2" tabindex="-1"></a>age <span class="ot">&lt;-</span> <span class="dv">25</span></span>
+<span id="cb332-3"><a href="code-here-2.html#cb332-3" tabindex="-1"></a>age</span></code></pre></div>
+<pre><code>## [1] 25</code></pre>
+<div class="sourceCode" id="cb334"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb334-1"><a href="code-here-2.html#cb334-1" tabindex="-1"></a><span class="co"># Numeric</span></span>
+<span id="cb334-2"><a href="code-here-2.html#cb334-2" tabindex="-1"></a>height <span class="ot">&lt;-</span> <span class="fl">1.75</span></span>
+<span id="cb334-3"><a href="code-here-2.html#cb334-3" tabindex="-1"></a>height</span></code></pre></div>
+<pre><code>## [1] 1.75</code></pre>
+<div class="sourceCode" id="cb336"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb336-1"><a href="code-here-2.html#cb336-1" tabindex="-1"></a><span class="co"># String</span></span>
+<span id="cb336-2"><a href="code-here-2.html#cb336-2" tabindex="-1"></a>name <span class="ot">&lt;-</span> <span class="st">&quot;Alex&quot;</span></span>
+<span id="cb336-3"><a href="code-here-2.html#cb336-3" tabindex="-1"></a>name</span></code></pre></div>
+<pre><code>## [1] &quot;Alex&quot;</code></pre>
+<div class="sourceCode" id="cb338"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb338-1"><a href="code-here-2.html#cb338-1" tabindex="-1"></a><span class="co"># Boolean</span></span>
+<span id="cb338-2"><a href="code-here-2.html#cb338-2" tabindex="-1"></a>is_student <span class="ot">&lt;-</span> <span class="cn">TRUE</span></span>
+<span id="cb338-3"><a href="code-here-2.html#cb338-3" tabindex="-1"></a>is_student</span></code></pre></div>
+<pre><code>## [1] TRUE</code></pre>
+<div class="sourceCode" id="cb340"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb340-1"><a href="code-here-2.html#cb340-1" tabindex="-1"></a><span class="co"># Complex number</span></span>
+<span id="cb340-2"><a href="code-here-2.html#cb340-2" tabindex="-1"></a>z <span class="ot">&lt;-</span> <span class="dv">2</span> <span class="sc">+</span> <span class="dv">3</span><span class="dt">i</span></span>
+<span id="cb340-3"><a href="code-here-2.html#cb340-3" tabindex="-1"></a>z</span></code></pre></div>
+<pre><code>## [1] 2+3i</code></pre>
+<div class="sourceCode" id="cb342"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb342-1"><a href="code-here-2.html#cb342-1" tabindex="-1"></a><span class="co"># Raw data</span></span>
+<span id="cb342-2"><a href="code-here-2.html#cb342-2" tabindex="-1"></a>byte_value <span class="ot">&lt;-</span> <span class="fu">as.raw</span>(<span class="dv">0x1a</span>)</span>
+<span id="cb342-3"><a href="code-here-2.html#cb342-3" tabindex="-1"></a>byte_value</span></code></pre></div>
+<pre><code>## [1] 1a</code></pre>
+<ol start="2" style="list-style-type: decimal">
+<li><strong>Operators</strong></li>
+</ol>
+<ul>
+<li>Add two integers: <code>12 + 8</code>.</li>
+<li>Divide two numbers: <code>45.5 / 5</code>.</li>
+<li>Create a logical comparison to check if <code>age</code> is greater than <code>20</code>.</li>
+<li>Create a logical comparison to check if <code>height</code> is equal to <code>1.75</code>.</li>
+</ul>
+<div class="sourceCode" id="cb344"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb344-1"><a href="code-here-2.html#cb344-1" tabindex="-1"></a><span class="co"># Addition</span></span>
+<span id="cb344-2"><a href="code-here-2.html#cb344-2" tabindex="-1"></a><span class="dv">12</span> <span class="sc">+</span> <span class="dv">8</span></span></code></pre></div>
+<pre><code>## [1] 20</code></pre>
+<div class="sourceCode" id="cb346"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb346-1"><a href="code-here-2.html#cb346-1" tabindex="-1"></a><span class="co"># Division</span></span>
+<span id="cb346-2"><a href="code-here-2.html#cb346-2" tabindex="-1"></a><span class="fl">45.5</span> <span class="sc">/</span> <span class="dv">5</span></span></code></pre></div>
+<pre><code>## [1] 9.1</code></pre>
+<div class="sourceCode" id="cb348"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb348-1"><a href="code-here-2.html#cb348-1" tabindex="-1"></a><span class="co"># Logical comparison (greater than)</span></span>
+<span id="cb348-2"><a href="code-here-2.html#cb348-2" tabindex="-1"></a>age <span class="sc">&gt;</span> <span class="dv">20</span></span></code></pre></div>
+<pre><code>## [1] TRUE</code></pre>
+<div class="sourceCode" id="cb350"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb350-1"><a href="code-here-2.html#cb350-1" tabindex="-1"></a><span class="co"># Logical comparison (equality)</span></span>
+<span id="cb350-2"><a href="code-here-2.html#cb350-2" tabindex="-1"></a>height <span class="sc">==</span> <span class="fl">1.75</span></span></code></pre></div>
+<pre><code>## [1] TRUE</code></pre>
+<ol start="3" style="list-style-type: decimal">
+<li><strong>Vectors</strong></li>
+</ol>
+<ul>
+<li>Create a numeric vector numbers with values <code>2, 4, 6, 8, 10</code>.</li>
+<li>Create a character vector <code>colors</code> containing <code>"red", "blue", "green", "yellow", "purple"</code>.</li>
+<li>Append the value <code>12</code> to the vector numbers.</li>
+</ul>
+<div class="sourceCode" id="cb352"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb352-1"><a href="code-here-2.html#cb352-1" tabindex="-1"></a><span class="co"># Numeric vector</span></span>
+<span id="cb352-2"><a href="code-here-2.html#cb352-2" tabindex="-1"></a>numbers <span class="ot">&lt;-</span> <span class="fu">c</span>(<span class="dv">2</span>, <span class="dv">4</span>, <span class="dv">6</span>, <span class="dv">8</span>, <span class="dv">10</span>)</span>
+<span id="cb352-3"><a href="code-here-2.html#cb352-3" tabindex="-1"></a>numbers</span></code></pre></div>
+<pre><code>## [1]  2  4  6  8 10</code></pre>
+<div class="sourceCode" id="cb354"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb354-1"><a href="code-here-2.html#cb354-1" tabindex="-1"></a><span class="co"># Character vector</span></span>
+<span id="cb354-2"><a href="code-here-2.html#cb354-2" tabindex="-1"></a>colors <span class="ot">&lt;-</span> <span class="fu">c</span>(<span class="st">&quot;red&quot;</span>, <span class="st">&quot;blue&quot;</span>, <span class="st">&quot;green&quot;</span>, <span class="st">&quot;yellow&quot;</span>, <span class="st">&quot;purple&quot;</span>)</span>
+<span id="cb354-3"><a href="code-here-2.html#cb354-3" tabindex="-1"></a>colors</span></code></pre></div>
+<pre><code>## [1] &quot;red&quot;    &quot;blue&quot;   &quot;green&quot;  &quot;yellow&quot; &quot;purple&quot;</code></pre>
+<div class="sourceCode" id="cb356"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb356-1"><a href="code-here-2.html#cb356-1" tabindex="-1"></a><span class="co"># Append a value</span></span>
+<span id="cb356-2"><a href="code-here-2.html#cb356-2" tabindex="-1"></a>numbers <span class="ot">&lt;-</span> <span class="fu">c</span>(numbers, <span class="dv">12</span>)</span>
+<span id="cb356-3"><a href="code-here-2.html#cb356-3" tabindex="-1"></a>numbers</span></code></pre></div>
+<pre><code>## [1]  2  4  6  8 10 12</code></pre>
+<ol start="4" style="list-style-type: decimal">
+<li><strong>Matrix</strong></li>
+</ol>
+<ul>
+<li>Create a 3x3 matrix <code>A</code> with values from <code>1</code> to <code>9</code>.</li>
+<li>Create another 3x3 matrix <code>B</code> with values from <code>9</code> to <code>1</code>.</li>
+</ul>
+<div class="sourceCode" id="cb358"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb358-1"><a href="code-here-2.html#cb358-1" tabindex="-1"></a><span class="co"># Matrix A (3x3)</span></span>
+<span id="cb358-2"><a href="code-here-2.html#cb358-2" tabindex="-1"></a>A <span class="ot">&lt;-</span> <span class="fu">matrix</span>(<span class="dv">1</span><span class="sc">:</span><span class="dv">9</span>, <span class="at">nrow =</span> <span class="dv">3</span>, <span class="at">ncol =</span> <span class="dv">3</span>)</span>
+<span id="cb358-3"><a href="code-here-2.html#cb358-3" tabindex="-1"></a>A</span></code></pre></div>
+<pre><code>##      [,1] [,2] [,3]
+## [1,]    1    4    7
+## [2,]    2    5    8
+## [3,]    3    6    9</code></pre>
+<div class="sourceCode" id="cb360"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb360-1"><a href="code-here-2.html#cb360-1" tabindex="-1"></a><span class="co"># Matrix B (3x3)</span></span>
+<span id="cb360-2"><a href="code-here-2.html#cb360-2" tabindex="-1"></a>B <span class="ot">&lt;-</span> <span class="fu">matrix</span>(<span class="dv">9</span><span class="sc">:</span><span class="dv">1</span>, <span class="at">nrow =</span> <span class="dv">3</span>, <span class="at">ncol =</span> <span class="dv">3</span>)</span>
+<span id="cb360-3"><a href="code-here-2.html#cb360-3" tabindex="-1"></a>B</span></code></pre></div>
+<pre><code>##      [,1] [,2] [,3]
+## [1,]    9    6    3
+## [2,]    8    5    2
+## [3,]    7    4    1</code></pre>
+<ol start="5" style="list-style-type: decimal">
+<li><strong>Dataframes</strong></li>
+</ol>
+<ul>
+<li>Create a dataframe <code>students_df</code> with the columns <code>Name</code>, <code>Age</code>, and <code>Grade</code> for three students.</li>
+<li>Add a new column <code>Gender</code> to the data frame <code>students_df</code>.</li>
+</ul>
+<div class="sourceCode" id="cb362"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb362-1"><a href="code-here-2.html#cb362-1" tabindex="-1"></a><span class="co"># Create a dataframe</span></span>
+<span id="cb362-2"><a href="code-here-2.html#cb362-2" tabindex="-1"></a>students_df <span class="ot">&lt;-</span> <span class="fu">data.frame</span>(</span>
+<span id="cb362-3"><a href="code-here-2.html#cb362-3" tabindex="-1"></a>  <span class="at">Name =</span> <span class="fu">c</span>(<span class="st">&quot;John&quot;</span>, <span class="st">&quot;Mary&quot;</span>, <span class="st">&quot;Sam&quot;</span>),</span>
+<span id="cb362-4"><a href="code-here-2.html#cb362-4" tabindex="-1"></a>  <span class="at">Age =</span> <span class="fu">c</span>(<span class="dv">22</span>, <span class="dv">23</span>, <span class="dv">24</span>),</span>
+<span id="cb362-5"><a href="code-here-2.html#cb362-5" tabindex="-1"></a>  <span class="at">Grade =</span> <span class="fu">c</span>(<span class="st">&quot;A&quot;</span>, <span class="st">&quot;B&quot;</span>, <span class="st">&quot;A&quot;</span>)</span>
+<span id="cb362-6"><a href="code-here-2.html#cb362-6" tabindex="-1"></a>)</span>
+<span id="cb362-7"><a href="code-here-2.html#cb362-7" tabindex="-1"></a>students_df</span></code></pre></div>
+<pre><code>##   Name Age Grade
+## 1 John  22     A
+## 2 Mary  23     B
+## 3  Sam  24     A</code></pre>
+<div class="sourceCode" id="cb364"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb364-1"><a href="code-here-2.html#cb364-1" tabindex="-1"></a><span class="co"># Add a new column (Gender)</span></span>
+<span id="cb364-2"><a href="code-here-2.html#cb364-2" tabindex="-1"></a><span class="fu">print</span>(<span class="st">&quot;After adding Gender column&quot;</span>)</span></code></pre></div>
+<pre><code>## [1] &quot;After adding Gender column&quot;</code></pre>
+<div class="sourceCode" id="cb366"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb366-1"><a href="code-here-2.html#cb366-1" tabindex="-1"></a>students_df<span class="sc">$</span>Gender <span class="ot">&lt;-</span> <span class="fu">c</span>(<span class="st">&quot;Male&quot;</span>, <span class="st">&quot;Female&quot;</span>, <span class="st">&quot;Male&quot;</span>)</span>
+<span id="cb366-2"><a href="code-here-2.html#cb366-2" tabindex="-1"></a>students_df</span></code></pre></div>
+<pre><code>##   Name Age Grade Gender
+## 1 John  22     A   Male
+## 2 Mary  23     B Female
+## 3  Sam  24     A   Male</code></pre>
+<ol start="6" style="list-style-type: decimal">
+<li><strong>Vector and Matrix Operations</strong></li>
+</ol>
+<ul>
+<li>Add the vectors <code>c(2, 4, 6)</code> and <code>c(1, 3, 5)</code>.</li>
+<li>Multiply the matrices `<code>A</code> and <code>B</code> from question 3.</li>
+</ul>
+<div class="sourceCode" id="cb368"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb368-1"><a href="code-here-2.html#cb368-1" tabindex="-1"></a><span class="co"># Vector addition</span></span>
+<span id="cb368-2"><a href="code-here-2.html#cb368-2" tabindex="-1"></a><span class="fu">c</span>(<span class="dv">2</span>, <span class="dv">4</span>, <span class="dv">6</span>) <span class="sc">+</span> <span class="fu">c</span>(<span class="dv">1</span>, <span class="dv">3</span>, <span class="dv">5</span>)</span></code></pre></div>
+<pre><code>## [1]  3  7 11</code></pre>
+<div class="sourceCode" id="cb370"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb370-1"><a href="code-here-2.html#cb370-1" tabindex="-1"></a><span class="co"># Matrix multiplication</span></span>
+<span id="cb370-2"><a href="code-here-2.html#cb370-2" tabindex="-1"></a>A <span class="sc">%*%</span> B</span></code></pre></div>
+<pre><code>##      [,1] [,2] [,3]
+## [1,]   90   54   18
+## [2,]  114   69   24
+## [3,]  138   84   30</code></pre>
+<p><span style="color: brown;"><strong>________________________________________________________________________________</strong></span></p>
+
+</div>
+</div>
+            </section>
+
+          </div>
+        </div>
+      </div>
+<a href="iv.-12.html" class="navigation navigation-prev " aria-label="Previous page"><i class="fa fa-angle-left"></i></a>
+<a href="data-importing-and-exporting.html" class="navigation navigation-next " aria-label="Next page"><i class="fa fa-angle-right"></i></a>
+    </div>
+  </div>
+<script src="libs/gitbook-2.6.7/js/app.min.js"></script>
+<script src="libs/gitbook-2.6.7/js/clipboard.min.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-search.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-sharing.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-fontsettings.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-bookdown.js"></script>
+<script src="libs/gitbook-2.6.7/js/jquery.highlight.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-clipboard.js"></script>
+<script>
+gitbook.require(["gitbook"], function(gitbook) {
+gitbook.start({
+"sharing": {
+"github": false,
+"facebook": true,
+"twitter": true,
+"linkedin": false,
+"weibo": false,
+"instapaper": false,
+"vk": false,
+"whatsapp": false,
+"all": ["facebook", "twitter", "linkedin", "weibo", "instapaper"]
+},
+"fontsettings": {
+"theme": "white",
+"family": "sans",
+"size": 2
+},
+"edit": {
+"link": "https://github.com/balsaedi/RCourse/edit/main/02-data_types_and_structures.Rmd",
+"text": "Edit"
+},
+"history": {
+"link": null,
+"text": null
+},
+"view": {
+"link": "https://github.com/balsaedi/RCourse/blob/main/02-data_types_and_structures.Rmd",
+"text": null
+},
+"download": null,
+"search": {
+"engine": "fuse",
+"options": null
+},
+"toc": {
+"collapse": "subsection"
+}
+});
+});
+</script>
+
+<!-- dynamically load mathjax for compatibility with self-contained -->
+<script>
+  (function () {
+    var script = document.createElement("script");
+    script.type = "text/javascript";
+    var src = "true";
+    if (src === "" || src === "true") src = "https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.9/latest.js?config=TeX-MML-AM_CHTML";
+    if (location.protocol !== "file:")
+      if (/^https?:/.test(src))
+        src = src.replace(/^https?:/, '');
+    script.src = src;
+    document.getElementsByTagName("head")[0].appendChild(script);
+  })();
+</script>
+</body>
+
+</html>
