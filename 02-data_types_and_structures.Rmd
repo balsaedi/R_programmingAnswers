@@ -167,6 +167,7 @@ class(grateful)
 ```
 
 <span style="color: brown;">**________________________________________________________________________________**</span>
+
 - Complex
 
 They represent complex numbers with real and imaginary parts

@@ -1395,19 +1395,108 @@ You will finally prepare a brief presentation that will summarize the statistica
 Discuss in groups the insights obtained, challenges faced and any potential improvements
 
 _______________________________________________________________________
-### <span style="color: brown;">Example: Ecommerce Statistical Analysis</span> 
+### <span style="color: brown;">Example: Ecommerce Statistical Analysis</span>
 
-<span style="color: brown;">**Formulation of Hypothesis**</span> 
+Load the data set
+```{r}
+ecommerce <- read.csv("data/ecommerce.csv")
+head(ecommerce)
+```
 
-<span style="color: brown;">**T-Tests**</span> 
+#### <span style="color: brown;">**Introduction**</span> 
 
-- <span style="color: brown;">**One-Sample T-test**</span> 
-- <span style="color: brown;">**Two-sample T-Test**</span> 
+In this analysis, we aim to explore the Ecommerce data set and answer the following research questions:
 
-<span style="color: brown;">**ANOVA(Analysis of Variance)**</span> 
+- Are there significant differences in customer spending (Net Amount) based on gender or age group?
+- Are discounts a significant factor in influencing purchasing decisions?
 
-<span style="color: brown;">**Chi-Square Test**</span> 
+To address these questions, we formulate the following hypotheses:
 
-<span style="color: brown;">**Key Findings**</span> 
+- **Hypothesis 1**: There is no significant difference between the Net Amount spent by male and female customers.
+- **Hypothesis 2**: The age group of customers does not affect the Net Amount spent.
+- **Hypothesis 3**: There is no association between discount availed and the purchase method used.
+
+#### <span style="color: brown;">**T-Tests**</span> 
+
+##### <span style="color: brown;">**One-Sample T-test**</span> 
+
+We conduct a one-sample t-test to determine if the average Gross Amount spent by customers differs significantly from a pre-defined industry standard of INR 5000.
+
+- **Null Hypothesis ($H_0$)**: The average Gross Amount is equal to INR 5000.
+- **Alternative Hypothesis ($H_1$)**: The average Gross Amount is not equal to INR 5000.
+
+```{r}
+t.test(ecommerce$Gross.Amount, mu=5000)
+```
+
+The p-value is less than 0.05 therefore, there is enough evidence to reject the null hypothesis. The average gross amount is not equal to INR 5000
+
+The average gross amount spent in a transaction is 3012.937, which is significantly different from the hypothesized value of 5000.
+
+##### <span style="color: brown;">**Two-sample T-Test**</span> 
+We use a two-sample t-test to assess whether there is a significant difference in the Net Amount spent between male and female customers.
+
+- **Null Hypothesis ($H_0$)**: There is no significant difference between male and female spending.
+- **Alternative Hypothesis ($H_1$)**: There is a significant difference between male and female spending.
+
+```{r}
+library(dplyr)
+
+# Gather male net amount 
+male_net_amount <- ecommerce %>%
+  filter(Gender=="Male") %>%
+  dplyr::select(Net.Amount)
+
+# Gather female net amount 
+female_net_amount <- ecommerce %>%
+  filter(Gender=="Female") %>%
+  dplyr::select(Net.Amount)
+
+# Perform ttest
+t.test(male_net_amount, female_net_amount, 
+       alternative = "two.sided", mu = 0, paired = FALSE,
+       var.equal = FALSE, conf.level = 0.95)
+```
+
+The value is more than 0.05 therefore the alternate hypothesis is rejected. There is no significant difference between the net amount spent by male and female customers. The mean net amount for males is 2868.076, and for females, it is 2856.471
+
+#### <span style="color: brown;">**ANOVA(Analysis of Variance)**</span> 
+
+We conduct a one-way ANOVA to test whether the average Net Amount spent differs significantly across different age groups.
+
+- **Null Hypothesis ($H_0$)**: There is no difference in the Net Amount across age groups.
+- **Alternative Hypothesis ($H_1$)**: There is a significant difference in the Net Amount across age groups.
+
+```{r}
+aov_model <- aov(Net.Amount ~ Age.Group, data = ecommerce)
+summary(aov_model)
+
+```
+
+There is enough evidence to reject the null hypothesis(p_value <0.05) therefore there is a significant difference in the Net Amount across age groups
+
+
+
+#### <span style="color: brown;">**Chi-Square Test**</span> 
+
+We perform a chi-square test to determine if there is a relationship between the purchase method (Credit Card, Debit Card, etc.) and whether a discount was availed.
+
+- **Null Hypothesis ($H_0$)**: There is no association between the purchase method and discount availed.
+- **Alternative Hypothesis ($H_1$)**: There is an association between the purchase method and discount availed.
+
+```{r}
+chisq.test(table(ecommerce$Purchase.Method, ecommerce$Discount.Availed))
+```
+
+The p-value is 0.8559(above 0.05), indicating no statistically significant association between the purchase method and the availing of discounts.
+
+#### <span style="color: brown;">**Key Findings**</span> 
+
+Here are some of the key findings from the project;
+
+- The one-sample t-test suggests that customers spend significantly less than the hypothesized gross amount.
+- No significant difference was found in spending between male and female customers based on the two-sample t-test.
+- ANOVA results indicate that spending patterns do vary significantly across age groups.
+- The Chi-square test shows that the method of purchase has no significant relationship with whether a discount was used.
 
 <span style="color: brown;">**________________________________________________________________________________**</span>

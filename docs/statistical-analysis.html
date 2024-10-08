@@ -160,7 +160,6 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <li class="chapter" data-level="1.3.3" data-path="index.html"><a href="index.html#basic-r-syntax-and-commands"><i class="fa fa-check"></i><b>1.3.3</b> Basic R Syntax and Commands</a></li>
 </ul></li>
 <li class="chapter" data-level="1.4" data-path="index.html"><a href="index.html#hands-on-exercise"><i class="fa fa-check"></i><b>1.4</b> Hands-on Exercise</a></li>
-<li class="chapter" data-level="1.5" data-path="index.html"><a href="index.html#solution"><i class="fa fa-check"></i><b>1.5</b> <span style="color: brown;">Solution</span></a></li>
 </ul></li>
 <li class="chapter" data-level="2" data-path="basic-data-types-and-structures.html"><a href="basic-data-types-and-structures.html"><i class="fa fa-check"></i><b>2</b> Basic Data Types and Structures</a>
 <ul>
@@ -286,7 +285,7 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 </ul></li>
 <li class="chapter" data-level="10" data-path="capstone-project.html"><a href="capstone-project.html"><i class="fa fa-check"></i><b>10</b> Capstone Project</a>
 <ul>
-<li class="chapter" data-level="10.1" data-path="capstone-project.html"><a href="capstone-project.html#introduction-1"><i class="fa fa-check"></i><b>10.1</b> Introduction</a>
+<li class="chapter" data-level="10.1" data-path="capstone-project.html"><a href="capstone-project.html#introduction-2"><i class="fa fa-check"></i><b>10.1</b> Introduction</a>
 <ul>
 <li class="chapter" data-level="10.1.1" data-path="capstone-project.html"><a href="capstone-project.html#project-overview-and-objectives"><i class="fa fa-check"></i><b>10.1.1</b> Project Overview and Objectives</a></li>
 <li class="chapter" data-level="10.1.2" data-path="capstone-project.html"><a href="capstone-project.html#group-formation"><i class="fa fa-check"></i><b>10.1.2</b> Group Formation</a></li>
@@ -1806,17 +1805,148 @@ head(Pima.te)</code></pre>
 </div>
 <div id="example-ecommerce-statistical-analysis" class="section level3 hasAnchor" number="7.4.4">
 <h3><span class="header-section-number">7.4.4</span> <span style="color: brown;">Example: Ecommerce Statistical Analysis</span><a href="statistical-analysis.html#example-ecommerce-statistical-analysis" class="anchor-section" aria-label="Anchor link to header"></a></h3>
-<p><span style="color: brown;"><strong>Formulation of Hypothesis</strong></span></p>
-<p><span style="color: brown;"><strong>T-Tests</strong></span></p>
+<p>Load the data set</p>
+<div class="sourceCode" id="cb838"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb838-1"><a href="statistical-analysis.html#cb838-1" tabindex="-1"></a>ecommerce <span class="ot">&lt;-</span> <span class="fu">read.csv</span>(<span class="st">&quot;data/ecommerce.csv&quot;</span>)</span>
+<span id="cb838-2"><a href="statistical-analysis.html#cb838-2" tabindex="-1"></a><span class="fu">head</span>(ecommerce)</span></code></pre></div>
+<pre><code>##      CID        TID Gender    Age.Group       Purchase.Date Product.Category
+## 1 943146 5876328741 Female        25-45 30/08/2023 20:27:08      Electronics
+## 2 180079 1018503182   Male        25-45 23/02/2024 09:33:46      Electronics
+## 3 337580 3814082218  Other 60 and above 06/03/2022 09:09:50         Clothing
+## 4 180333 1395204173  Other 60 and above 04/11/2020 04:41:57 Sports &amp; Fitness
+## 5 447553 8009390577   Male        18-25 31/05/2022 17:00:32 Sports &amp; Fitness
+## 6 200614 3994452858   Male        18-25 12/07/2021 15:10:27         Clothing
+##   Discount.Availed   Discount.Name Discount.Amount..INR. Gross.Amount
+## 1              Yes       FESTIVE50                 64.30      725.304
+## 2              Yes SEASONALOFFER21                175.19     4638.992
+## 3              Yes SEASONALOFFER21                211.54     1986.373
+## 4               No                                  0.00     5695.613
+## 5              Yes        WELCOME5                439.92     2292.651
+## 6              Yes       FESTIVE50                127.01     3649.397
+##   Net.Amount Purchase.Method  Location
+## 1    661.004     Credit Card Ahmedabad
+## 2   4463.802     Credit Card Bangalore
+## 3   1774.833     Credit Card     Delhi
+## 4   5695.613      Debit Card     Delhi
+## 5   1852.731     Credit Card     Delhi
+## 6   3522.387     Credit Card     Delhi</code></pre>
+<div id="introduction-1" class="section level4 hasAnchor" number="7.4.4.1">
+<h4><span class="header-section-number">7.4.4.1</span> <span style="color: brown;"><strong>Introduction</strong></span><a href="statistical-analysis.html#introduction-1" class="anchor-section" aria-label="Anchor link to header"></a></h4>
+<p>In this analysis, we aim to explore the Ecommerce data set and answer the following research questions:</p>
 <ul>
-<li><span style="color: brown;"><strong>One-Sample T-test</strong></span></li>
-<li><span style="color: brown;"><strong>Two-sample T-Test</strong></span></li>
+<li>Are there significant differences in customer spending (Net Amount) based on gender or age group?</li>
+<li>Are discounts a significant factor in influencing purchasing decisions?</li>
 </ul>
-<p><span style="color: brown;"><strong>ANOVA(Analysis of Variance)</strong></span></p>
-<p><span style="color: brown;"><strong>Chi-Square Test</strong></span></p>
-<p><span style="color: brown;"><strong>Key Findings</strong></span></p>
+<p>To address these questions, we formulate the following hypotheses:</p>
+<ul>
+<li><strong>Hypothesis 1</strong>: There is no significant difference between the Net Amount spent by male and female customers.</li>
+<li><strong>Hypothesis 2</strong>: The age group of customers does not affect the Net Amount spent.</li>
+<li><strong>Hypothesis 3</strong>: There is no association between discount availed and the purchase method used.</li>
+</ul>
+</div>
+<div id="t-tests-1" class="section level4 hasAnchor" number="7.4.4.2">
+<h4><span class="header-section-number">7.4.4.2</span> <span style="color: brown;"><strong>T-Tests</strong></span><a href="statistical-analysis.html#t-tests-1" class="anchor-section" aria-label="Anchor link to header"></a></h4>
+<div id="one-sample-t-test" class="section level5 hasAnchor" number="7.4.4.2.1">
+<h5><span class="header-section-number">7.4.4.2.1</span> <span style="color: brown;"><strong>One-Sample T-test</strong></span><a href="statistical-analysis.html#one-sample-t-test" class="anchor-section" aria-label="Anchor link to header"></a></h5>
+<p>We conduct a one-sample t-test to determine if the average Gross Amount spent by customers differs significantly from a pre-defined industry standard of INR 5000.</p>
+<ul>
+<li><strong>Null Hypothesis (<span class="math inline">\(H_0\)</span>)</strong>: The average Gross Amount is equal to INR 5000.</li>
+<li><strong>Alternative Hypothesis (<span class="math inline">\(H_1\)</span>)</strong>: The average Gross Amount is not equal to INR 5000.</li>
+</ul>
+<div class="sourceCode" id="cb840"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb840-1"><a href="statistical-analysis.html#cb840-1" tabindex="-1"></a><span class="fu">t.test</span>(ecommerce<span class="sc">$</span>Gross.Amount, <span class="at">mu=</span><span class="dv">5000</span>)</span></code></pre></div>
+<pre><code>## 
+##  One Sample t-test
+## 
+## data:  ecommerce$Gross.Amount
+## t = -271.18, df = 54999, p-value &lt; 2.2e-16
+## alternative hypothesis: true mean is not equal to 5000
+## 95 percent confidence interval:
+##  2998.575 3027.298
+## sample estimates:
+## mean of x 
+##  3012.937</code></pre>
+<p>The p-value is less than 0.05 therefore, there is enough evidence to reject the null hypothesis. The average gross amount is not equal to INR 5000</p>
+<p>The average gross amount spent in a transaction is 3012.937, which is significantly different from the hypothesized value of 5000.</p>
+</div>
+<div id="two-sample-t-test" class="section level5 hasAnchor" number="7.4.4.2.2">
+<h5><span class="header-section-number">7.4.4.2.2</span> <span style="color: brown;"><strong>Two-sample T-Test</strong></span><a href="statistical-analysis.html#two-sample-t-test" class="anchor-section" aria-label="Anchor link to header"></a></h5>
+<p>We use a two-sample t-test to assess whether there is a significant difference in the Net Amount spent between male and female customers.</p>
+<ul>
+<li><strong>Null Hypothesis (<span class="math inline">\(H_0\)</span>)</strong>: There is no significant difference between male and female spending.</li>
+<li><strong>Alternative Hypothesis (<span class="math inline">\(H_1\)</span>)</strong>: There is a significant difference between male and female spending.</li>
+</ul>
+<div class="sourceCode" id="cb842"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb842-1"><a href="statistical-analysis.html#cb842-1" tabindex="-1"></a><span class="fu">library</span>(dplyr)</span>
+<span id="cb842-2"><a href="statistical-analysis.html#cb842-2" tabindex="-1"></a></span>
+<span id="cb842-3"><a href="statistical-analysis.html#cb842-3" tabindex="-1"></a><span class="co"># Gather male net amount </span></span>
+<span id="cb842-4"><a href="statistical-analysis.html#cb842-4" tabindex="-1"></a>male_net_amount <span class="ot">&lt;-</span> ecommerce <span class="sc">%&gt;%</span></span>
+<span id="cb842-5"><a href="statistical-analysis.html#cb842-5" tabindex="-1"></a>  <span class="fu">filter</span>(Gender<span class="sc">==</span><span class="st">&quot;Male&quot;</span>) <span class="sc">%&gt;%</span></span>
+<span id="cb842-6"><a href="statistical-analysis.html#cb842-6" tabindex="-1"></a>  dplyr<span class="sc">::</span><span class="fu">select</span>(Net.Amount)</span>
+<span id="cb842-7"><a href="statistical-analysis.html#cb842-7" tabindex="-1"></a></span>
+<span id="cb842-8"><a href="statistical-analysis.html#cb842-8" tabindex="-1"></a><span class="co"># Gather female net amount </span></span>
+<span id="cb842-9"><a href="statistical-analysis.html#cb842-9" tabindex="-1"></a>female_net_amount <span class="ot">&lt;-</span> ecommerce <span class="sc">%&gt;%</span></span>
+<span id="cb842-10"><a href="statistical-analysis.html#cb842-10" tabindex="-1"></a>  <span class="fu">filter</span>(Gender<span class="sc">==</span><span class="st">&quot;Female&quot;</span>) <span class="sc">%&gt;%</span></span>
+<span id="cb842-11"><a href="statistical-analysis.html#cb842-11" tabindex="-1"></a>  dplyr<span class="sc">::</span><span class="fu">select</span>(Net.Amount)</span>
+<span id="cb842-12"><a href="statistical-analysis.html#cb842-12" tabindex="-1"></a></span>
+<span id="cb842-13"><a href="statistical-analysis.html#cb842-13" tabindex="-1"></a><span class="co"># Perform ttest</span></span>
+<span id="cb842-14"><a href="statistical-analysis.html#cb842-14" tabindex="-1"></a><span class="fu">t.test</span>(male_net_amount, female_net_amount, </span>
+<span id="cb842-15"><a href="statistical-analysis.html#cb842-15" tabindex="-1"></a>       <span class="at">alternative =</span> <span class="st">&quot;two.sided&quot;</span>, <span class="at">mu =</span> <span class="dv">0</span>, <span class="at">paired =</span> <span class="cn">FALSE</span>,</span>
+<span id="cb842-16"><a href="statistical-analysis.html#cb842-16" tabindex="-1"></a>       <span class="at">var.equal =</span> <span class="cn">FALSE</span>, <span class="at">conf.level =</span> <span class="fl">0.95</span>)</span></code></pre></div>
+<pre><code>## 
+##  Welch Two Sample t-test
+## 
+## data:  male_net_amount and female_net_amount
+## t = 0.64203, df = 36542, p-value = 0.5209
+## alternative hypothesis: true difference in means is not equal to 0
+## 95 percent confidence interval:
+##  -23.82403  47.03452
+## sample estimates:
+## mean of x mean of y 
+##  2868.076  2856.471</code></pre>
+<p>The value is more than 0.05 therefore the alternate hypothesis is rejected. There is no significant difference between the net amount spent by male and female customers. The mean net amount for males is 2868.076, and for females, it is 2856.471</p>
+</div>
+</div>
+<div id="anovaanalysis-of-variance" class="section level4 hasAnchor" number="7.4.4.3">
+<h4><span class="header-section-number">7.4.4.3</span> <span style="color: brown;"><strong>ANOVA(Analysis of Variance)</strong></span><a href="statistical-analysis.html#anovaanalysis-of-variance" class="anchor-section" aria-label="Anchor link to header"></a></h4>
+<p>We conduct a one-way ANOVA to test whether the average Net Amount spent differs significantly across different age groups.</p>
+<ul>
+<li><strong>Null Hypothesis (<span class="math inline">\(H_0\)</span>)</strong>: There is no difference in the Net Amount across age groups.</li>
+<li><strong>Alternative Hypothesis (<span class="math inline">\(H_1\)</span>)</strong>: There is a significant difference in the Net Amount across age groups.</li>
+</ul>
+<div class="sourceCode" id="cb844"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb844-1"><a href="statistical-analysis.html#cb844-1" tabindex="-1"></a>aov_model <span class="ot">&lt;-</span> <span class="fu">aov</span>(Net.Amount <span class="sc">~</span> Age.Group, <span class="at">data =</span> ecommerce)</span>
+<span id="cb844-2"><a href="statistical-analysis.html#cb844-2" tabindex="-1"></a><span class="fu">summary</span>(aov_model)</span></code></pre></div>
+<pre><code>##                Df    Sum Sq Mean Sq F value Pr(&gt;F)  
+## Age.Group       4 3.705e+07 9262985   3.109 0.0144 *
+## Residuals   54995 1.638e+11 2979060                 
+## ---
+## Signif. codes:  0 &#39;***&#39; 0.001 &#39;**&#39; 0.01 &#39;*&#39; 0.05 &#39;.&#39; 0.1 &#39; &#39; 1</code></pre>
+<p>There is enough evidence to reject the null hypothesis(p_value &lt;0.05) therefore there is a significant difference in the Net Amount across age groups</p>
+</div>
+<div id="chi-square-test-1" class="section level4 hasAnchor" number="7.4.4.4">
+<h4><span class="header-section-number">7.4.4.4</span> <span style="color: brown;"><strong>Chi-Square Test</strong></span><a href="statistical-analysis.html#chi-square-test-1" class="anchor-section" aria-label="Anchor link to header"></a></h4>
+<p>We perform a chi-square test to determine if there is a relationship between the purchase method (Credit Card, Debit Card, etc.) and whether a discount was availed.</p>
+<ul>
+<li><strong>Null Hypothesis (<span class="math inline">\(H_0\)</span>)</strong>: There is no association between the purchase method and discount availed.</li>
+<li><strong>Alternative Hypothesis (<span class="math inline">\(H_1\)</span>)</strong>: There is an association between the purchase method and discount availed.</li>
+</ul>
+<div class="sourceCode" id="cb846"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb846-1"><a href="statistical-analysis.html#cb846-1" tabindex="-1"></a><span class="fu">chisq.test</span>(<span class="fu">table</span>(ecommerce<span class="sc">$</span>Purchase.Method, ecommerce<span class="sc">$</span>Discount.Availed))</span></code></pre></div>
+<pre><code>## 
+##  Pearson&#39;s Chi-squared test
+## 
+## data:  table(ecommerce$Purchase.Method, ecommerce$Discount.Availed)
+## X-squared = 3.3007, df = 7, p-value = 0.8559</code></pre>
+<p>The p-value is 0.8559(above 0.05), indicating no statistically significant association between the purchase method and the availing of discounts.</p>
+</div>
+<div id="key-findings-1" class="section level4 hasAnchor" number="7.4.4.5">
+<h4><span class="header-section-number">7.4.4.5</span> <span style="color: brown;"><strong>Key Findings</strong></span><a href="statistical-analysis.html#key-findings-1" class="anchor-section" aria-label="Anchor link to header"></a></h4>
+<p>Here are some of the key findings from the project;</p>
+<ul>
+<li>The one-sample t-test suggests that customers spend significantly less than the hypothesized gross amount.</li>
+<li>No significant difference was found in spending between male and female customers based on the two-sample t-test.</li>
+<li>ANOVA results indicate that spending patterns do vary significantly across age groups.</li>
+<li>The Chi-square test shows that the method of purchase has no significant relationship with whether a discount was used.</li>
+</ul>
 <p><span style="color: brown;"><strong>________________________________________________________________________________</strong></span></p>
 
+</div>
 </div>
 </div>
 </div>

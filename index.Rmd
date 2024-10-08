@@ -176,7 +176,7 @@ y <-5+3       # Also valid, but less readable
 2. Assign variable `d` and `f` to values `42` and `14` respectively and solve `d/f`
 
 _______________________________________________________________________
-## <span style="color: brown;">Solution</span> 
+<span style="color: brown;">**Solution**</span> 
 
 1. Solve the following equations;
 

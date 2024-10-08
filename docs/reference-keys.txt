@@ -11,7 +11,6 @@ installation-of-r-and-rstudio
 introduction-to-rstudio-interface
 basic-r-syntax-and-commands
 hands-on-exercise
-solution
 basic-data-types-and-structures
 data-types
 data-structures
@@ -87,6 +86,13 @@ project-overview
 conducting-statistical-analysis
 presenting-statistical-findings
 example-ecommerce-statistical-analysis
+introduction-1
+t-tests-1
+one-sample-t-test
+two-sample-t-test
+anovaanalysis-of-variance
+chi-square-test-1
+key-findings-1
 working-with-real-world-data
 handling-large-datasets
 challenges-of-large-data-sets
@@ -112,7 +118,7 @@ moving-averages
 arima-model
 hands-on-exercises-7
 capstone-project
-introduction-1
+introduction-2
 project-overview-and-objectives
 group-formation
 project-planning
