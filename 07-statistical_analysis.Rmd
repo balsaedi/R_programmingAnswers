@@ -1475,8 +1475,6 @@ summary(aov_model)
 
 There is enough evidence to reject the null hypothesis(p_value <0.05) therefore there is a significant difference in the Net Amount across age groups
 
-
-
 #### <span style="color: brown;">**Chi-Square Test**</span> 
 
 We perform a chi-square test to determine if there is a relationship between the purchase method (Credit Card, Debit Card, etc.) and whether a discount was availed.

@@ -105,3 +105,202 @@ Each group will finally present their project that will include;
 - The key findings, model performance, and final insights.
 - Visualizations and any actionable recommendations based on the analysis.
 
+_______________________________________________________________________
+## <span style="color: brown;">Example: Ecommerce Project</span>
+
+Load the libraries
+```{r}
+library(dplyr)
+library(ggplot2)
+library(caret)
+```
+
+Load the data
+```{r}
+ecommerce <- read.csv("data/ecommerce.csv")
+
+# Get a glimpse of the data set
+str(ecommerce)
+```
+
+### <span style="color: brown;">Part 1</span>
+<span style="color: brown;">**Data Cleaning and Preprocessing**</span>
+
+We check for missing values in the data set to understand if any imputation or removal is needed. The columns that have missing values so we can decide whether to impute or remove them
+```{r}
+# Count of missing values per column
+sapply(ecommerce, function(x) sum(is.na(x)))
+```
+There were no null values in the data set.
+
+The outliers in the `Gross.Amount` and `Net.Amount` columns were then identified using IQR method. The removal of outliers ensures a more reliable analysis, particularly for numerical data. 
+```{r}
+# Outlier detection function using IQR
+identify_outliers_iqr <- function(column) {
+  Q1 <- quantile(column, 0.25, na.rm = TRUE)
+  Q3 <- quantile(column, 0.75, na.rm = TRUE)
+  IQR_value <- Q3 - Q1
+  lower_bound <- Q1 - 1.5 * IQR_value
+  upper_bound <- Q3 + 1.5 * IQR_value
+  return(column < lower_bound | column > upper_bound)
+}
+
+# Removing outliers
+outliers <- identify_outliers_iqr(ecommerce$Net.Amount)
+ecommerce_clean <- ecommerce[!outliers, ]
+```
+
+Shape of the old ecommerce data set
+```{r}
+dim(ecommerce)
+```
+
+Shape of the new ecommerce data set 
+```{r}
+dim(ecommerce_clean)
+```
+
+There was only one outlier in the entire dataset that was identified and removed. 
+
+The `Purchase.Date` column needed to be converted to a proper date column 
+```{r}
+# Convert 'Purchase Date' to Date type
+ecommerce_clean$Purchase.Date <- as.Date(ecommerce_clean$Purchase.Date, format="%Y-%m-%d")
+
+# Confirm the operation
+str(dplyr::select(ecommerce_clean, Purchase.Date))
+```
+
+<span style="color: brown;">**Explanatory Data Analysis**</span>
+
+Explanatory data analysis was performed to understand tge distribution, relationships and the underlying structure of the data set. 
+
+The distribution of Gross Amount was plotted 
+```{r}
+# Histogram for Gross Amount
+ggplot(ecommerce_clean, aes(x = Gross.Amount)) +
+  geom_histogram(bins = 20, fill = "blue", color = "black") +
+  labs(title = "Distribution of Gross Amount", x = "Gross Amount (INR)", y = "Frequency") +
+  theme_minimal()
+```
+
+This histogram shows that the data appears to be right-skewed, meaning most transactions occur within the lower range (around 1000-4000 INR), with fewer transactions as the Gross Amount increases. There is a gradual decline in frequency for higher amounts, with very few transactions beyond 6000 INR. The highest frequency is concentrated between 1000 and 4000 INR. 
+
+The bar chart to compare the number of transactions across different of product categories in the store was plotted 
+```{r}
+# Bar chart for Product Category
+ggplot(ecommerce_clean, aes(x = Product.Category)) +
+  geom_bar(fill = "blue") +
+  labs(title = "Number of Transactions by Product Category", x = "Product Category", y = "Transaction Count") +
+  theme(axis.text.x = element_text(angle = 45, hjust = 1))
+```
+
+The bar chart shows the number of transactions by product category. Electronics has the highest number of transactions, followed by Clothing and Beauty and Health. Categories like Books, Home & Kitchen, and Other have moderate transaction counts, while categories like Pet Care, Toys & Games, and Sports & Fitness have significantly fewer transactions. The chart highlights which product categories are more popular in terms of transactions
+
+Finally, the distribution of Net Amount spent by gender was plotted on a boxplot.
+```{r}
+# Box plot of Net Amount by Gender
+ggplot(ecommerce_clean, aes(x = Gender, y = Net.Amount)) +
+  geom_boxplot(fill = c("pink", "lightblue", "gray")) +
+  labs(title = "Net Amount by Gender", x = "Gender", y = "Net Amount (INR)") +
+  theme_minimal()
+```
+
+This boxplot illustrates the distribution of the Net Amount (INR) spent by customers, categorized by Gender (Female, Male, Other). Here's a brief description:
+
+- **Female**: The median net amount spent is slightly above 3000 INR, with most of the data falling between 2000 and 4500 INR. There are a few outliers above 8000 INR.
+- **Male**: The median is close to that of females, slightly below 4000 INR. The interquartile range (IQR) is similar, and there are also outliers.
+- **Other**: The distribution follows a similar pattern, with the median around 4000 INR. The spread of data is broader, and outliers are visible above 8000 INR.
+
+The boxplot suggests that, overall, net spending is relatively consistent across genders, with some variations in the range of outliers
+
+### <span style="color: brown;">Part 2</span>
+<span style="color: brown;">**Model Building and Analysis**</span>
+
+In this project, we agreed upon building a multiple linear regression model where the `Net.Amount` was the target variable and the independent (predictor) variables will include the features that might influence the `Net.Amount`, such as; `Age.Group`, `Gender`, `Discount.Availed`, `Purchase.Method`, `Product.Category` and `Location`.
+
+Categorical variables like Gender, Age Group, and Purchase Method were then converted into numerical formats. 
+```{r}
+# Convert categorical variables to factors
+ecommerce_clean$Gender <- as.factor(ecommerce_clean$Gender)
+ecommerce_clean$Age.Group <- as.factor(ecommerce_clean$Age.Group)
+ecommerce_clean$Purchase.Method <- as.factor(ecommerce_clean$Purchase.Method)
+ecommerce_clean$Product.Category <- as.factor(ecommerce_clean$Product.Category)
+ecommerce_clean$Location <- as.factor(ecommerce_clean$Location)
+```
+
+The data was then split into train and test data sets 
+```{r}
+# Split the data into training (70%) and testing (30%) sets
+set.seed(123)  # For reproducibility
+sample_split <- sample(1:nrow(ecommerce_clean), 0.7 * nrow(ecommerce_clean))
+train_data <- ecommerce_clean[sample_split, ]
+test_data <- ecommerce_clean[-sample_split, ]
+```
+
+The categorical variables converted to numerical were then encoded.
+```{r}
+# Encode categorical variables in the training set
+train_data_encoded <- model.matrix(Net.Amount ~ Gender + Age.Group + Purchase.Method + Discount.Availed + Product.Category + Location, data = train_data)
+train_data_encoded <- as.data.frame(train_data_encoded)
+
+# Keep the Net.Amount column in train set
+train_data_encoded$Net.Amount <- train_data$Net.Amount
+
+# Repeat for the test data 
+# Encode categorical variables in the test set
+test_data_encoded <- model.matrix(Net.Amount ~ Gender + Age.Group + Purchase.Method + Discount.Availed + Product.Category + Location, data = test_data)
+test_data_encoded <- as.data.frame(test_data_encoded)
+
+# Keep the Net.Amount column in test set
+test_data_encoded$Net.Amount <- test_data$Net.Amount
+```
+
+Build the linear regression model
+```{r}
+# Build the multiple linear regression model on the training data
+model <- lm(Net.Amount ~ ., data = train_data_encoded)
+
+# Summary of the model
+summary(model)
+```
+
+Predictions were then performed by the model
+```{r}
+# Predict Net Amount on test data
+predictions <- predict(model, newdata = test_data_encoded)
+
+# View the first few predictions
+head(predictions)
+```
+
+<span style="color: brown;">**Evaluation and insights**</span>
+
+The model was evaluated using Mean Squared Error(MSE) and Root Squared Error(RMSE)
+```{r}
+# Calculate predictions on the test set
+test_predictions <- predict(model, newdata = test_data_encoded)
+
+# Calculate MSE and RMSE
+mse <- mean((test_predictions - test_data_encoded$Net.Amount)^2)
+rmse <- sqrt(mse)
+
+cat("Mean Squared Error (MSE):", mse, "\n")
+cat("Root Mean Squared Error (RMSE):", rmse, "\n")
+```
+
+A QQ plot was used to assess if the residuals follow a normal distribution.
+
+```{r}
+# QQ Plot
+qqnorm(model$residuals)
+qqline(model$residuals, col = "red")
+```
+
+The predicted values have a different pattern(straight-line) with the original values(sigmoid-curve)
+
+### <span style="color: brown;">Presentation and Feedback</span>
+
+The model identifies some statistically significant predictors, its overall fit is quite average, as indicated by unexpected R-squared values and substantial error metrics (MSE and RMSE). The limited explanatory power suggests that other relevant variables or non-linear relationships may exist and could be explored to improve the model's performance. Further diagnostics, feature engineering, or transformations might be necessary to enhance predictive accuracy
+
+<span style="color: brown;">**________________________________________________________________________________**</span>

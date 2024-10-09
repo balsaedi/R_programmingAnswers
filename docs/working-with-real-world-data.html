@@ -23,7 +23,7 @@
 <meta name="author" content="YOUR NAME HERE" />
 
 
-<meta name="date" content="2024-10-08" />
+<meta name="date" content="2024-10-09" />
 
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <meta name="apple-mobile-web-app-capable" content="yes" />
@@ -301,6 +301,12 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <li class="chapter" data-level="10.3.2" data-path="capstone-project.html"><a href="capstone-project.html#part-2"><i class="fa fa-check"></i><b>10.3.2</b> Part 2</a></li>
 </ul></li>
 <li class="chapter" data-level="10.4" data-path="capstone-project.html"><a href="capstone-project.html#project-presentations-and-feedback"><i class="fa fa-check"></i><b>10.4</b> Project Presentations and Feedback</a></li>
+<li class="chapter" data-level="10.5" data-path="capstone-project.html"><a href="capstone-project.html#example-ecommerce-project"><i class="fa fa-check"></i><b>10.5</b> <span style="color: brown;">Example: Ecommerce Project</span></a>
+<ul>
+<li class="chapter" data-level="10.5.1" data-path="capstone-project.html"><a href="capstone-project.html#part-1-1"><i class="fa fa-check"></i><b>10.5.1</b> <span style="color: brown;">Part 1</span></a></li>
+<li class="chapter" data-level="10.5.2" data-path="capstone-project.html"><a href="capstone-project.html#part-2-1"><i class="fa fa-check"></i><b>10.5.2</b> <span style="color: brown;">Part 2</span></a></li>
+<li class="chapter" data-level="10.5.3" data-path="capstone-project.html"><a href="capstone-project.html#presentation-and-feedback"><i class="fa fa-check"></i><b>10.5.3</b> <span style="color: brown;">Presentation and Feedback</span></a></li>
+</ul></li>
 </ul></li>
 <li class="chapter" data-level="11" data-path="datasets.html"><a href="datasets.html"><i class="fa fa-check"></i><b>11</b> Datasets</a></li>
 <li class="divider"></li>
@@ -801,7 +807,7 @@ system.time(fwrite(data, &quot;large_output.csv&quot;))</code></pre>
 <div class="sourceCode" id="cb894"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb894-1"><a href="working-with-real-world-data.html#cb894-1" tabindex="-1"></a><span class="co"># Timing fread() for a large file</span></span>
 <span id="cb894-2"><a href="working-with-real-world-data.html#cb894-2" tabindex="-1"></a><span class="fu">system.time</span>(data <span class="ot">&lt;-</span> <span class="fu">fread</span>(<span class="st">&quot;big-data/us_accidents/US_Accidents_March23.csv&quot;</span>))</span></code></pre></div>
 <pre><code>##    user  system elapsed 
-##  33.630   1.406  19.810</code></pre>
+##  33.160   1.384  19.467</code></pre>
 <ol start="3" style="list-style-type: lower-roman">
 <li>Add a new column into the data set. Just the convert the temperature from <span class="math inline">\(^oF\)</span>(degrees Farenheit) to <span class="math inline">\(^oC\)</span>(degrees Celcius)</li>
 </ol>
@@ -814,7 +820,7 @@ system.time(fwrite(data, &quot;large_output.csv&quot;))</code></pre>
 </ol>
 <div class="sourceCode" id="cb898"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb898-1"><a href="working-with-real-world-data.html#cb898-1" tabindex="-1"></a><span class="fu">system.time</span>(<span class="fu">fwrite</span>(data, <span class="st">&quot;temp-data/us_accidents.csv&quot;</span>))</span></code></pre></div>
 <pre><code>##    user  system elapsed 
-##  18.179   2.053  12.107</code></pre>
+##  18.093   2.026  11.791</code></pre>
 <p><span style="color: brown;"><strong>________________________________________________________________________________</strong></span></p>
 </div>
 </div>
@@ -839,8 +845,8 @@ system.time(fwrite(data, &quot;large_output.csv&quot;))</code></pre>
 <span id="cb900-3"><a href="working-with-real-world-data.html#cb900-3" tabindex="-1"></a><span class="co"># Remove unwanted objects and show memory usage</span></span>
 <span id="cb900-4"><a href="working-with-real-world-data.html#cb900-4" tabindex="-1"></a><span class="fu">gc</span>()</span></code></pre></div>
 <pre><code>##             used   (Mb) gc trigger    (Mb)  max used   (Mb)
-## Ncells  14309568  764.3   28184075  1505.2  14696964  785.0
-## Vcells 920364256 7021.9 1580214586 12056.1 920447889 7022.5</code></pre>
+## Ncells  14310111  764.3   28182867  1505.2  14697509  785.0
+## Vcells 920367468 7021.9 1580220136 12056.2 920451115 7022.5</code></pre>
 <ol start="2" style="list-style-type: lower-roman">
 <li>Read the data set using <code>read.csv</code> and <code>fread</code> and time each method. Compare the time taken for each function to read the file.</li>
 </ol>
@@ -851,7 +857,7 @@ system.time(fwrite(data, &quot;large_output.csv&quot;))</code></pre>
 <span id="cb902-2"><a href="working-with-real-world-data.html#cb902-2" tabindex="-1"></a><span class="fu">system.time</span>(amazon_reviews_df <span class="ot">&lt;-</span> </span>
 <span id="cb902-3"><a href="working-with-real-world-data.html#cb902-3" tabindex="-1"></a>              <span class="fu">read.csv</span>(<span class="st">&quot;big-data/amazon-fine-food-reviews/Reviews.csv&quot;</span>))</span></code></pre></div>
 <pre><code>##    user  system elapsed 
-##   5.540   0.414   6.043</code></pre>
+##   5.544   0.399   5.978</code></pre>
 <ul>
 <li>Using <code>fread()</code></li>
 </ul>
@@ -859,7 +865,7 @@ system.time(fwrite(data, &quot;large_output.csv&quot;))</code></pre>
 <span id="cb904-2"><a href="working-with-real-world-data.html#cb904-2" tabindex="-1"></a><span class="fu">system.time</span>(amazon_reviews_dtB <span class="ot">&lt;-</span> </span>
 <span id="cb904-3"><a href="working-with-real-world-data.html#cb904-3" tabindex="-1"></a>              <span class="fu">fread</span>(<span class="st">&quot;big-data/amazon-fine-food-reviews/Reviews.csv&quot;</span>))</span></code></pre></div>
 <pre><code>##    user  system elapsed 
-##   2.158   0.045   1.111</code></pre>
+##   2.263   0.048   1.238</code></pre>
 <p>The <code>fread()</code> function reads the data 4 times faster than the <code>fread()</code> function.</p>
 <ol start="3" style="list-style-type: lower-roman">
 <li>Remove the data set from the memory using <code>rm()</code> and call <code>gc()</code> again</li>
@@ -870,8 +876,8 @@ system.time(fwrite(data, &quot;large_output.csv&quot;))</code></pre>
 <span id="cb906-4"><a href="working-with-real-world-data.html#cb906-4" tabindex="-1"></a><span class="co"># Call gc() to trigger garbage collection and show memory usage</span></span>
 <span id="cb906-5"><a href="working-with-real-world-data.html#cb906-5" tabindex="-1"></a><span class="fu">gc</span>()</span></code></pre></div>
 <pre><code>##             used   (Mb) gc trigger    (Mb)  max used   (Mb)
-## Ncells  14309600  764.3   28184075  1505.2  16123443  861.1
-## Vcells 920366556 7021.9 1580214586 12056.1 975721566 7444.2</code></pre>
+## Ncells  14310143  764.3   28182867  1505.2  16124131  861.2
+## Vcells 920369768 7021.9 1580220136 12056.2 975724989 7444.2</code></pre>
 <ol start="4" style="list-style-type: lower-roman">
 <li>Reread the data set using <code>fread()</code> however control the threads. Set different thread value (e.g 1, 2, 3, 4 and 5) the compare the time taken for processing</li>
 </ol>
@@ -896,11 +902,11 @@ system.time(fwrite(data, &quot;large_output.csv&quot;))</code></pre>
 <span id="cb908-19"><a href="working-with-real-world-data.html#cb908-19" tabindex="-1"></a>  <span class="co"># Run garbage collection</span></span>
 <span id="cb908-20"><a href="working-with-real-world-data.html#cb908-20" tabindex="-1"></a>  <span class="fu">gc</span>()</span>
 <span id="cb908-21"><a href="working-with-real-world-data.html#cb908-21" tabindex="-1"></a>}</span></code></pre></div>
-<pre><code>## Time taken with 1 thread(s): 1.797 0.034 1.83 0 0 
-## Time taken with 2 thread(s): 2.811 0.078 1.456 0 0 
-## Time taken with 3 thread(s): 4.309 0.07 1.476 0 0 
-## Time taken with 4 thread(s): 5.533 0.069 1.457 0 0 
-## Time taken with 5 thread(s): 5.369 0.025 1.391 0 0</code></pre>
+<pre><code>## Time taken with 1 thread(s): 1.952 0.038 1.991 0 0 
+## Time taken with 2 thread(s): 3.043 0.076 1.57 0 0 
+## Time taken with 3 thread(s): 4.493 0.074 1.549 0 0 
+## Time taken with 4 thread(s): 6.091 0.067 1.761 0 0 
+## Time taken with 5 thread(s): 5.26 0.029 1.353 0 0</code></pre>
 <p>The more the threads the faster it takes to read the data</p>
 <ol start="22" style="list-style-type: lower-alpha">
 <li>Write the file locally(use a different file name) and use gc() for garbage collection</li>
@@ -917,8 +923,8 @@ system.time(fwrite(data, &quot;large_output.csv&quot;))</code></pre>
 <span id="cb910-10"><a href="working-with-real-world-data.html#cb910-10" tabindex="-1"></a><span class="fu">rm</span>(amazon_reviews_dtB)</span>
 <span id="cb910-11"><a href="working-with-real-world-data.html#cb910-11" tabindex="-1"></a><span class="fu">gc</span>()</span></code></pre></div>
 <pre><code>##             used   (Mb) gc trigger    (Mb)  max used   (Mb)
-## Ncells  14310128  764.3   28184075  1505.2  16123443  861.1
-## Vcells 920368025 7021.9 1580214586 12056.1 975721566 7444.2</code></pre>
+## Ncells  14310671  764.3   28182867  1505.2  16124131  861.2
+## Vcells 920371237 7021.9 1580220136 12056.2 975724989 7444.2</code></pre>
 <p>Finally, discuss on the importance of scalability when dealing with real-world data.</p>
 <p><span style="color: #00008B;">
 Scalability is critical when handling real-world data because datasets can grow significantly in size and complexity, often comprising millions of rows and gigabytes of information. As data grows, processing it efficiently becomes more challenging, making scalability essential for:</span></p>
@@ -1100,8 +1106,8 @@ install.packages(&quot;tidyr&quot;)</code></pre>
 <span id="cb932-11"><a href="working-with-real-world-data.html#cb932-11" tabindex="-1"></a><span class="fu">rm</span>(nfl_dtB)</span>
 <span id="cb932-12"><a href="working-with-real-world-data.html#cb932-12" tabindex="-1"></a><span class="fu">gc</span>()</span></code></pre></div>
 <pre><code>##             used   (Mb) gc trigger    (Mb)   max used   (Mb)
-## Ncells  14313914  764.5   28184075  1505.2   16123443  861.1
-## Vcells 921510155 7030.6 1580214586 12056.1 1129934776 8620.8</code></pre>
+## Ncells  14314457  764.5   28182867  1505.2   16124131  861.2
+## Vcells 921513371 7030.6 1580220136 12056.2 1129937979 8620.8</code></pre>
 <ol style="list-style-type: lower-roman">
 <li>Count the null values</li>
 </ol>
