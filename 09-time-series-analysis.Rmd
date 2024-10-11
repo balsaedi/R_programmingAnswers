@@ -44,7 +44,9 @@ decomposed_ts <- decompose(AirPassengers)
 
 <span style="color: green;">**Practical exercise**</span>
 
-In this course, you will be required to download the amazon stock prices prediction data set from [here](https://www.kaggle.com/datasets/aenes95/amazon-stock-price-prediction)
+In this course, you will be required to download the amazon stock prices prediction data set from [here](https://www.kaggle.com/datasets/aenes95/amazon-stock-price-prediction). 
+
+Decompose the time series data set into trend, seasonal and residual components. 
 
 _______________________________________________________________________
 <span style="color: brown;">**Solution**</span> 
@@ -63,11 +65,16 @@ ts_data <- ts(amazon_stocks$Google_Trends, frequency = 365)
 
 # Decompose the time series data
 decomposed_data <- decompose(ts_data)
+
+# trend
+head(decomposed_data$trend)
+
+# seasonal  
+head(decomposed_data$seasonal)
 ```
 
 <span style="color: brown;">**________________________________________________________________________________**</span>
 
-Decompose the time series data set into trend, seasonal and residual components. 
 
 - **Visualization of Time Series Data**
 
@@ -249,13 +256,16 @@ library(dplyr)
 library(zoo)
 library(ggplot2)
 
-# Load the data 
+# Load the data
 amazon_stocks <- read.csv("data/amazon_trends.csv")
+
+# Ensure the 'Date' column is in Date format
+amazon_stocks$Date <- as.Date(amazon_stocks$Date, format = "%Y-%m-%d")  # Adjust format as per your dataset
 
 # Ensure the data is ordered by date (if necessary)
 amazon_stocks <- amazon_stocks %>% arrange(Date)
 
-# Calculate 30-day moving average (approximate for monthly)
+# Calculate 30-day moving average
 amazon_stocks <- amazon_stocks %>%
   mutate(moving_avg_30 = rollmean(Google_Trends, k = 30, fill = NA))
 
@@ -269,8 +279,6 @@ ggplot(amazon_stocks, aes(x = Date)) +
   theme_minimal() +
   theme(legend.title = element_blank())
 ```
-
-**Work on it later- Copy the guide**
 
 <span style="color: brown;">**________________________________________________________________________________**</span>
 
@@ -323,14 +331,29 @@ par(mfrow = c(1, 2))  # Set up for side-by-side plots
 
 # ACF plot
 acf(diff_passengers, main = "ACF of Differenced AirPassengers")
-
 ```
+
+The ACF (Autocorrelation Function) plot for the `AirPassengers` data set typically shows significant positive autocorrelations for several lags, which indicates that the series has a strong trend and seasonal patterns.
+
+Key points to interpret from the ACF plot:
+
+- **High autocorrelation at early lags**: The first few lags (e.g., 1 to 12) likely show high autocorrelation, which suggests a strong seasonal pattern in the data (monthly seasonality in this case).
+- **Gradual decline**: The ACF values decrease slowly, indicating the presence of a long-term trend in the data.
+- **Seasonality**: Peaks in the autocorrelations at lags of multiples of 12 (e.g., 12, 24) indicate the annual cycle in the data, which is typical for monthly time series with yearly seasonality.
+
+Overall, this suggests that the `AirPassengers` data exhibits both trend and seasonality, which is important for selecting an appropriate time series model
 ```{r}
 # PACF plot
 pacf(diff_passengers, main = "PACF of Differenced AirPassengers")
 ```
 
-<-**Interpret the plots**->
+The PACF (Partial Autocorrelation Function) plot for the differenced `AirPassengers` data set indicates the following:
+
+- **Significant PACF at Lag 1**: There is a strong spike at lag 1, which suggests that after differencing, the time series still has a significant short-term autocorrelation at this lag. This can imply that an AR(1) model might be suitable.
+- **Seasonal Pattern**: The spike at lag 12 suggests the presence of a seasonal component in the data with a yearly cycle. This is consistent with the monthly nature of the `AirPassengers` data set and the yearly repeating patterns in air travel.
+- **Dampening beyond Lag 1**: After the significant spike at lag 1, the PACF values quickly decline, with some negative values at higher lags, indicating that the differenced series has removed much of the autocorrelation present in the original data.
+
+In summary, this plot suggests a time series with strong short-term (lag 1) autocorrelation and seasonal effects that are likely at yearly intervals (lag 12). Based on this, you could consider using an ARIMA model with seasonal components to better model the behavior of the data.
 
 The `AirPassengers` data set is not stationary, therefore the data will be transformed by log-transform before applying differencing
 ```{r}
@@ -382,9 +405,70 @@ The blue part of the plot represents the forecasted values.
 
 Fit the ARIMA model to the Amazon Stock Prices Prediction data and interpret the results. 
 
+_______________________________________________________________________
+<span style="color: brown;">**Solution**</span> 
+
+```{r}
+library(forecast)
+library(dplyr)
+```
+
+Load the data
+```{r}
+# Load the data
+amazon_stocks <- read.csv("data/amazon_trends.csv")
+
+# Ensure the 'Date' column is in Date format
+amazon_stocks$Date <- as.Date(amazon_stocks$Date, format = "%Y-%m-%d")  # Adjust format as per your data set
+```
+
+Make the data stationary by differencing 
+```{r}
+# Apply log and differencing only on the stock prices
+diff_amazon_stocks <- amazon_stocks %>%
+  dplyr::mutate(Google_Trends_Diff = c(NA, diff(log(Google_Trends), lag = 1))) %>%
+  dplyr::select(Date, Google_Trends_Diff)
+
+# Optionally, you can still choose to remove the first row with NA
+diff_amazon_stocks <- diff_amazon_stocks[-1, ]
+```
+
+Plot the ACF and PACF to identify ARIMA parameters but Inspect the data for NA, Inf, or NaN values first
+```{r}
+# Check for NA or infinite values in the differenced data
+sum(is.na(diff_amazon_stocks$Google_Trends_Diff))  # Count NA values
+sum(is.infinite(diff_amazon_stocks$Google_Trends_Diff))  # Count Inf values
+```
+```{r}
+# Remove NA and Inf values
+diff_amazon_stocks_clean <- diff_amazon_stocks %>%
+  filter(!is.na(Google_Trends_Diff) & !is.infinite(Google_Trends_Diff))
+
+# Plot the ACF and PACF
+par(mfrow = c(1, 2), mar = c(4, 4, 2, 1))  # Adjust margins
+
+# ACF plot
+acf(diff_amazon_stocks_clean$Google_Trends_Diff, main = "ACF of Differenced Stock Prices")
+
+# PACF plot
+pacf(diff_amazon_stocks_clean$Google_Trends_Diff, main = "PACF of Differenced Stock Prices")
+```
+
+- **ACF (Autocorrelation Function) Plot: ** there are a few significant spikes at the first few lags, and then it quickly diminishes and remains near zero for subsequent lags. This suggests that the time series is stationary after differencing, with little autocorrelation remaining beyond the first few lags. The significant spikes at the beginning could indicate some short-term correlation, but overall, the series does not exhibit strong autocorrelation at higher lags
+
+- **PACF (Partial Autocorrelation Function) Plot: ** a few significant spikes, especially at very early lags, but then it quickly dies down. This indicates that the differenced time series has a small number of significant partial autocorrelations, suggesting that an AR (Auto-Regressive) model of low order (e.g., AR(1) or AR(2)) might be sufficient to model the series.
+
+Both the ACF and PACF plots both indicate that the series has become stationary after differencing. The ACF plot suggests that there is no significant long-term autocorrelation in the data while the PACF plot shows that an AR process of a low order (possibly AR(1)) may explain most of the autocorrelation in the data. 
+
+<span style="color: brown;">**________________________________________________________________________________**</span>
 
 ## Hands-On Exercises 
 
 You will be required to download the Electricity Price & Demand 2018-2023 data set from [here](https://www.kaggle.com/datasets/joebeachcapital/nsw-australia-electricity-demand-2018-2023/data)
 
 Perform time series on the total demand on one of the csv files provided from visualization to forecasting
+
+_______________________________________________________________________
+<span style="color: brown;">**Solution**</span> 
+
+<span style="color: brown;">**________________________________________________________________________________**</span>
