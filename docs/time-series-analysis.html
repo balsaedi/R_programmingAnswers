@@ -23,7 +23,7 @@
 <meta name="author" content="YOUR NAME HERE" />
 
 
-<meta name="date" content="2024-10-11" />
+<meta name="date" content="2024-10-12" />
 
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <meta name="apple-mobile-web-app-capable" content="yes" />
@@ -795,6 +795,77 @@ The <code>forecast</code> library can be installed by;</p>
 <p>Perform time series on the total demand on one of the csv files provided from visualization to forecasting</p>
 <hr />
 <p><span style="color: brown;"><strong>Solution</strong></span></p>
+<div class="sourceCode" id="cb1043"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb1043-1"><a href="time-series-analysis.html#cb1043-1" tabindex="-1"></a><span class="fu">library</span>(dplyr)</span>
+<span id="cb1043-2"><a href="time-series-analysis.html#cb1043-2" tabindex="-1"></a><span class="fu">library</span>(xts)</span></code></pre></div>
+<pre><code>## 
+## ######################### Warning from &#39;xts&#39; package ##########################
+## #                                                                             #
+## # The dplyr lag() function breaks how base R&#39;s lag() function is supposed to  #
+## # work, which breaks lag(my_xts). Calls to lag(my_xts) that you type or       #
+## # source() into this session won&#39;t work correctly.                            #
+## #                                                                             #
+## # Use stats::lag() to make sure you&#39;re not using dplyr::lag(), or you can add #
+## # conflictRules(&#39;dplyr&#39;, exclude = &#39;lag&#39;) to your .Rprofile to stop           #
+## # dplyr from breaking base R&#39;s lag() function.                                #
+## #                                                                             #
+## # Code in packages is not affected. It&#39;s protected by R&#39;s namespace mechanism #
+## # Set `options(xts.warn_dplyr_breaks_lag = FALSE)` to suppress this warning.  #
+## #                                                                             #
+## ###############################################################################</code></pre>
+<pre><code>## 
+## Attaching package: &#39;xts&#39;</code></pre>
+<pre><code>## The following objects are masked from &#39;package:data.table&#39;:
+## 
+##     first, last</code></pre>
+<pre><code>## The following objects are masked from &#39;package:dplyr&#39;:
+## 
+##     first, last</code></pre>
+<div class="sourceCode" id="cb1048"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb1048-1"><a href="time-series-analysis.html#cb1048-1" tabindex="-1"></a><span class="fu">library</span>(dplyr)</span>
+<span id="cb1048-2"><a href="time-series-analysis.html#cb1048-2" tabindex="-1"></a><span class="fu">library</span>(lubridate)  <span class="co"># for handling date-time data</span></span></code></pre></div>
+<p>Load the data set</p>
+<div class="sourceCode" id="cb1049"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb1049-1"><a href="time-series-analysis.html#cb1049-1" tabindex="-1"></a>df <span class="ot">&lt;-</span> <span class="fu">read.csv</span>(<span class="st">&quot;data/PRICE_AND_DEMAND_202306_NSW1.csv&quot;</span>)</span>
+<span id="cb1049-2"><a href="time-series-analysis.html#cb1049-2" tabindex="-1"></a><span class="fu">head</span>(df)</span></code></pre></div>
+<pre><code>##   REGION      SETTLEMENTDATE TOTALDEMAND  RRP PERIODTYPE
+## 1   NSW1 2023/06/01 00:05:00     7953.04 90.2      TRADE
+## 2   NSW1 2023/06/01 00:10:00     7967.67 90.2      TRADE
+## 3   NSW1 2023/06/01 00:15:00     7923.89 90.2      TRADE
+## 4   NSW1 2023/06/01 00:20:00     7907.81 90.2      TRADE
+## 5   NSW1 2023/06/01 00:25:00     7855.31 90.2      TRADE
+## 6   NSW1 2023/06/01 00:30:00     7880.03 90.2      TRADE</code></pre>
+<p>Ensure the Date is in POSIXct format to include minutes.</p>
+<div class="sourceCode" id="cb1051"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb1051-1"><a href="time-series-analysis.html#cb1051-1" tabindex="-1"></a>df <span class="ot">&lt;-</span> df <span class="sc">%&gt;%</span></span>
+<span id="cb1051-2"><a href="time-series-analysis.html#cb1051-2" tabindex="-1"></a>  <span class="fu">mutate</span>(<span class="at">DATE =</span> <span class="fu">as.POSIXct</span>(SETTLEMENTDATE, <span class="at">format =</span> <span class="st">&quot;%Y/%m/%d %H:%M:%S&quot;</span>)) <span class="sc">%&gt;%</span></span>
+<span id="cb1051-3"><a href="time-series-analysis.html#cb1051-3" tabindex="-1"></a>  <span class="fu">arrange</span>(DATE)  <span class="co"># Sort by date</span></span></code></pre></div>
+<p>Create an xts object with five minute frequency since the date time has a five minute difference and <code>xts</code> automatically handles that granularity</p>
+<div class="sourceCode" id="cb1052"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb1052-1"><a href="time-series-analysis.html#cb1052-1" tabindex="-1"></a>df_xts <span class="ot">&lt;-</span> <span class="fu">xts</span>(df<span class="sc">$</span>TOTALDEMAND, <span class="at">order.by =</span> df<span class="sc">$</span>DATE)</span>
+<span id="cb1052-2"><a href="time-series-analysis.html#cb1052-2" tabindex="-1"></a></span>
+<span id="cb1052-3"><a href="time-series-analysis.html#cb1052-3" tabindex="-1"></a><span class="fu">head</span>(xts)</span></code></pre></div>
+<pre><code>##                                                                             
+## 1 function (x = NULL, order.by = index(x), frequency = NULL, unique = TRUE, 
+## 2     tzone = Sys.getenv(&quot;TZ&quot;), ...)                                        
+## 3 {                                                                         
+## 4     if (is.null(x) &amp;&amp; missing(order.by))                                  
+## 5         return(.xts(NULL, integer()))                                     
+## 6     if (!timeBased(order.by))</code></pre>
+<p>Fill any missing 5-minute intervals by forward-filling data</p>
+<div class="sourceCode" id="cb1054"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb1054-1"><a href="time-series-analysis.html#cb1054-1" tabindex="-1"></a>regular_df_xts <span class="ot">&lt;-</span> <span class="fu">merge</span>(df_xts, <span class="fu">zoo</span>(, <span class="fu">seq</span>(<span class="fu">start</span>(df_xts), <span class="fu">end</span>(df_xts), <span class="at">by =</span> <span class="st">&quot;5 min&quot;</span>)), <span class="at">fill =</span> na.locf)</span></code></pre></div>
+<p>Convert the <code>xts</code> back to <code>ts</code> for decomposition and let’s assume your time series starts at 1 and has a frequency of 288 (5-minute intervals in a day: 60/5 * 24 = 288)</p>
+<div class="sourceCode" id="cb1055"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb1055-1"><a href="time-series-analysis.html#cb1055-1" tabindex="-1"></a>df_ts <span class="ot">&lt;-</span> <span class="fu">ts</span>(<span class="fu">as.numeric</span>(regular_df_xts), <span class="at">frequency =</span> <span class="dv">288</span>)</span>
+<span id="cb1055-2"><a href="time-series-analysis.html#cb1055-2" tabindex="-1"></a></span>
+<span id="cb1055-3"><a href="time-series-analysis.html#cb1055-3" tabindex="-1"></a><span class="co"># Decompose the time series using STL (Seasonal-Trend decomposition)</span></span>
+<span id="cb1055-4"><a href="time-series-analysis.html#cb1055-4" tabindex="-1"></a>decomposed_df_ts <span class="ot">&lt;-</span> <span class="fu">stl</span>(df_ts, <span class="at">s.window =</span> <span class="st">&quot;periodic&quot;</span>)</span>
+<span id="cb1055-5"><a href="time-series-analysis.html#cb1055-5" tabindex="-1"></a></span>
+<span id="cb1055-6"><a href="time-series-analysis.html#cb1055-6" tabindex="-1"></a><span class="co"># Plot the decomposition</span></span>
+<span id="cb1055-7"><a href="time-series-analysis.html#cb1055-7" tabindex="-1"></a><span class="fu">plot</span>(decomposed_df_ts)</span></code></pre></div>
+<p><img src="bookdownproj_files/figure-html/unnamed-chunk-393-1.png" width="672" /></p>
+<p>The decomposition plot of the time series shows four key components:</p>
+<ul>
+<li><strong>Observed Data (Top Panel)</strong>: This represents the original time series data. The fluctuations seen here correspond to variations in the stock prices over time.</li>
+<li><strong>Seasonal Component (Second Panel)</strong>: This captures regular, repeating patterns (seasonality) within the data. We see clear oscillations that repeat over time, indicating that the stock prices follow a consistent seasonal pattern, likely corresponding to periodic market behaviors (e.g., intra-day or weekly patterns).</li>
+<li><strong>Trend Component (Third Panel)</strong>: The trend line reveals the long-term movement of the stock prices. Here, we observe that the overall stock price is decreasing, increasing slightly, and then stabilizing toward the latter part of the series, reflecting underlying trends in the data.</li>
+<li><strong>Residuals (Bottom Panel)</strong>: These represent the noise or random fluctuations in the data after accounting for the trend and seasonality. The residuals are mostly centered around zero, indicating that the model captures much of the pattern, with some random noise still present.</li>
+</ul>
+<p>In summary, the decomposition shows that the stock data has a clear seasonal component, an overall trend with some fluctuations, and residual noise.</p>
 <p><span style="color: brown;"><strong>________________________________________________________________________________</strong></span></p>
 
 </div>

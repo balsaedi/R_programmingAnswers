@@ -471,4 +471,55 @@ Perform time series on the total demand on one of the csv files provided from vi
 _______________________________________________________________________
 <span style="color: brown;">**Solution**</span> 
 
+```{r}
+library(dplyr)
+library(xts)
+library(dplyr)
+library(lubridate)  # for handling date-time data
+```
+
+Load the data set 
+```{r}
+df <- read.csv("data/PRICE_AND_DEMAND_202306_NSW1.csv")
+head(df)
+```
+Ensure the Date is in POSIXct format to include minutes.
+```{r}
+df <- df %>%
+  mutate(DATE = as.POSIXct(SETTLEMENTDATE, format = "%Y/%m/%d %H:%M:%S")) %>%
+  arrange(DATE)  # Sort by date
+```
+
+Create an xts object with five minute frequency since the date time has a five minute difference and `xts` automatically handles that granularity
+```{r}
+df_xts <- xts(df$TOTALDEMAND, order.by = df$DATE)
+
+head(xts)
+```
+
+Fill any missing 5-minute intervals by forward-filling data
+```{r}
+regular_df_xts <- merge(df_xts, zoo(, seq(start(df_xts), end(df_xts), by = "5 min")), fill = na.locf)
+```
+
+Convert the `xts` back to `ts` for decomposition and let's assume your time series starts at 1 and has a frequency of 288 (5-minute intervals in a day: 60/5 * 24 = 288)
+```{r}
+df_ts <- ts(as.numeric(regular_df_xts), frequency = 288)
+
+# Decompose the time series using STL (Seasonal-Trend decomposition)
+decomposed_df_ts <- stl(df_ts, s.window = "periodic")
+
+# Plot the decomposition
+plot(decomposed_df_ts)
+```
+
+The decomposition plot of the time series shows four key components:
+
+- **Observed Data (Top Panel)**: This represents the original time series data. The fluctuations seen here correspond to variations in the stock prices over time.
+- **Seasonal Component (Second Panel)**: This captures regular, repeating patterns (seasonality) within the data. We see clear oscillations that repeat over time, indicating that the stock prices follow a consistent seasonal pattern, likely corresponding to periodic market behaviors (e.g., intra-day or weekly patterns).
+- **Trend Component (Third Panel)**: The trend line reveals the long-term movement of the stock prices. Here, we observe that the overall stock price is decreasing, increasing slightly, and then stabilizing toward the latter part of the series, reflecting underlying trends in the data.
+- **Residuals (Bottom Panel)**: These represent the noise or random fluctuations in the data after accounting for the trend and seasonality. The residuals are mostly centered around zero, indicating that the model captures much of the pattern, with some random noise still present.
+
+In summary, the decomposition shows that the stock data has a clear seasonal component, an overall trend with some fluctuations, and residual noise.
+
 <span style="color: brown;">**________________________________________________________________________________**</span>

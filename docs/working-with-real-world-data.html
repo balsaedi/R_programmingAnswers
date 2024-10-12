@@ -23,7 +23,7 @@
 <meta name="author" content="YOUR NAME HERE" />
 
 
-<meta name="date" content="2024-10-11" />
+<meta name="date" content="2024-10-12" />
 
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <meta name="apple-mobile-web-app-capable" content="yes" />
@@ -807,7 +807,7 @@ system.time(fwrite(data, &quot;large_output.csv&quot;))</code></pre>
 <div class="sourceCode" id="cb894"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb894-1"><a href="working-with-real-world-data.html#cb894-1" tabindex="-1"></a><span class="co"># Timing fread() for a large file</span></span>
 <span id="cb894-2"><a href="working-with-real-world-data.html#cb894-2" tabindex="-1"></a><span class="fu">system.time</span>(data <span class="ot">&lt;-</span> <span class="fu">fread</span>(<span class="st">&quot;big-data/us_accidents/US_Accidents_March23.csv&quot;</span>))</span></code></pre></div>
 <pre><code>##    user  system elapsed 
-##  35.529   1.650  23.884</code></pre>
+##  34.849   1.982  22.882</code></pre>
 <ol start="3" style="list-style-type: lower-roman">
 <li>Add a new column into the data set. Just the convert the temperature from <span class="math inline">\(^oF\)</span>(degrees Farenheit) to <span class="math inline">\(^oC\)</span>(degrees Celcius)</li>
 </ol>
@@ -820,7 +820,7 @@ system.time(fwrite(data, &quot;large_output.csv&quot;))</code></pre>
 </ol>
 <div class="sourceCode" id="cb898"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb898-1"><a href="working-with-real-world-data.html#cb898-1" tabindex="-1"></a><span class="fu">system.time</span>(<span class="fu">fwrite</span>(data, <span class="st">&quot;temp-data/us_accidents.csv&quot;</span>))</span></code></pre></div>
 <pre><code>##    user  system elapsed 
-##  20.208   2.315  17.311</code></pre>
+##  18.610   2.192  12.563</code></pre>
 <p><span style="color: brown;"><strong>________________________________________________________________________________</strong></span></p>
 </div>
 </div>
@@ -845,8 +845,8 @@ system.time(fwrite(data, &quot;large_output.csv&quot;))</code></pre>
 <span id="cb900-3"><a href="working-with-real-world-data.html#cb900-3" tabindex="-1"></a><span class="co"># Remove unwanted objects and show memory usage</span></span>
 <span id="cb900-4"><a href="working-with-real-world-data.html#cb900-4" tabindex="-1"></a><span class="fu">gc</span>()</span></code></pre></div>
 <pre><code>##             used   (Mb) gc trigger    (Mb)  max used   (Mb)
-## Ncells  14310283  764.3   28206904  1506.5  14697681  785.0
-## Vcells 920369057 7021.9 1580222883 12056.2 920452700 7022.5</code></pre>
+## Ncells  14310300  764.3   29068151  1552.5  14697689  785.0
+## Vcells 920369636 7021.9 1580223884 12056.2 920453284 7022.6</code></pre>
 <ol start="2" style="list-style-type: lower-roman">
 <li>Read the data set using <code>read.csv</code> and <code>fread</code> and time each method. Compare the time taken for each function to read the file.</li>
 </ol>
@@ -857,7 +857,7 @@ system.time(fwrite(data, &quot;large_output.csv&quot;))</code></pre>
 <span id="cb902-2"><a href="working-with-real-world-data.html#cb902-2" tabindex="-1"></a><span class="fu">system.time</span>(amazon_reviews_df <span class="ot">&lt;-</span> </span>
 <span id="cb902-3"><a href="working-with-real-world-data.html#cb902-3" tabindex="-1"></a>              <span class="fu">read.csv</span>(<span class="st">&quot;big-data/amazon-fine-food-reviews/Reviews.csv&quot;</span>))</span></code></pre></div>
 <pre><code>##    user  system elapsed 
-##   6.527   0.673   9.554</code></pre>
+##   6.022   0.452   6.651</code></pre>
 <ul>
 <li>Using <code>fread()</code></li>
 </ul>
@@ -865,7 +865,7 @@ system.time(fwrite(data, &quot;large_output.csv&quot;))</code></pre>
 <span id="cb904-2"><a href="working-with-real-world-data.html#cb904-2" tabindex="-1"></a><span class="fu">system.time</span>(amazon_reviews_dtB <span class="ot">&lt;-</span> </span>
 <span id="cb904-3"><a href="working-with-real-world-data.html#cb904-3" tabindex="-1"></a>              <span class="fu">fread</span>(<span class="st">&quot;big-data/amazon-fine-food-reviews/Reviews.csv&quot;</span>))</span></code></pre></div>
 <pre><code>##    user  system elapsed 
-##   2.197   0.062   1.160</code></pre>
+##   2.180   0.042   1.133</code></pre>
 <p>The <code>fread()</code> function reads the data 4 times faster than the <code>fread()</code> function.</p>
 <ol start="3" style="list-style-type: lower-roman">
 <li>Remove the data set from the memory using <code>rm()</code> and call <code>gc()</code> again</li>
@@ -876,8 +876,8 @@ system.time(fwrite(data, &quot;large_output.csv&quot;))</code></pre>
 <span id="cb906-4"><a href="working-with-real-world-data.html#cb906-4" tabindex="-1"></a><span class="co"># Call gc() to trigger garbage collection and show memory usage</span></span>
 <span id="cb906-5"><a href="working-with-real-world-data.html#cb906-5" tabindex="-1"></a><span class="fu">gc</span>()</span></code></pre></div>
 <pre><code>##             used   (Mb) gc trigger    (Mb)  max used   (Mb)
-## Ncells  14310315  764.3   28206904  1506.5  16124303  861.2
-## Vcells 920371357 7021.9 1580222883 12056.2 975726577 7444.3</code></pre>
+## Ncells  14310332  764.3   29068151  1552.5  16124320  861.2
+## Vcells 920371936 7021.9 1580223884 12056.2 975727152 7444.3</code></pre>
 <ol start="4" style="list-style-type: lower-roman">
 <li>Reread the data set using <code>fread()</code> however control the threads. Set different thread value (e.g 1, 2, 3, 4 and 5) the compare the time taken for processing</li>
 </ol>
@@ -902,11 +902,11 @@ system.time(fwrite(data, &quot;large_output.csv&quot;))</code></pre>
 <span id="cb908-19"><a href="working-with-real-world-data.html#cb908-19" tabindex="-1"></a>  <span class="co"># Run garbage collection</span></span>
 <span id="cb908-20"><a href="working-with-real-world-data.html#cb908-20" tabindex="-1"></a>  <span class="fu">gc</span>()</span>
 <span id="cb908-21"><a href="working-with-real-world-data.html#cb908-21" tabindex="-1"></a>}</span></code></pre></div>
-<pre><code>## Time taken with 1 thread(s): 1.814 0.027 1.842 0 0 
-## Time taken with 2 thread(s): 2.852 0.083 1.481 0 0 
-## Time taken with 3 thread(s): 4.296 0.071 1.497 0 0 
-## Time taken with 4 thread(s): 5.57 0.068 1.502 0 0 
-## Time taken with 5 thread(s): 5.383 0.023 1.398 0 0</code></pre>
+<pre><code>## Time taken with 1 thread(s): 1.886 0.035 1.92 0 0 
+## Time taken with 2 thread(s): 2.969 0.074 1.548 0 0 
+## Time taken with 3 thread(s): 4.344 0.081 1.504 0 0 
+## Time taken with 4 thread(s): 5.959 0.061 1.686 0 0 
+## Time taken with 5 thread(s): 5.489 0.031 1.488 0 0</code></pre>
 <p>The more the threads the faster it takes to read the data</p>
 <ol start="22" style="list-style-type: lower-alpha">
 <li>Write the file locally(use a different file name) and use gc() for garbage collection</li>
@@ -923,8 +923,8 @@ system.time(fwrite(data, &quot;large_output.csv&quot;))</code></pre>
 <span id="cb910-10"><a href="working-with-real-world-data.html#cb910-10" tabindex="-1"></a><span class="fu">rm</span>(amazon_reviews_dtB)</span>
 <span id="cb910-11"><a href="working-with-real-world-data.html#cb910-11" tabindex="-1"></a><span class="fu">gc</span>()</span></code></pre></div>
 <pre><code>##             used   (Mb) gc trigger    (Mb)  max used   (Mb)
-## Ncells  14310843  764.3   28206904  1506.5  16124303  861.2
-## Vcells 920372826 7021.9 1580222883 12056.2 975726577 7444.3</code></pre>
+## Ncells  14310860  764.3   29068151  1552.5  16124320  861.2
+## Vcells 920373405 7021.9 1580223884 12056.2 975727152 7444.3</code></pre>
 <p>Finally, discuss on the importance of scalability when dealing with real-world data.</p>
 <p><span style="color: #00008B;">
 Scalability is critical when handling real-world data because datasets can grow significantly in size and complexity, often comprising millions of rows and gigabytes of information. As data grows, processing it efficiently becomes more challenging, making scalability essential for:</span></p>
@@ -1106,8 +1106,8 @@ install.packages(&quot;tidyr&quot;)</code></pre>
 <span id="cb932-11"><a href="working-with-real-world-data.html#cb932-11" tabindex="-1"></a><span class="fu">rm</span>(nfl_dtB)</span>
 <span id="cb932-12"><a href="working-with-real-world-data.html#cb932-12" tabindex="-1"></a><span class="fu">gc</span>()</span></code></pre></div>
 <pre><code>##             used   (Mb) gc trigger    (Mb)   max used   (Mb)
-## Ncells  14314629  764.5   28206904  1506.5   16124303  861.2
-## Vcells 921514960 7030.7 1580222883 12056.2 1129939590 8620.8</code></pre>
+## Ncells  14314646  764.5   29068151  1552.5   16124320  861.2
+## Vcells 921515539 7030.7 1580223884 12056.2 1129940175 8620.8</code></pre>
 <ol style="list-style-type: lower-roman">
 <li>Count the null values</li>
 </ol>

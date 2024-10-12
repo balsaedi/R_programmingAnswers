@@ -23,7 +23,7 @@
 <meta name="author" content="YOUR NAME HERE" />
 
 
-<meta name="date" content="2024-10-11" />
+<meta name="date" content="2024-10-12" />
 
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <meta name="apple-mobile-web-app-capable" content="yes" />
@@ -459,14 +459,14 @@ Each group is assigned a different data set. These are the proposed data sets an
 <div id="example-ecommerce-project" class="section level2 hasAnchor" number="10.5">
 <h2><span class="header-section-number">10.5</span> <span style="color: brown;">Example: Ecommerce Project</span><a href="capstone-project.html#example-ecommerce-project" class="anchor-section" aria-label="Anchor link to header"></a></h2>
 <p>Load the libraries</p>
-<div class="sourceCode" id="cb1043"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb1043-1"><a href="capstone-project.html#cb1043-1" tabindex="-1"></a><span class="fu">library</span>(dplyr)</span>
-<span id="cb1043-2"><a href="capstone-project.html#cb1043-2" tabindex="-1"></a><span class="fu">library</span>(ggplot2)</span>
-<span id="cb1043-3"><a href="capstone-project.html#cb1043-3" tabindex="-1"></a><span class="fu">library</span>(caret)</span></code></pre></div>
+<div class="sourceCode" id="cb1056"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb1056-1"><a href="capstone-project.html#cb1056-1" tabindex="-1"></a><span class="fu">library</span>(dplyr)</span>
+<span id="cb1056-2"><a href="capstone-project.html#cb1056-2" tabindex="-1"></a><span class="fu">library</span>(ggplot2)</span>
+<span id="cb1056-3"><a href="capstone-project.html#cb1056-3" tabindex="-1"></a><span class="fu">library</span>(caret)</span></code></pre></div>
 <p>Load the data</p>
-<div class="sourceCode" id="cb1044"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb1044-1"><a href="capstone-project.html#cb1044-1" tabindex="-1"></a>ecommerce <span class="ot">&lt;-</span> <span class="fu">read.csv</span>(<span class="st">&quot;data/ecommerce.csv&quot;</span>)</span>
-<span id="cb1044-2"><a href="capstone-project.html#cb1044-2" tabindex="-1"></a></span>
-<span id="cb1044-3"><a href="capstone-project.html#cb1044-3" tabindex="-1"></a><span class="co"># Get a glimpse of the data set</span></span>
-<span id="cb1044-4"><a href="capstone-project.html#cb1044-4" tabindex="-1"></a><span class="fu">str</span>(ecommerce)</span></code></pre></div>
+<div class="sourceCode" id="cb1057"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb1057-1"><a href="capstone-project.html#cb1057-1" tabindex="-1"></a>ecommerce <span class="ot">&lt;-</span> <span class="fu">read.csv</span>(<span class="st">&quot;data/ecommerce.csv&quot;</span>)</span>
+<span id="cb1057-2"><a href="capstone-project.html#cb1057-2" tabindex="-1"></a></span>
+<span id="cb1057-3"><a href="capstone-project.html#cb1057-3" tabindex="-1"></a><span class="co"># Get a glimpse of the data set</span></span>
+<span id="cb1057-4"><a href="capstone-project.html#cb1057-4" tabindex="-1"></a><span class="fu">str</span>(ecommerce)</span></code></pre></div>
 <pre><code>## &#39;data.frame&#39;:    55000 obs. of  13 variables:
 ##  $ CID                  : int  943146 180079 337580 180333 447553 200614 668787 933551 414167 889269 ...
 ##  $ TID                  : num  5.88e+09 1.02e+09 3.81e+09 1.40e+09 8.01e+09 ...
@@ -485,8 +485,8 @@ Each group is assigned a different data set. These are the proposed data sets an
 <h3><span class="header-section-number">10.5.1</span> <span style="color: brown;">Part 1</span><a href="capstone-project.html#part-1-1" class="anchor-section" aria-label="Anchor link to header"></a></h3>
 <p><span style="color: brown;"><strong>Data Cleaning and Preprocessing</strong></span></p>
 <p>We check for missing values in the data set to understand if any imputation or removal is needed. The columns that have missing values so we can decide whether to impute or remove them</p>
-<div class="sourceCode" id="cb1046"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb1046-1"><a href="capstone-project.html#cb1046-1" tabindex="-1"></a><span class="co"># Count of missing values per column</span></span>
-<span id="cb1046-2"><a href="capstone-project.html#cb1046-2" tabindex="-1"></a><span class="fu">sapply</span>(ecommerce, <span class="cf">function</span>(x) <span class="fu">sum</span>(<span class="fu">is.na</span>(x)))</span></code></pre></div>
+<div class="sourceCode" id="cb1059"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb1059-1"><a href="capstone-project.html#cb1059-1" tabindex="-1"></a><span class="co"># Count of missing values per column</span></span>
+<span id="cb1059-2"><a href="capstone-project.html#cb1059-2" tabindex="-1"></a><span class="fu">sapply</span>(ecommerce, <span class="cf">function</span>(x) <span class="fu">sum</span>(<span class="fu">is.na</span>(x)))</span></code></pre></div>
 <pre><code>##                   CID                   TID                Gender 
 ##                     0                     0                     0 
 ##             Age.Group         Purchase.Date      Product.Category 
@@ -499,59 +499,59 @@ Each group is assigned a different data set. These are the proposed data sets an
 ##                     0</code></pre>
 <p>There were no null values in the data set.</p>
 <p>The outliers in the <code>Gross.Amount</code> and <code>Net.Amount</code> columns were then identified using IQR method. The removal of outliers ensures a more reliable analysis, particularly for numerical data.</p>
-<div class="sourceCode" id="cb1048"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb1048-1"><a href="capstone-project.html#cb1048-1" tabindex="-1"></a><span class="co"># Outlier detection function using IQR</span></span>
-<span id="cb1048-2"><a href="capstone-project.html#cb1048-2" tabindex="-1"></a>identify_outliers_iqr <span class="ot">&lt;-</span> <span class="cf">function</span>(column) {</span>
-<span id="cb1048-3"><a href="capstone-project.html#cb1048-3" tabindex="-1"></a>  Q1 <span class="ot">&lt;-</span> <span class="fu">quantile</span>(column, <span class="fl">0.25</span>, <span class="at">na.rm =</span> <span class="cn">TRUE</span>)</span>
-<span id="cb1048-4"><a href="capstone-project.html#cb1048-4" tabindex="-1"></a>  Q3 <span class="ot">&lt;-</span> <span class="fu">quantile</span>(column, <span class="fl">0.75</span>, <span class="at">na.rm =</span> <span class="cn">TRUE</span>)</span>
-<span id="cb1048-5"><a href="capstone-project.html#cb1048-5" tabindex="-1"></a>  IQR_value <span class="ot">&lt;-</span> Q3 <span class="sc">-</span> Q1</span>
-<span id="cb1048-6"><a href="capstone-project.html#cb1048-6" tabindex="-1"></a>  lower_bound <span class="ot">&lt;-</span> Q1 <span class="sc">-</span> <span class="fl">1.5</span> <span class="sc">*</span> IQR_value</span>
-<span id="cb1048-7"><a href="capstone-project.html#cb1048-7" tabindex="-1"></a>  upper_bound <span class="ot">&lt;-</span> Q3 <span class="sc">+</span> <span class="fl">1.5</span> <span class="sc">*</span> IQR_value</span>
-<span id="cb1048-8"><a href="capstone-project.html#cb1048-8" tabindex="-1"></a>  <span class="fu">return</span>(column <span class="sc">&lt;</span> lower_bound <span class="sc">|</span> column <span class="sc">&gt;</span> upper_bound)</span>
-<span id="cb1048-9"><a href="capstone-project.html#cb1048-9" tabindex="-1"></a>}</span>
-<span id="cb1048-10"><a href="capstone-project.html#cb1048-10" tabindex="-1"></a></span>
-<span id="cb1048-11"><a href="capstone-project.html#cb1048-11" tabindex="-1"></a><span class="co"># Removing outliers</span></span>
-<span id="cb1048-12"><a href="capstone-project.html#cb1048-12" tabindex="-1"></a>outliers <span class="ot">&lt;-</span> <span class="fu">identify_outliers_iqr</span>(ecommerce<span class="sc">$</span>Net.Amount)</span>
-<span id="cb1048-13"><a href="capstone-project.html#cb1048-13" tabindex="-1"></a>ecommerce_clean <span class="ot">&lt;-</span> ecommerce[<span class="sc">!</span>outliers, ]</span></code></pre></div>
+<div class="sourceCode" id="cb1061"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb1061-1"><a href="capstone-project.html#cb1061-1" tabindex="-1"></a><span class="co"># Outlier detection function using IQR</span></span>
+<span id="cb1061-2"><a href="capstone-project.html#cb1061-2" tabindex="-1"></a>identify_outliers_iqr <span class="ot">&lt;-</span> <span class="cf">function</span>(column) {</span>
+<span id="cb1061-3"><a href="capstone-project.html#cb1061-3" tabindex="-1"></a>  Q1 <span class="ot">&lt;-</span> <span class="fu">quantile</span>(column, <span class="fl">0.25</span>, <span class="at">na.rm =</span> <span class="cn">TRUE</span>)</span>
+<span id="cb1061-4"><a href="capstone-project.html#cb1061-4" tabindex="-1"></a>  Q3 <span class="ot">&lt;-</span> <span class="fu">quantile</span>(column, <span class="fl">0.75</span>, <span class="at">na.rm =</span> <span class="cn">TRUE</span>)</span>
+<span id="cb1061-5"><a href="capstone-project.html#cb1061-5" tabindex="-1"></a>  IQR_value <span class="ot">&lt;-</span> Q3 <span class="sc">-</span> Q1</span>
+<span id="cb1061-6"><a href="capstone-project.html#cb1061-6" tabindex="-1"></a>  lower_bound <span class="ot">&lt;-</span> Q1 <span class="sc">-</span> <span class="fl">1.5</span> <span class="sc">*</span> IQR_value</span>
+<span id="cb1061-7"><a href="capstone-project.html#cb1061-7" tabindex="-1"></a>  upper_bound <span class="ot">&lt;-</span> Q3 <span class="sc">+</span> <span class="fl">1.5</span> <span class="sc">*</span> IQR_value</span>
+<span id="cb1061-8"><a href="capstone-project.html#cb1061-8" tabindex="-1"></a>  <span class="fu">return</span>(column <span class="sc">&lt;</span> lower_bound <span class="sc">|</span> column <span class="sc">&gt;</span> upper_bound)</span>
+<span id="cb1061-9"><a href="capstone-project.html#cb1061-9" tabindex="-1"></a>}</span>
+<span id="cb1061-10"><a href="capstone-project.html#cb1061-10" tabindex="-1"></a></span>
+<span id="cb1061-11"><a href="capstone-project.html#cb1061-11" tabindex="-1"></a><span class="co"># Removing outliers</span></span>
+<span id="cb1061-12"><a href="capstone-project.html#cb1061-12" tabindex="-1"></a>outliers <span class="ot">&lt;-</span> <span class="fu">identify_outliers_iqr</span>(ecommerce<span class="sc">$</span>Net.Amount)</span>
+<span id="cb1061-13"><a href="capstone-project.html#cb1061-13" tabindex="-1"></a>ecommerce_clean <span class="ot">&lt;-</span> ecommerce[<span class="sc">!</span>outliers, ]</span></code></pre></div>
 <p>Shape of the old ecommerce data set</p>
-<div class="sourceCode" id="cb1049"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb1049-1"><a href="capstone-project.html#cb1049-1" tabindex="-1"></a><span class="fu">dim</span>(ecommerce)</span></code></pre></div>
+<div class="sourceCode" id="cb1062"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb1062-1"><a href="capstone-project.html#cb1062-1" tabindex="-1"></a><span class="fu">dim</span>(ecommerce)</span></code></pre></div>
 <pre><code>## [1] 55000    13</code></pre>
 <p>Shape of the new ecommerce data set</p>
-<div class="sourceCode" id="cb1051"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb1051-1"><a href="capstone-project.html#cb1051-1" tabindex="-1"></a><span class="fu">dim</span>(ecommerce_clean)</span></code></pre></div>
+<div class="sourceCode" id="cb1064"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb1064-1"><a href="capstone-project.html#cb1064-1" tabindex="-1"></a><span class="fu">dim</span>(ecommerce_clean)</span></code></pre></div>
 <pre><code>## [1] 54999    13</code></pre>
 <p>There was only one outlier in the entire dataset that was identified and removed.</p>
 <p>The <code>Purchase.Date</code> column needed to be converted to a proper date column</p>
-<div class="sourceCode" id="cb1053"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb1053-1"><a href="capstone-project.html#cb1053-1" tabindex="-1"></a><span class="co"># Convert &#39;Purchase Date&#39; to Date type</span></span>
-<span id="cb1053-2"><a href="capstone-project.html#cb1053-2" tabindex="-1"></a>ecommerce_clean<span class="sc">$</span>Purchase.Date <span class="ot">&lt;-</span> <span class="fu">as.Date</span>(ecommerce_clean<span class="sc">$</span>Purchase.Date, <span class="at">format=</span><span class="st">&quot;%Y-%m-%d&quot;</span>)</span>
-<span id="cb1053-3"><a href="capstone-project.html#cb1053-3" tabindex="-1"></a></span>
-<span id="cb1053-4"><a href="capstone-project.html#cb1053-4" tabindex="-1"></a><span class="co"># Confirm the operation</span></span>
-<span id="cb1053-5"><a href="capstone-project.html#cb1053-5" tabindex="-1"></a><span class="fu">str</span>(dplyr<span class="sc">::</span><span class="fu">select</span>(ecommerce_clean, Purchase.Date))</span></code></pre></div>
+<div class="sourceCode" id="cb1066"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb1066-1"><a href="capstone-project.html#cb1066-1" tabindex="-1"></a><span class="co"># Convert &#39;Purchase Date&#39; to Date type</span></span>
+<span id="cb1066-2"><a href="capstone-project.html#cb1066-2" tabindex="-1"></a>ecommerce_clean<span class="sc">$</span>Purchase.Date <span class="ot">&lt;-</span> <span class="fu">as.Date</span>(ecommerce_clean<span class="sc">$</span>Purchase.Date, <span class="at">format=</span><span class="st">&quot;%Y-%m-%d&quot;</span>)</span>
+<span id="cb1066-3"><a href="capstone-project.html#cb1066-3" tabindex="-1"></a></span>
+<span id="cb1066-4"><a href="capstone-project.html#cb1066-4" tabindex="-1"></a><span class="co"># Confirm the operation</span></span>
+<span id="cb1066-5"><a href="capstone-project.html#cb1066-5" tabindex="-1"></a><span class="fu">str</span>(dplyr<span class="sc">::</span><span class="fu">select</span>(ecommerce_clean, Purchase.Date))</span></code></pre></div>
 <pre><code>## &#39;data.frame&#39;:    54999 obs. of  1 variable:
 ##  $ Purchase.Date: Date, format: NA NA ...</code></pre>
 <p><span style="color: brown;"><strong>Explanatory Data Analysis</strong></span></p>
 <p>Explanatory data analysis was performed to understand tge distribution, relationships and the underlying structure of the data set.</p>
 <p>The distribution of Gross Amount was plotted</p>
-<div class="sourceCode" id="cb1055"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb1055-1"><a href="capstone-project.html#cb1055-1" tabindex="-1"></a><span class="co"># Histogram for Gross Amount</span></span>
-<span id="cb1055-2"><a href="capstone-project.html#cb1055-2" tabindex="-1"></a><span class="fu">ggplot</span>(ecommerce_clean, <span class="fu">aes</span>(<span class="at">x =</span> Gross.Amount)) <span class="sc">+</span></span>
-<span id="cb1055-3"><a href="capstone-project.html#cb1055-3" tabindex="-1"></a>  <span class="fu">geom_histogram</span>(<span class="at">bins =</span> <span class="dv">20</span>, <span class="at">fill =</span> <span class="st">&quot;blue&quot;</span>, <span class="at">color =</span> <span class="st">&quot;black&quot;</span>) <span class="sc">+</span></span>
-<span id="cb1055-4"><a href="capstone-project.html#cb1055-4" tabindex="-1"></a>  <span class="fu">labs</span>(<span class="at">title =</span> <span class="st">&quot;Distribution of Gross Amount&quot;</span>, <span class="at">x =</span> <span class="st">&quot;Gross Amount (INR)&quot;</span>, <span class="at">y =</span> <span class="st">&quot;Frequency&quot;</span>) <span class="sc">+</span></span>
-<span id="cb1055-5"><a href="capstone-project.html#cb1055-5" tabindex="-1"></a>  <span class="fu">theme_minimal</span>()</span></code></pre></div>
-<p><img src="bookdownproj_files/figure-html/unnamed-chunk-395-1.png" width="672" /></p>
+<div class="sourceCode" id="cb1068"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb1068-1"><a href="capstone-project.html#cb1068-1" tabindex="-1"></a><span class="co"># Histogram for Gross Amount</span></span>
+<span id="cb1068-2"><a href="capstone-project.html#cb1068-2" tabindex="-1"></a><span class="fu">ggplot</span>(ecommerce_clean, <span class="fu">aes</span>(<span class="at">x =</span> Gross.Amount)) <span class="sc">+</span></span>
+<span id="cb1068-3"><a href="capstone-project.html#cb1068-3" tabindex="-1"></a>  <span class="fu">geom_histogram</span>(<span class="at">bins =</span> <span class="dv">20</span>, <span class="at">fill =</span> <span class="st">&quot;blue&quot;</span>, <span class="at">color =</span> <span class="st">&quot;black&quot;</span>) <span class="sc">+</span></span>
+<span id="cb1068-4"><a href="capstone-project.html#cb1068-4" tabindex="-1"></a>  <span class="fu">labs</span>(<span class="at">title =</span> <span class="st">&quot;Distribution of Gross Amount&quot;</span>, <span class="at">x =</span> <span class="st">&quot;Gross Amount (INR)&quot;</span>, <span class="at">y =</span> <span class="st">&quot;Frequency&quot;</span>) <span class="sc">+</span></span>
+<span id="cb1068-5"><a href="capstone-project.html#cb1068-5" tabindex="-1"></a>  <span class="fu">theme_minimal</span>()</span></code></pre></div>
+<p><img src="bookdownproj_files/figure-html/unnamed-chunk-401-1.png" width="672" /></p>
 <p>This histogram shows that the data appears to be right-skewed, meaning most transactions occur within the lower range (around 1000-4000 INR), with fewer transactions as the Gross Amount increases. There is a gradual decline in frequency for higher amounts, with very few transactions beyond 6000 INR. The highest frequency is concentrated between 1000 and 4000 INR.</p>
 <p>The bar chart to compare the number of transactions across different of product categories in the store was plotted</p>
-<div class="sourceCode" id="cb1056"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb1056-1"><a href="capstone-project.html#cb1056-1" tabindex="-1"></a><span class="co"># Bar chart for Product Category</span></span>
-<span id="cb1056-2"><a href="capstone-project.html#cb1056-2" tabindex="-1"></a><span class="fu">ggplot</span>(ecommerce_clean, <span class="fu">aes</span>(<span class="at">x =</span> Product.Category)) <span class="sc">+</span></span>
-<span id="cb1056-3"><a href="capstone-project.html#cb1056-3" tabindex="-1"></a>  <span class="fu">geom_bar</span>(<span class="at">fill =</span> <span class="st">&quot;blue&quot;</span>) <span class="sc">+</span></span>
-<span id="cb1056-4"><a href="capstone-project.html#cb1056-4" tabindex="-1"></a>  <span class="fu">labs</span>(<span class="at">title =</span> <span class="st">&quot;Number of Transactions by Product Category&quot;</span>, <span class="at">x =</span> <span class="st">&quot;Product Category&quot;</span>, <span class="at">y =</span> <span class="st">&quot;Transaction Count&quot;</span>) <span class="sc">+</span></span>
-<span id="cb1056-5"><a href="capstone-project.html#cb1056-5" tabindex="-1"></a>  <span class="fu">theme</span>(<span class="at">axis.text.x =</span> <span class="fu">element_text</span>(<span class="at">angle =</span> <span class="dv">45</span>, <span class="at">hjust =</span> <span class="dv">1</span>))</span></code></pre></div>
-<p><img src="bookdownproj_files/figure-html/unnamed-chunk-396-1.png" width="672" /></p>
+<div class="sourceCode" id="cb1069"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb1069-1"><a href="capstone-project.html#cb1069-1" tabindex="-1"></a><span class="co"># Bar chart for Product Category</span></span>
+<span id="cb1069-2"><a href="capstone-project.html#cb1069-2" tabindex="-1"></a><span class="fu">ggplot</span>(ecommerce_clean, <span class="fu">aes</span>(<span class="at">x =</span> Product.Category)) <span class="sc">+</span></span>
+<span id="cb1069-3"><a href="capstone-project.html#cb1069-3" tabindex="-1"></a>  <span class="fu">geom_bar</span>(<span class="at">fill =</span> <span class="st">&quot;blue&quot;</span>) <span class="sc">+</span></span>
+<span id="cb1069-4"><a href="capstone-project.html#cb1069-4" tabindex="-1"></a>  <span class="fu">labs</span>(<span class="at">title =</span> <span class="st">&quot;Number of Transactions by Product Category&quot;</span>, <span class="at">x =</span> <span class="st">&quot;Product Category&quot;</span>, <span class="at">y =</span> <span class="st">&quot;Transaction Count&quot;</span>) <span class="sc">+</span></span>
+<span id="cb1069-5"><a href="capstone-project.html#cb1069-5" tabindex="-1"></a>  <span class="fu">theme</span>(<span class="at">axis.text.x =</span> <span class="fu">element_text</span>(<span class="at">angle =</span> <span class="dv">45</span>, <span class="at">hjust =</span> <span class="dv">1</span>))</span></code></pre></div>
+<p><img src="bookdownproj_files/figure-html/unnamed-chunk-402-1.png" width="672" /></p>
 <p>The bar chart shows the number of transactions by product category. Electronics has the highest number of transactions, followed by Clothing and Beauty and Health. Categories like Books, Home &amp; Kitchen, and Other have moderate transaction counts, while categories like Pet Care, Toys &amp; Games, and Sports &amp; Fitness have significantly fewer transactions. The chart highlights which product categories are more popular in terms of transactions</p>
 <p>Finally, the distribution of Net Amount spent by gender was plotted on a boxplot.</p>
-<div class="sourceCode" id="cb1057"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb1057-1"><a href="capstone-project.html#cb1057-1" tabindex="-1"></a><span class="co"># Box plot of Net Amount by Gender</span></span>
-<span id="cb1057-2"><a href="capstone-project.html#cb1057-2" tabindex="-1"></a><span class="fu">ggplot</span>(ecommerce_clean, <span class="fu">aes</span>(<span class="at">x =</span> Gender, <span class="at">y =</span> Net.Amount)) <span class="sc">+</span></span>
-<span id="cb1057-3"><a href="capstone-project.html#cb1057-3" tabindex="-1"></a>  <span class="fu">geom_boxplot</span>(<span class="at">fill =</span> <span class="fu">c</span>(<span class="st">&quot;pink&quot;</span>, <span class="st">&quot;lightblue&quot;</span>, <span class="st">&quot;gray&quot;</span>)) <span class="sc">+</span></span>
-<span id="cb1057-4"><a href="capstone-project.html#cb1057-4" tabindex="-1"></a>  <span class="fu">labs</span>(<span class="at">title =</span> <span class="st">&quot;Net Amount by Gender&quot;</span>, <span class="at">x =</span> <span class="st">&quot;Gender&quot;</span>, <span class="at">y =</span> <span class="st">&quot;Net Amount (INR)&quot;</span>) <span class="sc">+</span></span>
-<span id="cb1057-5"><a href="capstone-project.html#cb1057-5" tabindex="-1"></a>  <span class="fu">theme_minimal</span>()</span></code></pre></div>
-<p><img src="bookdownproj_files/figure-html/unnamed-chunk-397-1.png" width="672" /></p>
+<div class="sourceCode" id="cb1070"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb1070-1"><a href="capstone-project.html#cb1070-1" tabindex="-1"></a><span class="co"># Box plot of Net Amount by Gender</span></span>
+<span id="cb1070-2"><a href="capstone-project.html#cb1070-2" tabindex="-1"></a><span class="fu">ggplot</span>(ecommerce_clean, <span class="fu">aes</span>(<span class="at">x =</span> Gender, <span class="at">y =</span> Net.Amount)) <span class="sc">+</span></span>
+<span id="cb1070-3"><a href="capstone-project.html#cb1070-3" tabindex="-1"></a>  <span class="fu">geom_boxplot</span>(<span class="at">fill =</span> <span class="fu">c</span>(<span class="st">&quot;pink&quot;</span>, <span class="st">&quot;lightblue&quot;</span>, <span class="st">&quot;gray&quot;</span>)) <span class="sc">+</span></span>
+<span id="cb1070-4"><a href="capstone-project.html#cb1070-4" tabindex="-1"></a>  <span class="fu">labs</span>(<span class="at">title =</span> <span class="st">&quot;Net Amount by Gender&quot;</span>, <span class="at">x =</span> <span class="st">&quot;Gender&quot;</span>, <span class="at">y =</span> <span class="st">&quot;Net Amount (INR)&quot;</span>) <span class="sc">+</span></span>
+<span id="cb1070-5"><a href="capstone-project.html#cb1070-5" tabindex="-1"></a>  <span class="fu">theme_minimal</span>()</span></code></pre></div>
+<p><img src="bookdownproj_files/figure-html/unnamed-chunk-403-1.png" width="672" /></p>
 <p>This boxplot illustrates the distribution of the Net Amount (INR) spent by customers, categorized by Gender (Female, Male, Other). Here’s a brief description:</p>
 <ul>
 <li><strong>Female</strong>: The median net amount spent is slightly above 3000 INR, with most of the data falling between 2000 and 4500 INR. There are a few outliers above 8000 INR.</li>
@@ -565,39 +565,39 @@ Each group is assigned a different data set. These are the proposed data sets an
 <p><span style="color: brown;"><strong>Model Building and Analysis</strong></span></p>
 <p>In this project, we agreed upon building a multiple linear regression model where the <code>Net.Amount</code> was the target variable and the independent (predictor) variables will include the features that might influence the <code>Net.Amount</code>, such as; <code>Age.Group</code>, <code>Gender</code>, <code>Discount.Availed</code>, <code>Purchase.Method</code>, <code>Product.Category</code> and <code>Location</code>.</p>
 <p>Categorical variables like Gender, Age Group, and Purchase Method were then converted into numerical formats.</p>
-<div class="sourceCode" id="cb1058"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb1058-1"><a href="capstone-project.html#cb1058-1" tabindex="-1"></a><span class="co"># Convert categorical variables to factors</span></span>
-<span id="cb1058-2"><a href="capstone-project.html#cb1058-2" tabindex="-1"></a>ecommerce_clean<span class="sc">$</span>Gender <span class="ot">&lt;-</span> <span class="fu">as.factor</span>(ecommerce_clean<span class="sc">$</span>Gender)</span>
-<span id="cb1058-3"><a href="capstone-project.html#cb1058-3" tabindex="-1"></a>ecommerce_clean<span class="sc">$</span>Age.Group <span class="ot">&lt;-</span> <span class="fu">as.factor</span>(ecommerce_clean<span class="sc">$</span>Age.Group)</span>
-<span id="cb1058-4"><a href="capstone-project.html#cb1058-4" tabindex="-1"></a>ecommerce_clean<span class="sc">$</span>Purchase.Method <span class="ot">&lt;-</span> <span class="fu">as.factor</span>(ecommerce_clean<span class="sc">$</span>Purchase.Method)</span>
-<span id="cb1058-5"><a href="capstone-project.html#cb1058-5" tabindex="-1"></a>ecommerce_clean<span class="sc">$</span>Product.Category <span class="ot">&lt;-</span> <span class="fu">as.factor</span>(ecommerce_clean<span class="sc">$</span>Product.Category)</span>
-<span id="cb1058-6"><a href="capstone-project.html#cb1058-6" tabindex="-1"></a>ecommerce_clean<span class="sc">$</span>Location <span class="ot">&lt;-</span> <span class="fu">as.factor</span>(ecommerce_clean<span class="sc">$</span>Location)</span></code></pre></div>
+<div class="sourceCode" id="cb1071"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb1071-1"><a href="capstone-project.html#cb1071-1" tabindex="-1"></a><span class="co"># Convert categorical variables to factors</span></span>
+<span id="cb1071-2"><a href="capstone-project.html#cb1071-2" tabindex="-1"></a>ecommerce_clean<span class="sc">$</span>Gender <span class="ot">&lt;-</span> <span class="fu">as.factor</span>(ecommerce_clean<span class="sc">$</span>Gender)</span>
+<span id="cb1071-3"><a href="capstone-project.html#cb1071-3" tabindex="-1"></a>ecommerce_clean<span class="sc">$</span>Age.Group <span class="ot">&lt;-</span> <span class="fu">as.factor</span>(ecommerce_clean<span class="sc">$</span>Age.Group)</span>
+<span id="cb1071-4"><a href="capstone-project.html#cb1071-4" tabindex="-1"></a>ecommerce_clean<span class="sc">$</span>Purchase.Method <span class="ot">&lt;-</span> <span class="fu">as.factor</span>(ecommerce_clean<span class="sc">$</span>Purchase.Method)</span>
+<span id="cb1071-5"><a href="capstone-project.html#cb1071-5" tabindex="-1"></a>ecommerce_clean<span class="sc">$</span>Product.Category <span class="ot">&lt;-</span> <span class="fu">as.factor</span>(ecommerce_clean<span class="sc">$</span>Product.Category)</span>
+<span id="cb1071-6"><a href="capstone-project.html#cb1071-6" tabindex="-1"></a>ecommerce_clean<span class="sc">$</span>Location <span class="ot">&lt;-</span> <span class="fu">as.factor</span>(ecommerce_clean<span class="sc">$</span>Location)</span></code></pre></div>
 <p>The data was then split into train and test data sets</p>
-<div class="sourceCode" id="cb1059"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb1059-1"><a href="capstone-project.html#cb1059-1" tabindex="-1"></a><span class="co"># Split the data into training (70%) and testing (30%) sets</span></span>
-<span id="cb1059-2"><a href="capstone-project.html#cb1059-2" tabindex="-1"></a><span class="fu">set.seed</span>(<span class="dv">123</span>)  <span class="co"># For reproducibility</span></span>
-<span id="cb1059-3"><a href="capstone-project.html#cb1059-3" tabindex="-1"></a>sample_split <span class="ot">&lt;-</span> <span class="fu">sample</span>(<span class="dv">1</span><span class="sc">:</span><span class="fu">nrow</span>(ecommerce_clean), <span class="fl">0.7</span> <span class="sc">*</span> <span class="fu">nrow</span>(ecommerce_clean))</span>
-<span id="cb1059-4"><a href="capstone-project.html#cb1059-4" tabindex="-1"></a>train_data <span class="ot">&lt;-</span> ecommerce_clean[sample_split, ]</span>
-<span id="cb1059-5"><a href="capstone-project.html#cb1059-5" tabindex="-1"></a>test_data <span class="ot">&lt;-</span> ecommerce_clean[<span class="sc">-</span>sample_split, ]</span></code></pre></div>
+<div class="sourceCode" id="cb1072"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb1072-1"><a href="capstone-project.html#cb1072-1" tabindex="-1"></a><span class="co"># Split the data into training (70%) and testing (30%) sets</span></span>
+<span id="cb1072-2"><a href="capstone-project.html#cb1072-2" tabindex="-1"></a><span class="fu">set.seed</span>(<span class="dv">123</span>)  <span class="co"># For reproducibility</span></span>
+<span id="cb1072-3"><a href="capstone-project.html#cb1072-3" tabindex="-1"></a>sample_split <span class="ot">&lt;-</span> <span class="fu">sample</span>(<span class="dv">1</span><span class="sc">:</span><span class="fu">nrow</span>(ecommerce_clean), <span class="fl">0.7</span> <span class="sc">*</span> <span class="fu">nrow</span>(ecommerce_clean))</span>
+<span id="cb1072-4"><a href="capstone-project.html#cb1072-4" tabindex="-1"></a>train_data <span class="ot">&lt;-</span> ecommerce_clean[sample_split, ]</span>
+<span id="cb1072-5"><a href="capstone-project.html#cb1072-5" tabindex="-1"></a>test_data <span class="ot">&lt;-</span> ecommerce_clean[<span class="sc">-</span>sample_split, ]</span></code></pre></div>
 <p>The categorical variables converted to numerical were then encoded.</p>
-<div class="sourceCode" id="cb1060"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb1060-1"><a href="capstone-project.html#cb1060-1" tabindex="-1"></a><span class="co"># Encode categorical variables in the training set</span></span>
-<span id="cb1060-2"><a href="capstone-project.html#cb1060-2" tabindex="-1"></a>train_data_encoded <span class="ot">&lt;-</span> <span class="fu">model.matrix</span>(Net.Amount <span class="sc">~</span> Gender <span class="sc">+</span> Age.Group <span class="sc">+</span> Purchase.Method <span class="sc">+</span> Discount.Availed <span class="sc">+</span> Product.Category <span class="sc">+</span> Location, <span class="at">data =</span> train_data)</span>
-<span id="cb1060-3"><a href="capstone-project.html#cb1060-3" tabindex="-1"></a>train_data_encoded <span class="ot">&lt;-</span> <span class="fu">as.data.frame</span>(train_data_encoded)</span>
-<span id="cb1060-4"><a href="capstone-project.html#cb1060-4" tabindex="-1"></a></span>
-<span id="cb1060-5"><a href="capstone-project.html#cb1060-5" tabindex="-1"></a><span class="co"># Keep the Net.Amount column in train set</span></span>
-<span id="cb1060-6"><a href="capstone-project.html#cb1060-6" tabindex="-1"></a>train_data_encoded<span class="sc">$</span>Net.Amount <span class="ot">&lt;-</span> train_data<span class="sc">$</span>Net.Amount</span>
-<span id="cb1060-7"><a href="capstone-project.html#cb1060-7" tabindex="-1"></a></span>
-<span id="cb1060-8"><a href="capstone-project.html#cb1060-8" tabindex="-1"></a><span class="co"># Repeat for the test data </span></span>
-<span id="cb1060-9"><a href="capstone-project.html#cb1060-9" tabindex="-1"></a><span class="co"># Encode categorical variables in the test set</span></span>
-<span id="cb1060-10"><a href="capstone-project.html#cb1060-10" tabindex="-1"></a>test_data_encoded <span class="ot">&lt;-</span> <span class="fu">model.matrix</span>(Net.Amount <span class="sc">~</span> Gender <span class="sc">+</span> Age.Group <span class="sc">+</span> Purchase.Method <span class="sc">+</span> Discount.Availed <span class="sc">+</span> Product.Category <span class="sc">+</span> Location, <span class="at">data =</span> test_data)</span>
-<span id="cb1060-11"><a href="capstone-project.html#cb1060-11" tabindex="-1"></a>test_data_encoded <span class="ot">&lt;-</span> <span class="fu">as.data.frame</span>(test_data_encoded)</span>
-<span id="cb1060-12"><a href="capstone-project.html#cb1060-12" tabindex="-1"></a></span>
-<span id="cb1060-13"><a href="capstone-project.html#cb1060-13" tabindex="-1"></a><span class="co"># Keep the Net.Amount column in test set</span></span>
-<span id="cb1060-14"><a href="capstone-project.html#cb1060-14" tabindex="-1"></a>test_data_encoded<span class="sc">$</span>Net.Amount <span class="ot">&lt;-</span> test_data<span class="sc">$</span>Net.Amount</span></code></pre></div>
+<div class="sourceCode" id="cb1073"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb1073-1"><a href="capstone-project.html#cb1073-1" tabindex="-1"></a><span class="co"># Encode categorical variables in the training set</span></span>
+<span id="cb1073-2"><a href="capstone-project.html#cb1073-2" tabindex="-1"></a>train_data_encoded <span class="ot">&lt;-</span> <span class="fu">model.matrix</span>(Net.Amount <span class="sc">~</span> Gender <span class="sc">+</span> Age.Group <span class="sc">+</span> Purchase.Method <span class="sc">+</span> Discount.Availed <span class="sc">+</span> Product.Category <span class="sc">+</span> Location, <span class="at">data =</span> train_data)</span>
+<span id="cb1073-3"><a href="capstone-project.html#cb1073-3" tabindex="-1"></a>train_data_encoded <span class="ot">&lt;-</span> <span class="fu">as.data.frame</span>(train_data_encoded)</span>
+<span id="cb1073-4"><a href="capstone-project.html#cb1073-4" tabindex="-1"></a></span>
+<span id="cb1073-5"><a href="capstone-project.html#cb1073-5" tabindex="-1"></a><span class="co"># Keep the Net.Amount column in train set</span></span>
+<span id="cb1073-6"><a href="capstone-project.html#cb1073-6" tabindex="-1"></a>train_data_encoded<span class="sc">$</span>Net.Amount <span class="ot">&lt;-</span> train_data<span class="sc">$</span>Net.Amount</span>
+<span id="cb1073-7"><a href="capstone-project.html#cb1073-7" tabindex="-1"></a></span>
+<span id="cb1073-8"><a href="capstone-project.html#cb1073-8" tabindex="-1"></a><span class="co"># Repeat for the test data </span></span>
+<span id="cb1073-9"><a href="capstone-project.html#cb1073-9" tabindex="-1"></a><span class="co"># Encode categorical variables in the test set</span></span>
+<span id="cb1073-10"><a href="capstone-project.html#cb1073-10" tabindex="-1"></a>test_data_encoded <span class="ot">&lt;-</span> <span class="fu">model.matrix</span>(Net.Amount <span class="sc">~</span> Gender <span class="sc">+</span> Age.Group <span class="sc">+</span> Purchase.Method <span class="sc">+</span> Discount.Availed <span class="sc">+</span> Product.Category <span class="sc">+</span> Location, <span class="at">data =</span> test_data)</span>
+<span id="cb1073-11"><a href="capstone-project.html#cb1073-11" tabindex="-1"></a>test_data_encoded <span class="ot">&lt;-</span> <span class="fu">as.data.frame</span>(test_data_encoded)</span>
+<span id="cb1073-12"><a href="capstone-project.html#cb1073-12" tabindex="-1"></a></span>
+<span id="cb1073-13"><a href="capstone-project.html#cb1073-13" tabindex="-1"></a><span class="co"># Keep the Net.Amount column in test set</span></span>
+<span id="cb1073-14"><a href="capstone-project.html#cb1073-14" tabindex="-1"></a>test_data_encoded<span class="sc">$</span>Net.Amount <span class="ot">&lt;-</span> test_data<span class="sc">$</span>Net.Amount</span></code></pre></div>
 <p>Build the linear regression model</p>
-<div class="sourceCode" id="cb1061"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb1061-1"><a href="capstone-project.html#cb1061-1" tabindex="-1"></a><span class="co"># Build the multiple linear regression model on the training data</span></span>
-<span id="cb1061-2"><a href="capstone-project.html#cb1061-2" tabindex="-1"></a>model <span class="ot">&lt;-</span> <span class="fu">lm</span>(Net.Amount <span class="sc">~</span> ., <span class="at">data =</span> train_data_encoded)</span>
-<span id="cb1061-3"><a href="capstone-project.html#cb1061-3" tabindex="-1"></a></span>
-<span id="cb1061-4"><a href="capstone-project.html#cb1061-4" tabindex="-1"></a><span class="co"># Summary of the model</span></span>
-<span id="cb1061-5"><a href="capstone-project.html#cb1061-5" tabindex="-1"></a><span class="fu">summary</span>(model)</span></code></pre></div>
+<div class="sourceCode" id="cb1074"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb1074-1"><a href="capstone-project.html#cb1074-1" tabindex="-1"></a><span class="co"># Build the multiple linear regression model on the training data</span></span>
+<span id="cb1074-2"><a href="capstone-project.html#cb1074-2" tabindex="-1"></a>model <span class="ot">&lt;-</span> <span class="fu">lm</span>(Net.Amount <span class="sc">~</span> ., <span class="at">data =</span> train_data_encoded)</span>
+<span id="cb1074-3"><a href="capstone-project.html#cb1074-3" tabindex="-1"></a></span>
+<span id="cb1074-4"><a href="capstone-project.html#cb1074-4" tabindex="-1"></a><span class="co"># Summary of the model</span></span>
+<span id="cb1074-5"><a href="capstone-project.html#cb1074-5" tabindex="-1"></a><span class="fu">summary</span>(model)</span></code></pre></div>
 <pre><code>## 
 ## Call:
 ## lm(formula = Net.Amount ~ ., data = train_data_encoded)
@@ -652,33 +652,33 @@ Each group is assigned a different data set. These are the proposed data sets an
 ## Multiple R-squared:  0.007814,   Adjusted R-squared:  0.006911 
 ## F-statistic: 8.655 on 35 and 38463 DF,  p-value: &lt; 2.2e-16</code></pre>
 <p>Predictions were then performed by the model</p>
-<div class="sourceCode" id="cb1063"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb1063-1"><a href="capstone-project.html#cb1063-1" tabindex="-1"></a><span class="co"># Predict Net Amount on test data</span></span>
-<span id="cb1063-2"><a href="capstone-project.html#cb1063-2" tabindex="-1"></a>predictions <span class="ot">&lt;-</span> <span class="fu">predict</span>(model, <span class="at">newdata =</span> test_data_encoded)</span></code></pre></div>
+<div class="sourceCode" id="cb1076"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb1076-1"><a href="capstone-project.html#cb1076-1" tabindex="-1"></a><span class="co"># Predict Net Amount on test data</span></span>
+<span id="cb1076-2"><a href="capstone-project.html#cb1076-2" tabindex="-1"></a>predictions <span class="ot">&lt;-</span> <span class="fu">predict</span>(model, <span class="at">newdata =</span> test_data_encoded)</span></code></pre></div>
 <pre><code>## Warning in predict.lm(model, newdata = test_data_encoded): prediction from a
 ## rank-deficient fit may be misleading</code></pre>
-<div class="sourceCode" id="cb1065"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb1065-1"><a href="capstone-project.html#cb1065-1" tabindex="-1"></a><span class="co"># View the first few predictions</span></span>
-<span id="cb1065-2"><a href="capstone-project.html#cb1065-2" tabindex="-1"></a><span class="fu">head</span>(predictions)</span></code></pre></div>
+<div class="sourceCode" id="cb1078"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb1078-1"><a href="capstone-project.html#cb1078-1" tabindex="-1"></a><span class="co"># View the first few predictions</span></span>
+<span id="cb1078-2"><a href="capstone-project.html#cb1078-2" tabindex="-1"></a><span class="fu">head</span>(predictions)</span></code></pre></div>
 <pre><code>##        1        4        9       13       14       15 
 ## 2775.243 3155.867 2934.921 2714.964 2651.550 2759.720</code></pre>
 <p><span style="color: brown;"><strong>Evaluation and insights</strong></span></p>
 <p>The model was evaluated using Mean Squared Error(MSE) and Root Squared Error(RMSE)</p>
-<div class="sourceCode" id="cb1067"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb1067-1"><a href="capstone-project.html#cb1067-1" tabindex="-1"></a><span class="co"># Calculate predictions on the test set</span></span>
-<span id="cb1067-2"><a href="capstone-project.html#cb1067-2" tabindex="-1"></a>test_predictions <span class="ot">&lt;-</span> <span class="fu">predict</span>(model, <span class="at">newdata =</span> test_data_encoded)</span></code></pre></div>
+<div class="sourceCode" id="cb1080"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb1080-1"><a href="capstone-project.html#cb1080-1" tabindex="-1"></a><span class="co"># Calculate predictions on the test set</span></span>
+<span id="cb1080-2"><a href="capstone-project.html#cb1080-2" tabindex="-1"></a>test_predictions <span class="ot">&lt;-</span> <span class="fu">predict</span>(model, <span class="at">newdata =</span> test_data_encoded)</span></code></pre></div>
 <pre><code>## Warning in predict.lm(model, newdata = test_data_encoded): prediction from a
 ## rank-deficient fit may be misleading</code></pre>
-<div class="sourceCode" id="cb1069"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb1069-1"><a href="capstone-project.html#cb1069-1" tabindex="-1"></a><span class="co"># Calculate MSE and RMSE</span></span>
-<span id="cb1069-2"><a href="capstone-project.html#cb1069-2" tabindex="-1"></a>mse <span class="ot">&lt;-</span> <span class="fu">mean</span>((test_predictions <span class="sc">-</span> test_data_encoded<span class="sc">$</span>Net.Amount)<span class="sc">^</span><span class="dv">2</span>)</span>
-<span id="cb1069-3"><a href="capstone-project.html#cb1069-3" tabindex="-1"></a>rmse <span class="ot">&lt;-</span> <span class="fu">sqrt</span>(mse)</span>
-<span id="cb1069-4"><a href="capstone-project.html#cb1069-4" tabindex="-1"></a></span>
-<span id="cb1069-5"><a href="capstone-project.html#cb1069-5" tabindex="-1"></a><span class="fu">cat</span>(<span class="st">&quot;Mean Squared Error (MSE):&quot;</span>, mse, <span class="st">&quot;</span><span class="sc">\n</span><span class="st">&quot;</span>)</span></code></pre></div>
+<div class="sourceCode" id="cb1082"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb1082-1"><a href="capstone-project.html#cb1082-1" tabindex="-1"></a><span class="co"># Calculate MSE and RMSE</span></span>
+<span id="cb1082-2"><a href="capstone-project.html#cb1082-2" tabindex="-1"></a>mse <span class="ot">&lt;-</span> <span class="fu">mean</span>((test_predictions <span class="sc">-</span> test_data_encoded<span class="sc">$</span>Net.Amount)<span class="sc">^</span><span class="dv">2</span>)</span>
+<span id="cb1082-3"><a href="capstone-project.html#cb1082-3" tabindex="-1"></a>rmse <span class="ot">&lt;-</span> <span class="fu">sqrt</span>(mse)</span>
+<span id="cb1082-4"><a href="capstone-project.html#cb1082-4" tabindex="-1"></a></span>
+<span id="cb1082-5"><a href="capstone-project.html#cb1082-5" tabindex="-1"></a><span class="fu">cat</span>(<span class="st">&quot;Mean Squared Error (MSE):&quot;</span>, mse, <span class="st">&quot;</span><span class="sc">\n</span><span class="st">&quot;</span>)</span></code></pre></div>
 <pre><code>## Mean Squared Error (MSE): 2935271</code></pre>
-<div class="sourceCode" id="cb1071"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb1071-1"><a href="capstone-project.html#cb1071-1" tabindex="-1"></a><span class="fu">cat</span>(<span class="st">&quot;Root Mean Squared Error (RMSE):&quot;</span>, rmse, <span class="st">&quot;</span><span class="sc">\n</span><span class="st">&quot;</span>)</span></code></pre></div>
+<div class="sourceCode" id="cb1084"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb1084-1"><a href="capstone-project.html#cb1084-1" tabindex="-1"></a><span class="fu">cat</span>(<span class="st">&quot;Root Mean Squared Error (RMSE):&quot;</span>, rmse, <span class="st">&quot;</span><span class="sc">\n</span><span class="st">&quot;</span>)</span></code></pre></div>
 <pre><code>## Root Mean Squared Error (RMSE): 1713.263</code></pre>
 <p>A QQ plot was used to assess if the residuals follow a normal distribution.</p>
-<div class="sourceCode" id="cb1073"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb1073-1"><a href="capstone-project.html#cb1073-1" tabindex="-1"></a><span class="co"># QQ Plot</span></span>
-<span id="cb1073-2"><a href="capstone-project.html#cb1073-2" tabindex="-1"></a><span class="fu">qqnorm</span>(model<span class="sc">$</span>residuals)</span>
-<span id="cb1073-3"><a href="capstone-project.html#cb1073-3" tabindex="-1"></a><span class="fu">qqline</span>(model<span class="sc">$</span>residuals, <span class="at">col =</span> <span class="st">&quot;red&quot;</span>)</span></code></pre></div>
-<p><img src="bookdownproj_files/figure-html/unnamed-chunk-404-1.png" width="672" /></p>
+<div class="sourceCode" id="cb1086"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb1086-1"><a href="capstone-project.html#cb1086-1" tabindex="-1"></a><span class="co"># QQ Plot</span></span>
+<span id="cb1086-2"><a href="capstone-project.html#cb1086-2" tabindex="-1"></a><span class="fu">qqnorm</span>(model<span class="sc">$</span>residuals)</span>
+<span id="cb1086-3"><a href="capstone-project.html#cb1086-3" tabindex="-1"></a><span class="fu">qqline</span>(model<span class="sc">$</span>residuals, <span class="at">col =</span> <span class="st">&quot;red&quot;</span>)</span></code></pre></div>
+<p><img src="bookdownproj_files/figure-html/unnamed-chunk-410-1.png" width="672" /></p>
 <p>The predicted values have a different pattern(straight-line) with the original values(sigmoid-curve)</p>
 </div>
 <div id="presentation-and-feedback" class="section level3 hasAnchor" number="10.5.3">
